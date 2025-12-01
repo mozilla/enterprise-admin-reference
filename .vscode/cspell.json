@@ -1,0 +1,45 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en-US",
+  "languageId": "*",
+  "useGitignore": true,
+  "dictionaries": [
+    "terms-abbreviations",
+    "cultural-words",
+    "proper-names",
+    "non-english",
+    "code-entities",
+    "project words",
+    "bash",
+    "css",
+    "fonts",
+    "fullstack",
+    "html",
+    "latex",
+    "lorem-ipsum",
+    "markdown",
+    "node",
+    "npm",
+    "python",
+    "softwareTerms",
+    "typescript"
+  ],
+  "ignorePaths": [".gitignore"],
+  "ignoreRegExpList": [
+    "HexValues",
+    "Base64",
+    "]\\(#[a-z]+(-+[a-z]+)?\\)",
+    "policies/#[a-z]+"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "project words",
+      "path": "./project-words.txt",
+      "description": "Project-specific words.",
+      "addWords": true,
+      "noSuggest": false
+    }
+  ],
+  "enableFiletypes": ["xml", "markdown"]
+}

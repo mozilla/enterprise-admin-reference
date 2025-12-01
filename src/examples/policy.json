@@ -1,0 +1,8 @@
+{
+  "policies": {
+    "Homepage": {
+      "URL": "https://internal.example.com",
+      "Locked": true
+    }
+  }
+}

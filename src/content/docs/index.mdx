@@ -1,0 +1,32 @@
+---
+title: Firefox administrator reference
+description: Safe, secure, private
+template: splash
+hero:
+  tagline: Documentation for administrators who deploy Firefox or Firefox ESR as an enterprise browser, including technical references for policies, deployments, support information, and more.
+  image:
+    file: ../../assets/fx-logo.svg
+  actions:
+    - text: Get started
+      link: /guides/getting-started/
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## Configuring Firefox as an enterprise browser
+
+Organizations have fine-grained administrative and orchestration control of the browser's behavior by using enterprise policies in [Firefox and Firefox Extended Support Release (ESR)](/guides/firefox-channels/).
+Firefox can be deployed and managed with common enterprise configuration systems such as Microsoft Intune, JAMF, MDM, and other software-distribution platforms.
+
+<CardGrid>
+  <Card title="Firefox policy reference">
+    Policies allow administrators control how managed versions of Firefox behave. See the full list
+    of available settings in the [Policy reference](/reference/policies/).
+  </Card>
+  <Card title="Documentation">
+    Learn how to apply policies, manage downloads, and use deployment software to configure and
+    maintain Firefox in your organization. Explore step-by-step instructions in the [Getting
+    started](/guides/getting-started/) guide.
+  </Card>
+</CardGrid>

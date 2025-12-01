@@ -1,0 +1,27 @@
+:root {
+  /*  see https://github.com/withastro/starlight/blob/main/packages/starlight/style/props.css */
+  --sl-content-width: 55rem;
+  --sl-text-5xl: 3.5rem;
+  /** Primary layout values */
+  --sl-nav-height: 4.5rem;
+  --sl-nav-pad-x: 3rem;
+  --sl-nav-pad-y: 1rem;
+  --sl-mobile-toc-height: 3rem;
+  --sl-sidebar-width: 20rem;
+  --sl-sidebar-pad-x: 1rem;
+  --sl-content-pad-x: 1rem;
+  --sl-main-pad: 0 0 4vh 0;
+  --sl-menu-button-size: 2rem;
+  /* --sl-font: "Mozilla Text Light", sans-serif; */
+}
+
+.card {
+  border-radius: 10px;
+}
+
+/* For colors, see https://starlight.astro.build/guides/css-and-tailwind/ */
+
+/* Custom icons */
+.icon-inline {
+  display: inline-block;
+}
