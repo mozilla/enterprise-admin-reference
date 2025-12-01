@@ -1,6 +1,6 @@
 ---
 title: Firefox and Firefox Extended Support Release (ESR)
-description: Understand the difference between Firefox and Firefox ESR and how both can be managed using group policies.
+description: Understand the difference between Firefox and Firefox ESR and how both can be managed using enterprise policies.
 sidebar:
   label: Firefox and Firefox ESR
 ---

@@ -1,6 +1,6 @@
 ---
 title: Firefox policy reference
-description: Comprehensive reference for Firefox enterprise policies used to configure and manage enterprise deployments.
+description: Comprehensive reference for Firefox enterprise policies for configuring and managing enterprise browser deployments.
 sidebar:
   label: Enterprise policies
   order: 2
@@ -1886,8 +1886,8 @@ Configure cookie preferences.
 
 `Locked` prevents the user from changing cookie preferences.
 
-<Icon name="warning" color="red" class="icon-inline" /> `Default`: determines whether
-cookies are accepted at all. (_Deprecated_. Use `Behavior` instead)
+<Icon name="warning" color="red" class="icon-inline" /> `Default`: determines whether cookies are accepted
+at all. (_Deprecated_. Use `Behavior` instead)
 
 `AcceptThirdParty` determines how third-party cookies are handled. (_Deprecated_. Use `Behavior` instead)
 
@@ -4072,10 +4072,7 @@ Value (string):
 {
   "policies": {
     "Extensions": {
-      "Install": [
-        "https://addons.mozilla.org/firefox/downloads/somefile.xpi",
-        "//path/to/xpi"
-      ],
+      "Install": ["https://addons.mozilla.org/firefox/downloads/somefile.xpi", "//path/to/xpi"],
       "Uninstall": ["bad_addon_id@mozilla.org"],
       "Locked": ["addon_id@mozilla.org"]
     }
@@ -5260,10 +5257,7 @@ Value (string):
 ```json
 {
   "policies": {
-    "LegacySameSiteCookieBehaviorEnabledForDomainList": [
-      "example.org",
-      "example.edu"
-    ]
+    "LegacySameSiteCookieBehaviorEnabledForDomainList": ["example.org", "example.edu"]
   }
 }
 ```

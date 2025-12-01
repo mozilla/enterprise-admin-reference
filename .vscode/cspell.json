@@ -25,7 +25,7 @@
     "softwareTerms",
     "typescript"
   ],
-  "ignorePaths": [".gitignore"],
+  "ignorePaths": [".gitignore", "CODEOWNERS"],
   "ignoreRegExpList": [
     "HexValues",
     "Base64",

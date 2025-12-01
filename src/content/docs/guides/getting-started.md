@@ -1,6 +1,6 @@
 ---
 title: Getting started with Firefox for your enterprise browser
-description: Learn how to deploy, configure, and manage Firefox or Firefox ESR across your organization.
+description: Learn how to deploy, configure, and manage Firefox or Firefox ESR for your organization.
 sidebar:
   label: Getting started
   order: 1
