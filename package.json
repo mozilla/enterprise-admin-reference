@@ -14,6 +14,6 @@
     "astro": "^5.16.0",
     "sharp": "^0.34.2",
     "starlight-changelogs": "^0.2.1",
-    "starlight-github-alerts": "^0.1.0"
+    "starlight-github-alerts": "^0.1.1"
   }
 }
