@@ -42,6 +42,7 @@ OCSP
 pbmode
 quicksuggest
 SCCM
+searchfox
 searchplugins
 security.certerror
 security.osclientcerts

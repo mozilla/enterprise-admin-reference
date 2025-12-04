@@ -1,0 +1,36 @@
+---
+import DefaultPageTitle from "@astrojs/starlight/components/PageTitle.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+// See https://docs.astro-breadcrumbs.kasimir.dev/configuration/properties/
+
+const props = Astro.props;
+const hideBreadcrumbs = Astro.locals.starlightRoute?.hideBreadcrumbs;
+const pathname = Astro.url.pathname;
+
+// Only show on /reference pages for now
+const showBreadcrumbs = !hideBreadcrumbs && pathname.startsWith("/reference/");
+---
+
+{
+  showBreadcrumbs && (
+    <Breadcrumbs customizeListElements={[{ index: 0, remove: true }]} linkTextFormat="sentence">
+      <svg
+        slot="separator"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6" />
+      </svg>
+    </Breadcrumbs>
+  )
+}
+
+<DefaultPageTitle {...props} />

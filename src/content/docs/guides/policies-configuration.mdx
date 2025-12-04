@@ -3,14 +3,15 @@ title: Configuring policies
 description: A reference page in Firefox Enterprise support docs.
 ---
 
-Firefox enterprise policies can be applied using Group Policy for ACtive Directory-joined devices, Intune for cloud-based device management, or by creating a file called `policies.json` and setting the contents of the JSON file.
+Firefox enterprise policies can be applied using Group Policy for Active Directory-joined devices, Intune for cloud-based device management, or by creating a file called `policies.json` and setting the contents of the JSON file.
 
 import { Code } from "@astrojs/starlight/components";
 import policy from "/src/examples/policy.json?raw";
 
 ## Configuring Firefox using `policies.json`
 
-Firefox checks for the existence of a `policies.json` file and applies configuration based on the file contents.
+Using a `policies.json` file is a cross-platform method for configuring the Firefox browser.
+Firefox checks for the existence of a `policies.json` file and applies configuration based on its contents.
 For each operating system, there is a defined location that Firefox will check:
 
 - **On Windows**, create a directory called `distribution` where the Firefox executable is located and place the `policies.json` file there.
@@ -25,7 +26,7 @@ An example policy looks as follows:
 
 <Code code={policy} lang="json" title="policies.json" />
 
-## Policy annotations
+### Policy annotations
 
 JSON does not support comments, but it is possible to add extra members to JSON which can serve as comments or annotations.
 For example, `Authentication_Comment` is an internal value used for documentation in the following policy:

@@ -22,6 +22,9 @@ export default defineConfig({
   },
   integrations: [
     starlight({
+      components: {
+        PageTitle: "./src/components/PageTitleWithBreadcrumbs.astro",
+      },
       customCss: [
         // Relative path to a custom CSS file
         "./src/styles/custom.css",
