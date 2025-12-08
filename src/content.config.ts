@@ -1,12 +1,17 @@
-import { defineCollection } from "astro:content";
+import { defineCollection, z } from "astro:content";
 import { docsLoader } from "@astrojs/starlight/loaders";
 import { docsSchema } from "@astrojs/starlight/schema";
 import { changelogsLoader } from "starlight-changelogs/loader";
 
-// Placeholder CHANGELOG.md for the moment
-
 export const collections = {
-  docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
+  docs: defineCollection({
+    loader: docsLoader(),
+    schema: docsSchema({
+      extend: z.object({
+        category: z.string().optional(),
+      }),
+    }),
+  }),
   changelogs: defineCollection({
     loader: changelogsLoader([
       {
