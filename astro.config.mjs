@@ -70,4 +70,6 @@ export default defineConfig({
       title: "Firefox administrator reference",
     }),
   ],
+  site: "https://mozilla.github.io",
+  base: "/enterprise-admin-reference/",
 });
