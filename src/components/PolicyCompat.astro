@@ -1,0 +1,129 @@
+---
+import allPolicies from "../data/policies.json";
+
+type SupportEntry = {
+  version_added?: string;
+  version_removed?: string;
+  notes?: string;
+};
+
+type Policy = {
+  cck2_equivalent?: string[];
+  compatibility?: Record<string, SupportEntry | SupportEntry[]>;
+  preferences_affected?: string[];
+};
+
+const policies = allPolicies as Record<string, Policy>;
+
+interface Props {
+  policyId: string;
+}
+
+const { policyId } = Astro.props as Props;
+const entry = policies[policyId];
+
+if (!entry) {
+  throw new Error(`PolicyCompat: No entry found for "${policyId}"`);
+}
+
+const cck2 = entry.cck2_equivalent ?? [];
+const compat = entry.compatibility ?? {};
+const preferences = entry.preferences_affected ?? [];
+
+const browserName: Record<string, string> = {
+  firefox: "Firefox",
+  firefox_esr: "Firefox ESR",
+};
+
+function normalizeSupport(v: SupportEntry | SupportEntry[]) {
+  return Array.isArray(v) ? v : [v];
+}
+---
+
+<style>
+  .compat-table {
+    width: 100%;
+    display: table;
+  }
+
+  .compat-table th,
+  .compat-table td {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .compat-table th {
+    background: var(--color-bg-alt, #f5f5f5);
+  }
+
+  .pref-list ul {
+    margin: 0.35rem 0 1rem 0;
+    padding-left: 1.25rem;
+  }
+  .policy-meta-section {
+    margin-block-start: 2.5rem;
+  }
+</style>
+
+<section class="policy-meta-section">
+  <h3><code>{policyId}</code></h3>
+  <table class="compat-table">
+    <thead>
+      <tr>
+        <th>Browser</th>
+        <th>Version added</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        Object.entries(compat).map(([browserId, supportData]) => {
+          const browserLabel = browserName[browserId] ?? browserId;
+          const statements = normalizeSupport(supportData);
+
+          return statements.map((statement) => (
+            <tr>
+              <td>{browserLabel}</td>
+              <td>{statement.version_added ?? "—"}</td>
+              <td>{statement.notes ?? ""}</td>
+            </tr>
+          ));
+        })
+      }
+    </tbody>
+  </table>
+  <dl>
+    <dt>CCK2 equivalent:</dt>
+    <dd>
+      {
+        cck2.length === 0 ? (
+          <p>None</p>
+        ) : (
+          <ul>
+            {cck2.map((item) => (
+              <li>
+                <code>{item}</code>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </dd>
+
+    <dt>Preferences affected:</dt>
+    <dd>
+      {
+        preferences.length === 0 ? (
+          <p>None</p>
+        ) : (
+          <ul>
+            {preferences.map((pref) => (
+              <li>
+                <code>{pref}</code>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </dd>
+  </dl>
+</section>

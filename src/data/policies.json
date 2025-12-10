@@ -202,11 +202,6 @@
     },
     "preferences_affected": ["network.captive-portal-service.enabled"]
   },
-  "Certificates": {
-    "cck2_equivalent": [],
-    "compatibility": [],
-    "preferences_affected": []
-  },
   "Certificates_ImportEnterpriseRoots": {
     "cck2_equivalent": [],
     "compatibility": {
@@ -1304,11 +1299,6 @@
         "version_added": "60"
       }
     },
-    "preferences_affected": []
-  },
-  "SearchEngines": {
-    "cck2_equivalent": [],
-    "compatibility": [],
     "preferences_affected": []
   },
   "SearchEngines_Add": {
