@@ -41,6 +41,9 @@ function normalizeSupport(v: SupportEntry | SupportEntry[]) {
 ---
 
 <style>
+  .policy-meta-section {
+    margin-block-start: 2.5rem;
+  }
   .compat-table {
     width: 100%;
     display: table;
@@ -50,7 +53,6 @@ function normalizeSupport(v: SupportEntry | SupportEntry[]) {
   .compat-table td {
     border-bottom: 1px solid #ddd;
   }
-
   .compat-table th {
     background: var(--color-bg-alt, #f5f5f5);
   }
@@ -58,9 +60,6 @@ function normalizeSupport(v: SupportEntry | SupportEntry[]) {
   .pref-list ul {
     margin: 0.35rem 0 1rem 0;
     padding-left: 1.25rem;
-  }
-  .policy-meta-section {
-    margin-block-start: 2.5rem;
   }
 </style>
 
@@ -108,7 +107,6 @@ function normalizeSupport(v: SupportEntry | SupportEntry[]) {
         )
       }
     </dd>
-
     <dt>Preferences affected:</dt>
     <dd>
       {
