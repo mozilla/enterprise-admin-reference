@@ -2,6 +2,7 @@
 title: "Certificates: Install"
 description: "Install certificates into the Firefox certificate store."
 category: "Certificate management"
+policy-id: "Certificates_Install"
 ---
 
 Install certificates into the Firefox certificate store.
@@ -29,9 +30,11 @@ Certificates are installed using the trust string `CT,CT,`.
 
 Binary (DER) and ASCII (PEM) certificates are both supported.
 
-**Compatibility:** Firefox 64, Firefox ESR 64\
-**CCK2 Equivalent:** `certs.ca`\
-**Preferences Affected:** N/A
+## Compatibility
+
+import PolicyCompat from "../../../../components/PolicyCompat.astro";
+
+<PolicyCompat policyId={"Certificates_Install"} />
 
 ## Windows (GPO)
 

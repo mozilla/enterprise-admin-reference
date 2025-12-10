@@ -1,0 +1,1515 @@
+{
+  "3rdparty": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": []
+  },
+  "AllowedDomainsForApps": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "89"
+      },
+      "firefox_esr": {
+        "version_added": "78.11"
+      }
+    },
+    "preferences_affected": []
+  },
+  "AllowFileSelectionDialogs": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "124"
+      }
+    },
+    "preferences_affected": ["widget.disable_file_pickers"]
+  },
+  "AppAutoUpdate": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "75"
+      },
+      "firefox_esr": {
+        "version_added": "68.7"
+      }
+    },
+    "preferences_affected": ["app.update.auto"]
+  },
+  "AppUpdatePin": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "102"
+      }
+    },
+    "preferences_affected": []
+  },
+  "AppUpdateURL": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "62"
+      },
+      "firefox_esr": {
+        "version_added": "60.2"
+      }
+    },
+    "preferences_affected": ["app.update.url"]
+  },
+  "Authentication": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "notes": "`AllowNonFQDN` added in 62/60.2; `AllowProxies` added in 70/68.2; `Locked` added in 71/68.3; `PrivateBrowsing` added in 77/68.9",
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "network.auth.private-browsing-sso",
+      "network.automatic-ntlm-auth.allow-non-fqdn",
+      "network.automatic-ntlm-auth.allow-proxies",
+      "network.automatic-ntlm-auth.trusted-uris",
+      "network.negotiate-auth.allow-non-fqdn",
+      "network.negotiate-auth.allow-proxies",
+      "network.negotiate-auth.delegation-uris",
+      "network.negotiate-auth.trusted-uris"
+    ]
+  },
+  "AutofillAddressEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "125"
+      },
+      "firefox_esr": {
+        "version_added": "115.10"
+      }
+    },
+    "preferences_affected": ["extensions.formautofill.addresses.enabled"]
+  },
+  "AutofillCreditCardEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "125"
+      },
+      "firefox_esr": {
+        "version_added": "115.10"
+      }
+    },
+    "preferences_affected": ["extensions.formautofill.creditCards.enabled"]
+  },
+  "AutoLaunchProtocolsFromOrigins": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "90"
+      },
+      "firefox_esr": {
+        "version_added": "78.12"
+      }
+    },
+    "preferences_affected": []
+  },
+  "BackgroundAppUpdate": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "notes": "Windows only",
+        "version_added": "90"
+      }
+    },
+    "preferences_affected": ["app.update.background.enabled"]
+  },
+  "BlockAboutAddons": {
+    "cck2_equivalent": ["disableAddonsManager"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "BlockAboutConfig": {
+    "cck2_equivalent": ["disableAboutConfig"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "BlockAboutProfiles": {
+    "cck2_equivalent": ["disableAboutProfiles"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "BlockAboutSupport": {
+    "cck2_equivalent": ["disableAboutSupport"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "Bookmarks": {
+    "cck2_equivalent": ["bookmarks.toolbar", "bookmarks.menu"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "CaptivePortal": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "67"
+      },
+      "firefox_esr": {
+        "version_added": "60.7"
+      }
+    },
+    "preferences_affected": ["network.captive-portal-service.enabled"]
+  },
+  "Certificates_ImportEnterpriseRoots": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "notes": "macOS support in Firefox 63; Firefox ESR 68",
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["security.enterprise_roots.enabled"]
+  },
+  "Certificates_Install": {
+    "cck2_equivalent": ["certs.ca"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "64"
+      },
+      "firefox_esr": {
+        "version_added": "64"
+      }
+    },
+    "preferences_affected": []
+  },
+  "Containers": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "113"
+      }
+    },
+    "preferences_affected": []
+  },
+  "ContentAnalysis": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "137"
+      }
+    },
+    "preferences_affected": [
+      "browser.contentanalysis.agent_name",
+      "browser.contentanalysis.agent_timeout",
+      "browser.contentanalysis.allow_url_regex_list",
+      "browser.contentanalysis.bypass_for_same_tab_operations",
+      "browser.contentanalysis.client_signature",
+      "browser.contentanalysis.default_result",
+      "browser.contentanalysis.deny_url_regex_list",
+      "browser.contentanalysis.enabled",
+      "browser.contentanalysis.interception_point.clipboard.enabled",
+      "browser.contentanalysis.interception_point.clipboard.plain_text_only",
+      "browser.contentanalysis.interception_point.download.enabled",
+      "browser.contentanalysis.interception_point.drag_and_drop.enabled",
+      "browser.contentanalysis.interception_point.drag_and_drop.plain_text_only",
+      "browser.contentanalysis.interception_point.file_upload.enabled",
+      "browser.contentanalysis.interception_point.print.enabled",
+      "browser.contentanalysis.is_per_user",
+      "browser.contentanalysis.pipe_path_name",
+      "browser.contentanalysis.show_blocked_result",
+      "browser.contentanalysis.timeout_result"
+    ]
+  },
+  "Cookies": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "notes": "`RejectTracker` added in Firefox 63; `AllowSession` added in Firefox 79/78.1; `Behavior` added in Firefox 95/91.4",
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "network.cookie.cookieBehavior",
+      "network.cookie.cookieBehavior.pbmode",
+      "network.cookie.lifetimePolicy"
+    ]
+  },
+  "DefaultDownloadDirectory": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      },
+      "firefox_esr": {
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": ["browser.download.dir", "browser.download.folderList"]
+  },
+  "DisableAppUpdate": {
+    "cck2_equivalent": ["disableFirefoxUpdates"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableBuiltinPDFViewer": {
+    "cck2_equivalent": ["disablePDFjs"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisabledCiphers": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "76"
+      },
+      "firefox_esr": {
+        "version_added": "68.8"
+      }
+    },
+    "preferences_affected": [
+      "security.ssl3.deprecated.rsa_des_ede3_sha",
+      "security.ssl3.dhe_rsa_aes_128_sha",
+      "security.ssl3.dhe_rsa_aes_256_sha",
+      "security.ssl3.ecdhe_ecdsa_aes_128_gcm_sha256",
+      "security.ssl3.ecdhe_ecdsa_aes_128_sha",
+      "security.ssl3.ecdhe_ecdsa_aes_256_gcm_sha384",
+      "security.ssl3.ecdhe_ecdsa_aes_256_sha",
+      "security.ssl3.ecdhe_ecdsa_chacha20_poly1305_sha256",
+      "security.ssl3.ecdhe_rsa_aes_128_gcm_sha256",
+      "security.ssl3.ecdhe_rsa_aes_128_sha",
+      "security.ssl3.ecdhe_rsa_aes_256_gcm_sha384",
+      "security.ssl3.ecdhe_rsa_aes_256_sha",
+      "security.ssl3.ecdhe_rsa_chacha20_poly1305_sha256",
+      "security.ssl3.rsa_aes_128_gcm_sha256",
+      "security.ssl3.rsa_aes_128_sha",
+      "security.ssl3.rsa_aes_256_gcm_sha384",
+      "security.ssl3.rsa_aes_256_sha",
+      "security.tls13.aes_128_gcm_sha256",
+      "security.tls13.aes_256_gcm_sha384",
+      "security.tls13.chacha20_poly1305_sha256"
+    ]
+  },
+  "DisableDefaultBrowserAgent": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "75"
+      },
+      "firefox_esr": {
+        "notes": "Windows only",
+        "version_added": "68.7"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableDeveloperTools": {
+    "cck2_equivalent": ["removeDeveloperTools"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["devtools.policy.disabled"]
+  },
+  "DisableEncryptedClientHello": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "127"
+      },
+      "firefox_esr": {
+        "version_added": "128"
+      }
+    },
+    "preferences_affected": ["network.dns.echconfig.enabled", "network.dns.http3_echconfig.enabled"]
+  },
+  "DisableFeedbackCommands": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableFirefoxAccounts": {
+    "cck2_equivalent": ["disableSync"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["identity.fxaccounts.enabled"]
+  },
+  "DisableFirefoxScreenshots": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["extensions.screenshots.disabled"]
+  },
+  "DisableFirefoxStudies": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons",
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features"
+    ]
+  },
+  "DisableForgetButton": {
+    "cck2_equivalent": ["disableForget"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableFormHistory": {
+    "cck2_equivalent": ["disableFormFill"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["browser.formfill.enable"]
+  },
+  "DisableMasterPasswordCreation": {
+    "cck2_equivalent": ["noMasterPassword"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisablePasswordReveal": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "71"
+      },
+      "firefox_esr": {
+        "version_added": "68.3"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisablePocket_Deprecated_": {
+    "cck2_equivalent": ["disablePocket"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["extensions.pocket.enabled"]
+  },
+  "DisablePrivateBrowsing": {
+    "cck2_equivalent": ["disablePrivateBrowsing"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableProfileImport": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableProfileRefresh": {
+    "cck2_equivalent": ["disableResetFirefox"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["browser.disableResetPrompt"]
+  },
+  "DisableSafeMode": {
+    "cck2_equivalent": ["disableSafeMode"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "notes": "Windows; macOS",
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableSecurityBypass": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "browser.safebrowsing.allowOverride",
+      "security.certerror.hideAddException"
+    ]
+  },
+  "DisableSetDesktopBackground": {
+    "cck2_equivalent": ["removeSetDesktopBackground"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableSystemAddonUpdate": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisableTelemetry": {
+    "cck2_equivalent": ["disableTelemetry"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "datareporting.healthreport.uploadEnabled",
+      "datareporting.policy.dataSubmissionEnabled",
+      "datareporting.usage.uploadEnabled",
+      "toolkit.telemetry.archive.enabled"
+    ]
+  },
+  "DisableThirdPartyModuleBlocking": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "notes": "Windows only; GPO only",
+        "version_added": "110"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisplayBookmarksToolbar": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "109"
+      },
+      "firefox_esr": {
+        "version_added": "102.7"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DisplayMenuBar": {
+    "cck2_equivalent": ["displayMenuBar"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "73"
+      },
+      "firefox_esr": {
+        "notes": "Windows; some Linux",
+        "version_added": "68.5"
+      }
+    },
+    "preferences_affected": []
+  },
+  "DNSOverHTTPS": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "63"
+      },
+      "firefox_esr": {
+        "notes": "`ExcludedDomains` added in 75/68.7. `Fallback` added in 124",
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": ["network.trr.mode", "network.trr.uri"]
+  },
+  "DontCheckDefaultBrowser": {
+    "cck2_equivalent": ["dontCheckDefaultBrowser"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["browser.shell.checkDefaultBrowser"]
+  },
+  "DownloadDirectory": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      },
+      "firefox_esr": {
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": [
+      "browser.download.dir",
+      "browser.download.folderList",
+      "browser.download.useDownloadDir"
+    ]
+  },
+  "EnableTrackingProtection": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "notes": "Cryptomining and Fingerprinting added in 70/68.2; Exceptions added in 73/68.5. Category added in Firefox 142/140.2.",
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "privacy.trackingprotection.cryptomining.enabled",
+      "privacy.trackingprotection.enabled",
+      "privacy.trackingprotection.fingerprinting.enabled",
+      "privacy.trackingprotection.pbmode.enabled"
+    ]
+  },
+  "EncryptedMediaExtensions": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "77"
+      },
+      "firefox_esr": {
+        "version_added": "68.9"
+      }
+    },
+    "preferences_affected": ["media.eme.enabled"]
+  },
+  "EnterprisePoliciesEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "63"
+      },
+      "firefox_esr": {
+        "notes": "macOS only",
+        "version_added": "60.3"
+      }
+    },
+    "preferences_affected": []
+  },
+  "ExemptDomainFileTypePairsFromFileTypeDownloadWarnings": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "102"
+      }
+    },
+    "preferences_affected": []
+  },
+  "Extensions": {
+    "cck2_equivalent": ["addons"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "ExtensionSettings": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "69"
+      },
+      "firefox_esr": {
+        "notes": "As of Firefox 85; Firefox ESR 78.7; installing a theme makes it the default.",
+        "version_added": "68.1"
+      }
+    },
+    "preferences_affected": []
+  },
+  "ExtensionUpdate": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "67"
+      },
+      "firefox_esr": {
+        "version_added": "60.7"
+      }
+    },
+    "preferences_affected": ["extensions.update.enabled"]
+  },
+  "FirefoxHome": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      },
+      "firefox_esr": {
+        "notes": "`SponsoredTopSites` and `SponsoredPocket` were added in Firefox 95; Firefox ESR 91.4; Snippets was deprecated in Firefox 122; Stories and SponsoredStories were added in Firefox 141 to replace Pocket and SponsoredPocket.",
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": [
+      "browser.newtabpage.activity-stream.feeds.section.highlights",
+      "browser.newtabpage.activity-stream.feeds.section.topstories",
+      "browser.newtabpage.activity-stream.feeds.snippets",
+      "browser.newtabpage.activity-stream.feeds.topsites",
+      "browser.newtabpage.activity-stream.showSearch",
+      "browser.newtabpage.activity-stream.showSponsored",
+      "browser.newtabpage.activity-stream.showSponsoredTopSites"
+    ]
+  },
+  "FirefoxSuggest": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "118"
+      },
+      "firefox_esr": {
+        "version_added": "115.3."
+      }
+    },
+    "preferences_affected": [
+      "browser.urlbar.quicksuggest.dataCollection.enabled",
+      "browser.urlbar.suggest.quicksuggest.nonsponsored",
+      "browser.urlbar.suggest.quicksuggest.sponsored"
+    ]
+  },
+  "GoToIntranetSiteForSingleWordEntryInAddressBar": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "104"
+      },
+      "firefox_esr": {
+        "version_added": "102.2"
+      }
+    },
+    "preferences_affected": ["browser.fixup.dns_first_for_single_words"]
+  },
+  "Handlers": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "78"
+      },
+      "firefox_esr": {
+        "version_added": "78"
+      }
+    },
+    "preferences_affected": []
+  },
+  "HardwareAcceleration": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["layers.acceleration.disabled"]
+  },
+  "Homepage": {
+    "cck2_equivalent": ["homePage", "lockHomePage"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "notes": "StartPage was added in Firefox 60; Firefox ESR 60.4; homepage-locked added in Firefox 78",
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["browser.startup.homepage", "browser.startup.page"]
+  },
+  "HttpAllowlist": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "127"
+      }
+    },
+    "preferences_affected": []
+  },
+  "HttpsOnlyMode": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "127"
+      }
+    },
+    "preferences_affected": ["dom.security.https_only_mode"]
+  },
+  "InstallAddonsPermission": {
+    "cck2_equivalent": ["permissions.install"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons",
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features",
+      "xpinstall.enabled"
+    ]
+  },
+  "LegacyProfiles": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "70"
+      },
+      "firefox_esr": {
+        "notes": "Windows only; GPO only",
+        "version_added": "68.2"
+      }
+    },
+    "preferences_affected": []
+  },
+  "LegacySameSiteCookieBehaviorEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "96"
+      }
+    },
+    "preferences_affected": ["network.cookie.sameSite.laxByDefault"]
+  },
+  "LegacySameSiteCookieBehaviorEnabledForDomainList": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "96"
+      }
+    },
+    "preferences_affected": ["network.cookie.sameSite.laxByDefault.disabledHosts"]
+  },
+  "LocalFileLinks": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      },
+      "firefox_esr": {
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": ["capability.policy.localfilelinks.*"]
+  },
+  "ManagedBookmarks": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "83"
+      },
+      "firefox_esr": {
+        "version_added": "78.5"
+      }
+    },
+    "preferences_affected": []
+  },
+  "ManualAppUpdateOnly": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "87"
+      }
+    },
+    "preferences_affected": []
+  },
+  "MicrosoftEntraSSO": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "132.0.1"
+      },
+      "firefox_esr": {
+        "version_added": "128.5"
+      }
+    },
+    "preferences_affected": ["network.http.microsoft-entra-sso.enabled"]
+  },
+  "NetworkPrediction": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "67"
+      },
+      "firefox_esr": {
+        "version_added": "60.7"
+      }
+    },
+    "preferences_affected": ["network.dns.disablePrefetch", "network.dns.disablePrefetchFromHTTPS"]
+  },
+  "NewTabPage": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      },
+      "firefox_esr": {
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": ["browser.newtabpage.enabled"]
+  },
+  "NoDefaultBookmarks": {
+    "cck2_equivalent": ["removeDefaultBookmarks"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "OfferToSaveLogins": {
+    "cck2_equivalent": ["dontRememberPasswords"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["signon.rememberSignons"]
+  },
+  "OfferToSaveLoginsDefault": {
+    "cck2_equivalent": ["dontRememberPasswords"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "70"
+      },
+      "firefox_esr": {
+        "version_added": "60.2"
+      }
+    },
+    "preferences_affected": ["signon.rememberSignons"]
+  },
+  "OverrideFirstRunPage": {
+    "cck2_equivalent": ["welcomePage", "noWelcomePage"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["startup.homepage_welcome_url"]
+  },
+  "OverridePostUpdatePage": {
+    "cck2_equivalent": ["upgradePage", "noUpgradePage"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["startup.homepage_override_url"]
+  },
+  "PasswordManagerEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "70"
+      },
+      "firefox_esr": {
+        "version_added": "60.2"
+      }
+    },
+    "preferences_affected": ["pref.privacy.disable_button.view_passwords", "signon.rememberSignons"]
+  },
+  "PasswordManagerExceptions": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "101"
+      }
+    },
+    "preferences_affected": []
+  },
+  "PDFjs": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "77"
+      },
+      "firefox_esr": {
+        "version_added": "68.9"
+      }
+    },
+    "preferences_affected": ["pdfjs.disabled", "pdfjs.enablePermissions"]
+  },
+  "Permissions": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "62"
+      },
+      "firefox_esr": {
+        "notes": "Autoplay added in Firefox 74; Firefox ESR 68.6; Autoplay Default/Locked added in Firefox 76; Firefox ESR 68.8; VirtualReality added in Firefox 80; Firefox ESR 78.2; ScreenShare added in Firefox 142; Firefox ESR 140.2",
+        "version_added": "60.2"
+      }
+    },
+    "preferences_affected": [
+      "media.autoplay.default",
+      "permissions.default.camera",
+      "permissions.default.desktop-notification",
+      "permissions.default.geo",
+      "permissions.default.microphone",
+      "permissions.default.screen",
+      "permissions.default.xr"
+    ]
+  },
+  "PictureInPicture": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "78"
+      },
+      "firefox_esr": {
+        "version_added": "78"
+      }
+    },
+    "preferences_affected": ["media.videocontrols.picture-in-picture.video-toggle.enabled"]
+  },
+  "PopupBlocking": {
+    "cck2_equivalent": ["permissions.popup"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": ["dom.disable_open_during_load"]
+  },
+  "PostQuantumKeyAgreementEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "127"
+      }
+    },
+    "preferences_affected": ["network.http.http3.enable_kyber", "security.tls.enable_kyber"]
+  },
+  "Preferences": {
+    "cck2_equivalent": ["preferences"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "81"
+      },
+      "firefox_esr": {
+        "version_added": "78.3"
+      }
+    },
+    "preferences_affected": ["Many"]
+  },
+  "PrimaryPassword": {
+    "cck2_equivalent": ["noMasterPassword"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "79"
+      },
+      "firefox_esr": {
+        "version_added": "78.1"
+      }
+    },
+    "preferences_affected": []
+  },
+  "PrintingEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "120"
+      },
+      "firefox_esr": {
+        "version_added": "115.5"
+      }
+    },
+    "preferences_affected": ["print.enabled"]
+  },
+  "PrivateBrowsingModeAvailability": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "130"
+      },
+      "firefox_esr": {
+        "version_added": "128.3"
+      }
+    },
+    "preferences_affected": []
+  },
+  "PromptForDownloadLocation": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      },
+      "firefox_esr": {
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": ["browser.download.useDownloadDir"]
+  },
+  "Proxy": {
+    "cck2_equivalent": ["networkProxy*"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "network.proxy.autoconfig_url",
+      "network.proxy.ftp_port",
+      "network.proxy.ftp",
+      "network.proxy.http_port",
+      "network.proxy.http",
+      "network.proxy.no_proxies_on",
+      "network.proxy.share_proxy_settings",
+      "network.proxy.socks_port",
+      "network.proxy.socks_remote_dns",
+      "network.proxy.socks_version",
+      "network.proxy.socks",
+      "network.proxy.ssl_port",
+      "network.proxy.ssl",
+      "network.proxy.type",
+      "signon.autologin.proxy"
+    ]
+  },
+  "RequestedLocales": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "64"
+      },
+      "firefox_esr": {
+        "version_added": "68"
+      },
+      "updated_in_firefox": {
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SanitizeOnShutdown_All": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": [
+      "privacy.clearOnShutdown.cache",
+      "privacy.clearOnShutdown.cookies",
+      "privacy.clearOnShutdown.downloads",
+      "privacy.clearOnShutdown.formdata",
+      "privacy.clearOnShutdown.history",
+      "privacy.clearOnShutdown.offlineApps",
+      "privacy.clearOnShutdown.sessions",
+      "privacy.clearOnShutdown.siteSettings",
+      "privacy.sanitize.sanitizeOnShutdown"
+    ]
+  },
+  "SanitizeOnShutdown_Selective_": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      },
+      "firefox_esr": {
+        "notes": "Locked added in 74/68.6; History update in Firefox 128",
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": [
+      "privacy.clearOnShutdown_v2.cache",
+      "privacy.clearOnShutdown_v2.cookiesAndStorage",
+      "privacy.clearOnShutdown_v2.formdata",
+      "privacy.clearOnShutdown_v2.historyFormDataAndDownloads",
+      "privacy.clearOnShutdown_v2.siteSettings",
+      "privacy.clearOnShutdown.cache",
+      "privacy.clearOnShutdown.cookies",
+      "privacy.clearOnShutdown.downloads",
+      "privacy.clearOnShutdown.formdata",
+      "privacy.clearOnShutdown.history",
+      "privacy.clearOnShutdown.offlineApps",
+      "privacy.clearOnShutdown.sessions",
+      "privacy.clearOnShutdown.siteSettings",
+      "privacy.sanitize.sanitizeOnShutdown"
+    ]
+  },
+  "SearchBar": {
+    "cck2_equivalent": ["showSearchBar"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SearchEngines_Add": {
+    "cck2_equivalent": ["searchplugins"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "139"
+      },
+      "firefox_esr": {
+        "notes": "`POST` support in Firefox ESR 68; Encoding support in Firefox 91",
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SearchEngines_Default": {
+    "cck2_equivalent": ["defaultSearchEngine"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "139"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SearchEngines_PreventInstalls": {
+    "cck2_equivalent": ["disableSearchEngineInstall"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "139"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SearchEngines_Remove": {
+    "cck2_equivalent": ["removeDefaultSearchEngines"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "139"
+      },
+      "firefox_esr": {
+        "version_added": "60.2"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SearchSuggestEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68"
+      },
+      "firefox_esr": {
+        "version_added": "68"
+      }
+    },
+    "preferences_affected": ["browser.search.suggest.enabled", "browser.urlbar.suggest.searches"]
+  },
+  "SecurityDevices": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "114"
+      },
+      "firefox_esr": {
+        "version_added": "112.12"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SecurityDevices_Deprecated_": {
+    "cck2_equivalent": ["certs.devices"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "64"
+      },
+      "firefox_esr": {
+        "version_added": "60.4"
+      }
+    },
+    "preferences_affected": []
+  },
+  "ShowHomeButton": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "88"
+      },
+      "firefox_esr": {
+        "version_added": "78.10"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SkipTermsOfUse": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "138"
+      },
+      "firefox_esr": {
+        "version_added": "140"
+      }
+    },
+    "preferences_affected": []
+  },
+  "SSLVersionMax": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "66"
+      },
+      "firefox_esr": {
+        "version_added": "60.6"
+      }
+    },
+    "preferences_affected": ["security.tls.version.max"]
+  },
+  "SSLVersionMin": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "66"
+      },
+      "firefox_esr": {
+        "version_added": "60.6"
+      }
+    },
+    "preferences_affected": ["security.tls.version.min"]
+  },
+  "StartDownloadsInTempDirectory": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "102"
+      }
+    },
+    "preferences_affected": ["browser.download.start_downloads_in_tmp_dir"]
+  },
+  "SupportMenu": {
+    "cck2_equivalent": ["helpMenu"],
+    "compatibility": {
+      "firefox": {
+        "version_added": "68.0.1"
+      },
+      "firefox_esr": {
+        "version_added": "68.0.1"
+      }
+    },
+    "preferences_affected": []
+  },
+  "TranslateEnabled": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "126"
+      }
+    },
+    "preferences_affected": ["browser.translations.enable"]
+  },
+  "UserMessaging": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "75"
+      },
+      "firefox_esr": {
+        "version_added": "68.7"
+      }
+    },
+    "preferences_affected": [
+      "browser.aboutwelcome.enabled",
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons",
+      "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features",
+      "browser.preferences.experimental",
+      "browser.preferences.moreFromMozilla"
+    ]
+  },
+  "UseSystemPrintDialog": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "102"
+      }
+    },
+    "preferences_affected": ["print.prefer_system_dialog"]
+  },
+  "WebsiteFilter": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "60"
+      },
+      "firefox_esr": {
+        "version_added": "60"
+      }
+    },
+    "preferences_affected": []
+  },
+  "WindowsSSO": {
+    "cck2_equivalent": [],
+    "compatibility": {
+      "firefox": {
+        "version_added": "91"
+      }
+    },
+    "preferences_affected": ["network.http.windows-sso.enabled"]
+  }
+}

@@ -9,9 +9,11 @@ Trust certificates that have been added to the operating system certificate stor
 > [!NOTE] This policy only works on Windows and macOS.
 > For Linux discussion, see [bug 1600509](https://bugzilla.mozilla.org/show_bug.cgi?id=1600509).
 
-**Compatibility:** Firefox 60, Firefox ESR 60 (macOS support in Firefox 63, Firefox ESR 68)\
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `security.enterprise_roots.enabled`
+## Compatibility
+
+import PolicyCompat from "../../../../components/PolicyCompat.astro";
+
+<PolicyCompat policyId={"Certificates_Install"} />
 
 ## Windows (GPO)
 
