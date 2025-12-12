@@ -8,7 +8,8 @@ const { category } = Astro.props;
 const docs = await getCollection("docs", (d) => d.data.category === category);
 const sortedDocs = docs.slice().sort((a, b) => a.data.title.localeCompare(b.data.title));
 
-const getHref = (entry: CollectionEntry<"docs">) => `/${entry.id}/`;
+const base = import.meta.env.BASE_URL;
+const getHref = (entry: CollectionEntry<"docs">) => `${base}${entry.id}/`;
 ---
 
 <dl>
