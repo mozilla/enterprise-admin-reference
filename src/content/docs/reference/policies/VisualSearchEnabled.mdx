@@ -1,0 +1,48 @@
+---
+title: "VisualSearchEnabled"
+description: "Enable or disable visual search."
+category: "Search"
+---
+
+**Compatibility:** Firefox 144\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.search.visualSearch.featureGate`
+
+## Windows (GPO)
+
+```url
+Software\Policies\Mozilla\Firefox\VisualSearchEnabled = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/VisualSearchEnabled
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+    <key>VisualSearchEnabled</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+ "policies": {
+    "VisualSearchEnabled": true | false
+  }
+}
+```

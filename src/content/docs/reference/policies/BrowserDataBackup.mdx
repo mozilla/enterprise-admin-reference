@@ -1,0 +1,64 @@
+---
+title: "BrowserDataBackup"
+description: "Disable backup or restore of profile data."
+category: "Security"
+---
+
+Disable backup or restore of profile data.
+Backup and restore can be disabled individually.
+
+> [!NOTE]
+> The policy can be used to disable backup and restore if it would otherwise be enabled, but cannot be used to force backup or restore to be enabled under conditions where it would not otherwise be (such as a platform on which backup or restore are not yet supported).
+
+**Compatibility:** Firefox 146\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A\
+
+### Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowBackup = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowRestore = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~BrowserDataBackup/BrowserDataBackup_AllowBackup
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~BrowserDataBackup/BrowserDataBackup_AllowRestore
+```
+
+Value (string):
+
+```
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>BrowserDataBackup</key>
+  <dict>
+    <key>AllowBackup</key>
+    <true/> | <false/>
+    <key>AllowRestore</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "BrowserDataBackup": {
+      "AllowBackup": true | false,
+      "AllowRestore": true | false
+    }
+  }
+}
+```

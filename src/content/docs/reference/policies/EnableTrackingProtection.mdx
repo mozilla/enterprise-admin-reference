@@ -10,12 +10,13 @@ If this policy is not configured, tracking protection is not enabled by default 
 
 **Compatibility:** Firefox 60, Firefox ESR 60 (Cryptomining and Fingerprinting added in 70/68.2, Exceptions added in 73/68.5. Category added in Firefox 142/140.2.)\
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** `privacy.trackingprotection.enabled`, `privacy.trackingprotection.pbmode.enabled`, `privacy.trackingprotection.cryptomining.enabled`, `privacy.trackingprotection.fingerprinting.enabled`
+**Preferences Affected:** `privacy.trackingprotection.enabled`, `privacy.trackingprotection.pbmode.enabled`, `privacy.trackingprotection.cryptomining.enabled`, `privacy.trackingprotection.fingerprinting.enabled`, `privacy.fingerprintingProtection`, `privacy.trackingprotection.emailtracking.enabled`, `privacy.trackingprotection.emailtracking.pbmode.enabled`, `privacy.trackingprotection.allow_list.baseline.enabled`, `privacy.trackingprotection.allow_list.convenience.enabled`
 
 ## Values
 
 - If `Value` is set to false, tracking protection is disabled and locked in both the regular browser and private browsing.
 - If `Value` is set to true, tracking protection is enabled by default in both the regular browser and private browsing and the `Locked` value determines whether or not a user can change it.
+- If `Locked` is set to true, users cannot change tracking protection values.
 - If `Cryptomining` is set to true, cryptomining scripts on websites are blocked.
 - If `Fingerprinting` is set to true, fingerprinting scripts on websites are blocked.
 - If `EmailTracking` is set to true, hidden email tracking pixels and scripts on websites are blocked. (Firefox 112)
@@ -23,6 +24,11 @@ If this policy is not configured, tracking protection is not enabled by default 
 - `Exceptions` are origins for which tracking protection is not enabled.
 - `Category` can be either `strict` or `standard`.
   If category is set, it overrides all other settings except `Exceptions` and the user cannot change the category. (Firefox 142, Firefox ESR 140.2)
+- If `BaselineExceptions` is true, Firefox will automatically apply exceptions required to avoid major website breakage. (Firefox 145)
+- If `ConvenienceExceptions` is true, Firefox will apply exceptions automatically that are only required to fix minor issues and make convenience features available. (Firefox 145)
+
+> [!NOTE]
+> Users can change `BaselineExceptions` and `ConvenienceExceptions` even when `Category` is set to `strict` unless `Locked` is set to true.
 
 ## Windows (GPO)
 
@@ -35,6 +41,8 @@ Software\Policies\Mozilla\Firefox\EnableTrackingProtection\EmailTracking = 0x1 |
 Software\Policies\Mozilla\Firefox\EnableTrackingProtection\SuspectedFingerprinting = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\EnableTrackingProtection\Exceptions\1 = "https://example.com"
 Software\Policies\Mozilla\Firefox\EnableTrackingProtection\Category = "strict" | "standard"
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\BaselineExceptions = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\EnableTrackingProtection\ConvenienceExceptions = 0x1 | 0x0
 ```
 
 ## Windows (Intune)
@@ -136,6 +144,30 @@ Value (string):
 <enabled/> or <disabled/>
 ```
 
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/H_TrackingProtection_BaselineExceptions
+```
+
+Value (string):
+
+```
+<enabled/> or <disabled/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~TrackingProtection/H_TrackingProtection_ConvenienceExceptions
+```
+
+Value (string):
+
+```
+<enabled/> or <disabled/>
+```
+
 ## macOS
 
 ```xml
@@ -160,6 +192,10 @@ Value (string):
     <array>
       <string>https://example.com</string>
     </array>
+    <key>BaselineExceptions</key>
+    <true/> | <false/>
+    <key>ConvenienceExceptions</key>
+    <true/> | <false/>
   </dict>
 </dict>
 ```
@@ -177,7 +213,9 @@ Value (string):
       "EmailTracking": true | false,
       "SuspectedFingerprinting": true | false,
       "Category": "strict" | "standard",
-      "Exceptions": ["https://example.com"]
+      "Exceptions": ["https://example.com"],
+      "BaselineExceptions": true | false,
+      "ConvenienceExceptions": true | false
     }
   }
 }
