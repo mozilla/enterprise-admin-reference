@@ -40,13 +40,14 @@ The configuration for each extension is a dictionary that can contain the fields
     (for example, `https://releases.mozilla.org/pub/firefox/releases/111.0.1/win64/xpi/en-US.xpi`). These URLs can be used as `install_url` values for managing language pack installation.
 - `install_sources`: A list of sources from which installing extensions is allowed using URL match patterns. **This is unnecessary if you are only allowing the installation of certain extensions by ID.**  
   Each item in this list is an extension-style match pattern. Users will be able to easily install items from any URL that matches an item in this list. Both the location of the `.xpi` file and the page where the download is started (the referrer) must be allowed by these patterns. This setting can be used only for the default configuration.
-- `allowed_types`: Restricts which types of add-ons can be installed. This setting only applies when installation is otherwise allowed. If `"installation_mode": "blocked"` is set (either for a specific ID or for `"*"`), extensions remain blocked regardless of `allowed_types`. This setting can be used only for the default configuration.
+- `allowed_types`: Restricts which types of add-ons can be installed. Note that this setting only applies when installation is otherwise allowed.
+  If `"installation_mode": "blocked"` is set (either for a specific ID or for `"*"`), extensions remain blocked regardless of `allowed_types`.
+  This setting can be used only for the default configuration.
   Accepts one or more of:
   - `"extension"`
   - `"theme"`
   - `"dictionary"`
-  - `"locale"`  
-    **Note:**
+  - `"locale"`
 - `blocked_install_message`: Maps to a string specifying the error message to display to users if they're blocked from installing an extension. This allows you to append text to the generic error message, for example to direct users to a help desk or explain why an extension is blocked. This setting can be used only for the default configuration.
 - `restricted_domains`: An array of domains on which content scripts can't be run. This setting can be used only for the default configuration.
 - `updates_disabled`: (Firefox 89, Firefox ESR 78.11) Boolean that indicates whether to disable automatic updates for an individual extension.
