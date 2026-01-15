@@ -44,4 +44,4 @@ This website provides a release calendar that describes upcoming releases for al
 ## See also
 
 - [Firefox downloads](https://www.firefox.com/en-US/download/all/)
-- [Enterprise group policies](/enterprise-admin-reference/reference/policies/)
+- [Enterprise group policies](/reference/policies/)
