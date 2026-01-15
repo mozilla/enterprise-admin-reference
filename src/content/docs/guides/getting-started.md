@@ -20,7 +20,7 @@ There are two recommended release channels for enterprise purposes:
 
 If you prefer faster feature delivery, use the standard **Firefox** release.
 If your organization needs stability, **Firefox ESR** is recommended.
-See [Firefox and Firefox Extended Support Release (ESR)](/enterprise-admin-reference/guides/firefox-channels/) for more information.
+See [Firefox and Firefox Extended Support Release (ESR)](/guides/firefox-channels/) for more information.
 
 ## Download Firefox for your platform
 
@@ -56,17 +56,17 @@ Enterprise policies do not need to be bundled with the Firefox installer, but ca
 - **macOS configuration profiles** - deployed through Jamf or MDM
 - **Linux JSON configuration files** - typically placed in `/etc/firefox/policies/policies.json`
 
-For more information, see the [Configuring policies](/enterprise-admin-reference/guides/policies-configuration/) guide.
+For more information, see the [Configuring policies](/guides/policies-configuration/) guide.
 Common policies include:
 
-- [`DisableAppUpdate`](/enterprise-admin-reference/reference/policies/disableappupdate) - lock Firefox to a known version
-- [`Certificates`](/enterprise-admin-reference/reference/policies/certificates) - import or trust custom root CAs
-- [`BlockAboutConfig`](/enterprise-admin-reference/reference/policies/blockaboutconfig) - prevent users from modifying advanced preferences
-- [`Homepage`](/enterprise-admin-reference/reference/policies/homepage) - set a company homepage
-- [`Extensions`](/enterprise-admin-reference/reference/policies/extensions) - force-install approved extensions
-- [`Proxy`](/enterprise-admin-reference/reference/policies/proxy) - configure proxy settings or enforce a PAC file
+- [`DisableAppUpdate`](/reference/policies/disableappupdate) - lock Firefox to a known version
+- [`Certificates`](/reference/policies/certificates) - import or trust custom root CAs
+- [`BlockAboutConfig`](/reference/policies/blockaboutconfig) - prevent users from modifying advanced preferences
+- [`Homepage`](/reference/policies/homepage) - set a company homepage
+- [`Extensions`](/reference/policies/extensions) - force-install approved extensions
+- [`Proxy`](/reference/policies/proxy) - configure proxy settings or enforce a PAC file
 
-For a list of available policies, see the [policy reference](/enterprise-admin-reference/reference/policies/).
+For a list of available policies, see the [policy reference](/reference/policies/).
 Additionally, policy templates are available for Windows, macOS, and Linux in the [github.com/mozilla/policy-templates](https://github.com/mozilla/policy-templates) repository.
 
 ### Policy example (Linux/macOS policy JSON)
@@ -87,5 +87,5 @@ This example `policies.json` file disables automatic Firefox updates and sets a 
 
 ## See also
 
-- [Enterprise policy reference](/enterprise-admin-reference/reference/policies/)
+- [Enterprise policy reference](/reference/policies/)
 - [whattrainisitnow.com](https://whattrainisitnow.com/): Firefox release trains and major milestones
