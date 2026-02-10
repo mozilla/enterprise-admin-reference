@@ -26,6 +26,7 @@ globalprivacycontrol
 http3_echconfig
 httpproxy
 identity.fxaccounts
+importenterpriseroots
 Intune
 Jamf
 jnlp
@@ -40,12 +41,16 @@ newtab
 nonsponsored
 OCSP
 pbmode
+preventinstalls
 quicksuggest
+sanitizeonshutdown
 SCCM
+searchengines
 searchfox
 searchplugins
 security.certerror
 security.osclientcerts
+securitydevices
 Shiki
 signon
 signon.autologin
