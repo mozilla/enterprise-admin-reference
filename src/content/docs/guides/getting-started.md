@@ -59,12 +59,12 @@ Enterprise policies do not need to be bundled with the Firefox installer, but ca
 For more information, see the [Configuring policies](/guides/policies-configuration/) guide.
 Common policies include:
 
-- [`DisableAppUpdate`](/reference/policies/disableappupdate) - lock Firefox to a known version
-- [`Certificates`](/reference/policies/certificates) - import or trust custom root CAs
-- [`BlockAboutConfig`](/reference/policies/blockaboutconfig) - prevent users from modifying advanced preferences
-- [`Homepage`](/reference/policies/homepage) - set a company homepage
-- [`Extensions`](/reference/policies/extensions) - force-install approved extensions
-- [`Proxy`](/reference/policies/proxy) - configure proxy settings or enforce a PAC file
+- [`DisableAppUpdate`](/reference/policies/disableappupdate/) - lock Firefox to a known version
+- [`Certificates`](/reference/policies/certificates/) - import or trust custom root CAs
+- [`BlockAboutConfig`](/reference/policies/blockaboutconfig/) - prevent users from modifying advanced preferences
+- [`Homepage`](/reference/policies/homepage/) - set a company homepage
+- [`Extensions`](/reference/policies/extensions/) - force-install approved extensions
+- [`Proxy`](/reference/policies/proxy/) - configure proxy settings or enforce a PAC file
 
 For a list of available policies, see the [policy reference](/reference/policies/).
 Additionally, policy templates are available for Windows, macOS, and Linux in the [github.com/mozilla/policy-templates](https://github.com/mozilla/policy-templates) repository.

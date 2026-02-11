@@ -13,6 +13,8 @@ export const locales = {
 
 // https://astro.build/config
 export default defineConfig({
+  output: "static",
+  trailingSlash: "always",
   devToolbar: {
     enabled: false,
   },
