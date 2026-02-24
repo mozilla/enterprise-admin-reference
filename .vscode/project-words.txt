@@ -55,6 +55,7 @@ Shiki
 signon
 signon.autologin
 Signons
+sitepermission
 socksproxy
 SPNEGO
 sslproxy

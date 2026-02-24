@@ -44,10 +44,11 @@ The configuration for each extension is a dictionary that can contain the fields
   If `"installation_mode": "blocked"` is set (either for a specific ID or for `"*"`), extensions remain blocked regardless of `allowed_types`.
   This setting can be used only for the default configuration.
   Accepts one or more of:
-  - `"extension"`
-  - `"theme"`
   - `"dictionary"`
+  - `"extension"`
   - `"locale"`
+  - `"sitepermission"`
+  - `"theme"`
 - `blocked_install_message`: Maps to a string specifying the error message to display to users if they're blocked from installing an extension. This allows you to append text to the generic error message, for example to direct users to a help desk or explain why an extension is blocked. This setting can be used only for the default configuration.
 - `restricted_domains`: An array of domains on which content scripts can't be run. This setting can be used only for the default configuration.
 - `updates_disabled`: (Firefox 89, Firefox ESR 78.11) Boolean that indicates whether to disable automatic updates for an individual extension.
@@ -77,11 +78,11 @@ The configuration for each extension is a dictionary that can contain the fields
   },
   "uBlock0@raymondhill.net": {
     "installation_mode": "force_installed",
-    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"  # using slug / short name
+    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
   },
   "adguardadblocker@adguard.com": {
     "installation_mode": "force_installed",
-    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/adguardadblocker@adguard.com/latest.xpi"  # using extension ID
+    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/adguardadblocker@adguard.com/latest.xpi"
   },
   "https-everywhere@eff.org": {
     "installation_mode": "allowed",
