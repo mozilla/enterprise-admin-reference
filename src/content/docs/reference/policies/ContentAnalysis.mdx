@@ -43,7 +43,7 @@ Configure Firefox to use an agent for Data Loss Prevention (DLP) that is compati
   - The `Print` entry controls print operation.
     - `Enabled` indicates whether print operations should use DLP. The default is true.
 - `IsPerUser` indicates whether the pipe the DLP agent has created is per-user or per-system. The default is true, meaning per-user.
-- `MaxConnectionsCount`: The maximum number of concurrent connections to the DLP agent. For stability reasons, values exceeding 256 will be ignored. Defaults to `3`.
+- `MaxConnectionsCount`: The maximum number of concurrent connections to the DLP agent. For stability reasons, values exceeding 256 will be ignored. Defaults to `32`.
 - `PipePathName` is the name of the pipe the DLP agent has created and Firefox will connect to. The default is `path_user`.
 - `ShowBlockedResult` indicates whether Firefox should show a notification when a DLP request is denied. The default is true.
 - `TimeoutResult` indicates the desired behavior for DLP requests if the DLP agent does not respond to a request in less than `AgentTimeout` seconds. The default is 0.
@@ -71,7 +71,7 @@ Software\Policies\Mozilla\Firefox\ContentAnalysis\InterceptionPoints\DragAndDrop
 Software\Policies\Mozilla\Firefox\ContentAnalysis\InterceptionPoints\FileUpload\Enabled = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\ContentAnalysis\InterceptionPoints\Print\Enabled = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\ContentAnalysis\IsPerUser = 0x1 | 0x0
-Software\Policies\Mozilla\Firefox\ContentAnalysis\MaxConnectionsCount = 0x0 | 0x1 | 0x2
+Software\Policies\Mozilla\Firefox\ContentAnalysis\MaxConnectionsCount = 32
 Software\Policies\Mozilla\Firefox\ContentAnalysis\PipePathName = "pipe_custom_name"
 Software\Policies\Mozilla\Firefox\ContentAnalysis\ShowBlockedResult = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\ContentAnalysis\TimeoutResult = 0x0 | 0x1 | 0x2
@@ -287,7 +287,7 @@ Value (string):
 
 ```xml
 <enabled/>
-<data id="ContentAnalysis_MaxConnectionsCount" value="3"/>
+<data id="ContentAnalysis_MaxConnectionsCount" value="32"/>
 ```
 
 OMA-URI:
@@ -362,7 +362,7 @@ Value (string):
         }
       },
       "IsPerUser": true | false,
-      "MaxConnectionsCount": 0 | 1 | 2,
+      "MaxConnectionsCount": 32,
       "PipePathName": "pipe_custom_name",
       "ShowBlockedResult": true | false,
       "TimeoutResult": 0 | 1 | 2,
