@@ -1,0 +1,50 @@
+---
+title: "DisableRemoteImprovements"
+description: "Prevent Firefox from applying performance, stability, and feature changes between updates."
+category: "Miscellaneous"
+---
+
+Prevent Firefox from applying performance, stability, and feature changes between updates.
+
+**Compatibility:** Firefox 148\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableRemoteImprovements = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableRemoteImprovements
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableRemoteImprovements</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableRemoteImprovements": true | false
+  }
+}
+```
