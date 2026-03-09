@@ -4,38 +4,41 @@ description: "Enable or disable sync and define which data to include."
 category: "Local data storage"
 ---
 
-Controls whether [Sync](https://www.firefox.com/en-US/features/sync/) should be enabled and which features should be enabled for syncing.
+Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be enabled and which features should be enabled for syncing.
 
-**Compatibility:** Firefox 150.0.0\
+> [!NOTE]
+> Currently, this is only implemented in Firefox Enterprise.
+
+**Compatibility:** Firefox Enterprise 150.0.0\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
 ## Values
 
-- `Enabled`: A Boolean. Controls whether Sync itself should be enabled.
-- `addresses`: A Boolean. Controls whether syncing addresses should be enabled.
-- `bookmarks`: A Boolean. Controls whether syncing bookmarks should be enabled.
-- `history`: A Boolean. Controls whether syncing history should be enabled.
-- `openTabs`: A Boolean. Controls whether syncing open tabs should be enabled.
-- `passwords`: A Boolean. Controls whether syncing passwords should be enabled.
-- `paymentMethods`: A Boolean. Controls whether syncing payment methods should be enabled.
-- `addons`: A Boolean. Controls whether syncing addons should be enabled.
-- `settings`: A Boolean. Controls whether syncing settings should be enabled.
-- `Locked`: A Boolean. Controls whether to lock the customized Sync settings.
+- `Addons`: A Boolean. Controls whether syncing addons should be enabled.
+- `Addresses`: A Boolean. Controls whether syncing addresses should be enabled.
+- `Bookmarks`: A Boolean. Controls whether syncing bookmarks should be enabled.
+- `Enabled`: A Boolean. Controls whether sync itself should be enabled.
+- `History`: A Boolean. Controls whether syncing history should be enabled.
+- `Locked`: A Boolean. Controls whether to lock the customized sync settings.
+- `OpenTabs`: A Boolean. Controls whether syncing open tabs should be enabled.
+- `Passwords`: A Boolean. Controls whether syncing passwords should be enabled.
+- `PaymentMethods`: A Boolean. Controls whether syncing payment methods should be enabled.
+- `Settings`: A Boolean. Controls whether syncing settings should be enabled.
 
 ## Windows (GPO)
 
 ```
-Software\Policies\Mozilla\Firefox\Sync\Enabled = 0x1
-Software\Policies\Mozilla\Firefox\Sync\addresses = 0x1
-Software\Policies\Mozilla\Firefox\Sync\bookmarks = 0x1
-Software\Policies\Mozilla\Firefox\Sync\history = 0x1
-Software\Policies\Mozilla\Firefox\Sync\openTabs = 0x1
-Software\Policies\Mozilla\Firefox\Sync\passwords = 0x1
-Software\Policies\Mozilla\Firefox\Sync\paymentMethods = 0x1
-Software\Policies\Mozilla\Firefox\Sync\addons = 0x1
-Software\Policies\Mozilla\Firefox\Sync\settings = 0x1
-Software\Policies\Mozilla\Firefox\Sync\Locked = 0x1
+Software\Policies\Mozilla\Firefox\Sync\Addons = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\Addresses = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\Bookmarks = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\Enabled = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\History = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\OpenTabs = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\Passwords = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\PaymentMethods = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Sync\Settings = 0x1 | 0x0
 ```
 
 ## Windows (Intune)
@@ -49,17 +52,17 @@ OMA-URI:
 Value (string):
 
 ```xml
-<enabled/>
-<data id="Enabled" value="true"/>
-<data id="addresses" value="true"/>
-<data id="bookmarks" value="true"/>
-<data id="history" value="true"/>
-<data id="openTabs" value="true"/>
-<data id="passwords" value="true"/>
-<data id="paymentMethods" value="true"/>
-<data id="addons" value="true"/>
-<data id="settings" value="true"/>
-<data id="Locked" value="true"/>
+<enabled/> or <disabled/>
+<data id="Addons" value="true | false"/>
+<data id="Addresses" value="true | false"/>
+<data id="Bookmarks" value="true | false"/>
+<data id="Enabled" value="true | false"/>
+<data id="History" value="true | false"/>
+<data id="Locked" value="true | false"/>
+<data id="OpenTabs" value="true | false"/>
+<data id="Passwords" value="true | false"/>
+<data id="PaymentMethods" value="true | false"/>
+<data id="Settings" value="true | false"/>
 ```
 
 ## macOS
@@ -68,26 +71,26 @@ Value (string):
 <dict>
   <key>Sync</key>
   <dict>
+    <key>Addons</key>
+    <true/> | <false/>
+    <key>Addresses</key>
+    <true/> | <false/>
+    <key>Bookmarks</key>
+    <true/> | <false/>
     <key>Enabled</key>
-    <true/>
-    <key>addresses</key>
-    <true/>
-    <key>bookmarks</key>
-    <true/>
-    <key>history</key>
-    <true/>
-    <key>openTabs</key>
-    <true/>
-    <key>passwords</key>
-    <true/>
-    <key>paymentMethods</key>
-    <true/>
-    <key>addons</key>
-    <true/>
-    <key>settings</key>
-    <true/>
+    <true/> | <false/>
+    <key>History</key>
+    <true/> | <false/>
     <key>Locked</key>
-    <true/>
+    <true/> | <false/>
+    <key>OpenTabs</key>
+    <true/> | <false/>
+    <key>Passwords</key>
+    <true/> | <false/>
+    <key>PaymentMethods</key>
+    <true/> | <false/>
+    <key>Settings</key>
+    <true/> | <false/>
   </dict>
 </dict>
 ```
@@ -98,16 +101,16 @@ Value (string):
 {
   "policies": {
     "Sync": {
-      "Enabled": true,
-      "addresses": true,
-      "bookmarks": true,
-      "history": true,
-      "openTabs": true,
-      "passwords": true,
-      "paymentMethods": true,
-      "addons": true,
-      "settings": true,
-      "Locked": true
+      "Addons": true | false,
+      "Addresses": true | false,
+      "Bookmarks": true | false,
+      "Enabled": true | false,
+      "History": true | false,
+      "Locked": true | false,
+      "OpenTabs": true | false,
+      "Passwords": true | false,
+      "PaymentMethods": true | false,
+      "Settings": true | false
     }
   }
 }
