@@ -1,0 +1,122 @@
+---
+title: "SitePolicies"
+description: "Fine grained control over policies for specific sites."
+category: "Browsing restrictions"
+---
+
+Defines policies scoped to specific sites.
+
+**Compatibility:** Firefox 150, Firefox ESR 153\
+**Preferences Affected:** N/A
+
+The policy is made up of a list of rules that are evaluated in order. Each can contain:
+
+- `Match` which is a list of sites. An empty list or missing property means to match all sites.
+- `Exceptions` is also a list of sites which when matched bypasses this set of rules.
+- `Policies` is an object defining the policies.
+
+Currently the only supported policies are:
+
+- `DisableJit` which when true disables the JIT engine for the site.
+
+It is important to note that a site here refers to a registerable domain so `*.example.com` is a valid site but `*.com` is not. `*` can also be used to refer to all sites.
+
+For example this setting would disable the JIT for only `*.example.com`:
+
+```json
+[
+  {
+    "Match": ["*.example.com"],
+    "Policies": {
+      "DisableJit": true
+    }
+  }
+]
+```
+
+While this setting would disable the JIT on every site except `*.example.org`:
+
+```json
+[
+  {
+    "Exceptions": ["*.example.org"],
+    "Policies": {
+      "DisableJit": true
+    }
+  }
+]
+```
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\SitePolicies (REG_MULTI_SZ) =
+[
+  {
+    "Exceptions": ["*.example.com"],
+    "Policies": {
+      "DisableJit": true
+    },
+  }
+]
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/SitePolicies
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="JSON" value='[
+  {
+    "Exceptions": ["*.example.com"],
+    "Policies": {
+      "DisableJit": true
+    },
+  }
+]'/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>SitePolicies</key>
+  <array>
+    <dict>
+      <key>Exceptions</key>
+      <array>
+        <string>*.example.com</string>
+      </array>
+      <key>Policies</key>
+      <dict>
+        <key>DisableJit</key>
+        <true/>
+      </dict>
+    </dict>
+  </array>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "SitePolicies": [
+      {
+        "Exceptions": ["*.example.com"],
+        "Policies": {
+          "DisableJit": true
+        }
+      }
+    ]
+  }
+}
+```
