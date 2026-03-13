@@ -1,0 +1,50 @@
+---
+title: "DisableAccounts"
+description: "Disable account-based services, including sync."
+category: "Miscellaneous"
+---
+
+Disable account-based services, including sync.
+
+**Compatibility:** Firefox 119\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableAccounts = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableAccounts
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableAccounts</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "DisableAccounts": true | false
+  }
+}
+```
