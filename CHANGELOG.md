@@ -1,7 +1,35 @@
 # enterprise-firefox-admin-docs
 
-## 0.0.1
+<!-- markdownlint-disable MD024 -->
 
-### Additions
+## Unreleased
 
-- Initial commit
+### fx-150.0.0
+
+#### Added
+
+- `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
+
+### esr-153.0.0
+
+#### Added
+
+- `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
+
+### ent-150.0.0
+
+#### Added
+
+- Sync policy [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
+
+## fx-148.0.0
+
+### Added
+
+- `DisableRemoteImprovements`: Prevent Firefox from applying performance, stability, and feature changes between updates. ([#64](https://github.com/mozilla/enterprise-admin-reference/pull/64))
+
+## fx-119.0.0
+
+### Added
+
+- `DisableAccounts`: Disable account-based services, including sync. ([#68](https://github.com/mozilla/enterprise-admin-reference/pull/68))

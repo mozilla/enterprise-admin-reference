@@ -15,9 +15,16 @@ export const collections = {
   changelogs: defineCollection({
     loader: changelogsLoader([
       {
-        provider: "changeset",
+        provider: "keep-a-changelog",
         base: "changelog",
         changelog: "CHANGELOG.md",
+        // see https://starlight-changelogs.netlify.app/providers/keep-a-changelog/#process
+        process: ({ title }) => {
+          if (title.startsWith("ent-")) return `Firefox Enterprise ${title.slice(4)}`;
+          if (title.startsWith("esr-")) return `Firefox ESR ${title.slice(4)}`;
+          if (title.startsWith("fx-")) return `Firefox ${title.slice(3)}`;
+          return title;
+        },
       },
     ]),
   }),

@@ -7,7 +7,6 @@ import starlightLinksValidator from "starlight-links-validator";
 
 export const locales = {
   root: { label: "English", lang: "en" },
-  // de: { label: "Deutsch", lang: "de" },
   // fr: { label: "Français", lang: "fr" },
 };
 
@@ -60,6 +59,18 @@ export default defineConfig({
         {
           label: "Resources",
           items: [{ label: "Support", slug: "support" }],
+        },
+        {
+          label: "Changelog",
+          items: [
+            ...makeChangelogsSidebarLinks([
+              {
+                type: "recent",
+                base: "changelog",
+                count: 10,
+              },
+            ]),
+          ],
         },
       ],
       social: [
