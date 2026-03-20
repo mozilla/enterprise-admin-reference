@@ -22,6 +22,12 @@
 
 - Sync policy [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
 
+## fx-149.0.0
+
+### Added
+
+- `LocalNetworkAccess`: Configure local network access security features. ([#67](https://github.com/mozilla/enterprise-admin-reference/pull/67))
+
 ## fx-148.0.0
 
 ### Added
