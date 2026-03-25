@@ -22,7 +22,7 @@
 
 - Sync policy [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
 
-## fx-149.0.0
+## fx-150.0.0
 
 ### Added
 
