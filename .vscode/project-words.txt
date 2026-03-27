@@ -65,6 +65,7 @@ topsites
 topstories
 trackingprotection
 ublock
+unsubmitted
 urlbar
 userprefs
 videocontrols
