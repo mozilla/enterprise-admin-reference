@@ -1,10 +1,10 @@
 ---
 title: "PopupBlocking"
-description: "Configure the default pop-up window policy as well as origins for which pop-up windows are allowed."
+description: "Allow certain websites to display popups and be redirected by third-party frames."
 category: "Content settings"
 ---
 
-Configure the default pop-up window policy as well as origins for which pop-up windows are allowed.
+Allow certain websites to display popups and be redirected by third-party frames.
 
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** `permissions.popup`\
@@ -12,9 +12,9 @@ Configure the default pop-up window policy as well as origins for which pop-up w
 
 ## Values
 
-- `Allow` is a list of origins where popup-windows are allowed.
-- `Default` determines whether or not pop-up windows are allowed by default.
-- `Locked` prevents the user from changing pop-up preferences.
+- `Allow` is a list of origins where popup-windows and third-party redirects are allowed.
+- `Default` determines whether or not pop-up windows and third-party redirects are allowed by default.
+- `Locked` prevents the user from changing pop-up windows and third-party redirects preferences.
 
 ## Windows (GPO)
 
@@ -97,3 +97,7 @@ Value (string):
   }
 }
 ```
+
+## See also
+
+- [Pop-up blocker settings, exceptions and troubleshooting](https://support.mozilla.org/en-US/kb/pop-blocker-settings-exceptions-troubleshooting) on support.mozilla.org
