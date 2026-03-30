@@ -20,7 +20,8 @@
 
 #### Added
 
-- Sync policy [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
+- `Sync` policy [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
+- `CrashReportsSubmit` policy: Configure crash report submission settings. [#86](https://github.com/mozilla/enterprise-admin-reference/pull/86)
 
 ## fx-148.0.0
 
