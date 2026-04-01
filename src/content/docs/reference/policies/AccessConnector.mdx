@@ -1,0 +1,67 @@
+---
+title: "AccessConnector"
+description: "Configure an Access Connector for proxying web traffic."
+category: "Miscellaneous"
+---
+
+Configure an Access Connector for proxying web traffic.
+When this policy is set, Firefox traffic matching the specified URL patterns is routed through the configured proxy.
+
+> [!NOTE]
+> Currently, this is only implemented in Firefox Enterprise.
+
+**Compatibility:** Firefox Enterprise 149.0.0\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Values
+
+- `Host`: A string that defines the hostname or IP address of the proxy server to use.
+- `Port`: A number defining the port number of the proxy server (e.g., `443`).
+- `MatchPatterns`: A list of URL match patterns for which traffic should be routed through the Access Connector.
+  See [Match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) for syntax.
+- `Locked`: Prevents the user from changing Access Connector settings.
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\AccessConnector\Host = "proxy.example.com"
+Software\Policies\Mozilla\Firefox\AccessConnector\Port = 443
+Software\Policies\Mozilla\Firefox\AccessConnector\MatchPatterns\1 = "https://*.example.com"
+Software\Policies\Mozilla\Firefox\AccessConnector\Locked = 0x1 | 0x0
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>AccessConnector</key>
+  <dict>
+    <key>Host</key>
+    <string>proxy.example.com</string>
+    <key>Port</key>
+    <integer>443</integer>
+    <key>MatchPatterns</key>
+    <array>
+      <string>https://*.example.com</string>
+    </array>
+    <key>Locked</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "AccessConnector": {
+      "Host": "proxy.example.com",
+      "Port": 443,
+      "MatchPatterns": ["https://*.example.com"],
+      "Locked": true | false
+    }
+  }
+}
+```

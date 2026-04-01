@@ -20,9 +20,10 @@
 
 #### Added
 
+- `AccessConnector` policy: Configure an Access Connector for proxying web traffic. [#102](https://github.com/mozilla/enterprise-admin-reference/pull/102)
 - `AIControls` policy: Configure AI controls. [#103](https://github.com/mozilla/enterprise-admin-reference/pull/103)
 - `CrashReportsSubmit` policy: Configure crash report submission settings. [#86](https://github.com/mozilla/enterprise-admin-reference/pull/86)
-- `Sync` policy [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
+- `Sync` policy: Enable or disable sync and define which data to include. [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
 
 ## fx-150.0.0
 
