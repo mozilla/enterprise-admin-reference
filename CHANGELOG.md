@@ -16,12 +16,13 @@
 
 - `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
 
-### ent-150.0.0
+### ent-149.0.0
 
 #### Added
 
-- `Sync` policy [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
+- `AIControls` policy: Configure AI controls.
 - `CrashReportsSubmit` policy: Configure crash report submission settings. [#86](https://github.com/mozilla/enterprise-admin-reference/pull/86)
+- `Sync` policy [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
 
 ## fx-150.0.0
 

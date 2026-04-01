@@ -1,0 +1,150 @@
+---
+title: "AIControls"
+description: "Configure AI controls."
+category: "Miscellaneous"
+---
+
+Configure AI controls.
+For more information, see [Block generative AI features with Firefox AI controls](https://support.mozilla.org/en-US/kb/firefox-ai-controls) on support.mozilla.org.
+
+**Compatibility:** Firefox Enterprise 149.0.0\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.ml.chat.enabled`, `browser.ml.chat.page`, `browser.ai.control.sidebarChatbot`, `browser.translations.enable`, `browser.ai.control.translations`, `pdfjs.enableAltText`, `browser.ai.control.pdfjsAltText`, `browser.ml.linkPreview.enabled`, `browser.ai.control.linkPreviewKeyPoints`, `browser.tabs.groups.smart.userEnabled`, `browser.ai.control.smartTabGroups`, `browser.ai.control.smartWindow`
+
+## Values
+
+Each key controls the availability of a specific AI feature.
+The following AI feature keys are available:
+
+- `Default`: Controls the default state for AI features listed below, unless they are explicitly configured in the policy.
+- `Translations`: Controls AI-powered page translations.
+- `PDFAltText`: Controls AI-generated alt text for images in PDF documents.
+- `SmartTabGroups`: Controls AI-powered tab grouping suggestions.
+- `LinkPreviewKeyPoints`: Controls AI-generated key point summaries shown in link previews.
+- `SidebarChatbot`: Controls the AI chatbot panel in the Firefox sidebar.
+- `SmartWindow`: Controls AI-powered window arrangement features.
+
+All keys accept the following sub-keys:
+
+- `Value`:
+  - `available` makes the feature accessible to users and it can be enabled or disabled.
+  - `blocked` the feature is disabled and users won't see the feature.
+    For on-device AI, any models already downloaded are removed.
+- `Locked`: if `true`, the user cannot change the setting.
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\AIControls\Default\Value = "available" | "blocked"
+Software\Policies\Mozilla\Firefox\AIControls\Default\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIControls\Translations\Value = "available" | "blocked"
+Software\Policies\Mozilla\Firefox\AIControls\Translations\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIControls\PDFAltText\Value = "available" | "blocked"
+Software\Policies\Mozilla\Firefox\AIControls\PDFAltText\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIControls\SmartTabGroups\Value = "available" | "blocked"
+Software\Policies\Mozilla\Firefox\AIControls\SmartTabGroups\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIControls\LinkPreviewKeyPoints\Value = "available" | "blocked"
+Software\Policies\Mozilla\Firefox\AIControls\LinkPreviewKeyPoints\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIControls\SidebarChatbot\Value = "available" | "blocked"
+Software\Policies\Mozilla\Firefox\AIControls\SidebarChatbot\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIControls\SmartWindow\Value = "available" | "blocked"
+Software\Policies\Mozilla\Firefox\AIControls\SmartWindow\Locked = 0x1 | 0x0
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>AIControls</key>
+  <dict>
+    <key>Default</key>
+    <dict>
+      <key>Value</key>
+      <string>available | blocked</string>
+      <key>Locked</key>
+      <true/> | <false/>
+    </dict>
+    <key>Translations</key>
+    <dict>
+      <key>Value</key>
+      <string>available | blocked</string>
+      <key>Locked</key>
+      <true/> | <false/>
+    </dict>
+    <key>PDFAltText</key>
+    <dict>
+      <key>Value</key>
+      <string>available | blocked</string>
+      <key>Locked</key>
+      <true/> | <false/>
+    </dict>
+    <key>SmartTabGroups</key>
+    <dict>
+      <key>Value</key>
+      <string>available | blocked</string>
+      <key>Locked</key>
+      <true/> | <false/>
+    </dict>
+    <key>LinkPreviewKeyPoints</key>
+    <dict>
+      <key>Value</key>
+      <string>available | blocked</string>
+      <key>Locked</key>
+      <true/> | <false/>
+    </dict>
+    <key>SidebarChatbot</key>
+    <dict>
+      <key>Value</key>
+      <string>available | blocked</string>
+      <key>Locked</key>
+      <true/> | <false/>
+    </dict>
+    <key>SmartWindow</key>
+    <dict>
+      <key>Value</key>
+      <string>available | blocked</string>
+      <key>Locked</key>
+      <true/> | <false/>
+    </dict>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "AIControls": {
+      "Default": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "Translations": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "PDFAltText": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "SmartTabGroups": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "LinkPreviewKeyPoints": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "SidebarChatbot": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      },
+      "SmartWindow": {
+        "Value": "available" | "blocked",
+        "Locked": true | false
+      }
+    }
+  }
+}
+```
