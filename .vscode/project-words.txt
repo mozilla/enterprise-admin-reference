@@ -11,6 +11,7 @@ browser.newtabpage
 browser.newtabpage.activity-stream.asrouter
 browser.safebrowsing
 CHACHA
+chatbots
 cryptomining
 datareporting
 datareporting.healthreport
