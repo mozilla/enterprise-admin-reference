@@ -1,0 +1,50 @@
+---
+title: "IPProtectionAvailable"
+description: "Prevent the built-in VPN from being available to users."
+category: "Network security"
+---
+
+Prevent the built-in VPN from being available to users.
+
+**Compatibility:** Firefox 149\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.ipProtection.enabled`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\IPProtectionAvailable = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/IPProtectionAvailable
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>IPProtectionAvailable</key>
+  <true/> | <false/>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "IPProtectionAvailable": true | false
+  }
+}
+```
