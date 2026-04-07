@@ -10,11 +10,22 @@ const pathname = Astro.url.pathname;
 
 // Only show on /reference pages for now
 const showBreadcrumbs = !hideBreadcrumbs && pathname.startsWith("/reference/");
+
+// Build crumbs manually to preserve correct casing.
+// Astro lowercases URL slugs, so we use the frontmatter title for the last segment.
+const pageTitle = Astro.locals.starlightRoute?.entry?.data?.title;
+const segments = pathname.split("/").filter(Boolean);
+const crumbs = segments.map((seg, i) => ({
+  text: i === segments.length - 1 && pageTitle
+    ? pageTitle
+    : seg.charAt(0).toUpperCase() + seg.slice(1),
+  href: "/" + segments.slice(0, i + 1).join("/") + "/",
+}));
 ---
 
 {
   showBreadcrumbs && (
-    <Breadcrumbs customizeListElements={[{ index: 0, remove: true }]} linkTextFormat="sentence">
+    <Breadcrumbs crumbs={crumbs}>
       <svg
         slot="separator"
         xmlns="http://www.w3.org/2000/svg"
