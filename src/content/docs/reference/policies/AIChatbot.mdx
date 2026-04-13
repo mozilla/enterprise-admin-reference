@@ -1,0 +1,173 @@
+---
+title: "AIChatbot"
+description: "Configure the AI chatbot sidebar."
+category: "Content settings"
+---
+
+Configure the AI chatbot sidebar, including which built-in providers are available and the ability to add custom providers.
+For more information, see [Access AI chatbots in Firefox](https://support.mozilla.org/en-US/kb/ai-chatbot) on support.mozilla.org.
+
+> [!NOTE]
+> Currently, this is only implemented in Firefox Enterprise.
+
+**Compatibility:** Firefox Enterprise 149.0.0\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.ml.chat.enabled`, `browser.ml.chat.provider`, `browser.ml.chat.providers`, `browser.ml.chat.shortcuts`, `browser.ml.chat.prompts.0`, `browser.ml.chat.prompts.1`, `browser.ml.chat.prompts.2`, `browser.ml.chat.prompts.3`
+
+## Values
+
+- `Providers`: Configures the available AI chatbot providers.
+  - `Add`: An array of custom provider objects to add.
+    Each object accepts the following properties:
+    - `url` (required): The URL of the AI chatbot provider.
+    - `name` (required): Display name for the provider.
+    - `id` (required): Unique identifier for the provider.
+    - `iconUrl`: URL of the provider's icon.
+    - `queryParam`: Query parameter name used to pass prompts to the provider.
+  - `BuiltIn`: An object to enable or disable individual built-in providers.
+    Set a provider key to `true` to enable it or `false` to disable it.
+    The following built-in providers are available:
+    - `Anthropic Claude`
+    - `ChatGPT`
+    - `Copilot`
+    - `Google Gemini`
+    - `HuggingChat`
+    - `Le Chat Mistral`
+    - `localhost`
+  - `Default`: The `name` of the provider to use as the default.
+- `Prompts`: Configures the AI chatbot prompt suggestions.
+  - `Enabled`: Set to `true` to enable prompt suggestions or `false` to disable them.
+  - `BuiltIn`: An object to enable or disable individual built-in prompts.
+    Set a prompt key to `true` to enable it or `false` to disable it.
+    The following built-in prompts are available:
+    - `Summarize`
+    - `Explain`
+    - `Quiz`
+    - `Proofread`
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\Add\1\url = "https://example.com"
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\Add\1\name = "Example AI"
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\Add\1\id = "example-ai"
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\Add\1\iconUrl = "https://example.com/icon.png"
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\Add\1\queryParam = "q"
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\Anthropic Claude = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\ChatGPT = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\Copilot = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\Google Gemini = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\HuggingChat = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\Le Chat Mistral = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\localhost = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\Default = "example-ai"
+Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\Enabled = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\BuiltIn\Summarize = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\BuiltIn\Explain = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\BuiltIn\Quiz = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\BuiltIn\Proofread = 0x1 | 0x0
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>AIChatbot</key>
+  <dict>
+    <key>Providers</key>
+    <dict>
+      <key>Add</key>
+      <array>
+        <dict>
+          <key>url</key>
+          <string>https://example.com</string>
+          <key>name</key>
+          <string>Example AI</string>
+          <key>id</key>
+          <string>example-ai</string>
+          <key>iconUrl</key>
+          <string>https://example.com/icon.png</string>
+          <key>queryParam</key>
+          <string>q</string>
+        </dict>
+      </array>
+      <key>BuiltIn</key>
+      <dict>
+        <key>Anthropic Claude</key>
+        <true/> | <false/>
+        <key>ChatGPT</key>
+        <true/> | <false/>
+        <key>Copilot</key>
+        <true/> | <false/>
+        <key>Google Gemini</key>
+        <true/> | <false/>
+        <key>HuggingChat</key>
+        <true/> | <false/>
+        <key>Le Chat Mistral</key>
+        <true/> | <false/>
+        <key>localhost</key>
+        <true/> | <false/>
+      </dict>
+      <key>Default</key>
+      <string>example-ai</string>
+    </dict>
+    <key>Prompts</key>
+    <dict>
+      <key>Enabled</key>
+      <true/> | <false/>
+      <key>BuiltIn</key>
+      <dict>
+        <key>Summarize</key>
+        <true/> | <false/>
+        <key>Explain</key>
+        <true/> | <false/>
+        <key>Quiz</key>
+        <true/> | <false/>
+        <key>Proofread</key>
+        <true/> | <false/>
+      </dict>
+    </dict>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "AIChatbot": {
+      "Providers": {
+        "Add": [
+          {
+            "url": "https://example.com",
+            "name": "Example AI",
+            "id": "example-ai",
+            "iconUrl": "https://example.com/icon.png",
+            "queryParam": "q"
+          }
+        ],
+        "BuiltIn": {
+          "Anthropic Claude": true | false,
+          "ChatGPT": true | false,
+          "Copilot": true | false,
+          "Google Gemini": true | false,
+          "HuggingChat": true | false,
+          "Le Chat Mistral": true | false,
+          "localhost": true | false
+        },
+        "Default": "example-ai"
+      },
+      "Prompts": {
+        "Enabled": true | false,
+        "BuiltIn": {
+          "Summarize": true | false,
+          "Explain": true | false,
+          "Quiz": true | false,
+          "Proofread": true | false
+        }
+      }
+    }
+  }
+}
+```
