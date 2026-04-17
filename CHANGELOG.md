@@ -16,13 +16,19 @@
 
 - `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
 
+### fx-149.0.2
+
+#### Added
+
+- `AIControls` policy: Configure AI controls. [#103](https://github.com/mozilla/enterprise-admin-reference/pull/103)
+- `IPProtectionAvailable` policy: Prevent the built-in VPN from being available to users. [#112](https://github.com/mozilla/enterprise-admin-reference/pull/112)
+
 ### ent-149.0.0
 
 #### Added
 
 - `AccessConnector` policy: Configure an Access Connector for proxying web traffic. [#102](https://github.com/mozilla/enterprise-admin-reference/pull/102)
 - `AIChatbot` policy: Configure the AI chatbot sidebar. [#106](https://github.com/mozilla/enterprise-admin-reference/pull/106)
-- `AIControls` policy: Configure AI controls. [#103](https://github.com/mozilla/enterprise-admin-reference/pull/103)
 - `CrashReportsSubmit` policy: Configure crash report submission settings. [#86](https://github.com/mozilla/enterprise-admin-reference/pull/86)
 - `Sync` policy: Enable or disable sync and define which data to include. [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
 
