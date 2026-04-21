@@ -336,36 +336,36 @@ Value (string):
     "ContentAnalysis": {
       "AgentName": "My DLP Product",
       "AgentTimeout": 60,
-      "AllowUrlRegexList": "https://example\.com/.* https://subdomain\.example\.com/.*",
-      "BypassForSameTabOperations": true | false,
+      "AllowUrlRegexList": "https://example\\.com/.* https://subdomain\\.example\\.com/.*",
+      "BypassForSameTabOperations": false,
       "ClientSignature": "My DLP Company",
-      "DefaultResult": 0 | 1 | 2,
-      "DenyUrlRegexList": "https://example\.com/.* https://subdomain\.example\.com/.*",
-      "Enabled": true | false,
+      "DefaultResult": 0,
+      "DenyUrlRegexList": "https://example\\.com/.* https://subdomain\\.example\\.com/.*",
+      "Enabled": true,
       "InterceptionPoints": {
         "Clipboard": {
-          "Enabled": true | false,
-          "PlainTextOnly": true | false
+          "Enabled": true,
+          "PlainTextOnly": true
         },
         "Download": {
-          "Enabled": false | true,
+          "Enabled": false
         },
         "DragAndDrop": {
-          "Enabled": true | false,
-          "PlainTextOnly": true | false
+          "Enabled": true,
+          "PlainTextOnly": true
         },
         "FileUpload": {
-          "Enabled": true | false
+          "Enabled": true
         },
         "Print": {
-          "Enabled": true | false
+          "Enabled": true
         }
       },
-      "IsPerUser": true | false,
+      "IsPerUser": true,
       "MaxConnectionsCount": 32,
       "PipePathName": "pipe_custom_name",
-      "ShowBlockedResult": true | false,
-      "TimeoutResult": 0 | 1 | 2,
+      "ShowBlockedResult": true,
+      "TimeoutResult": 0
     }
   }
 }
