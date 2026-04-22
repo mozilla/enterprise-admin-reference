@@ -9,6 +9,7 @@
 #### Added
 
 - `DefaultSerialGuardSetting`: Control use of the Web Serial API. ([#125](https://github.com/mozilla/enterprise-admin-reference/pull/125))
+- `RelaunchRequired`: Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch. ([#127](https://github.com/mozilla/enterprise-admin-reference/pull/127))
 
 ### esr-153.0.0
 
