@@ -38,6 +38,13 @@
 
 - `LocalNetworkAccess`: Configure local network access security features. ([#67](https://github.com/mozilla/enterprise-admin-reference/pull/67))
 
+## fx-149.0.2
+
+### Added
+
+- `AIControls` policy: Configure AI controls. [#103](https://github.com/mozilla/enterprise-admin-reference/pull/103)
+- `IPProtectionAvailable` policy: Prevent the built-in VPN from being available to users. [#112](https://github.com/mozilla/enterprise-admin-reference/pull/112)
+
 ## fx-148.0.0
 
 ### Added
