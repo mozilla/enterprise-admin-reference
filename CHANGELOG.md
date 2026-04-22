@@ -8,7 +8,7 @@
 
 #### Added
 
-- `DefaultSerialGuardSetting`: Control use of the Web Serial API. ([#](https://github.com/mozilla/enterprise-admin-reference/pull/))
+- `DefaultSerialGuardSetting`: Control use of the Web Serial API. ([#125](https://github.com/mozilla/enterprise-admin-reference/pull/125))
 
 ### esr-153.0.0
 
@@ -30,13 +30,8 @@
 
 ### Added
 
-- `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
-
-## fx-150.0.0
-
-### Added
-
 - `LocalNetworkAccess`: Configure local network access security features. ([#67](https://github.com/mozilla/enterprise-admin-reference/pull/67))
+- `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
 
 ## fx-149.0.2
 
