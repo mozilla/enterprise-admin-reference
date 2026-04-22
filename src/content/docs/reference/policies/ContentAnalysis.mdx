@@ -337,35 +337,35 @@ Value (string):
       "AgentName": "My DLP Product",
       "AgentTimeout": 60,
       "AllowUrlRegexList": "https://example\\.com/.* https://subdomain\\.example\\.com/.*",
-      "BypassForSameTabOperations": false,
+      "BypassForSameTabOperations": true | false,
       "ClientSignature": "My DLP Company",
-      "DefaultResult": 0,
+      "DefaultResult": 0 | 1 | 2,
       "DenyUrlRegexList": "https://example\\.com/.* https://subdomain\\.example\\.com/.*",
-      "Enabled": true,
+      "Enabled": true | false,
       "InterceptionPoints": {
         "Clipboard": {
-          "Enabled": true,
-          "PlainTextOnly": true
+          "Enabled": true | false,
+          "PlainTextOnly": true | false
         },
         "Download": {
-          "Enabled": false
+          "Enabled": false | true,
         },
         "DragAndDrop": {
-          "Enabled": true,
-          "PlainTextOnly": true
+          "Enabled": true | false,
+          "PlainTextOnly": true | false
         },
         "FileUpload": {
-          "Enabled": true
+          "Enabled": true | false
         },
         "Print": {
-          "Enabled": true
+          "Enabled": true | false
         }
       },
-      "IsPerUser": true,
+      "IsPerUser": true | false,
       "MaxConnectionsCount": 32,
       "PipePathName": "pipe_custom_name",
-      "ShowBlockedResult": true,
-      "TimeoutResult": 0
+      "ShowBlockedResult": true | false,
+      "TimeoutResult": 0 | 1 | 2,
     }
   }
 }
