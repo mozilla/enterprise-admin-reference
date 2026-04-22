@@ -4,11 +4,11 @@
 
 ## Unreleased
 
-### fx-150.0.0
+### fx-151.0.0
 
 #### Added
 
-- `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
+- `DefaultSerialGuardSetting`: Control use of the Web Serial API. ([#](https://github.com/mozilla/enterprise-admin-reference/pull/))
 
 ### esr-153.0.0
 
@@ -25,6 +25,12 @@
 - `AIControls` policy: Configure AI controls. [#103](https://github.com/mozilla/enterprise-admin-reference/pull/103)
 - `CrashReportsSubmit` policy: Configure crash report submission settings. [#86](https://github.com/mozilla/enterprise-admin-reference/pull/86)
 - `Sync` policy: Enable or disable sync and define which data to include. [#70](https://github.com/mozilla/enterprise-admin-reference/pull/70)
+
+## fx-150.0.0
+
+### Added
+
+- `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
 
 ## fx-150.0.0
 

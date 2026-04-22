@@ -1,0 +1,56 @@
+---
+title: "DefaultSerialGuardSetting"
+description: "Control use of the Web Serial API."
+category: "Content settings"
+---
+
+Control use of the [Web Serial API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API).
+
+**Compatibility:** Firefox 151\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `dom.webserial.enabled`
+
+## Values
+
+- `2` means use of the WebSerial API is blocked.
+- `3` means use of the WebSerial API is allowed.
+
+#### Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DefaultSerialGuardSetting = 0x2 | 0x3
+```
+
+#### Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DefaultSerialGuardSetting
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="DefaultSerialGuardSetting" value="2 | 3"/>
+```
+
+#### macOS
+
+```xml
+<dict>
+  <key>DefaultSerialGuardSetting</key>
+  <integer>2 | 3</integer>
+</dict>
+```
+
+#### policies.json
+
+```json
+{
+  "policies": {
+    "DefaultSerialGuardSetting": 2 | 3
+  }
+}
+```
