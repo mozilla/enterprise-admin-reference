@@ -17,5 +17,8 @@
     "starlight-changelogs": "^0.5.0",
     "starlight-github-alerts": "^0.2.0",
     "starlight-links-validator": "^0.23.0"
+  },
+  "overrides": {
+    "zod": "4.3.6"
   }
 }
