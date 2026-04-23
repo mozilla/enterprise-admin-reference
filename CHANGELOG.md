@@ -9,6 +9,7 @@
 #### Added
 
 - `DefaultSerialGuardSetting`: Control use of the Web Serial API. ([#125](https://github.com/mozilla/enterprise-admin-reference/pull/125))
+- `XSLTEnabled`: Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction. ([#128](https://github.com/mozilla/enterprise-admin-reference/pull/128))
 
 ### esr-153.0.0
 
