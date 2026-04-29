@@ -23,7 +23,7 @@ If this policy is not configured, tracking protection is not enabled by default 
 - If `SuspectedFingerprinting` is set to true, Firefox reduces the amount of information exposed to websites to protect against potential fingerprinting attempts. (Firefox 142, Firefox ESR 140.2)
 - `Exceptions` are origins for which tracking protection is not enabled.
 - `Category` can be either `strict` or `standard`.
-  If category is set, it overrides all other settings except `Exceptions` and the user cannot change the category. (Firefox 142, Firefox ESR 140.2)
+  If category is set, it overrides all other settings except `Exceptions`, `BaselineExceptions` and `ConvenienceExceptions`, and the user cannot change the category. (Firefox 142, Firefox ESR 140.2)
 - If `BaselineExceptions` is true, Firefox will automatically apply exceptions required to avoid major website breakage. (Firefox 145)
 - If `ConvenienceExceptions` is true, Firefox will apply exceptions automatically that are only required to fix minor issues and make convenience features available. (Firefox 145)
 
