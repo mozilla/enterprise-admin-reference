@@ -49,12 +49,12 @@ export default defineConfig({
       sidebar: [
         {
           label: "Reference",
-          autogenerate: { directory: "reference" },
+          items: [{ autogenerate: { directory: "reference" } }],
           collapsed: true,
         },
         {
           label: "Guides",
-          autogenerate: { directory: "guides" },
+          items: [{ autogenerate: { directory: "guides" } }],
         },
         {
           label: "Resources",
