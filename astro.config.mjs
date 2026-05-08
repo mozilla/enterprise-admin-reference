@@ -14,6 +14,12 @@ export const locales = {
 export default defineConfig({
   output: "static",
   trailingSlash: "always",
+  redirects: {
+    "/reference/policies/searchengines--add/": "/reference/policies/searchengines/",
+    "/reference/policies/searchengines--default/": "/reference/policies/searchengines/",
+    "/reference/policies/searchengines--preventinstalls/": "/reference/policies/searchengines/",
+    "/reference/policies/searchengines--remove/": "/reference/policies/searchengines/",
+  },
   devToolbar: {
     enabled: false,
   },
