@@ -41,7 +41,6 @@ Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\Description = "Example Des
 Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\SuggestURLTemplate = "https://www.example.org/suggestions/q={searchTerms}"
 Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\PostData = "name=value&q={searchTerms}"
 Software\Policies\Mozilla\Firefox\SearchEngines\Default = NAME_OF_SEARCH_ENGINE
-Software\Policies\Mozilla\Firefox\SearchEngines\DefaultPrivate = NAME_OF_SEARCH_ENGINE
 Software\Policies\Mozilla\Firefox\SearchEngines\PreventInstalls = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\SearchEngines\Remove\1 = NAME_OF_SEARCH_ENGINE
 ```
@@ -79,19 +78,6 @@ Value (string):
 ```xml
 <enabled/>
 <data id="SearchEngines_Default" value="NAME_OF_SEARCH_ENGINE"/>
-```
-
-`DefaultPrivate` OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_DefaultPrivate
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="SearchEngines_DefaultPrivate" value="NAME_OF_SEARCH_ENGINE"/>
 ```
 
 `PreventInstalls` OMA-URI:
@@ -148,8 +134,6 @@ Value (string):
     </array>
     <key>Default</key>
     <string>NAME_OF_SEARCH_ENGINE</string>
-    <key>DefaultPrivate</key>
-    <string>NAME_OF_SEARCH_ENGINE</string>
     <key>PreventInstalls</key>
     <true/> | <false/>
     <key>Remove</key>
@@ -179,7 +163,6 @@ Value (string):
         }
       ],
       "Default": "NAME_OF_SEARCH_ENGINE",
-      "DefaultPrivate": "NAME_OF_SEARCH_ENGINE",
       "PreventInstalls": true | false,
       "Remove": ["NAME_OF_SEARCH_ENGINE"]
     }
