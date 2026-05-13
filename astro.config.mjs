@@ -19,6 +19,7 @@ export default defineConfig({
     "/reference/policies/searchengines--default/": "/reference/policies/searchengines/",
     "/reference/policies/searchengines--preventinstalls/": "/reference/policies/searchengines/",
     "/reference/policies/searchengines--remove/": "/reference/policies/searchengines/",
+    "/reference/policies/securitydevices--deprecated/": "/reference/policies/securitydevices/",
   },
   devToolbar: {
     enabled: false,
