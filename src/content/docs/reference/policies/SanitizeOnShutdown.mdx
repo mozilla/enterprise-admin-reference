@@ -1,11 +1,219 @@
 ---
 title: "SanitizeOnShutdown"
-description: "Policies to sanitize data on shutdown"
+description: "Clear navigation data on shutdown."
 category: "Local data storage"
 ---
 
-There are two policies that allow for sanitizing (clearing) local data on shutdown in Firefox.
-You may clear all data, or choose from one or more of Browsing & Download History, Cookies, Active Logins, Cache, Form History, Site Preferences, and Offline Website Data:
+Clear local data on shutdown.
+`SanitizeOnShutdown` accepts either a boolean to clear all data types or an object to choose which data types to clear.
+Items that can be selectively deleted include browsing & download history, cookies, active logins, caches, form history, and site preferences.
 
-- **[SanitizeOnShutdown (All)](/reference/policies/sanitizeonshutdown-all/):** Clear all local data on shutdown.
-- **[SanitizeOnShutdown (Selective)](/reference/policies/sanitizeonshutdown-selective/):** Clear specific types of data on shutdown.
+> [!NOTE] Starting with Firefox 136, `FormData` and `History` are separate data types.
+
+**Compatibility:** Firefox 60, Firefox ESR 60. Object form added in Firefox 68/ESR 68, `Locked` added in 74/68.6, `History` in Firefox 128.\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `privacy.sanitize.sanitizeOnShutdown`, `privacy.clearOnShutdown.cache`, `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.downloads`, `privacy.clearOnShutdown.formdata`, `privacy.clearOnShutdown.history`, `privacy.clearOnShutdown.sessions`, `privacy.clearOnShutdown.siteSettings`, `privacy.clearOnShutdown.offlineApps`, `privacy.clearOnShutdown_v2.browsingHistoryAndDownloads` (Firefox 128), `privacy.clearOnShutdown_v2.cookiesAndStorage` (Firefox 128), `privacy.clearOnShutdown_v2.cache` (Firefox 128), `privacy.clearOnShutdown_v2.siteSettings` (Firefox 128), `privacy.clearOnShutdown_v2.formdata` (Firefox 128)
+
+## Values
+
+`SanitizeOnShutdown` accepts either a boolean or an object.
+When set as a boolean:
+
+- Set to `true` to clear all supported local data on shutdown.
+- Set to `false` to clear nothing.
+
+When set as an object, any member omitted is treated as `false`, taking precedence over user settings for that data type.
+Accepts one or more of the following members to clear specific data types:
+
+- `Cache`
+- `Cookies`
+- `Downloads`: Download history (_Deprecated - use `History` instead_)
+- `FormData`: Form history
+- `History`: Browsing history, download history
+- `Sessions`: Active logins
+- `SiteSettings`: Site preferences
+- `OfflineApps`: Offline Website Data (_Deprecated - use `Cookies` instead_)
+- `Locked`: Prevents the user from changing these preferences.
+
+## Windows (GPO)
+
+Clear all data:
+
+```
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown = 0x1 | 0x0
+```
+
+Clear specific data types:
+
+```
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\Cache = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\Cookies = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\FormData = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\History = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\Sessions = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\SiteSettings = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\Locked = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+Clear all data, OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/C_SanitizeOnShutdown
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+Cache OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~SanitizeOnShutdown/A_SanitizeOnShutdown_Cache
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+Cookies OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~SanitizeOnShutdown/B_SanitizeOnShutdown_Cookies
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+FormData OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~SanitizeOnShutdown/E_SanitizeOnShutdown_FormData
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+History OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~SanitizeOnShutdown/E_SanitizeOnShutdown_History
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+Sessions OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~SanitizeOnShutdown/F_SanitizeOnShutdown_Sessions
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+SiteSettings OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~SanitizeOnShutdown/G_SanitizeOnShutdown_SiteSettings
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+Locked OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~SanitizeOnShutdown/I_SanitizeOnShutdown_Locked
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+Clear all data:
+
+```xml
+<dict>
+  <key>SanitizeOnShutdown</key>
+  <true/> | <false/>
+</dict>
+```
+
+Clear specific data types:
+
+```xml
+<dict>
+  <key>SanitizeOnShutdown</key>
+  <dict>
+    <key>Cache</key>
+    <true/> | <false/>
+    <key>Cookies</key>
+    <true/> | <false/>
+    <key>FormData</key>
+    <true/> | <false/>
+    <key>History</key>
+    <true/> | <false/>
+    <key>Sessions</key>
+    <true/> | <false/>
+    <key>SiteSettings</key>
+    <true/> | <false/>
+    <key>Locked</key>
+    <true/> | <false/>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+Clear all data:
+
+```json
+{
+  "policies": {
+    "SanitizeOnShutdown": true | false
+  }
+}
+```
+
+Clear specific data types:
+
+```json
+{
+  "policies": {
+    "SanitizeOnShutdown": {
+      "Cache": true | false,
+      "Cookies": true | false,
+      "FormData": true | false,
+      "History": true | false,
+      "Sessions": true | false,
+      "SiteSettings": true | false,
+      "Locked": true | false
+    }
+  }
+}
+```
