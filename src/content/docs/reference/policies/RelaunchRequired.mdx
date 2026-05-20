@@ -1,0 +1,104 @@
+---
+title: "RelaunchRequired"
+description: "Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch."
+category: "Device update settings"
+---
+
+Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
+This policy takes effect when an update has been downloaded or staged and is ready to install.
+
+**Compatibility:** Firefox 151\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Values
+
+- `NotificationPeriodHours`: The minimum number of hours before users are notified of the required relaunch.
+- `RestartTimeOfDay`: Specifies the daily time at which Firefox will restart.
+  If less than one hour remains until the scheduled time, the restart is deferred to the same time the following day.
+  - `Hour`: The hour in 24-hour format (between `0` and `23`).
+  - `Minute`: The minute (between `0` and `59`).
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\RelaunchRequired\NotificationPeriodHours = 0x0 | 0x1 | 0x2
+Software\Policies\Mozilla\Firefox\RelaunchRequired\RestartTimeOfDay\Hour = 0x0 | 0x1 | 0x2
+Software\Policies\Mozilla\Firefox\RelaunchRequired\RestartTimeOfDay\Minute = 0x0 | 0x1 | 0x2
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~RelaunchRequired/RelaunchRequired_NotificationPeriodHours
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="NotificationPeriodHours" value="0 | 1 | 2"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~RelaunchRequired/RelaunchRequired_RestartTimeOfDay_Hour
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Hour" value="0 | 1 | 2"/>
+```
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~RelaunchRequired/RelaunchRequired_RestartTimeOfDay_Minute
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="Minute" value="0 | 1 | 2"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>RelaunchRequired</key>
+  <dict>
+    <key>NotificationPeriodHours</key>
+    <integer>0 | 1 | 2</integer>
+    <key>RestartTimeOfDay</key>
+    <dict>
+      <key>Hour</key>
+      <integer>0 | 1 | 2</integer>
+      <key>Minute</key>
+      <integer>0 | 1 | 2</integer>
+    </dict>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "RelaunchRequired": {
+      "NotificationPeriodHours": 0 | 1 | 2,
+      "RestartTimeOfDay": {
+        "Hour": 0 | 1 | 2,
+        "Minute": 0 | 1 | 2
+      }
+    }
+  }
+}
+```
