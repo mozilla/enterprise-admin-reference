@@ -20,6 +20,8 @@ export default defineConfig({
     "/reference/policies/searchengines--preventinstalls/": "/reference/policies/searchengines/",
     "/reference/policies/searchengines--remove/": "/reference/policies/searchengines/",
     "/reference/policies/securitydevices--deprecated/": "/reference/policies/securitydevices/",
+    "/reference/policies/certificates--install/": "/reference/policies/certificates/",
+    "/reference/policies/certificates--importenterpriseroots/": "/reference/policies/certificates/",
   },
   devToolbar: {
     enabled: false,
