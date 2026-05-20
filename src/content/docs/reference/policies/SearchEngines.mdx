@@ -1,13 +1,171 @@
 ---
 title: "SearchEngines"
-description: "The following policies allow for configuring search engines in Firefox."
+description: "Configure search engines: add new ones, set defaults, prevent user installs, and remove built-ins."
 category: "Search"
 ---
 
-The following policies allow for configuring search engines in Firefox.
-As of Firefox 139, these policies are available in all Firefox release channels:
+Configure search engines in Firefox. As of Firefox 139, these policies are available in all Firefox release channels.
 
-- **[Add](/reference/policies/searchengines--add/):** Add new search engines.
-- **[Default](/reference/policies/searchengines--default/):** Set the default search engine.
-- **[PreventInstalls](/reference/policies/searchengines--preventinstalls/):** Prevent installing search engines from webpages.
-- **[Remove](/reference/policies/searchengines--remove/):** Hide built-in search engines.
+**Compatibility:** Firefox 139, Firefox ESR 60. `POST` support in Firefox ESR 68, `Encoding` in Firefox 91, `Remove` in Firefox ESR 60.2.\
+**CCK2 Equivalent:** `searchplugins` (Add), `defaultSearchEngine` (Default), `disableSearchEngineInstall` (PreventInstalls), `removeDefaultSearchEngines` (Remove)\
+**Preferences Affected:** N/A
+
+## Values
+
+`SearchEngines` accepts an object with one or more of the following keys:
+
+- `Add` (array of objects): Add new search engines. Each entry accepts:
+  - `Name` (**required**): the name of the search engine.
+  - `URLTemplate` (**required**): the search URL with `{searchTerms}` to substitute for the search term.
+  - `Method`: either [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/GET) or [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/POST).
+  - `IconURL`: a URL for the icon to use.
+  - `Alias`: a keyword to use for the engine.
+  - `Description`: a description of the search engine.
+  - `PostData`: the `POST` data as `name=value` pairs separated by `&`.
+  - `SuggestURLTemplate`: a search suggestions URL with `{searchTerms}` to substitute for the search term.
+  - `Encoding`: the query charset for the engine. Defaults to `UTF-8`.
+    Although there are five engines available in the ADMX template, there is no maximum number that can be specified — to add more in the ADMX template, duplicate the XML.
+- `Default` (string): set the default search engine.
+- `PreventInstalls` (boolean): prevent installing search engines from webpages.
+- `Remove` (array of strings): hide built-in search engines by name.
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\Name = "Example1"
+Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\URLTemplate = "https://www.example.org/q={searchTerms}"
+Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\Method = "GET" | "POST"
+Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\IconURL = "https://www.example.org/favicon.ico"
+Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\Alias = "example"
+Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\Description = "Example Description"
+Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\SuggestURLTemplate = "https://www.example.org/suggestions/q={searchTerms}"
+Software\Policies\Mozilla\Firefox\SearchEngines\Add\1\PostData = "name=value&q={searchTerms}"
+Software\Policies\Mozilla\Firefox\SearchEngines\Default = NAME_OF_SEARCH_ENGINE
+Software\Policies\Mozilla\Firefox\SearchEngines\PreventInstalls = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\SearchEngines\Remove\1 = NAME_OF_SEARCH_ENGINE
+```
+
+## Windows (Intune)
+
+`Add` OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_1
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="SearchEngine_Name" value="Example1"/>
+<data id="SearchEngine_URLTemplate" value="https://www.example.org/q={searchTerms}"/>
+<data id="SearchEngine_Method" value="GET | POST"/>
+<data id="SearchEngine_IconURL" value="https://www.example.org/favicon.ico"/>
+<data id="SearchEngine_Alias" value="example"/>
+<data id="SearchEngine_Description" value="Example Description"/>
+<data id="SearchEngine_SuggestURLTemplate" value="https://www.example.org/suggestions/q={searchTerms}"/>
+<data id="SearchEngine_PostData" value="name=value&amp;q={searchTerms}"/>
+```
+
+`Default` OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_Default
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="SearchEngines_Default" value="NAME_OF_SEARCH_ENGINE"/>
+```
+
+`PreventInstalls` OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_PreventInstalls
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+`Remove` OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_Remove
+```
+
+Value (string):
+
+```xml
+<enabled/>
+<data id="SearchEngines_Remove" value="1&#xF000;NAME_OF_SEARCH_ENGINE"/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>SearchEngines</key>
+  <dict>
+    <key>Add</key>
+    <array>
+      <dict>
+        <key>Name</key>
+        <string>Example1</string>
+        <key>URLTemplate</key>
+        <string>https://www.example.org/q={searchTerms}</string>
+        <key>Method</key>
+        <string>GET | POST</string>
+        <key>IconURL</key>
+        <string>https://www.example.org/favicon.ico</string>
+        <key>Alias</key>
+        <string>example</string>
+        <key>Description</key>
+        <string>Example Description</string>
+        <key>SuggestURLTemplate</key>
+        <string>https://www.example.org/suggestions/q={searchTerms}</string>
+        <key>PostData</key>
+        <string>name=value&q={searchTerms}</string>
+      </dict>
+    </array>
+    <key>Default</key>
+    <string>NAME_OF_SEARCH_ENGINE</string>
+    <key>PreventInstalls</key>
+    <true/> | <false/>
+    <key>Remove</key>
+    <array>
+      <string>NAME_OF_SEARCH_ENGINE</string>
+    </array>
+  </dict>
+</dict>
+```
+
+## policies.json
+
+```json
+{
+  "policies": {
+    "SearchEngines": {
+      "Add": [
+        {
+          "Name": "Example1",
+          "URLTemplate": "https://www.example.org/q={searchTerms}",
+          "Method": "GET" | "POST",
+          "IconURL": "https://www.example.org/favicon.ico",
+          "Alias": "example",
+          "Description": "Description",
+          "PostData": "name=value&q={searchTerms}",
+          "SuggestURLTemplate": "https://www.example.org/suggestions/q={searchTerms}"
+        }
+      ],
+      "Default": "NAME_OF_SEARCH_ENGINE",
+      "PreventInstalls": true | false,
+      "Remove": ["NAME_OF_SEARCH_ENGINE"]
+    }
+  }
+}
+```
