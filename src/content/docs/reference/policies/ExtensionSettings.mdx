@@ -55,6 +55,7 @@ The configuration for each extension is a dictionary that can contain the fields
 - `default_area`: (Firefox 113) String that indicates where to place the extension icon by default. Possible values are `navbar` and `menupanel`.
 - `temporarily_allow_weak_signatures`: (Firefox 127) Boolean that indicates whether to allow installing extensions signed using deprecated signature algorithms.
 - `private_browsing`: (Firefox 136, Firefox ESR 128.8) Boolean that indicates whether this extension should be enabled in private browsing.
+- `update_url`: (Firefox 151) A string specifying the URL Firefox will use to check for extension updates. This overrides the update_url specified in the extension manifest or is used if no update_url is specified in the manifest.
 
 ## Interaction notes
 
