@@ -24,6 +24,7 @@ export default defineConfig({
     "/reference/policies/searchengines--preventinstalls/": "/reference/policies/searchengines/",
     "/reference/policies/searchengines--remove/": "/reference/policies/searchengines/",
     "/reference/policies/securitydevices--deprecated/": "/reference/policies/securitydevices/",
+    "/reference/policies/disablepocket_deprecated_/": "/reference/policies/disablepocket/",
   },
   devToolbar: {
     enabled: false,
