@@ -37,16 +37,31 @@ jobs:
 
       # Note this PR won't trigger `./pull-requests.yml` builds yet
       - name: Open PR on drift
-        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.9
-        with:
-          branch: automation/schema-sync
-          delete-branch: true
-          commit-message: "chore(schema): sync from upstream"
-          title: "chore(schema): sync from upstream"
-          labels: schema-sync, automated pr
-          body: |
-            Automated weekly sync of `schema/policies-schema.json`.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain schema/)" ]; then
+            echo "No schema changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}"
+          git switch -C automation/schema-sync
+          git add schema/
+          git commit -m "chore(schema): sync from upstream"
+          git push --force origin automation/schema-sync
 
-            Review the diff for new, removed, or changed policies before merging.
+          if gh pr view automation/schema-sync --json number >/dev/null 2>&1; then
+            echo "PR already open for automation/schema-sync -> branch updated."
+          else
+            gh pr create \
+              --title "chore(schema): sync from upstream" \
+              --body "Automated weekly sync of \`schema/policies-schema.json\`.
 
-            _Opened by the [`.github/workflows/schema-sync.yml`](https://github.com/mozilla/enterprise-admin-reference/tree/main/.github/workflows/schema-sync.yml) workflow._
+          Review the diff for new, removed, or changed policies before merging.
+
+          _Opened by the [\`.github/workflows/schema-sync.yml\`](https://github.com/${{ github.repository }}/tree/main/.github/workflows/schema-sync.yml) workflow._" \
+              --label schema-sync \
+              --label "automated pr"
+          fi
