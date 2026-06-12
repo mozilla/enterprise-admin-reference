@@ -17,7 +17,7 @@
     "sharp": "^0.35.0",
     "starlight-changelogs": "^0.5.0",
     "starlight-github-alerts": "^0.2.0",
-    "starlight-links-validator": "^0.24.0"
+    "starlight-links-validator": "^0.24.1"
   },
   "overrides": {
     "zod": "4.3.6"
