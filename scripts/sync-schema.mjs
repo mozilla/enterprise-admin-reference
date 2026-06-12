@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 import { writeFile, mkdir } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
-import { dirname, resolve } from "node:path";
+import { join } from "node:path";
 
-const SCHEMA_URL =
-  "https://raw.githubusercontent.com/mozilla/enterprise-firefox/enterprise-main/browser/components/enterprisepolicies/schemas/policies-schema.json";
+// Upstream configs
+const REPO = "mozilla/enterprise-firefox";
+const BRANCH = "enterprise-main";
+const SCHEMA_FILE = "browser/components/enterprisepolicies/schemas/policies-schema.json";
+const SCHEMA_URL = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${SCHEMA_FILE}`;
+const COMMIT_URL = `https://api.github.com/repos/${REPO}/commits/${BRANCH}`;
 
-const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const SCHEMA_DIR = resolve(REPO_ROOT, "schema");
-const SCHEMA_PATH = resolve(SCHEMA_DIR, "policies-schema.json");
-const SOURCE_PATH = resolve(SCHEMA_DIR, ".source.json");
+// Local configs
+const SCHEMA_DIR = "schema";
+const JSON_PATH = join(SCHEMA_DIR, "policies-schema.json");
+const META_PATH = join(SCHEMA_DIR, ".source.json");
 
 async function main() {
   const res = await fetch(SCHEMA_URL);
@@ -19,14 +22,25 @@ async function main() {
   const raw = await res.text();
   const parsed = JSON.parse(raw);
 
+  const commitRes = await fetch(COMMIT_URL, {
+    headers: { Accept: "application/vnd.github.sha" },
+  });
+
+  if (!commitRes.ok) {
+    throw new Error(`Failed to resolve commit: ${commitRes.status} ${commitRes.statusText}`);
+  }
+
+  const commit = (await commitRes.text()).trim();
+
   await mkdir(SCHEMA_DIR, { recursive: true });
-  await writeFile(SCHEMA_PATH, raw);
+  await writeFile(JSON_PATH, raw);
   await writeFile(
-    SOURCE_PATH,
+    META_PATH,
     JSON.stringify(
       {
         url: SCHEMA_URL,
-        fetchedAt: new Date().toISOString(),
+        commit,
+        permalink: `https://github.com/${REPO}/blob/${commit}/${SCHEMA_FILE}`,
       },
       null,
       2,
@@ -34,7 +48,8 @@ async function main() {
   );
 
   const policyCount = Object.keys(parsed.properties ?? {}).length;
-  console.log(`Schema synced: ${policyCount} top-level policies`);
+
+  console.log(`Schema fetched: ${policyCount} policies`);
 }
 
 main().catch((err) => {

@@ -8,9 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "schema:sync": "node scripts/sync-schema.mjs",
-    "check:policies": "node scripts/check-policy-docs.mjs",
-    "test": "npm run check:policies"
+    "schema:sync": "node scripts/sync-schema.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.40.0",

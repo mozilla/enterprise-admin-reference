@@ -618,14 +618,15 @@
                 "type": "string",
                 "enum": [
                   "blue",
-                  "turquoise",
+                  "cyan",
                   "green",
                   "yellow",
                   "orange",
                   "red",
                   "pink",
                   "purple",
-                  "toolbar"
+                  "violet",
+                  "gray"
                 ]
               }
             },
@@ -827,7 +828,8 @@
             "reject",
             "limit-foreign",
             "reject-tracker",
-            "reject-tracker-and-partition-foreign"
+            "reject-tracker-and-partition-foreign",
+            "partition-foreign"
           ]
         },
         "BehaviorPrivateBrowsing": {
@@ -838,7 +840,8 @@
             "reject",
             "limit-foreign",
             "reject-tracker",
-            "reject-tracker-and-partition-foreign"
+            "reject-tracker-and-partition-foreign",
+            "partition-foreign"
           ]
         }
       }
@@ -1057,6 +1060,11 @@
       "description": "Prevent Firefox from applying performance, stability, and feature changes between updates.",
       "examples": [true, false]
     },
+
+    "DisableRemoteSettingsAndAcceptSecurityConsequences": {
+      "type": "boolean"
+    },
+
     "DisableSafeMode": {
       "type": "boolean",
       "x-category": "Security",
@@ -1389,6 +1397,18 @@
                 "type": "string"
               }
             },
+            "runtime_allowed_hosts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "runtime_blocked_hosts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "temporarily_allow_weak_signatures": {
               "type": "boolean"
             }
@@ -1423,6 +1443,18 @@
             "default_area": {
               "type": "string",
               "enum": ["navbar", "menupanel"]
+            },
+            "runtime_allowed_hosts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "runtime_blocked_hosts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "temporarily_allow_weak_signatures": {
               "type": "boolean"
@@ -1793,6 +1825,9 @@
           "children": {
             "items": {
               "properties": {
+                "favicon": {
+                  "type": "URL"
+                },
                 "name": {
                   "type": "string"
                 },
@@ -1812,6 +1847,9 @@
               "type": "object"
             },
             "type": "array"
+          },
+          "favicon": {
+            "type": "URL"
           },
           "name": {
             "type": "string"
