@@ -29,7 +29,7 @@ The configuration for each extension is a dictionary that can contain the fields
   Valid values:
   - `allowed`: Allows the extension to be installed by the user. This is the default behavior. There is no need for an `install_url`; it will automatically be allowed based on the ID.
   - `blocked`: Blocks installation of the extension and removes it from the device if already installed. If used in the default (`"*"`) configuration, it blocks all extensions that do not have an explicit configuration with a different `installation_mode`.
-  - `force_installed`: Automatically installs the extension and prevents it from being removed by the user. This option is not valid for the default configuration and requires an `install_url`.
+  - `force_installed`: Automatically installs the extension and prevents it from being removed by the user. This option is not valid for the default configuration and requires an `install_url`. (As of Firefox 152, force-installed extensions are always updated automatically, regardless of the `updates_disabled` setting.)
   - `normal_installed`: Automatically installs the extension but allows it to be disabled by the user. This option is not valid for the default configuration and requires an `install_url`.
 - `install_url`: The URL from which Firefox can download a `force_installed` or `normal_installed` extension. Firefox automatically installs, updates, or re-installs the extension when the XPI file's internal [`version`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) changes.
   - If installing from `addons.mozilla.org`, use `https://addons.mozilla.org/firefox/downloads/latest/ADDON_ID/latest.xpi` and substitute **ADDON_ID** with the extension's ID (for example, `uBlock0@raymondhill.net` or `{446900e4-71c2-419f-a6a7-df9c091e268b}`).
@@ -51,7 +51,7 @@ The configuration for each extension is a dictionary that can contain the fields
   - `"theme"`
 - `blocked_install_message`: Maps to a string specifying the error message to display to users if they're blocked from installing an extension. This allows you to append text to the generic error message, for example to direct users to a help desk or explain why an extension is blocked. This setting can be used only for the default configuration.
 - `restricted_domains`: An array of domains on which content scripts can't be run. This setting can be used only for the default configuration.
-- `updates_disabled`: (Firefox 89, Firefox ESR 78.11) Boolean that indicates whether to disable automatic updates for an individual extension.
+- `updates_disabled`: (Firefox 89, Firefox ESR 78.11) Boolean that indicates whether to disable automatic updates for an individual extension. As of Firefox 152, setting this to `false` forces automatic updates to stay enabled and prevents the user from disabling updates for the extension in the Add-ons Manager.
 - `default_area`: (Firefox 113) String that indicates where to place the extension icon by default. Possible values are `navbar` and `menupanel`.
 - `temporarily_allow_weak_signatures`: (Firefox 127) Boolean that indicates whether to allow installing extensions signed using deprecated signature algorithms.
 - `private_browsing`: (Firefox 136, Firefox ESR 128.8) Boolean that indicates whether this extension should be enabled in private browsing.
