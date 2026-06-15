@@ -28,7 +28,7 @@ Use the following sections per release and omit any that don't apply:
 - `### Fixed`: bug fixes, or corrections to documentation
 - `### Removed`: removed policies or deprecated functionality
 
-### Examples
+## Examples
 
 The following entry is for Firefox release version 119:
 
