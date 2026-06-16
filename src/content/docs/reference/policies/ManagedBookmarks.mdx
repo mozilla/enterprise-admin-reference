@@ -8,7 +8,7 @@ Configures a list of bookmarks managed by an administrator that cannot be change
 
 The bookmarks are only added as a button on the personal toolbar. They are not in the bookmarks folder.
 
-The syntax of this policy is exactly the same as the [Chrome ManagedBookmarks policy](https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ManagedBookmarks).
+The syntax of this policy is based on the [Chrome ManagedBookmarks policy](https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ManagedBookmarks), with the addition of the Firefox-specific `favicon` property.
 The schema is:
 
 ```json
@@ -21,6 +21,9 @@ The schema is:
           "$ref": "BookmarkType"
         },
         "type": "array"
+      },
+      "favicon": {
+        "type": "string"
       },
       "name": {
         "type": "string"
@@ -38,6 +41,8 @@ The schema is:
 }
 ```
 
+A `favicon` can be specified for each bookmark. The value must be a `data:`, `http:`, or `https:` URL. (Added in Firefox 152)
+
 **Compatibility:** Firefox 83, Firefox ESR 78.5\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
@@ -53,7 +58,8 @@ Software\Policies\Mozilla\Firefox\ManagedBookmarks (REG_MULTI_SZ) =
   },
   {
     "url": "example.com",
-    "name": "Example"
+    "name": "Example",
+    "favicon": "https://example.com/favicon.ico"
   },
   {
     "name": "Mozilla links",
@@ -90,7 +96,8 @@ Value (string):
   },
   {
     "url": "example.com",
-    "name": "Example"
+    "name": "Example",
+    "favicon": "https://example.com/favicon.ico"
   },
   {
     "name": "Mozilla links",
@@ -138,6 +145,8 @@ Value (string):
         <string>example.com</string>
         <key>name</key>
         <string>Example</string>
+        <key>favicon</key>
+        <string>https://example.com/favicon.ico</string>
       </dict>
       <dict>
       <key>name</key>
@@ -173,7 +182,8 @@ Value (string):
       },
       {
         "url": "example.com",
-        "name": "Example"
+        "name": "Example",
+        "favicon": "https://example.com/favicon.ico"
       },
       {
         "name": "Mozilla links",
