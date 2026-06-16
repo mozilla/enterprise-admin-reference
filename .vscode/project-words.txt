@@ -16,6 +16,7 @@ cryptomining
 datareporting
 datareporting.healthreport
 Deutsch
+disablepocket
 domainsuffixwhitelist
 domainwhitelist
 Entra
