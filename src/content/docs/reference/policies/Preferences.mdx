@@ -10,12 +10,14 @@ Previously you could only set and lock a subset of preferences.
 Starting with Firefox 81 and Firefox ESR 78.3 you can set many more preferences.
 You can also set default preferences, user preferences and you can clear preferences.
 
-> [!NOTE]
-> On Windows, in order to use this policy, you must clear all settings in the old **Preferences (deprecated)** section in group policy.
+:::note
+On Windows, in order to use this policy, you must clear all settings in the old **Preferences (deprecated)** section in group policy.
+:::
 
-> [!NOTE]
-> There are too many preferences to provide comprehensive documentation here.
-> The source file [StaticPrefList.yaml](https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml) contains information about most of them.
+:::note
+There are too many preferences to provide comprehensive documentation here.
+The source file [StaticPrefList.yaml](https://searchfox.org/mozilla-central/source/modules/libpref/init/StaticPrefList.yaml) contains information about most of them.
+:::
 
 **Compatibility:** Firefox 81, Firefox ESR 78.3\
 **CCK2 Equivalent:** `preferences`\
@@ -116,8 +118,9 @@ You can also set the `Type` starting in Firefox 123 and Firefox ESR 115.8. It ca
 
 See the examples below for more detail.
 
-> [!WARNING]
-> Make sure you're only setting a particular preference using this mechanism and not some other way.
+:::caution
+Make sure you're only setting a particular preference using this mechanism and not some other way.
+:::
 
 ## Windows (GPO)
 

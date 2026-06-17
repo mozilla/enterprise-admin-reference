@@ -27,8 +27,9 @@ If this policy is not configured, tracking protection is not enabled by default 
 - If `BaselineExceptions` is true, Firefox will automatically apply exceptions required to avoid major website breakage. (Firefox 145)
 - If `ConvenienceExceptions` is true, Firefox will apply exceptions automatically that are only required to fix minor issues and make convenience features available. (Firefox 145)
 
-> [!NOTE]
-> Users can change `BaselineExceptions` and `ConvenienceExceptions` even when `Category` is set to `strict` unless `Locked` is set to true. If `Locked` is set to `true`, `BaselineExceptions` and `ConvenienceExceptions` use their initial values (based on the tracking protection `Category`) unless policy explicitly sets them.
+:::note
+Users can change `BaselineExceptions` and `ConvenienceExceptions` even when `Category` is set to `strict` unless `Locked` is set to true. If `Locked` is set to `true`, `BaselineExceptions` and `ConvenienceExceptions` use their initial values (based on the tracking protection `Category`) unless policy explicitly sets them.
+:::
 
 ## Windows (GPO)
 

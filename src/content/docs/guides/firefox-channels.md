@@ -21,9 +21,10 @@ The following resources are useful for tracking what's changed in Firefox releas
 - [Firefox release notes for developers](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases): these release notes describe **developer-facing** changes.
   This contains details on new or updated web platform features, APIs, and tools that developers use.
 
-> [!NOTE]
-> This release channel is best suited for organizations that want the latest and features as soon as they are available.
-> Because this release channel contains more frequent updates than ESR, UI changes, privacy or security changes may require testing with your environment in a more frequent cadence than the Extended Support Release.
+:::note
+This release channel is best suited for organizations that want the latest and features as soon as they are available.
+Because this release channel contains more frequent updates than ESR, UI changes, privacy or security changes may require testing with your environment in a more frequent cadence than the Extended Support Release.
+:::
 
 ## Firefox Extended Support Release (ESR)
 
@@ -31,10 +32,11 @@ New versions of ESR are released **annually**.
 After release, each ESR version receives incremental security updates as _minor_ or _patch_ release versions (`major.minor.patch`).
 Other features, such as UI or UX improvements, are excluded from the ESR channel, and are limited to annual ESR releases.
 
-> [!NOTE]
-> ESR is ideal for deployment environments that need stability and long-term compatibility.
-> It may be convenient to choose ESR to avoid frequent QA cycles, for example.
-> Other enterprise systems may rely on visual or behavioral consistency during testing or in production environments.
+:::note
+ESR is ideal for deployment environments that need stability and long-term compatibility.
+It may be convenient to choose ESR to avoid frequent QA cycles, for example.
+Other enterprise systems may rely on visual or behavioral consistency during testing or in production environments.
+:::
 
 ## Firefox release schedule
 

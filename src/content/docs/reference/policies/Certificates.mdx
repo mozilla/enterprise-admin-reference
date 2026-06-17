@@ -16,8 +16,10 @@ Install and manage certificates in Firefox.
 
 - `ImportEnterpriseRoots` (boolean): Trust certificates that have been added to the operating system certificate store by a user or administrator.
 
-  > [!NOTE] `ImportEnterpriseRoots` only works on Windows and macOS.
-  > For Linux discussion, see [bug 1600509](https://bugzilla.mozilla.org/show_bug.cgi?id=1600509).
+  :::note
+  `ImportEnterpriseRoots` only works on Windows and macOS.
+  For Linux discussion, see [bug 1600509](https://bugzilla.mozilla.org/show_bug.cgi?id=1600509).
+  :::
 
 - `Install` (array of strings): Install certificates into the Firefox certificate store.
   If only a filename is specified, Firefox searches for the file in the following locations:
