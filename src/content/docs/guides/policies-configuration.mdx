@@ -19,9 +19,8 @@ For each operating system, there is a defined location that Firefox will check:
 - **On Linux**, the `policies.json` file goes into `firefox/distribution`, where `firefox` is the installation directory for firefox, which varies by distribution.
   Alternatively, you may specify system-wide policy by placing the file in `/etc/firefox/policies`.
 
-:::note
-The `policies.json` files must be `UTF-8`-encoded.
-:::
+> [!NOTE]
+> The `policies.json` files must be `UTF-8`-encoded.
 
 An example policy looks as follows:
 
@@ -43,9 +42,8 @@ For example, `Authentication_Comment` is an internal value used for documentatio
 }
 ```
 
-:::caution
-If you add comments in this way, `about:policies` will display an error due to expected syntax, but the policies will be applied as expected.
-:::
+> [!WARNING]
+> If you add comments in this way, `about:policies` will display an error due to expected syntax, but the policies will be applied as expected.
 
 ## See also
 

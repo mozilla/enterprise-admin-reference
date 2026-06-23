@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import starlightGitHubAlerts from "starlight-github-alerts";
 import starlightChangelogs, { makeChangelogsSidebarLinks } from "starlight-changelogs";
 import starlightLinksValidator from "starlight-links-validator";
 import { unified } from "@astrojs/markdown-remark";
@@ -57,7 +58,7 @@ export default defineConfig({
       },
       favicon: "/favicon.png",
       lastUpdated: true,
-      plugins: [starlightChangelogs(), starlightLinksValidator()],
+      plugins: [starlightGitHubAlerts(), starlightChangelogs(), starlightLinksValidator()],
       sidebar: [
         {
           label: "Reference",
