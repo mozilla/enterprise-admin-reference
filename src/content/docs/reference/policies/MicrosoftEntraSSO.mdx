@@ -4,6 +4,8 @@ description: "Allow single sign-on for Microsoft Entra accounts on macOS."
 category: "Authentication"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Allow single sign-on for Microsoft Entra accounts on macOS.
 
 If this policy is set to `true`, Firefox will use credentials stored in the Company Portal to sign in to Microsoft Entra accounts.
@@ -11,6 +13,10 @@ If this policy is set to `true`, Firefox will use credentials stored in the Comp
 **Compatibility:** Firefox 132.0.1, Firefox ESR 128.5\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.http.microsoft-entra-sso.enabled`
+
+## Examples
+
+<PolicyExample policy="MicrosoftEntraSSO" />
 
 ## macOS
 

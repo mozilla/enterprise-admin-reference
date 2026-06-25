@@ -4,6 +4,8 @@ description: "Prevent the user from bypassing security in certain cases."
 category: "Certificate management"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Prevent the user from bypassing security in certain cases.
 
 These policies only affect what happens when an error is shown, they do not affect any settings in preferences.
@@ -11,6 +13,10 @@ These policies only affect what happens when an error is shown, they do not affe
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `security.certerror.hideAddException`, `browser.safebrowsing.allowOverride`
+
+## Examples
+
+<PolicyExample policy="DisableSecurityBypass" />
 
 ## Values
 

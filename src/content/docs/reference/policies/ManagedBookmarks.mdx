@@ -4,6 +4,8 @@ description: "Configures a list of bookmarks managed by an administrator that ca
 category: "Bookmarks"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Configures a list of bookmarks managed by an administrator that cannot be changed by the user.
 
 The bookmarks are only added as a button on the personal toolbar. They are not in the bookmarks folder.
@@ -46,6 +48,10 @@ A `favicon` can be specified for each bookmark. The value must be a `data:`, `ht
 **Compatibility:** Firefox 83, Firefox ESR 78.5\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="ManagedBookmarks" />
 
 ## Windows (GPO)
 

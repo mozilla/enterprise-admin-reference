@@ -4,6 +4,8 @@ description: "Disable the built in PDF viewer."
 category: "Printing"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Disable the built in PDF viewer. PDF files are downloaded and sent externally.
 
 > [!NOTE] As of Firefox 140, this policy no longer completely disables PDF.js; it changes the handler to send PDF files to the operating system.
@@ -13,6 +15,10 @@ Disable the built in PDF viewer. PDF files are downloaded and sent externally.
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** `disablePDFjs`\
 **Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="DisableBuiltinPDFViewer" />
 
 ## Windows (GPO)
 

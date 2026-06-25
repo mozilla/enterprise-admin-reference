@@ -4,11 +4,17 @@ description: "Configure search engines: add new ones, set defaults, prevent user
 category: "Search"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Configure search engines in Firefox. As of Firefox 139, these policies are available in all Firefox release channels.
 
 **Compatibility:** Firefox 139, Firefox ESR 60. `POST` support in Firefox ESR 68, `Encoding` in Firefox 91, `Remove` in Firefox ESR 60.2.\
 **CCK2 Equivalent:** `searchplugins` (Add), `defaultSearchEngine` (Default), `disableSearchEngineInstall` (PreventInstalls), `removeDefaultSearchEngines` (Remove)\
 **Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="SearchEngines" />
 
 ## Values
 

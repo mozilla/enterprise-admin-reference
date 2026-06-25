@@ -4,6 +4,8 @@ description: "Define a list of external protocols that can be used from listed o
 category: "Network security"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Define a list of external protocols that can be used from listed origins without prompting the user. The origin is the scheme plus the hostname.
 
 The syntax of this policy is exactly the same as the [Chrome AutoLaunchProtocolsFromOrigins policy](https://chromeenterprise.google/policies/#AutoLaunchProtocolsFromOrigins) except that you can only use valid origins (not just hostnames).
@@ -35,6 +37,10 @@ The schema is:
 **Compatibility:** Firefox 90, Firefox ESR 78.12\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="AutoLaunchProtocolsFromOrigins" />
 
 ## Windows (GPO)
 

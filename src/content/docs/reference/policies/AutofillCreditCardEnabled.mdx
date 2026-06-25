@@ -4,6 +4,8 @@ description: "Enables or disables autofill for payment methods."
 category: "Password manager"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Enables or disables autofill for payment methods.
 
 This only applies when payment method autofill is enabled for a particular Firefox version or region. See [Automatically fill in credit card data](https://support.mozilla.org/kb/credit-card-autofill) for more information.
@@ -11,6 +13,10 @@ This only applies when payment method autofill is enabled for a particular Firef
 **Compatibility:** Firefox 125, Firefox ESR 115.10\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `extensions.formautofill.creditCards.enabled`
+
+## Examples
+
+<PolicyExample policy="AutofillCreditCardEnabled" />
 
 ## Windows (GPO)
 

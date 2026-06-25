@@ -4,6 +4,8 @@ description: "Set the default download directory."
 category: "Downloads"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Set the default download directory.
 
 You can use `${home}` for the native home directory.
@@ -11,6 +13,10 @@ You can use `${home}` for the native home directory.
 **Compatibility:** Firefox 68, Firefox ESR 68\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.download.dir`, `browser.download.folderList`
+
+## Examples
+
+<PolicyExample policy="DefaultDownloadDirectory" />
 
 ## Windows (GPO)
 

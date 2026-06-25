@@ -4,6 +4,8 @@ description: "Enables or disables autofill for addresses."
 category: "Password manager"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Enables or disables autofill for addresses.
 
 This only applies when address autofill is enabled for a particular Firefox version or region.
@@ -12,6 +14,10 @@ See [Automatically fill in your address on web forms](https://support.mozilla.or
 **Compatibility:** Firefox 125, Firefox ESR 115.10\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `extensions.formautofill.addresses.enabled`
+
+## Examples
+
+<PolicyExample policy="AutofillAddressEnabled" />
 
 ## Windows (GPO)
 

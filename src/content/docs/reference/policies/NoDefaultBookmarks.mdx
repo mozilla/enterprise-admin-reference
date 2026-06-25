@@ -4,6 +4,8 @@ description: "Disable the creation of default bookmarks."
 category: "Bookmarks"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Disable the creation of default bookmarks.
 
 This policy is only effective if the user profile has not been created yet.
@@ -11,6 +13,10 @@ This policy is only effective if the user profile has not been created yet.
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** `removeDefaultBookmarks`\
 **Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="NoDefaultBookmarks" />
 
 ## Windows (GPO)
 

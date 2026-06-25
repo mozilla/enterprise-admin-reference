@@ -4,6 +4,8 @@ description: "Enable or disable **automatic** application update."
 category: "Device update settings"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Enable or disable **automatic** application update.
 
 If set to `true`, application updates are installed without user approval within Firefox. The operating system might still require approval.
@@ -15,6 +17,10 @@ If you have disabled updates via [`DisableAppUpdate`](/reference/policies/disabl
 **Compatibility:** Firefox 75, Firefox ESR 68.7\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `app.update.auto`
+
+## Examples
+
+<PolicyExample policy="AppAutoUpdate" />
 
 ## Windows (GPO)
 

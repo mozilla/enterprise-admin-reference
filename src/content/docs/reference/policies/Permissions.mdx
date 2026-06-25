@@ -4,6 +4,8 @@ description: "Set permissions associated with camera, microphone, location, noti
 category: "Content settings"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Set permissions associated with camera, microphone, location, notifications, autoplay, and virtual reality.
 Because these are origins, not domains, entries with unique ports must be specified separately.
 This explicitly means that it is not possible to add wildcards. See examples below.
@@ -11,6 +13,10 @@ This explicitly means that it is not possible to add wildcards. See examples bel
 **Compatibility:** Firefox 62, Firefox ESR 60.2 (Autoplay added in Firefox 74, Firefox ESR 68.6, Autoplay Default/Locked added in Firefox 76, Firefox ESR 68.8, VirtualReality added in Firefox 80, Firefox ESR 78.2, ScreenShare added in Firefox 142, Firefox ESR 140.2)\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `permissions.default.camera`, `permissions.default.microphone`, `permissions.default.geo`, `permissions.default.desktop-notification`, `media.autoplay.default`, `permissions.default.xr`, `permissions.default.screen`
+
+## Examples
+
+<PolicyExample policy="Permissions" />
 
 ## Values
 

@@ -1,0 +1,21 @@
+---
+import { Code } from "@astrojs/starlight/components";
+import schema from "../../schema/policies-schema.json";
+
+interface Props {
+  /** Match a key under `properties` in policies-schema.json. */
+  policy: string;
+}
+
+const { policy } = Astro.props;
+
+const entry = (schema.properties as Record<string, { examples?: unknown[] }>)[policy];
+const examples = Array.isArray(entry?.examples) ? entry.examples : [];
+
+// Wrap each in `{ policies: { policyname:`, so it's copy-paste ready.
+const blocks = examples.map((example) =>
+  JSON.stringify({ policies: { [policy]: example } }, null, 2),
+);
+---
+
+{blocks.map((code) => <Code code={code} lang="json" title="policies.json" />)}

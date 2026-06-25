@@ -4,6 +4,8 @@ description: "Override the first run page."
 category: "Startup"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Override the first run page. If the value is an empty string (`""`), the first run page is not displayed.
 
 Starting with Firefox 83, Firefox ESR 78.5, you can also specify multiple URLs separated by a vertical bar (`|`).
@@ -11,6 +13,10 @@ Starting with Firefox 83, Firefox ESR 78.5, you can also specify multiple URLs s
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** `welcomePage`,`noWelcomePage`\
 **Preferences Affected:** `startup.homepage_welcome_url`
+
+## Examples
+
+<PolicyExample policy="OverrideFirstRunPage" />
 
 ## Windows (GPO)
 

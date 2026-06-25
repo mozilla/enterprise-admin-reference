@@ -4,6 +4,8 @@ description: "Enable or disable automatic application update in the background, 
 category: "Device update settings"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Enable or disable automatic application update **in the background**, when the application is not running.
 
 If set to `true`, application updates may be installed (without explicit user approval) in the background, even when the application is not running.
@@ -19,6 +21,10 @@ If you are having trouble getting the background task to run, verify your config
 **Compatibility:** Firefox 90 (Windows only)\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `app.update.background.enabled`
+
+## Examples
+
+<PolicyExample policy="BackgroundAppUpdate" />
 
 ## Windows (GPO)
 

@@ -4,6 +4,8 @@ description: "Clear navigation data on shutdown."
 category: "Local data storage"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Clear local data on shutdown.
 `SanitizeOnShutdown` accepts either a boolean to clear all data types or an object to choose which data types to clear.
 Items that can be selectively deleted include browsing & download history, cookies, active logins, caches, form history, and site preferences.
@@ -13,6 +15,10 @@ Items that can be selectively deleted include browsing & download history, cooki
 **Compatibility:** Firefox 60, Firefox ESR 60. Object form added in Firefox 68/ESR 68, `Locked` added in 74/68.6, `History` in Firefox 128.\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `privacy.sanitize.sanitizeOnShutdown`, `privacy.clearOnShutdown.cache`, `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.downloads`, `privacy.clearOnShutdown.formdata`, `privacy.clearOnShutdown.history`, `privacy.clearOnShutdown.sessions`, `privacy.clearOnShutdown.siteSettings`, `privacy.clearOnShutdown.offlineApps`, `privacy.clearOnShutdown_v2.browsingHistoryAndDownloads` (Firefox 128), `privacy.clearOnShutdown_v2.cookiesAndStorage` (Firefox 128), `privacy.clearOnShutdown_v2.cache` (Firefox 128), `privacy.clearOnShutdown_v2.siteSettings` (Firefox 128), `privacy.clearOnShutdown_v2.formdata` (Firefox 128)
+
+## Examples
+
+<PolicyExample policy="SanitizeOnShutdown" />
 
 ## Values
 

@@ -4,6 +4,8 @@ description: "Fine grained control over policies for specific sites."
 category: "Browsing restrictions"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Defines policies scoped to specific sites.
 
 **Compatibility:** Firefox 150, Firefox ESR 153\
@@ -46,6 +48,10 @@ While this setting would disable the JIT on every site except `*.example.org`:
   }
 ]
 ```
+
+## Examples
+
+<PolicyExample policy="SitePolicies" />
 
 ## Windows (GPO)
 

@@ -4,6 +4,8 @@ description: "Disable backup or restore of profile data."
 category: "Security"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Disable backup or restore of profile data.
 Backup and restore can be disabled individually.
 
@@ -20,6 +22,10 @@ Backup and restore can be disabled individually.
 Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowBackup = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowRestore = 0x1 | 0x0
 ```
+
+## Examples
+
+<PolicyExample policy="BrowserDataBackup" />
 
 ## Windows (Intune)
 

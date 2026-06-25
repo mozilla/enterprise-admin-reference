@@ -4,11 +4,17 @@ description: "Sets the default value of 'signon.rememberSignons' without locking
 category: "Password manager"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Sets the default value of `signon.rememberSignons` without locking it.
 
 **Compatibility:** Firefox 70, Firefox ESR 60.2\
 **CCK2 Equivalent:** `dontRememberPasswords`\
 **Preferences Affected:** `signon.rememberSignons`
+
+## Examples
+
+<PolicyExample policy="OfferToSaveLoginsDefault" />
 
 ## Windows (GPO)
 

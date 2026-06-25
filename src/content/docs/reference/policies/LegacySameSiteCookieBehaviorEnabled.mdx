@@ -4,6 +4,8 @@ description: "Enable default legacy SameSite cookie behavior setting."
 category: "Network security"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Enable default legacy SameSite cookie behavior setting.
 
 If this policy is set to true, it reverts all cookies to legacy SameSite behavior which means that cookies that don't explicitly specify a [`SameSite` attribute](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie#samesitesamesite-value) are treated as if they were `SameSite=None`.
@@ -11,6 +13,10 @@ If this policy is set to true, it reverts all cookies to legacy SameSite behavio
 **Compatibility:** Firefox 96\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.cookie.sameSite.laxByDefault`
+
+## Examples
+
+<PolicyExample policy="LegacySameSiteCookieBehaviorEnabled" />
 
 ## Windows (GPO)
 

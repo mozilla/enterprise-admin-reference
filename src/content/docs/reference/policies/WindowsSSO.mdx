@@ -4,6 +4,8 @@ description: "Allow Windows single sign-on for Microsoft, work, and school accou
 category: "Authentication"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Allow Windows single sign-on for Microsoft, work, and school accounts.
 
 If this policy is set to `true`, Firefox will use credentials stored in Windows to sign in to Microsoft, work, and school accounts.
@@ -11,6 +13,10 @@ If this policy is set to `true`, Firefox will use credentials stored in Windows 
 **Compatibility:** Firefox 91\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.http.windows-sso.enabled`
+
+## Examples
+
+<PolicyExample policy="WindowsSSO" />
 
 ## Windows (GPO)
 

@@ -4,6 +4,8 @@ description: "Prevent Firefox from being updated beyond the specified version."
 category: "Device update settings"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Prevent Firefox from being updated beyond the specified pinned version.
 
 The format for versioning is [semver](https://semver.org/), which uses `MAJOR.MINOR.PATCH` format.
@@ -21,6 +23,10 @@ If you specify a version that doesn't exist, Firefox will update beyond that ver
 **Compatibility:** Firefox 102,\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="AppUpdatePin" />
 
 ## Windows (GPO)
 

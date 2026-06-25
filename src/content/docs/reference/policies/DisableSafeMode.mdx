@@ -4,6 +4,8 @@ description: "Disable safe mode (Troubleshoot Mode) within the browser."
 category: "Security"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Disable safe mode ([Troubleshoot Mode](https://support.mozilla.org/en-US/kb/diagnose-firefox-issues-using-troubleshoot-mode)) within the browser.
 
 On Windows, this disables safe mode via the command line as well.
@@ -11,6 +13,10 @@ On Windows, this disables safe mode via the command line as well.
 **Compatibility:** Firefox 60, Firefox ESR 60 (Windows, macOS)\
 **CCK2 Equivalent:** `disableSafeMode`\
 **Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="DisableSafeMode" />
 
 ## Windows (GPO)
 

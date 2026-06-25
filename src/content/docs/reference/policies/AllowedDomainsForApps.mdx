@@ -4,6 +4,8 @@ description: "Define domains allowed to access Google Workspace."
 category: "Network security"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Define domains allowed to access Google Workspace.
 This policy is based on the [Chrome policy](https://chromeenterprise.google/policies/#AllowedDomainsForApps) of the same name.
 If this policy is enabled, users can only access Google Workspace using accounts from the specified domains. If you want to allow Gmail, you can add `consumer_accounts` to the list.
@@ -11,6 +13,10 @@ If this policy is enabled, users can only access Google Workspace using accounts
 **Compatibility:** Firefox 89, Firefox ESR 78.11\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="AllowedDomainsForApps" />
 
 ## Windows (GPO)
 

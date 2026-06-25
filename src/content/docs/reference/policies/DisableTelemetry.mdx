@@ -4,6 +4,8 @@ description: "Prevent the upload of telemetry data."
 category: "Miscellaneous"
 ---
 
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
 Prevent the upload of telemetry data.
 
 As of Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is disabled as well.
@@ -14,6 +16,10 @@ Information collected through telemetry helps us build a better product for busi
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** `disableTelemetry`\
 **Preferences Affected:** `datareporting.healthreport.uploadEnabled`, `datareporting.policy.dataSubmissionEnabled`, `toolkit.telemetry.archive.enabled`, `datareporting.usage.uploadEnabled`
+
+## Examples
+
+<PolicyExample policy="DisableTelemetry" />
 
 ## Windows (GPO)
 

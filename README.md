@@ -61,6 +61,26 @@ See my example:
 <Code code={policy} lang="json" title="policies.json" />
 ```
 
+### Policy examples
+
+Each reference page shows a copy & paste-ready JSON example under `## Examples`.
+The examples come from the upstream policy schema, which is fetched to `schema/policies-schema.json`.
+This can be refreshed from upstream using `npm run schema:sync`.
+
+To add the example to a policy page, import the `PolicyExample` component and pass the policy name as `policy="policy-name"`:
+
+```mdx
+---
+title: "Some page"
+---
+
+import PolicyExample from "../../../../components/PolicyExample.astro";
+
+## Examples
+
+<PolicyExample policy="MyCoolPolicy" />
+```
+
 ## Starlight documentation
 
 See [Starlight's docs](https://starlight.astro.build/), or read [the Astro documentation](https://docs.astro.build).
