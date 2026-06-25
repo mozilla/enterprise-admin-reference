@@ -62,8 +62,7 @@ export default defineConfig({
       sidebar: [
         {
           label: "Reference",
-          items: [{ autogenerate: { directory: "reference" } }],
-          collapsed: true,
+          items: [{ autogenerate: { directory: "reference", collapsed: true } }],
         },
         {
           label: "Guides",
