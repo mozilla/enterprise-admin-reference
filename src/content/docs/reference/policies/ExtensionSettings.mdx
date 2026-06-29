@@ -60,7 +60,7 @@ The configuration for each extension is a dictionary that can contain the fields
   An extension that requires one of these permissions cannot be installed, and is disabled if it is already installed.
   Optional permissions matching the list that were previously granted are revoked, and calls to `permissions.request()` for a blocked permission are rejected.
   Host permissions (such as `<all_urls>` or match patterns) and internal permissions are ignored.
-- `allowed_permissions`: (Firefox 153) An array of [API permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) that are exempted from `blocked_permissions` within the same configuration.
+- `allowed_permissions`: (Firefox 154) An array of [API permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) that are exempted from `blocked_permissions` within the same configuration.
   A per-extension `allowed_permissions` carves out exceptions to that extension's own `blocked_permissions`.
   Setting `allowed_permissions` in the default (`"*"`) configuration has no effect.
 
