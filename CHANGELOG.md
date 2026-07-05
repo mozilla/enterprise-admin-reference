@@ -4,6 +4,12 @@
 
 ## Unreleased
 
+### fx-155.0.0
+
+#### Added
+
+- `DisableLocalPolicies` policy: Disable all local policy sources (policies.json, Windows GPO and macOS plist). [#216](https://github.com/mozilla/enterprise-admin-reference/pull/216)
+
 ### fx-151.0.0
 
 #### Added
