@@ -10,6 +10,10 @@ Enable or disable the detection of captive portals.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.captive-portal-service.enabled`
 
+## Examples
+
+<PolicyExample policy="CaptivePortal" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>CaptivePortal</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "CaptivePortal": true | false
-  }
-}
 ```

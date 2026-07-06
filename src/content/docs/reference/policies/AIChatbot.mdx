@@ -14,6 +14,10 @@ For more information, see [Access AI chatbots in Firefox](https://support.mozill
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.ml.chat.enabled`, `browser.ml.chat.provider`, `browser.ml.chat.providers`, `browser.ml.chat.shortcuts`, `browser.ml.chat.prompts.0`, `browser.ml.chat.prompts.1`, `browser.ml.chat.prompts.2`, `browser.ml.chat.prompts.3`
 
+## Examples
+
+<PolicyExample policy="AIChatbot" />
+
 ## Values
 
 - `Providers`: Configures the available AI chatbot providers.
@@ -129,45 +133,4 @@ Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\BuiltIn\Proofread = 0x1 | 0x
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AIChatbot": {
-      "Providers": {
-        "Add": [
-          {
-            "url": "https://example.com",
-            "name": "Example AI",
-            "id": "example-ai",
-            "iconUrl": "https://example.com/icon.png",
-            "queryParam": "q"
-          }
-        ],
-        "BuiltIn": {
-          "Anthropic Claude": true | false,
-          "ChatGPT": true | false,
-          "Copilot": true | false,
-          "Google Gemini": true | false,
-          "HuggingChat": true | false,
-          "Le Chat Mistral": true | false,
-          "localhost": true | false
-        },
-        "Default": "example-ai"
-      },
-      "Prompts": {
-        "Enabled": true | false,
-        "BuiltIn": {
-          "Summarize": true | false,
-          "Explain": true | false,
-          "Quiz": true | false,
-          "Proofread": true | false
-        }
-      }
-    }
-  }
-}
 ```

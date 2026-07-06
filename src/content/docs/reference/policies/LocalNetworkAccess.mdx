@@ -11,6 +11,10 @@ The `LocalNetworkAccess` policy controls Firefox's behavior when websites attemp
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.lna.enabled`, `network.lna.block_trackers`, `network.lna.blocking`, `network.lna.skip-domains`
 
+## Examples
+
+<PolicyExample policy="LocalNetworkAccess" />
+
 ## Values
 
 - `Enabled`: a Boolean that enables or disables the policy.
@@ -43,7 +47,7 @@ Suffix wildcard patterns for are supported using the `*.` prefix to match all su
 - `"*.devices.local"` - Allows access to all local devices with `.devices.local` suffix (`printer.devices.local`, `scanner.devices.local`, etc.).
 - `"*.corp.internal"` - Allows access to all corporate internal domains.
 
-#### Windows (GPO)
+## Windows (GPO)
 
 ```
 Software\Policies\Mozilla\Firefox\LocalNetworkAccess\Enabled = 0x1 | 0x0
@@ -55,7 +59,7 @@ Software\Policies\Mozilla\Firefox\LocalNetworkAccess\SkipDomains\3 = "*.corp.int
 Software\Policies\Mozilla\Firefox\LocalNetworkAccess\Locked = 0x1 | 0x0
 ```
 
-#### Windows (Intune)
+## Windows (Intune)
 
 OMA-URI:
 
@@ -118,7 +122,7 @@ Value (string):
 <enabled/> or <disabled/>
 ```
 
-#### macOS
+## macOS
 
 ```
 <dict>
@@ -141,25 +145,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-#### policies.json
-
-```
-{
-  "policies": {
-    "LocalNetworkAccess": {
-      "Enabled": true | false,
-      "BlockTrackers": true | false,
-      "EnablePrompting": true | false,
-      "SkipDomains": [
-        "intranet.company.com",
-        "*.devices.local",
-        "admin-portal.enterprise.com",
-        "*.corp.internal"
-      ],
-      "Locked": true | false
-    }
-  }
-}
 ```

@@ -12,6 +12,10 @@ If this policy is set to true, it reverts all cookies to legacy SameSite behavio
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.cookie.sameSite.laxByDefault`
 
+## Examples
+
+<PolicyExample policy="LegacySameSiteCookieBehaviorEnabled" />
+
 ## Windows (GPO)
 
 ```
@@ -39,13 +43,4 @@ Value (string):
   <key>LegacySameSiteCookieBehaviorEnabled</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "LegacySameSiteCookieBehaviorEnabled": true | false
-}
 ```

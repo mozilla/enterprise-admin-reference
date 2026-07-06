@@ -47,6 +47,10 @@ A `favicon` can be specified for each bookmark. The value must be a `data:`, `ht
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="ManagedBookmarks" />
+
 ## Windows (GPO)
 
 Software\Policies\Mozilla\Firefox\ManagedBookmarks (REG_MULTI_SZ) =
@@ -169,36 +173,4 @@ Value (string):
     </dict>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "ManagedBookmarks": [
-      {
-        "toplevel_name": "My managed bookmarks folder"
-      },
-      {
-        "url": "example.com",
-        "name": "Example",
-        "favicon": "https://example.com/favicon.ico"
-      },
-      {
-        "name": "Mozilla links",
-        "children": [
-          {
-            "url": "https://mozilla.org",
-            "name": "Mozilla.org"
-          },
-          {
-            "url": "https://support.mozilla.org/",
-            "name": "SUMO"
-          }
-        ]
-      }
-    ]
-  }
-}
 ```

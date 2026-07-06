@@ -5,6 +5,7 @@ import starlightGitHubAlerts from "starlight-github-alerts";
 import starlightChangelogs, { makeChangelogsSidebarLinks } from "starlight-changelogs";
 import starlightLinksValidator from "starlight-links-validator";
 import { unified } from "@astrojs/markdown-remark";
+import remarkAutoImportPolicyExample from "./src/plugins/auto-import-examples.mjs";
 
 export const locales = {
   root: { label: "English", lang: "en" },
@@ -32,7 +33,10 @@ export default defineConfig({
   },
   // Don't render `"` as smart quotes:
   markdown: {
-    processor: unified({ smartypants: false }),
+    processor: unified({
+      smartypants: false,
+      remarkPlugins: [remarkAutoImportPolicyExample],
+    }),
   },
   integrations: [
     starlight({

@@ -21,6 +21,10 @@ Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowBackup = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowRestore = 0x1 | 0x0
 ```
 
+## Examples
+
+<PolicyExample policy="BrowserDataBackup" />
+
 ## Windows (Intune)
 
 OMA-URI:
@@ -48,17 +52,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "BrowserDataBackup": {
-      "AllowBackup": true | false,
-      "AllowRestore": true | false
-    }
-  }
-}
 ```

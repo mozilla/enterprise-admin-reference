@@ -13,6 +13,10 @@ The `PrivateBrowsing` member enables integrated authentication in private browsi
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.negotiate-auth.trusted-uris`,`network.negotiate-auth.delegation-uris`,`network.automatic-ntlm-auth.trusted-uris`,`network.automatic-ntlm-auth.allow-non-fqdn`,`network.negotiate-auth.allow-non-fqdn`,`network.automatic-ntlm-auth.allow-proxies`,`network.negotiate-auth.allow-proxies`,`network.auth.private-browsing-sso`
 
+## Examples
+
+<PolicyExample policy="Authentication" />
+
 ## Windows (GPO)
 
 ```
@@ -150,30 +154,6 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Authentication": {
-      "SPNEGO": ["mydomain.com", "https://myotherdomain.com"],
-      "Delegated": ["mydomain.com", "https://myotherdomain.com"],
-      "NTLM": ["mydomain.com", "https://myotherdomain.com"],
-      "AllowNonFQDN": {
-        "SPNEGO": true | false,
-        "NTLM": true | false
-      },
-      "AllowProxies": {
-        "SPNEGO": true | false,
-        "NTLM": true | false
-      },
-      "Locked": true | false,
-      "PrivateBrowsing": true | false
-    }
-  }
-}
 ```
 
 ## See also

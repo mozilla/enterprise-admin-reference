@@ -12,6 +12,10 @@ If this policy is set to true, cookies set for domains in this list will revert 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.cookie.sameSite.laxByDefault.disabledHosts`
 
+## Examples
+
+<PolicyExample policy="LegacySameSiteCookieBehaviorEnabledForDomainList" />
+
 ## Windows (GPO)
 
 ```
@@ -44,14 +48,4 @@ Value (string):
     <string>example.edu</string>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "LegacySameSiteCookieBehaviorEnabledForDomainList": ["example.org", "example.edu"]
-  }
-}
 ```

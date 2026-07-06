@@ -10,6 +10,10 @@ Enable search suggestions.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.urlbar.suggest.searches`, `browser.search.suggest.enabled`
 
+## Examples
+
+<PolicyExample policy="SearchSuggestEnabled" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>SearchSuggestEnabled</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "SearchSuggestEnabled": true | false
-  }
-}
 ```

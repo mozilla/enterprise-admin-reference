@@ -36,6 +36,10 @@ The schema is:
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="AutoLaunchProtocolsFromOrigins" />
+
 ## Windows (GPO)
 
 ```
@@ -105,19 +109,4 @@ Value (string):
     </dict>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AutoLaunchProtocolsFromOrigins": [
-      {
-        "protocol": "zoommtg",
-        "allowed_origins": ["https://somesite.zoom.us"]
-      }
-    ]
-  }
-}
 ```

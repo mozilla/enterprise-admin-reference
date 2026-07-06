@@ -8,6 +8,10 @@ category: "Search"
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.search.visualSearch.featureGate`
 
+## Examples
+
+<PolicyExample policy="VisualSearchEnabled" />
+
 ## Windows (GPO)
 
 ```url
@@ -35,14 +39,4 @@ Value (string):
     <key>VisualSearchEnabled</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
- "policies": {
-    "VisualSearchEnabled": true | false
-  }
-}
 ```

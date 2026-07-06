@@ -10,6 +10,10 @@ Remove access to Firefox Screenshots.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `extensions.screenshots.disabled`
 
+## Examples
+
+<PolicyExample policy="DisableFirefoxScreenshots" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DisableFirefoxScreenshots</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableFirefoxScreenshots": true | false
-  }
-}
 ```

@@ -10,6 +10,10 @@ Ask where to save each file before downloading.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.download.useDownloadDir`
 
+## Examples
+
+<PolicyExample policy="PromptForDownloadLocation" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>PromptForDownloadLocation</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "PromptForDownloadLocation": true | false
-  }
-}
 ```

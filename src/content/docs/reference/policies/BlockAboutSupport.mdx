@@ -10,6 +10,10 @@ Block access to Troubleshooting Information (`about:support`).
 **CCK2 Equivalent:** `disableAboutSupport`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="BlockAboutSupport" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>BlockAboutSupport</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "BlockAboutSupport": true | false
-  }
-}
 ```

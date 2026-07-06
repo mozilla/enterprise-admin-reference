@@ -10,6 +10,10 @@ Add or delete PKCS #11 modules.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="SecurityDevices" />
+
 ## Windows (GPO)
 
 ```
@@ -62,21 +66,6 @@ Value (string):
     </array>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "SecurityDevices": {
-      "Add": {
-        "NAME_OF_DEVICE_TO_ADD": "PATH_TO_LIBRARY_FOR_DEVICE"
-      },
-      "Delete": ["NAME_OF_DEVICE_TO_DELETE"]
-    }
-  }
-}
 ```
 
 ## See also

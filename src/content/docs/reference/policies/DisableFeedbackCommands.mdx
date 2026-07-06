@@ -10,6 +10,10 @@ Disable the menus for reporting sites (Submit Feedback, Report Deceptive Site).
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="DisableFeedbackCommands" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DisableFeedbackCommands</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableFeedbackCommands": true | false
-  }
-}
 ```

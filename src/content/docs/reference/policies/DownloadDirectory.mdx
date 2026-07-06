@@ -12,6 +12,10 @@ You can use `${home}` for the native home directory.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.download.dir`, `browser.download.folderList`, `browser.download.useDownloadDir`
 
+## Examples
+
+<PolicyExample policy="DownloadDirectory" />
+
 ## Windows (GPO)
 
 ```
@@ -40,22 +44,4 @@ Value (string):
   <key>DownloadDirectory</key>
   <string>${home}/Downloads</string>
 </dict>
-```
-
-## policies.json (macOS and Linux)
-
-```json
-{
-  "policies": {
-    "DownloadDirectory": "${home}/Downloads"
-}
-```
-
-## policies.json (Windows)
-
-```json
-{
-  "policies": {
-    "DownloadDirectory": "${home}\\Downloads"
-}
 ```

@@ -12,6 +12,10 @@ Configure crash report submission settings.
 > [!NOTE]
 > Currently, this is only implemented in Firefox Enterprise.
 
+## Examples
+
+<PolicyExample policy="CrashReportsSubmit" />
+
 ## Values
 
 - `ForceAutoSubmit` A Boolean. Controls whether crash reports are automatically submitted.
@@ -46,16 +50,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "CrashReportsSubmit": {
-      "ForceAutoSubmit": true | false
-    }
-  }
-}
 ```

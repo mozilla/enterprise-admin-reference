@@ -10,6 +10,10 @@ Remove the ability to import data from other browsers.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="DisableProfileImport" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DisableProfileImport</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableProfileImport": true | false
-  }
-}
 ```

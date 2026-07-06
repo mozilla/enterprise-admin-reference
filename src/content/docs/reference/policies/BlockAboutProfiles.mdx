@@ -10,6 +10,10 @@ Block access to About Profiles (`about:profiles`).
 **CCK2 Equivalent:** `disableAboutProfiles`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="BlockAboutProfiles" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>BlockAboutProfiles</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "BlockAboutProfiles": true | false
-  }
-}
 ```

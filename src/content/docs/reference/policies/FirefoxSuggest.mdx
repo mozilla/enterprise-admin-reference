@@ -11,6 +11,10 @@ As of Firefox 146, `WebSuggestions` turns off Suggest completely.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.urlbar.suggest.quicksuggest.all`, `browser.urlbar.suggest.quicksuggest.sponsored`, `browser.urlbar.quicksuggest.dataCollection.enabled`
 
+## Examples
+
+<PolicyExample policy="FirefoxSuggest" />
+
 ## Windows (GPO)
 
 ```
@@ -86,19 +90,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "FirefoxSuggest": {
-      "WebSuggestions": true | false,
-      "SponsoredSuggestions": true | false,
-      "ImproveSuggest": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

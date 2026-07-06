@@ -12,6 +12,10 @@ On Windows, this disables safe mode via the command line as well.
 **CCK2 Equivalent:** `disableSafeMode`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="DisableSafeMode" />
+
 ## Windows (GPO)
 
 ```
@@ -39,14 +43,4 @@ Value (string):
   <key>DisableSafeMode</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableSafeMode": true | false
-  }
-}
 ```

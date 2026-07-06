@@ -10,6 +10,10 @@ Control extension updates.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `extensions.update.enabled`
 
+## Examples
+
+<PolicyExample policy="ExtensionUpdate" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>ExtensionUpdate</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "ExtensionUpdate": true | false
-  }
-}
 ```

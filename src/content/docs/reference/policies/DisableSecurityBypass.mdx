@@ -12,6 +12,10 @@ These policies only affect what happens when an error is shown, they do not affe
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `security.certerror.hideAddException`, `browser.safebrowsing.allowOverride`
 
+## Examples
+
+<PolicyExample policy="DisableSecurityBypass" />
+
 ## Values
 
 - `InvalidCertificate`: Prevents adding an exception when an invalid certificate is shown.
@@ -62,17 +66,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableSecurityBypass": {
-      "InvalidCertificate": true | false,
-      "SafeBrowsing": true | false
-    }
-  }
-}
 ```

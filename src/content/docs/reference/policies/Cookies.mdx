@@ -10,6 +10,10 @@ Configure cookie preferences.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.cookie.cookieBehavior`, `network.cookie.cookieBehavior.pbmode`, `network.cookie.lifetimePolicy`
 
+## Examples
+
+<PolicyExample policy="Cookies" />
+
 ## Values
 
 - `Allow` is a list of origins (not domains) where cookies are always allowed. You must include `http` or `https`.
@@ -146,21 +150,4 @@ Value (string):
     <string>accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign</string>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Cookies": {
-      "Allow": ["http://example.org/"],
-      "AllowSession": ["http://example.edu/"],
-      "Block": ["http://example.edu/"],
-      "Locked": true | false,
-      "Behavior": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
-      "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
-    }
-  }
-}
 ```

@@ -10,6 +10,10 @@ Override the upgrade page. If the value is an empty string (`""`), no extra page
 **CCK2 Equivalent:** `upgradePage`,`noUpgradePage`\
 **Preferences Affected:** `startup.homepage_override_url`
 
+## Examples
+
+<PolicyExample policy="OverridePostUpdatePage" />
+
 ## Windows (GPO)
 
 ```
@@ -38,14 +42,4 @@ Value (string):
   <key>OverridePostUpdatePage</key>
   <string>http://example.org</string>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "OverridePostUpdatePage": "http://example.org"
-  }
-}
 ```

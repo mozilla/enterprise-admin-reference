@@ -10,6 +10,10 @@ Configure the default extension install policy as well as origins for extension 
 **CCK2 Equivalent:** `permissions.install`\
 **Preferences Affected:** `xpinstall.enabled`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`
 
+## Examples
+
+<PolicyExample policy="InstallAddonsPermission" />
+
 ## Values
 
 - `Allow` is a list of origins where extension installs are allowed.
@@ -65,18 +69,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "InstallAddonsPermission": {
-      "Allow": ["http://example.org/",
-                "http://example.edu/"],
-      "Default": true | false
-    }
-  }
-}
 ```

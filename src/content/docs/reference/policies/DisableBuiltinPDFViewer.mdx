@@ -14,6 +14,10 @@ Disable the built in PDF viewer. PDF files are downloaded and sent externally.
 **CCK2 Equivalent:** `disablePDFjs`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="DisableBuiltinPDFViewer" />
+
 ## Windows (GPO)
 
 ```
@@ -41,14 +45,4 @@ Value (string):
   <key>DisableBuiltinPDFViewer</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableBuiltinPDFViewer": true | false
-  }
-}
 ```

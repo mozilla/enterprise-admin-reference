@@ -13,6 +13,10 @@ It will cause the corresponding language pack to become active.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="RequestedLocales" />
+
 ## Windows (GPO)
 
 ```
@@ -57,22 +61,4 @@ or
   <string>de,en-US</string>
 </dict>
 
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "RequestedLocales": ["de", "en-US"]
-  }
-}
-
-or
-
-{
-  "policies": {
-    "RequestedLocales": "de,en-US"
-  }
-}
 ```

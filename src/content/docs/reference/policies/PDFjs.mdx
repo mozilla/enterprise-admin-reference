@@ -14,6 +14,10 @@ Disable or configure PDF.js, the built-in PDF viewer.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `pdfjs.disabled`, `pdfjs.enablePermissions`
 
+## Examples
+
+<PolicyExample policy="PDFjs" />
+
 ## Values
 
 - If `Enabled` is set to `false`, the built-in PDF viewer is disabled.
@@ -53,17 +57,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "PDFjs": {
-      "Enabled": true | false,
-      "EnablePermissions": true | false
-    }
-  }
-}
 ```

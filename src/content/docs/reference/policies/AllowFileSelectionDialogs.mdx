@@ -10,6 +10,10 @@ Enable or disable file selection dialogs.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `widget.disable_file_pickers`
 
+## Examples
+
+<PolicyExample policy="AllowFileSelectionDialogs" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>AllowFileSelectionDialogs</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AllowFileSelectionDialogs": true | false
-  }
-}
 ```

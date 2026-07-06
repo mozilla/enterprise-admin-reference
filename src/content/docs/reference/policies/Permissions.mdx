@@ -12,6 +12,10 @@ This explicitly means that it is not possible to add wildcards. See examples bel
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `permissions.default.camera`, `permissions.default.microphone`, `permissions.default.geo`, `permissions.default.desktop-notification`, `media.autoplay.default`, `permissions.default.xr`, `permissions.default.screen`
 
+## Examples
+
+<PolicyExample policy="Permissions" />
+
 ## Values
 
 - `Allow` is a list of origins where the feature is allowed.
@@ -514,57 +518,4 @@ Value (string):
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Permissions": {
-      "Camera": {
-        "Allow": ["https://example.org","https://example.org:1234"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "Microphone": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "Location": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "Notifications": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "Autoplay": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "Default": "allow-audio-video" | "block-audio" | "block-audio-video",
-        "Locked": true | false
-      },
-      "VirtualReality": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      },
-      "ScreenShare": {
-        "Allow": ["https://example.org"],
-        "Block": ["https://example.edu"],
-        "BlockNewRequests": true | false,
-        "Locked": true | false
-      }
-    }
-  }
-}
 ```

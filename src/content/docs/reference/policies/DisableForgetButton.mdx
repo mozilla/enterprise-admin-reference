@@ -10,6 +10,10 @@ Disable the "Forget" button.
 **CCK2 Equivalent:** `disableForget`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="DisableForgetButton" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DisableForgetButton</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableForgetButton": true | false
-  }
-}
 ```
