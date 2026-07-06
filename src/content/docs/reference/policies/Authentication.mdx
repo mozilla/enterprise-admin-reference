@@ -156,30 +156,6 @@ Value (string):
 </dict>
 ```
 
-## policies.json
-
-```json
-{
-  "policies": {
-    "Authentication": {
-      "SPNEGO": ["mydomain.com", "https://myotherdomain.com"],
-      "Delegated": ["mydomain.com", "https://myotherdomain.com"],
-      "NTLM": ["mydomain.com", "https://myotherdomain.com"],
-      "AllowNonFQDN": {
-        "SPNEGO": true | false,
-        "NTLM": true | false
-      },
-      "AllowProxies": {
-        "SPNEGO": true | false,
-        "NTLM": true | false
-      },
-      "Locked": true | false,
-      "PrivateBrowsing": true | false
-    }
-  }
-}
-```
-
 ## See also
 
 - [Integrated authentication](https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html)

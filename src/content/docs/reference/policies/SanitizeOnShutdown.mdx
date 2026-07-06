@@ -191,33 +191,3 @@ Clear specific data types:
   </dict>
 </dict>
 ```
-
-## policies.json
-
-Clear all data:
-
-```json
-{
-  "policies": {
-    "SanitizeOnShutdown": true | false
-  }
-}
-```
-
-Clear specific data types:
-
-```json
-{
-  "policies": {
-    "SanitizeOnShutdown": {
-      "Cache": true | false,
-      "Cookies": true | false,
-      "FormData": true | false,
-      "History": true | false,
-      "Sessions": true | false,
-      "SiteSettings": true | false,
-      "Locked": true | false
-    }
-  }
-}
-```

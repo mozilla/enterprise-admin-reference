@@ -14,18 +14,22 @@ Control use of the [Web Serial API](https://developer.mozilla.org/en-US/docs/Web
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `dom.webserial.enabled`
 
+## Examples
+
+<PolicyExample policy="DefaultSerialGuardSetting" />
+
 ## Values
 
 - `2` means use of the WebSerial API is blocked.
 - `3` means use of the WebSerial API is allowed.
 
-#### Windows (GPO)
+## Windows (GPO)
 
 ```
 Software\Policies\Mozilla\Firefox\DefaultSerialGuardSetting = 0x2 | 0x3
 ```
 
-#### Windows (Intune)
+## Windows (Intune)
 
 OMA-URI:
 
@@ -40,21 +44,11 @@ Value (string):
 <data id="DefaultSerialGuardSetting" value="2 | 3"/>
 ```
 
-#### macOS
+## macOS
 
 ```xml
 <dict>
   <key>DefaultSerialGuardSetting</key>
   <integer>2 | 3</integer>
 </dict>
-```
-
-#### policies.json
-
-```json
-{
-  "policies": {
-    "DefaultSerialGuardSetting": 2 | 3
-  }
-}
 ```

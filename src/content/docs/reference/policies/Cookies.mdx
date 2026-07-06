@@ -151,20 +151,3 @@ Value (string):
   </dict>
 </dict>
 ```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Cookies": {
-      "Allow": ["http://example.org/"],
-      "AllowSession": ["http://example.edu/"],
-      "Block": ["http://example.edu/"],
-      "Locked": true | false,
-      "Behavior": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign",
-      "BehaviorPrivateBrowsing": "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
-    }
-  }
-}
-```

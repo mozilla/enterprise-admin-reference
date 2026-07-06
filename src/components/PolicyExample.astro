@@ -10,7 +10,12 @@ interface Props {
 const { policy } = Astro.props;
 
 const entry = (schema.properties as Record<string, { examples?: unknown[] }>)[policy];
-const examples = Array.isArray(entry?.examples) ? entry.examples : [];
+const allExamples = Array.isArray(entry?.examples) ? entry.examples : [];
+
+// Only show one scalar-valued example (boolean)
+const isScalar = (value: unknown) => value === null || typeof value !== "object";
+const examples =
+  allExamples.length > 1 && allExamples.every(isScalar) ? allExamples.slice(0, 1) : allExamples;
 
 // Wrap each in `{ policies: { policyname:`, so it's copy-paste ready.
 const blocks = examples.map((example) =>
