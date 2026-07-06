@@ -62,6 +62,13 @@ The configuration for each extension is a dictionary that can contain the fields
 - `temporarily_allow_weak_signatures`: (Firefox 127) Boolean that indicates whether to allow installing extensions signed using deprecated signature algorithms.
 - `private_browsing`: (Firefox 136, Firefox ESR 128.8) Boolean that indicates whether this extension should be enabled in private browsing.
 - `update_url`: (Firefox 151) A string specifying the URL Firefox will use to check for extension updates. This overrides the update_url specified in the extension manifest or is used if no update_url is specified in the manifest.
+- `blocked_permissions`: (Firefox 153) An array of [API permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) that extensions cannot be granted.
+  An extension that requires one of these permissions cannot be installed, and is disabled if it is already installed.
+  Optional permissions matching the list that were previously granted are revoked, and calls to `permissions.request()` for a blocked permission are rejected.
+  Host permissions (such as `<all_urls>` or match patterns) and internal permissions are ignored.
+- `allowed_permissions`: (Firefox 154) An array of [API permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) that are exempted from `blocked_permissions` within the same configuration.
+  A per-extension `allowed_permissions` carves out exceptions to that extension's own `blocked_permissions`.
+  Setting `allowed_permissions` in the default (`"*"`) configuration has no effect.
 
 ## Interaction notes
 
