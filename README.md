@@ -1,6 +1,7 @@
 # Firefox enterprise admin reference
 
 This project hosts reference documentation for Firefox as an enterprise browser.
+For details, see the [Contributing docs](./CONTRIBUTING.md).
 
 ## Getting started
 
@@ -37,49 +38,6 @@ All commands are run from the root of the project:
 | `npm run preview`          | Preview your build locally, before deploying     |
 | `npm run astro ...`        | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help`  | Get help using the Astro CLI                     |
-
-## Project structure
-
-The project is built using Starlight.
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory.
-Each file is exposed as a route based on its file name.
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
-
-### Code examples
-
-Reusable code snippets can be placed in `src/examples/`.
-To reuse a snippet like `src/examples/policy.json`, include it in markdown like so:
-
-```mdx
-import { Code } from "@astrojs/starlight/components";
-import policy from "/src/examples/policy.json?raw";
-
-See my example:
-
-<Code code={policy} lang="json" title="policies.json" />
-```
-
-### Policy examples
-
-Each reference page shows a copy & paste-ready JSON example under `## Examples`.
-The examples come from the upstream policy schema, which is fetched to `schema/policies-schema.json`.
-This can be refreshed from upstream using `npm run schema:sync`.
-
-To add the example to a policy page, import the `PolicyExample` component and pass the policy name as `policy="policy-name"`:
-
-```mdx
----
-title: "Some page"
----
-
-import PolicyExample from "../../../../components/PolicyExample.astro";
-
-## Examples
-
-<PolicyExample policy="MyCoolPolicy" />
-```
 
 ## Starlight documentation
 
