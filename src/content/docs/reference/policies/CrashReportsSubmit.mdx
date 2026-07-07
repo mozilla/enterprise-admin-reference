@@ -6,7 +6,7 @@ category: "Cloud reporting"
 
 Configure crash report submission settings.
 
-**Compatibility:** Firefox Enterprise 150.0.0\
+**Compatibility:** Firefox Enterprise 154.0.0\
 **Preferences Affected:** `browser.crashReports.unsubmittedCheck.enabled`, `browser.crashReports.unsubmittedCheck.autoSubmit2`, `browser.tabs.crashReporting.includeURL`, `browser.tabs.crashReporting.sendReport`
 
 > [!NOTE]
@@ -18,12 +18,12 @@ Configure crash report submission settings.
 
 ## Values
 
-- `ForceAutoSubmit` A Boolean. Controls whether crash reports are automatically submitted.
+- `Enabled` A Boolean. Controls whether crash reports are automatically submitted or not allowed to be submitted.
 
 ## Windows (GPO)
 
 ```
-Software\Policies\Mozilla\Firefox\CrashReportsSubmit\ForceAutoSubmit = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\CrashReportsSubmit\Enabled = 0x1 | 0x0
 ```
 
 ## Windows (Intune)
@@ -31,7 +31,7 @@ Software\Policies\Mozilla\Firefox\CrashReportsSubmit\ForceAutoSubmit = 0x1 | 0x0
 OMA-URI:
 
 ```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~CrashReportsSubmit/CrashReportsSubmit_ForceAutoSubmit
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~CrashReportsSubmit/CrashReportsSubmit_Enabled
 ```
 
 Value (string):
@@ -46,7 +46,7 @@ Value (string):
 <dict>
   <key>CrashReportsSubmit</key>
   <dict>
-    <key>ForceAutoSubmit</key>
+    <key>Enabled</key>
     <true/> | <false/>
   </dict>
 </dict>
