@@ -44,6 +44,17 @@ title: "Some page"
 `PolicyExample` is auto-imported into every page under `src/content/docs/reference/policies`, so there's no need for an `import` line.
 IDEs may flag `PolicyExample` as undefined in the `.mdx` files, but this is safe to ignore.
 
+### Policy schema
+
+`PolicyExample` renders the policy's JSON schema in a collapsible `JSON schema` block directly after the examples.
+The schema is derived from the `schema/policies-schema.json` entry, with the following changes:
+
+- Annotations (`description`, `examples`, and any `x-` prefixed keys) are stripped.
+- `$ref`s (such as `#/definitions/url`) are inlined so the block is self-contained.
+
+Policies absent from `schema/policies-schema.json` render a `Missing schema` message rather than blocking the build.
+See `src/components/PolicySchema.astro` for details.
+
 ## Changelog
 
 The changelog is based on **Firefox versions**, not documentation versions.  
