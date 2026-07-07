@@ -1,6 +1,7 @@
 ---
 import { Code } from "@astrojs/starlight/components";
 import schema from "../../schema/policies-schema.json";
+import PolicySchema from "./PolicySchema.astro";
 
 interface Props {
   /** Match a key under `properties` in policies-schema.json. */
@@ -24,3 +25,5 @@ const blocks = examples.map((example) =>
 ---
 
 {blocks.map((code) => <Code code={code} lang="json" title="policies.json" />)}
+
+<PolicySchema policy={policy} />
