@@ -4,6 +4,10 @@
 
 ## Unreleased
 
+#### Changed
+
+- `CrashReportsSubmit` policy: Update policy structure to remove `ForceAutoSubmit` key in favor of `Enabled` key ([#222](https://github.com/mozilla/enterprise-admin-reference/pull/222))
+
 ### fx-151.0.0
 
 #### Added
