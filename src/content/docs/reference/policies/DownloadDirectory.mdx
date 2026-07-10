@@ -5,7 +5,6 @@ category: "Downloads"
 ---
 
 Set and lock the download directory.
-
 You can use `${home}` for the native home directory.
 
 **Compatibility:** Firefox 68, Firefox ESR 68\
@@ -14,7 +13,13 @@ You can use `${home}` for the native home directory.
 
 ## Examples
 
-<PolicyExample policy="DownloadDirectory" />
+```json
+{
+  "policies": {
+    "DownloadDirectory": "${home}/Downloads"
+  }
+}
+```
 
 ## Windows (GPO)
 

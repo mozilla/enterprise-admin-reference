@@ -5,7 +5,6 @@ category: "Miscellaneous"
 ---
 
 Disable the feature enforcing a separate profile for each installation.
-
 If this policy set to `true`, Firefox will not try to create different profiles for installations of Firefox in different directories.
 This is the equivalent of the `MOZ_LEGACY_PROFILES` environment variable.
 
@@ -19,7 +18,13 @@ This policy only work on Windows via GPO (not via `policies.json`).
 
 ## Examples
 
-<PolicyExample policy="LegacyProfiles" />
+```json
+{
+  "policies": {
+    "LegacyProfiles": true
+  }
+}
+```
 
 ## Windows (GPO)
 
