@@ -10,6 +10,10 @@ Disable the Refresh Firefox button on `about:support` and `support.mozilla.org`,
 **CCK2 Equivalent:** `disableResetFirefox`\
 **Preferences Affected:** `browser.disableResetPrompt`
 
+## Examples
+
+<PolicyExample policy="DisableProfileRefresh" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DisableProfileRefresh</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableProfileRefresh": true | false
-  }
-}
 ```

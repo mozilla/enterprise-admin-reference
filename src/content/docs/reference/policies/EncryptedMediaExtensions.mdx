@@ -10,6 +10,10 @@ Enable or disable Encrypted Media Extensions and optionally lock it.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `media.eme.enabled`
 
+## Examples
+
+<PolicyExample policy="EncryptedMediaExtensions" />
+
 ## Values
 
 - If `Enabled` is set to false, encrypted media extensions (like Widevine) are not downloaded by Firefox unless the user consents to installing them.
@@ -49,17 +53,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "EncryptedMediaExtensions": {
-      "Enabled": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

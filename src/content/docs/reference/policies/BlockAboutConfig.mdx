@@ -10,6 +10,10 @@ Block access to `about:config`.
 **CCK2 Equivalent:** `disableAboutConfig`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="BlockAboutConfig" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>BlockAboutConfig</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "BlockAboutConfig": true | false
-  }
-}
 ```

@@ -12,6 +12,10 @@ Starting with Firefox 83, Firefox ESR 78.5, you can also specify multiple URLs s
 **CCK2 Equivalent:** `welcomePage`,`noWelcomePage`\
 **Preferences Affected:** `startup.homepage_welcome_url`
 
+## Examples
+
+<PolicyExample policy="OverrideFirstRunPage" />
+
 ## Windows (GPO)
 
 ```
@@ -40,14 +44,4 @@ Value (string):
   <key>OverrideFirstRunPage</key>
   <string>http://example.org</string>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "OverrideFirstRunPage": "http://example.org"
-  }
-}
 ```

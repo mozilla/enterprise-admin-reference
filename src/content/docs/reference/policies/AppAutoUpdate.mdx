@@ -16,6 +16,10 @@ If you have disabled updates via [`DisableAppUpdate`](/reference/policies/disabl
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `app.update.auto`
 
+## Examples
+
+<PolicyExample policy="AppAutoUpdate" />
+
 ## Windows (GPO)
 
 ```
@@ -43,14 +47,4 @@ Value (string):
   <key>AppAutoUpdate</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AppAutoUpdate": true | false
-  }
-}
 ```

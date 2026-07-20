@@ -1,0 +1,43 @@
+---
+import { Code } from "@astrojs/starlight/components";
+import schema from "../../schema/policies-schema.json";
+
+interface Props {
+  /** Match a key under `properties` in policies-schema.json. */
+  policy: string;
+}
+
+const { policy } = Astro.props;
+
+const node = (schema.properties as Record<string, unknown>)[policy] ?? {};
+
+// `$ref`s (`#/definitions/{url,origin,urlOrEmpty}`) are inlined so output is self-contained
+const DEFS = "#/definitions/";
+const definitions = (schema as { definitions?: Record<string, unknown> }).definitions ?? {};
+
+// Annotation keys document the policy but aren't part of its validation shape.
+// Dropped at every depth so the block shows just `type`/`enum`/`properties`/etc.
+const isAnnotation = (key: string) =>
+  key === "description" || key === "examples" || key.startsWith("x-");
+
+// As JSON.stringify walks the tree: drop annotation keys and inline each `$ref`.
+const toSchema = (key: string, value: unknown): unknown => {
+  if (isAnnotation(key)) return undefined;
+  const ref = value && typeof value === "object" ? (value as { $ref?: unknown }).$ref : undefined;
+  return typeof ref === "string" && ref.startsWith(DEFS)
+    ? (definitions[ref.slice(DEFS.length)] ?? value)
+    : value;
+};
+
+// An empty node means the policy is absent from policies-schema.json: surface
+// that as the cause rather than rendering a bare `{}`.
+const isEmpty = Object.keys(node as object).length === 0;
+const code = isEmpty
+  ? `Missing schema: "${policy}" is not defined in policies-schema.json`
+  : JSON.stringify(node, toSchema, 2);
+---
+
+<details>
+  <summary>JSON schema</summary>
+  <Code code={code} lang={isEmpty ? "plaintext" : "json"} title={`${policy} JSON schema`} />
+</details>

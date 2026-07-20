@@ -12,14 +12,11 @@ Backup and restore can be disabled individually.
 
 **Compatibility:** Firefox 146\
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** N/A\
+**Preferences Affected:** N/A
 
-### Windows (GPO)
+## Examples
 
-```
-Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowBackup = 0x1 | 0x0
-Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowRestore = 0x1 | 0x0
-```
+<PolicyExample policy="BrowserDataBackup" />
 
 ## Windows (Intune)
 
@@ -36,6 +33,13 @@ Value (string):
 <enabled/> or <disabled/>
 ```
 
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowBackup = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\BrowserDataBackup\AllowRestore = 0x1 | 0x0
+```
+
 ## macOS
 
 ```xml
@@ -48,17 +52,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "BrowserDataBackup": {
-      "AllowBackup": true | false,
-      "AllowRestore": true | false
-    }
-  }
-}
 ```

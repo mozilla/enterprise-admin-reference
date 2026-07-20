@@ -10,6 +10,10 @@ Enable or disable Picture-in-Picture as well as prevent the user from enabling o
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `media.videocontrols.picture-in-picture.video-toggle.enabled`
 
+## Examples
+
+<PolicyExample policy="PictureInPicture" />
+
 ## Windows (GPO)
 
 ```
@@ -45,17 +49,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "PictureInPicture": {
-      "Enabled": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

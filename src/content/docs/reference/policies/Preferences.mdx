@@ -21,6 +21,10 @@ You can also set default preferences, user preferences and you can clear prefere
 **CCK2 Equivalent:** `preferences`\
 **Preferences Affected:** Many
 
+## Examples
+
+<PolicyExample policy="Preferences" />
+
 ## Values
 
 Preferences that start with the following prefixes are supported:
@@ -218,30 +222,6 @@ Value (string):
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Preferences": {
-      "accessibility.force_disabled": {
-        "Value": 1,
-        "Status": "default"
-        "Type": "number"
-      },
-      "browser.cache.disk.parent_directory": {
-        "Value": "SOME_NATIVE_PATH",
-        "Status": "user"
-      },
-      "browser.tabs.warnOnClose": {
-        "Value": false,
-        "Status": "locked"
-      }
-    }
-  }
-}
 ```
 
 ## See also

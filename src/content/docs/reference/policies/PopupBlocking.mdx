@@ -10,6 +10,10 @@ Allow certain websites to display popups and be redirected by third-party frames
 **CCK2 Equivalent:** `permissions.popup`\
 **Preferences Affected:** `dom.disable_open_during_load`
 
+## Examples
+
+<PolicyExample policy="PopupBlocking" />
+
 ## Values
 
 - `Allow` is a list of origins where popup-windows and third-party redirects are allowed.
@@ -81,21 +85,6 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "PopupBlocking": {
-      "Allow": ["http://example.org/",
-                "http://example.edu/"],
-      "Default": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```
 
 ## See also

@@ -11,6 +11,10 @@ For more information, see [Block generative AI features with Firefox AI controls
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.ml.chat.enabled`, `browser.ml.chat.page`, `browser.ai.control.sidebarChatbot`, `browser.translations.enable`, `browser.ai.control.translations`, `pdfjs.enableAltText`, `browser.ai.control.pdfjsAltText`, `browser.ml.linkPreview.enabled`, `browser.ai.control.linkPreviewKeyPoints`, `browser.tabs.groups.smart.userEnabled`, `browser.ai.control.smartTabGroups`, `browser.ai.control.smartWindow`
 
+## Examples
+
+<PolicyExample policy="AIControls" />
+
 ## Values
 
 Each key controls the availability of a specific AI feature.
@@ -108,43 +112,4 @@ Software\Policies\Mozilla\Firefox\AIControls\SmartWindow\Locked = 0x1 | 0x0
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AIControls": {
-      "Default": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "Translations": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "PDFAltText": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "SmartTabGroups": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "LinkPreviewKeyPoints": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "SidebarChatbot": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      },
-      "SmartWindow": {
-        "Value": "available" | "blocked",
-        "Locked": true | false
-      }
-    }
-  }
-}
 ```

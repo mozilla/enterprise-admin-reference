@@ -10,6 +10,10 @@ Remove access to all developer tools.
 **CCK2 Equivalent:** `removeDeveloperTools`\
 **Preferences Affected:** `devtools.policy.disabled`
 
+## Examples
+
+<PolicyExample policy="DisableDeveloperTools" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DisableDeveloperTools</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableDeveloperTools": true | false
-  }
-}
 ```

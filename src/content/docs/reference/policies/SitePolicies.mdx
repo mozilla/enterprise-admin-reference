@@ -47,6 +47,10 @@ While this setting would disable the JIT on every site except `*.example.org`:
 ]
 ```
 
+## Examples
+
+<PolicyExample policy="SitePolicies" />
+
 ## Windows (GPO)
 
 ```
@@ -102,21 +106,4 @@ Value (string):
     </dict>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "SitePolicies": [
-      {
-        "Exceptions": ["*.example.com"],
-        "Policies": {
-          "DisableJit": true
-        }
-      }
-    ]
-  }
-}
 ```

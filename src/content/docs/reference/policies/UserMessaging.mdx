@@ -10,6 +10,10 @@ Prevent Firefox from messaging the user in certain situations.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`, `browser.aboutwelcome.enabled`, `browser.preferences.moreFromMozilla`, `browser.preferences.experimental`
 
+## Examples
+
+<PolicyExample policy="UserMessaging" />
+
 ## Values
 
 - `WhatsNew`: Remove the "What's New" icon and menuitem. (_Deprecated_)
@@ -75,22 +79,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "UserMessaging": {
-      "ExtensionRecommendations": true | false,
-      "FeatureRecommendations": true | false,
-      "UrlbarInterventions": true | false,
-      "SkipOnboarding": true | false,
-      "MoreFromMozilla": true | false,
-      "FirefoxLabs": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

@@ -11,6 +11,10 @@ Note that TLS Client Hellos will still contain an ECH extension, but this extens
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.dns.echconfig.enabled`, `network.dns.http3_echconfig.enabled`
 
+## Examples
+
+<PolicyExample policy="DisableEncryptedClientHello" />
+
 ## Windows (GPO)
 
 ```
@@ -38,14 +42,4 @@ Value (string):
   <key>DisableEncryptedClientHello</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableEncryptedClientHello": true | false
-  }
-}
 ```

@@ -14,6 +14,10 @@ Items that can be selectively deleted include browsing & download history, cooki
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `privacy.sanitize.sanitizeOnShutdown`, `privacy.clearOnShutdown.cache`, `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.downloads`, `privacy.clearOnShutdown.formdata`, `privacy.clearOnShutdown.history`, `privacy.clearOnShutdown.sessions`, `privacy.clearOnShutdown.siteSettings`, `privacy.clearOnShutdown.offlineApps`, `privacy.clearOnShutdown_v2.browsingHistoryAndDownloads` (Firefox 128), `privacy.clearOnShutdown_v2.cookiesAndStorage` (Firefox 128), `privacy.clearOnShutdown_v2.cache` (Firefox 128), `privacy.clearOnShutdown_v2.siteSettings` (Firefox 128), `privacy.clearOnShutdown_v2.formdata` (Firefox 128)
 
+## Examples
+
+<PolicyExample policy="SanitizeOnShutdown" />
+
 ## Values
 
 `SanitizeOnShutdown` accepts either a boolean or an object.
@@ -186,34 +190,4 @@ Clear specific data types:
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-Clear all data:
-
-```json
-{
-  "policies": {
-    "SanitizeOnShutdown": true | false
-  }
-}
-```
-
-Clear specific data types:
-
-```json
-{
-  "policies": {
-    "SanitizeOnShutdown": {
-      "Cache": true | false,
-      "Cookies": true | false,
-      "FormData": true | false,
-      "History": true | false,
-      "Sessions": true | false,
-      "SiteSettings": true | false,
-      "Locked": true | false
-    }
-  }
-}
 ```

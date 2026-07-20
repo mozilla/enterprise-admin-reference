@@ -11,6 +11,10 @@ This policy takes effect when an update has been downloaded or staged and is rea
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="RelaunchRequired" />
+
 ## Values
 
 - `NotificationPeriodHours`: The minimum number of hours before users are notified of the required relaunch.
@@ -85,20 +89,4 @@ Value (string):
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "RelaunchRequired": {
-      "NotificationPeriodHours": 0 | 1 | 2,
-      "RestartTimeOfDay": {
-        "Hour": 0 | 1 | 2,
-        "Minute": 0 | 1 | 2
-      }
-    }
-  }
-}
 ```

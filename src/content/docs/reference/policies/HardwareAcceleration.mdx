@@ -10,6 +10,10 @@ Control hardware acceleration.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `layers.acceleration.disabled`
 
+## Examples
+
+<PolicyExample policy="HardwareAcceleration" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>HardwareAcceleration</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "HardwareAcceleration": true | false
-  }
-}
 ```

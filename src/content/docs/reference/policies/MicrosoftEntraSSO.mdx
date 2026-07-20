@@ -12,6 +12,10 @@ If this policy is set to `true`, Firefox will use credentials stored in the Comp
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.http.microsoft-entra-sso.enabled`
 
+## Examples
+
+<PolicyExample policy="MicrosoftEntraSSO" />
+
 ## macOS
 
 ```xml
@@ -19,14 +23,4 @@ If this policy is set to `true`, Firefox will use credentials stored in the Comp
   <key>MicrosoftEntraSSO</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "MicrosoftEntraSSO": true | false
-  }
-}
 ```

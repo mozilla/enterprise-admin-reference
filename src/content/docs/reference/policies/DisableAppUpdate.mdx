@@ -10,6 +10,10 @@ Turn off application updates within Firefox.
 **CCK2 Equivalent:** `disableFirefoxUpdates`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="DisableAppUpdate" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DisableAppUpdate</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableAppUpdate": true | false
-  }
-}
 ```

@@ -12,6 +12,10 @@ For GPO and Intune, the extension developer should provide an ADMX file.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="3rdparty" />
+
 ## macOS
 
 ```xml
@@ -36,27 +40,4 @@ For GPO and Intune, the extension developer should provide an ADMX file.
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json title="policies.json"
-{
-  "policies": {
-    "3rdparty": {
-      "Extensions": {
-        "uBlock0@raymondhill.net": {
-          "adminSettings": {
-            "selectedFilterLists": [
-              "ublock-privacy",
-              "ublock-badware",
-              "ublock-filters",
-              "user-filters"
-            ]
-          }
-        }
-      }
-    }
-  }
-}
 ```

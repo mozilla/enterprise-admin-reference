@@ -13,6 +13,10 @@ Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="Sync" />
+
 ## Values
 
 - `Addons`: A Boolean. Controls whether syncing addons should be enabled.
@@ -93,25 +97,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Sync": {
-      "Addons": true | false,
-      "Addresses": true | false,
-      "Bookmarks": true | false,
-      "Enabled": true | false,
-      "History": true | false,
-      "Locked": true | false,
-      "OpenTabs": true | false,
-      "Passwords": true | false,
-      "PaymentMethods": true | false,
-      "Settings": true | false
-    }
-  }
-}
 ```

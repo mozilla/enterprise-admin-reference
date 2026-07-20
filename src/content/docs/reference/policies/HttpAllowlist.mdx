@@ -11,6 +11,10 @@ The sites are specified as a list of origins.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="HttpAllowlist" />
+
 ## Windows (GPO)
 
 ```
@@ -43,14 +47,4 @@ Value (string):
     <string>http://example.edu</string>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "HttpAllowlist": ["http://example.org", "http://example.edu"]
-  }
-}
 ```

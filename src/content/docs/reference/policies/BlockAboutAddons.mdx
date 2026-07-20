@@ -10,6 +10,10 @@ Block access to the Add-ons Manager (`about:addons`).
 **CCK2 Equivalent:** `disableAddonsManager`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="BlockAboutAddons" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>BlockAboutAddons</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "BlockAboutAddons": true | false
-  }
-}
 ```

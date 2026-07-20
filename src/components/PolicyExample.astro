@@ -1,0 +1,29 @@
+---
+import { Code } from "@astrojs/starlight/components";
+import schema from "../../schema/policies-schema.json";
+import PolicySchema from "./PolicySchema.astro";
+
+interface Props {
+  /** Match a key under `properties` in policies-schema.json. */
+  policy: string;
+}
+
+const { policy } = Astro.props;
+
+const entry = (schema.properties as Record<string, { examples?: unknown[] }>)[policy];
+const allExamples = Array.isArray(entry?.examples) ? entry.examples : [];
+
+// Only show one scalar-valued example (boolean)
+const isScalar = (value: unknown) => value === null || typeof value !== "object";
+const examples =
+  allExamples.length > 1 && allExamples.every(isScalar) ? allExamples.slice(0, 1) : allExamples;
+
+// Wrap each in `{ policies: { policyname:`, so it's copy-paste ready.
+const blocks = examples.map((example) =>
+  JSON.stringify({ policies: { [policy]: example } }, null, 2),
+);
+---
+
+{blocks.map((code) => <Code code={code} lang="json" title="policies.json" />)}
+
+<PolicySchema policy={policy} />

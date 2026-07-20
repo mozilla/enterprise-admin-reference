@@ -10,6 +10,10 @@ Install and manage certificates in Firefox.
 **CCK2 Equivalent:** `certs.ca` (Install)\
 **Preferences Affected:** `security.enterprise_roots.enabled`
 
+## Examples
+
+<PolicyExample policy="Certificates" />
+
 ## Values
 
 `Certificates` accepts one or more of the following keys:
@@ -93,19 +97,6 @@ Value (string):
     </array>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Certificates": {
-      "ImportEnterpriseRoots": true | false,
-      "Install": ["cert1.der", "/home/username/cert2.pem"]
-    }
-  }
-}
 ```
 
 ## See also

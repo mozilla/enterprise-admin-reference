@@ -10,6 +10,10 @@ Don't check if Firefox is the default browser at startup.
 **CCK2 Equivalent:** `dontCheckDefaultBrowser`\
 **Preferences Affected:** `browser.shell.checkDefaultBrowser`
 
+## Examples
+
+<PolicyExample policy="DontCheckDefaultBrowser" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DontCheckDefaultBrowser</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DontCheckDefaultBrowser": true | false
-  }
-}
 ```

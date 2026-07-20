@@ -10,6 +10,10 @@ Set and lock the minimum version of TLS (Firefox defaults to a minimum of TLS 1.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `security.tls.version.min`
 
+## Examples
+
+<PolicyExample policy="SSLVersionMin" />
+
 ## Windows (GPO)
 
 ```
@@ -38,14 +42,4 @@ Value (string):
   <key>SSLVersionMin</key>
   <string>tls1 | tls1.1 | tls1.2 | tls1.3</string>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "SSLVersionMin": "tls1" | "tls1.1" | "tls1.2" | "tls1.3"
-  }
-}
 ```

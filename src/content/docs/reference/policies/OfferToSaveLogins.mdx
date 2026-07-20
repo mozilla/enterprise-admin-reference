@@ -10,6 +10,10 @@ Control whether or not Firefox offers to save passwords.
 **CCK2 Equivalent:** `dontRememberPasswords`\
 **Preferences Affected:** `signon.rememberSignons`
 
+## Examples
+
+<PolicyExample policy="OfferToSaveLogins" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>OfferToSaveLogins</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "OfferToSaveLogins": true | false
-  }
-}
 ```

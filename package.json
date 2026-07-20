@@ -11,11 +11,11 @@
     "schema:sync": "node scripts/sync-schema.mjs"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.41.2",
-    "astro": "^7.0.4",
+    "@astrojs/starlight": "^0.41.3",
+    "astro": "^7.0.7",
     "astro-breadcrumbs": "^3.4.1",
     "sharp": "^0.35.3",
-    "starlight-changelogs": "^0.5.0",
+    "starlight-changelogs": "^0.5.1",
     "starlight-github-alerts": "^0.4.0",
     "starlight-links-validator": "^0.25.2"
   }

@@ -10,6 +10,10 @@ Configure DNS over HTTPS.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.trr.mode`, `network.trr.uri`
 
+## Examples
+
+<PolicyExample policy="DNSOverHTTPS" />
+
 ## Values
 
 - `Enabled` determines whether DNS over HTTPS is enabled
@@ -112,20 +116,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DNSOverHTTPS": {
-      "Enabled":  true | false,
-      "ProviderURL": "URL_TO_ALTERNATE_PROVIDER",
-      "Locked": true | false,
-      "ExcludedDomains": ["example.com"],
-      "Fallback": true | false
-    }
-  }
-}
 ```

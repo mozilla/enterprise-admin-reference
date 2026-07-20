@@ -10,6 +10,10 @@ Prevent the built-in VPN from being available to users.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `browser.ipProtection.enabled`
 
+## Examples
+
+<PolicyExample policy="IPProtectionAvailable" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>IPProtectionAvailable</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "IPProtectionAvailable": true | false
-  }
-}
 ```

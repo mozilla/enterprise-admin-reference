@@ -16,6 +16,10 @@ This policy is based on the [Chrome policy](https://chromeenterprise.google/poli
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="ExemptDomainFileTypePairsFromFileTypeDownloadWarnings" />
+
 ## Windows (GPO)
 
 ```
@@ -82,19 +86,4 @@ Value (string):
     </dict>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "ExemptDomainFileTypePairsFromFileTypeDownloadWarnings": [
-      {
-        "file_extension": "jnlp",
-        "domains": ["example.com"]
-      }
-    ]
-  }
-}
 ```

@@ -7,25 +7,35 @@ category: "Content settings"
 Control use of the [Web Serial API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API).
 
 > [!NOTE]
-> If any policies are set, the WebSerial API will be blocked by default. To allow usage of the API,
-set this policy to `3`.
+> If any enterprise policies are set, the WebSerial API is blocked by default.
+> To allow usage of the API, set this policy to `3`.
 
 **Compatibility:** Firefox 151\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `dom.webserial.enabled`
+
+## Examples
+
+```json
+{
+  "policies": {
+    "DefaultSerialGuardSetting": 3
+  }
+}
+```
 
 ## Values
 
 - `2` means use of the WebSerial API is blocked.
 - `3` means use of the WebSerial API is allowed.
 
-#### Windows (GPO)
+## Windows (GPO)
 
 ```
 Software\Policies\Mozilla\Firefox\DefaultSerialGuardSetting = 0x2 | 0x3
 ```
 
-#### Windows (Intune)
+## Windows (Intune)
 
 OMA-URI:
 
@@ -40,21 +50,11 @@ Value (string):
 <data id="DefaultSerialGuardSetting" value="2 | 3"/>
 ```
 
-#### macOS
+## macOS
 
 ```xml
 <dict>
   <key>DefaultSerialGuardSetting</key>
   <integer>2 | 3</integer>
 </dict>
-```
-
-#### policies.json
-
-```json
-{
-  "policies": {
-    "DefaultSerialGuardSetting": 2 | 3
-  }
-}
 ```

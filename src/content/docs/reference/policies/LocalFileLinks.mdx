@@ -10,6 +10,10 @@ Enable linking to local files by origin.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `capability.policy.localfilelinks.*`
 
+## Examples
+
+<PolicyExample policy="LocalFileLinks" />
+
 ## Windows (GPO)
 
 ```
@@ -42,14 +46,4 @@ Value (string):
     <string>http://example.edu</string>
   </array>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "LocalFileLinks": ["http://example.org/", "http://example.edu/"]
-  }
-}
 ```

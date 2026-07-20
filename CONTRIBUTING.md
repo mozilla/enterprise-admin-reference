@@ -1,5 +1,60 @@
 # Contributing
 
+## Project structure
+
+The project is built using Starlight.
+Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory.
+Each file is exposed as a route based on its file name.
+Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+
+Static assets, like favicons, can be placed in the `public/` directory.
+
+### Code examples
+
+Reusable code snippets can be placed in `src/examples/`.
+To reuse a snippet like `src/examples/policy.json`, include it in markdown like so:
+
+```mdx
+import { Code } from "@astrojs/starlight/components";
+import policy from "/src/examples/policy.json?raw";
+
+See my example:
+
+<Code code={policy} lang="json" title="policies.json" />
+```
+
+### Policy examples
+
+Each reference page shows a copy & paste-ready JSON example under `## Examples`.
+The examples come from the upstream policy schema, which is fetched to `schema/policies-schema.json`.
+This can be refreshed from upstream using `npm run schema:sync`.
+
+To add the example to a policy page, use the `PolicyExample` component and pass the policy name as `policy="policy-name"`:
+
+```mdx
+---
+title: "Some page"
+---
+
+## Examples
+
+<PolicyExample policy="MyCoolPolicy" />
+```
+
+`PolicyExample` is auto-imported into every page under `src/content/docs/reference/policies`, so there's no need for an `import` line.
+IDEs may flag `PolicyExample` as undefined in the `.mdx` files, but this is safe to ignore.
+
+### Policy schema
+
+`PolicyExample` renders the policy's JSON schema in a collapsible `JSON schema` block directly after the examples.
+The schema is derived from the `schema/policies-schema.json` entry, with the following changes:
+
+- Annotations (`description`, `examples`, and any `x-` prefixed keys) are stripped.
+- `$ref`s (such as `#/definitions/url`) are inlined so the block is self-contained.
+
+Policies absent from `schema/policies-schema.json` render a `Missing schema` message rather than blocking the build.
+See `src/components/PolicySchema.astro` for details.
+
 ## Changelog
 
 The changelog is based on **Firefox versions**, not documentation versions.  

@@ -10,6 +10,10 @@ Whether to always go through the DNS server before sending a single word search 
 **CCK2 Equivalent:** `N/A`\
 **Preferences Affected:** `browser.fixup.dns_first_for_single_words`
 
+## Examples
+
+<PolicyExample policy="GoToIntranetSiteForSingleWordEntryInAddressBar" />
+
 ## Description
 
 If the site exists, it will navigate to the website.
@@ -51,14 +55,4 @@ Value (string):
   <key>GoToIntranetSiteForSingleWordEntryInAddressBar</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "GoToIntranetSiteForSingleWordEntryInAddressBar": true | false
-  }
-}
 ```

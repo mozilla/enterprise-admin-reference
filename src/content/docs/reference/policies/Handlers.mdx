@@ -12,6 +12,10 @@ You can configure handlers based on a [mime type](https://developer.mozilla.org/
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="Handlers" />
+
 ## Values
 
 Within each handler type, you specify the given mimeType/extension/scheme as a key and use the following subkeys to describe how it is handled.
@@ -176,41 +180,4 @@ Value (string):
     </dict>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Handlers": {
-      "mimeTypes": {
-        "application/msword": {
-          "action": "useSystemDefault",
-          "ask": false
-        }
-      },
-      "schemes": {
-        "mailto": {
-          "action": "useHelperApp",
-          "ask": true | false,
-          "handlers": [{
-            "name": "Gmail",
-            "uriTemplate": "https://mail.google.com/mail/?extsrc=mailto&url=%s"
-          }]
-        }
-      },
-      "extensions": {
-        "pdf": {
-          "action": "useHelperApp",
-          "ask": true | false,
-          "handlers": [{
-            "name": "Adobe Acrobat",
-            "path": "/usr/bin/acroread"
-          }]
-        }
-      }
-    }
-  }
-}
 ```

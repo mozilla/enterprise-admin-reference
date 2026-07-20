@@ -10,6 +10,10 @@ Set and lock the maximum version of TLS (Firefox defaults to a maximum of TLS 1.
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `security.tls.version.max`
 
+## Examples
+
+<PolicyExample policy="SSLVersionMax" />
+
 ## Windows (GPO)
 
 ```
@@ -38,14 +42,4 @@ Value (string):
   <key>SSLVersionMax</key>
   <string>tls1 | tls1.1 | tls1.2 | tls1.3</string>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "SSLVersionMax": "tls1" | "tls1.1" | "tls1.2" | "tls1.3"
-  }
-}
 ```

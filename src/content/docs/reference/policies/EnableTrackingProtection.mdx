@@ -12,6 +12,10 @@ If this policy is not configured, tracking protection is not enabled by default 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `privacy.trackingprotection.enabled`, `privacy.trackingprotection.pbmode.enabled`, `privacy.trackingprotection.cryptomining.enabled`, `privacy.trackingprotection.fingerprinting.enabled`, `privacy.fingerprintingProtection`, `privacy.trackingprotection.emailtracking.enabled`, `privacy.trackingprotection.emailtracking.pbmode.enabled`, `privacy.trackingprotection.allow_list.baseline.enabled`, `privacy.trackingprotection.allow_list.convenience.enabled`
 
+## Examples
+
+<PolicyExample policy="EnableTrackingProtection" />
+
 ## Values
 
 - If `Value` is set to false, tracking protection is disabled and locked in both the regular browser and private browsing.
@@ -198,25 +202,4 @@ Value (string):
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "EnableTrackingProtection": {
-      "Value": true | false,
-      "Locked": true | false,
-      "Cryptomining": true | false,
-      "Fingerprinting": true | false,
-      "EmailTracking": true | false,
-      "SuspectedFingerprinting": true | false,
-      "Category": "strict" | "standard",
-      "Exceptions": ["https://example.com"],
-      "BaselineExceptions": true | false,
-      "ConvenienceExceptions": true | false
-    }
-  }
-}
 ```

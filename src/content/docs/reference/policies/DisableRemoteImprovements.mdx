@@ -10,6 +10,10 @@ Prevent Firefox from applying performance, stability, and feature changes betwee
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="DisableRemoteImprovements" />
+
 ## Windows (GPO)
 
 ```
@@ -37,14 +41,4 @@ Value (string):
   <key>DisableRemoteImprovements</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "DisableRemoteImprovements": true | false
-  }
-}
 ```

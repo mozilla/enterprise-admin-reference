@@ -20,6 +20,10 @@ If you are having trouble getting the background task to run, verify your config
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `app.update.background.enabled`
 
+## Examples
+
+<PolicyExample policy="BackgroundAppUpdate" />
+
 ## Windows (GPO)
 
 ```
@@ -47,14 +51,4 @@ Value (string):
   <key>BackgroundAppUpdate</key>
   <true/> | <false/>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "BackgroundAppUpdate": true | false
-  }
-}
 ```

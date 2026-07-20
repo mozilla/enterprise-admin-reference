@@ -12,6 +12,10 @@ If this policy is enabled, users can only access Google Workspace using accounts
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="AllowedDomainsForApps" />
+
 ## Windows (GPO)
 
 ```
@@ -40,14 +44,4 @@ Value (string):
   <key>AllowedDomainsForApps</key>
   <string>managedfirefox.com,example.com</string>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AllowedDomainsForApps": "managedfirefox.com,example.com"
-  }
-}
 ```

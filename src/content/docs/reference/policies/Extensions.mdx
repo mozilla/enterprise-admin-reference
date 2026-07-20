@@ -16,6 +16,10 @@ Control the installation, uninstallation and locking of extensions.
 **CCK2 Equivalent:** `addons`\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="Extensions" />
+
 ## Values
 
 - `Install` is a list of URLs or native paths for extensions to be installed.
@@ -93,18 +97,4 @@ Value (string):
     </array>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "Extensions": {
-      "Install": ["https://addons.mozilla.org/firefox/downloads/somefile.xpi", "//path/to/xpi"],
-      "Uninstall": ["bad_addon_id@mozilla.org"],
-      "Locked": ["addon_id@mozilla.org"]
-    }
-  }
-}
 ```

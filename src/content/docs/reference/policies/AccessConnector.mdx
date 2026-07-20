@@ -14,6 +14,10 @@ When this policy is set, Firefox traffic matching the specified URL patterns is 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
+## Examples
+
+<PolicyExample policy="AccessConnector" />
+
 ## Values
 
 - `Host`: A string that defines the hostname or IP address of the proxy server to use.
@@ -49,19 +53,4 @@ Software\Policies\Mozilla\Firefox\AccessConnector\Locked = 0x1 | 0x0
     <true/> | <false/>
   </dict>
 </dict>
-```
-
-## policies.json
-
-```json
-{
-  "policies": {
-    "AccessConnector": {
-      "Host": "proxy.example.com",
-      "Port": 443,
-      "MatchPatterns": ["https://*.example.com"],
-      "Locked": true | false
-    }
-  }
-}
 ```
