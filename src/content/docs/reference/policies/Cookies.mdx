@@ -17,6 +17,7 @@ Configure cookie preferences.
 ## Values
 
 - `Allow` is a list of origins (not domains) where cookies are always allowed. You must include `http` or `https`.
+  As of Firefox 154, using `Allow` to also exempt sites from clearing on shutdown is deprecated. Firefox migrates those origins to the new mechanism, but you should configure [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/)'s `Exceptions` instead.
 - `AllowSession` is a list of origins (not domains) where cookies are only allowed for the current session. You must include `http` or `https`.
 - `Block` is a list of origins (not domains) where cookies are always blocked. You must include `http` or `https`.
 - `Behavior` sets the default behavior for cookies based on the following values:
