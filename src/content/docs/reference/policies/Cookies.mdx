@@ -6,7 +6,7 @@ category: "Network security"
 
 Configure cookie preferences.
 
-**Compatibility:** Firefox 60, Firefox ESR 60 (RejectTracker added in Firefox 63, AllowSession added in Firefox 79/78.1, Behavior added in Firefox 95/91.4)\
+**Compatibility:** Firefox 60, Firefox ESR 60 (RejectTracker added in Firefox 63, AllowSession added in Firefox 79/78.1, Behavior added in Firefox 95/91.4, reject-tracker-and-partition-foreign renamed to partition-foreign in Firefox 153)\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.cookie.cookieBehavior`, `network.cookie.cookieBehavior.pbmode`, `network.cookie.lifetimePolicy`
 
@@ -25,7 +25,8 @@ Configure cookie preferences.
   - `reject`: Reject all cookies.
   - `limit-foreign`: Reject third party cookies for sites you haven't visited.
   - `reject-tracker`: Reject cookies for known trackers (default).
-  - `reject-tracker-and-partition-foreign`: Reject cookies for known trackers and partition third-party cookies, also known as Total Cookie Protection (default for private browsing).
+  - `partition-foreign`: (Firefox 153) Reject cookies for known trackers and partition third-party cookies, also known as Total Cookie Protection (default for private browsing).
+  - `reject-tracker-and-partition-foreign`: (_Deprecated_. Renamed to `partition-foreign` in Firefox 153. Update existing configurations to use `partition-foreign`.)
 - `BehaviorPrivateBrowsing` sets the default behavior for cookies in private browsing.
   Accepts the same values as `Behavior`.
 - `Locked` prevents the user from changing cookie preferences.
@@ -40,8 +41,8 @@ Configure cookie preferences.
 Software\Policies\Mozilla\Firefox\Cookies\Allow\1 = "https://example.com"
 Software\Policies\Mozilla\Firefox\Cookies\AllowSession\1 = "https://example.edu"
 Software\Policies\Mozilla\Firefox\Cookies\Block\1 = "https://example.org"
-Software\Policies\Mozilla\Firefox\Cookies\Behavior = "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
-Software\Policies\Mozilla\Firefox\Cookies\BehaviorPrivateBrowsing = "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "reject-tracker-and-partition-foreign"
+Software\Policies\Mozilla\Firefox\Cookies\Behavior = "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "partition-foreign"
+Software\Policies\Mozilla\Firefox\Cookies\BehaviorPrivateBrowsing = "accept" | "reject-foreign" | "reject" | "limit-foreign" | "reject-tracker" | "partition-foreign"
 Software\Policies\Mozilla\Firefox\Cookies\Locked = 0x1 | 0x0
 ```
 
@@ -108,7 +109,7 @@ Value (string):
 
 ```xml
 <enabled/>
-<data id="Cookies_Behavior" value="accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign"/>
+<data id="Cookies_Behavior" value="accept | reject-foreign | reject | limit-foreign | reject-tracker | partition-foreign"/>
 ```
 
 OMA-URI:
@@ -121,7 +122,7 @@ Value (string):
 
 ```xml
 <enabled/>
-<data id="Cookies_BehaviorPrivateBrowsing" value="accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign"/>
+<data id="Cookies_BehaviorPrivateBrowsing" value="accept | reject-foreign | reject | limit-foreign | reject-tracker | partition-foreign"/>
 ```
 
 ## macOS
@@ -145,9 +146,9 @@ Value (string):
     <key>Locked</key>
     <true/> | <false/>
     <key>Behavior</key>
-    <string>accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign</string>
+    <string>accept | reject-foreign | reject | limit-foreign | reject-tracker | partition-foreign</string>
     <key>BehaviorPrivateBrowsing</key>
-    <string>accept | reject-foreign | reject | limit-foreign | reject-tracker | reject-tracker-and-partition-foreign</string>
+    <string>accept | reject-foreign | reject | limit-foreign | reject-tracker | partition-foreign</string>
   </dict>
 </dict>
 ```
