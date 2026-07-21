@@ -1,0 +1,49 @@
+---
+title: "DisableRemoteSettingsAndAcceptSecurityConsequences"
+description: "Disable Remote Settings updates and accept the resulting security consequences."
+category: "Network security"
+---
+
+Disable [Remote Settings](https://firefox-source-docs.mozilla.org/services/settings/) updates, stopping Firefox from receiving updated data such as blocklists, and accept the resulting security consequences.
+
+Remote Settings is the mechanism Firefox uses to deliver frequently updated data, including the add-on and plugin blocklists, without requiring a full application update. Disabling it prevents Firefox from connecting to the Remote Settings service and receiving these updates.
+
+> [!WARNING]
+> Turning off Remote Settings stops Firefox from receiving security-critical updates such as the add-on blocklist. Only enable this policy if you fully understand and accept the security consequences.
+
+**Compatibility:** Firefox 153\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="DisableRemoteSettingsAndAcceptSecurityConsequences" />
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DisableRemoteSettingsAndAcceptSecurityConsequences = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DisableRemoteSettingsAndAcceptSecurityConsequences
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DisableRemoteSettingsAndAcceptSecurityConsequences</key>
+  <true/> | <false/>
+</dict>
+```
