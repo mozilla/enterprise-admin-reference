@@ -4,6 +4,10 @@
 
 ## Unreleased
 
+#### Added
+
+- `DisableLocalPolicies` policy: Disable all local policy sources (policies.json, Windows GPO and macOS plist). [#216](https://github.com/mozilla/enterprise-admin-reference/pull/216)
+
 #### Changed
 
 - `CrashReportsSubmit` policy: Update policy structure to remove `ForceAutoSubmit` key in favor of `Enabled` key ([#222](https://github.com/mozilla/enterprise-admin-reference/pull/222))
