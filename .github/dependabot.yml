@@ -4,10 +4,33 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: daily
-    open-pull-requests-limit: 10
+      interval: weekly
+    open-pull-requests-limit: 4
     labels:
       - "automated pr"
+    groups:
+      # Astro core + Starlight & plugins together
+      astro-starlight:
+        patterns:
+          - "astro"
+          - "@astrojs/*"
+          - "astro-*"
+          - "starlight-*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Everything else npm
+      npm-minor-patch:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "astro"
+          - "@astrojs/*"
+          - "astro-*"
+          - "starlight-*"
+        update-types:
+          - "minor"
+          - "patch"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -16,3 +39,7 @@ updates:
     open-pull-requests-limit: 4
     labels:
       - "automated pr"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
