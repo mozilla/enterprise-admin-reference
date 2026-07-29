@@ -10,7 +10,7 @@ Items that can be selectively deleted include browsing & download history, cooki
 
 > [!NOTE] Starting with Firefox 136, `FormData` and `History` are separate data types.
 
-**Compatibility:** Firefox 60, Firefox ESR 60. Object form added in Firefox 68/ESR 68, `Locked` added in 74/68.6, `History` in Firefox 128.\
+**Compatibility:** Firefox 60, Firefox ESR 60. Object form added in Firefox 68/ESR 68, `Locked` added in 74/68.6, `History` in Firefox 128, `Exceptions` in Firefox 154.\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `privacy.sanitize.sanitizeOnShutdown`, `privacy.clearOnShutdown.cache`, `privacy.clearOnShutdown.cookies`, `privacy.clearOnShutdown.downloads`, `privacy.clearOnShutdown.formdata`, `privacy.clearOnShutdown.history`, `privacy.clearOnShutdown.sessions`, `privacy.clearOnShutdown.siteSettings`, `privacy.clearOnShutdown.offlineApps`, `privacy.clearOnShutdown_v2.browsingHistoryAndDownloads` (Firefox 128), `privacy.clearOnShutdown_v2.cookiesAndStorage` (Firefox 128), `privacy.clearOnShutdown_v2.cache` (Firefox 128), `privacy.clearOnShutdown_v2.siteSettings` (Firefox 128), `privacy.clearOnShutdown_v2.formdata` (Firefox 128)
 
@@ -38,6 +38,7 @@ Accepts one or more of the following members to clear specific data types:
 - `SiteSettings`: Site preferences
 - `OfflineApps`: Offline Website Data (_Deprecated - use `Cookies` instead_)
 - `Locked`: Prevents the user from changing these preferences.
+- `Exceptions`: (Firefox 154) A list of origins (not domains) whose cookies and site data are not cleared on shutdown. You must include `http` or `https`.
 
 ## Windows (GPO)
 
@@ -57,6 +58,7 @@ Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\History = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\Sessions = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\SiteSettings = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\SanitizeOnShutdown\Exceptions\1 = "https://example.com"
 ```
 
 ## Windows (Intune)
@@ -188,6 +190,10 @@ Clear specific data types:
     <true/> | <false/>
     <key>Locked</key>
     <true/> | <false/>
+    <key>Exceptions</key>
+    <array>
+      <string>https://example.com</string>
+    </array>
   </dict>
 </dict>
 ```
