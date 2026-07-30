@@ -9,15 +9,21 @@ Defines policies scoped to specific sites.
 **Compatibility:** Firefox 150, Firefox ESR 153\
 **Preferences Affected:** N/A
 
-The policy is made up of a list of rules that are evaluated in order. Each can contain:
+The policy is made up of a list of rules that are evaluated in order.
+Each can contain:
 
-- `Match` which is a list of sites. An empty list or missing property means to match all sites.
+- `Match` is a list of sites.
+  An empty list or missing property means to match all sites.
 - `Exceptions` is also a list of sites which when matched bypasses this set of rules.
 - `Policies` is an object defining the policies.
 
 Currently the only supported policies are:
 
-- `DisableJit` which when true disables the JIT engine for the site.
+- `DisableJit` disables the JIT engine for the site when `true`.
+
+  > [!WARNING]
+  > When the JIT engine is disabled, some sites may be slow, experience breakages, and WebAssembly won't be executed.
+  > Be sure to scope `DisableJit` as narrowly as possible using `Match` patterns, or via exemptions using `Exceptions`.
 
 It is important to note that a site here refers to a registerable domain so `*.example.com` is a valid site but `*.com` is not. `*` can also be used to refer to all sites.
 
