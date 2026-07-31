@@ -6,19 +6,19 @@ category: "Miscellaneous"
 
 Enable policy support on macOS.
 
+This turns on policy support **for macOS via plist**, rather than a policy that configures other browser behavior.
+Until this policy is set, Firefox ignores every policy in the plist.
+See [Configuring policies](/guides/policies-configuration/) for where each policy source lives.
+
 **Compatibility:** Firefox 63, Firefox ESR 60.3 (macOS only)\
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
 
-## Examples
-
-```json
-{
-  "policies": {
-    "EnterprisePoliciesEnabled": true
-  }
-}
-```
+> [!WARNING]
+>
+> - A `policies.json` file is read on macOS regardless of whether `EnterprisePoliciesEnabled` is set or not.
+> - Setting `EnterprisePoliciesEnabled` in `policies.json` has no effect and is reported as an error in `about:policies`.
+>   For this reason, all non-macOS sections are omitted deliberately from this page.
 
 ## macOS
 
@@ -28,3 +28,20 @@ Enable policy support on macOS.
   <true/>
 </dict>
 ```
+
+To enable policies from the command line, set the key system-wide:
+
+```bash
+sudo defaults write /Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE
+```
+
+Or, for the current user only, in `~/Library` without `sudo`:
+
+```bash
+defaults write ~/Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE
+```
+
+## See also
+
+- [Configuring policies](/guides/policies-configuration/)
+- [Manage policies on macOS desktops](https://support.mozilla.org/en-US/kb/managing-policies-macos-desktops) on SUMO
