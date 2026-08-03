@@ -16,6 +16,8 @@ concurrency:
 
 jobs:
   build:
+    # Don't run in forks
+    if: github.repository == 'mozilla/enterprise-admin-reference'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
