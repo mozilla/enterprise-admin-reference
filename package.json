@@ -11,8 +11,8 @@
     "schema:sync": "node scripts/sync-schema.mjs"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.41.5",
-    "astro": "^7.1.5",
+    "@astrojs/starlight": "^0.41.6",
+    "astro": "^7.1.6",
     "astro-breadcrumbs": "^3.4.2",
     "sharp": "^0.35.3",
     "starlight-changelogs": "^0.5.1",
