@@ -39,13 +39,17 @@ For example, if `"trusted-app.example.com"` is listed, that website can freely m
 When a **target domain** is listed, any website can access that specific local network resource without restrictions.
 For example, if `"printer.local"` is listed, all websites can access the printer device.
 
-Suffix wildcard patterns for are supported using the `*.` prefix to match all subdomains:
+Suffix wildcard patterns are supported using the `*.` prefix to match all subdomains:
 
-- `"*.company.com"` - Skips checks for all subdomains of company.com (matches `app.company.com`, `portal.company.com`, etc.).
-- `"*.internal"` - Skips checks for all .internal domains (matches `device.internal`, `printer.internal`, etc.).
+- `"*.company.com"` - Skips checks for company.com and all subdomains (matching `company.com`, `app.company.com`, `portal.company.com`, etc.).
+- `"*.internal"` - Skips checks for all .internal domains (matching `internal`, `device.internal`, `printer.internal`, etc.).
 - `"web-app.example.com"` - Skips checks for this specific domain only (no subdomain matching).
-- `"*.devices.local"` - Allows access to all local devices with `.devices.local` suffix (`printer.devices.local`, `scanner.devices.local`, etc.).
+- `"*.devices.local"` - Allows access to all local devices with `.devices.local` suffix (matching `printer.devices.local`, `scanner.devices.local`, etc.).
 - `"*.corp.internal"` - Allows access to all corporate internal domains.
+
+A `*.` prefix pattern includes the domain itself, so you do not need a separate entry for it.
+This means `"*.microsoft.com"` matches `microsoft.com` as well as `login.microsoft.com`.
+An entry without the `*.` prefix matches the host only, so `"microsoft.com"` will not match `login.microsoft.com`.
 
 ## Windows (GPO)
 
