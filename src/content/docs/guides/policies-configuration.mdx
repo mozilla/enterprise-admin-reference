@@ -18,6 +18,7 @@ For each operating system, there is a defined location that Firefox will check:
 - **On macOS**, the `policies.json` file goes into `Firefox.app/Contents/Resources/distribution`.
 - **On Linux**, the `policies.json` file goes into `firefox/distribution`, where `firefox` is the installation directory for firefox, which varies by distribution.
   Alternatively, you may specify system-wide policy by placing the file in `/etc/firefox/policies`.
+  For Flatpak, see [Configuring a Flatpak package](#configuring-a-flatpak-package) below.
 
 > [!NOTE]
 > The `policies.json` files must be `UTF-8`-encoded.
@@ -25,6 +26,34 @@ For each operating system, there is a defined location that Firefox will check:
 An example policy looks as follows:
 
 <Code code={policy} lang="json" title="policies.json" />
+
+### Configuring a Flatpak package
+
+The [Flatpak build of Firefox](https://flathub.org/apps/org.mozilla.firefox) runs in a sandbox and cannot read the host's `/etc/firefox/policies` directory.
+It reads system-wide policies from an [Flatpak extension](https://docs.flatpak.org/en/latest/extension.html#unmaintained-flatpak-extensions) named `org.mozilla.firefox.systemconfig` in the sandbox at `/app/etc/firefox`.
+Nothing needs to be installed with `flatpak install`, admins create the directory structure on the host and place `policies.json` inside it.
+
+To get started, place a `policies.json` file in a `policies` subdirectory of the extension directory on the host:
+
+```bash
+/var/lib/flatpak/extension/org.mozilla.firefox.systemconfig/<arch>/<branch>/policies/policies.json
+```
+
+Replace `<arch>` with the Flatpak architecture of the installed app, such as `x86_64` or `aarch64`, and `<branch>` with its branch, which is typically `stable`.
+Run `flatpak list --app --columns=application,arch,branch` to check which values apply to a given machine.
+
+For example, on an x86-64 machine running the release channel:
+
+```bash
+sudo mkdir -p /var/lib/flatpak/extension/org.mozilla.firefox.systemconfig/x86_64/stable/policies
+sudo cp policies.json /var/lib/flatpak/extension/org.mozilla.firefox.systemconfig/x86_64/stable/policies/
+```
+
+> [!NOTE]
+> The path above applies to system-wide Flatpak installations.
+> If Firefox was installed for a single user with `flatpak install --user`, use `~/.local/share/flatpak/extension/` in place of `/var/lib/flatpak/extension/`.
+
+Restart Firefox for the policies to take effect, then open `about:policies` to confirm that they were applied.
 
 ### Policy annotations
 
@@ -51,4 +80,5 @@ For example, `Authentication_Comment` is an internal value used for documentatio
 - [Windows Group Policy template](https://github.com/mozilla/policy-templates/tree/master/windows) on github.com/mozilla/policy-templates
 - [macOS `org.mozilla.firefox.plist` template](https://github.com/mozilla/policy-templates/tree/master/mac) on github.com/mozilla/policy-templates
 - [macOS / Linux `policies.json` template](https://github.com/mozilla/policy-templates/blob/master/linux/policies.json) on github.com/mozilla/policy-templates
-- [Manage Firefox with Microsoft Endpoint Manager (Intune)](https://support.mozilla.org/en-US/kb/managing-firefox-intune) on https://support.mozilla.org
+- [Manage Firefox with Microsoft Endpoint Manager (Intune)](https://support.mozilla.org/en-US/kb/managing-firefox-intune) on support.mozilla.org
+- [Exposing administrator policies to Flatpak applications](https://docs.flatpak.org/en/latest/extension.html#unmaintained-flatpak-extensions) on docs.flatpak.org

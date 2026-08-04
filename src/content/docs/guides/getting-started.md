@@ -33,6 +33,9 @@ Available installers are:
 
 The installers and executables for **Firefox** and **Firefox ESR** can be found on the [Firefox downloads page](https://www.firefox.com/en-US/download/all/).
 
+Firefox is also published as a Flatpak package on [Flathub](https://flathub.org/apps/org.mozilla.firefox).
+See [Configuring a Flatpak package](/guides/policies-configuration/#configuring-a-flatpak-package) for details.
+
 ## Deploy Firefox
 
 Once you've selected a release channel and downloaded the appropriate installers, the next step is to deploy Firefox across your devices.
