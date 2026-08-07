@@ -18,6 +18,11 @@
     "3rdparty": {
       "type": "object",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Allow WebExtensions to configure policy.",
       "examples": [
         {
@@ -208,6 +213,11 @@
     "AIControls": {
       "type": "object",
       "x-category": "Content settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "149.0.2" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "149.0.2" }
+      },
       "description": "Controls access to AI features: Translations, PDF alt text generation, smart tab groups, display summaries in link previews, AI chatbot in the sidebar and smart windows. The `Default` value applies to all AI features, unless overridden by a specific feature.",
       "examples": [
         {
@@ -312,6 +322,11 @@
     "AllowedDomainsForApps": {
       "type": "string",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "89" },
+        "firefox_esr": { "version_added": "78.11.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Define domains allowed to access Google Workspace.",
       "examples": ["managedfirefox.com,example.com"]
     },
@@ -319,26 +334,46 @@
     "AllowFileSelectionDialogs": {
       "type": "boolean",
       "x-category": "Browser UI",
+      "x-compatibility": {
+        "firefox": { "version_added": "124" },
+        "firefox_esr": { "version_added": "128" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable file selection dialogs.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "AppAutoUpdate": {
       "type": "boolean",
       "x-category": "Device update settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "75" },
+        "firefox_esr": { "version_added": "68.7.0" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Enable or disable automatic application update.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "AppUpdatePin": {
       "type": "string",
       "x-category": "Device update settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "102" },
+        "firefox_esr": { "version_added": "102" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Prevent Firefox from being updated beyond the specified version.",
       "examples": ["106."]
     },
 
     "AppUpdateURL": {
       "x-category": "Device update settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "62" },
+        "firefox_esr": { "version_added": "60.2.0" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Change the URL for application update if you are providing Firefox updates from a custom update server.",
       "examples": ["https://yoursite.com"],
       "$ref": "#/definitions/url"
@@ -347,6 +382,11 @@
     "Authentication": {
       "type": "object",
       "x-category": "Authentication",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure sites that support integrated authentication.",
       "examples": [
         {
@@ -418,20 +458,35 @@
     "AutofillAddressEnabled": {
       "type": "boolean",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "125" },
+        "firefox_esr": { "version_added": "115.10.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enables or disables autofill for addresses.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "AutofillCreditCardEnabled": {
       "type": "boolean",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "125" },
+        "firefox_esr": { "version_added": "115.10.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enables or disables autofill for payment methods.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "AutoLaunchProtocolsFromOrigins": {
       "type": "array",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "90" },
+        "firefox_esr": { "version_added": "78.12.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Define a list of external protocols that can be used from listed origins without prompting the user.",
       "examples": [
         [
@@ -460,36 +515,61 @@
     "BackgroundAppUpdate": {
       "type": "boolean",
       "x-category": "Device update settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "90" },
+        "firefox_esr": { "version_added": "91" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable automatic application update in the background, when the application is not running.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "BlockAboutAddons": {
       "type": "boolean",
       "x-category": "Extensions",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Block access to the Add-ons Manager ('about:addons').",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "BlockAboutConfig": {
       "type": "boolean",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Block access to 'about:config'.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "BlockAboutProfiles": {
       "type": "boolean",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Block access to About Profiles ('about:profiles').",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "BlockAboutSupport": {
       "type": "boolean",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Block access to Troubleshooting Information ('about:support').",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "BlocklistDomainBrowsedTelemetry": {
@@ -523,6 +603,11 @@
     "Bookmarks": {
       "type": "array",
       "x-category": "Bookmarks",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Add bookmarks in either the bookmarks toolbar or menu. Use 'ManagedBookmarks' instead.",
       "examples": [
         [
@@ -558,6 +643,11 @@
     "BrowserDataBackup": {
       "type": ["boolean", "object"],
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "146" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable backup or restore of profile data.",
       "examples": [
         {
@@ -578,13 +668,23 @@
     "CaptivePortal": {
       "type": "boolean",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "67" },
+        "firefox_esr": { "version_added": "60.7.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable the detection of captive portals.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "Certificates": {
       "type": "object",
       "x-category": "Certificate management",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Install and manage certificates.",
       "examples": [
         {
@@ -606,12 +706,25 @@
     },
 
     "CNSA2KeyAgreementEnabled": {
-      "type": "boolean"
+      "type": "boolean",
+      "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "154" },
+        "firefox_esr": { "version_added": false },
+        "firefox_enterprise": { "version_added": "154" }
+      },
+      "description": "Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS.",
+      "examples": [true]
     },
 
     "Containers": {
       "type": "object",
       "x-category": "Extensions",
+      "x-compatibility": {
+        "firefox": { "version_added": "113" },
+        "firefox_esr": { "version_added": "115" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set policies related to Multi-Account Containers.",
       "examples": [
         {
@@ -676,6 +789,11 @@
     "ContentAnalysis": {
       "type": "object",
       "x-category": "Cloud reporting",
+      "x-compatibility": {
+        "firefox": { "version_added": "125.0.1" },
+        "firefox_esr": { "version_added": "128" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure Firefox to use an agent for Data Loss Prevention (DLP) that is compatible with the Google Chrome Content Analysis Connector Agent SDK.",
       "examples": [
         {
@@ -831,6 +949,11 @@
     "Cookies": {
       "type": "object",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure cookie preferences.",
       "examples": [
         {
@@ -995,6 +1118,11 @@
     "DefaultBrowserSettingEnabled": {
       "type": "boolean",
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "154" },
+        "firefox_esr": { "version_added": false },
+        "firefox_enterprise": { "version_added": "154" }
+      },
       "description": "Control whether the user can set Firefox as the default browser. If set to false, the default browser check is disabled and the controls for setting Firefox as the default browser are removed from the preferences.",
       "examples": [false]
     },
@@ -1002,6 +1130,11 @@
     "DefaultDownloadDirectory": {
       "type": "string",
       "x-category": "Downloads",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set the default download directory.",
       "examples": ["${home}/Downloads"]
     },
@@ -1009,6 +1142,11 @@
     "DefaultSerialGuardSetting": {
       "type": "number",
       "x-category": "Content settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "151" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "151" }
+      },
       "description": "Set the default permission for websites requesting access to serial ports through the Web Serial API.",
       "examples": [2, 3],
       "enum": [2, 3]
@@ -1017,27 +1155,47 @@
     "DisableAccounts": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "119" },
+        "firefox_esr": { "version_added": "128" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Disable account-based services, including sync.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableAppUpdate": {
       "type": "boolean",
       "x-category": "Device update settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Turn off application updates within Firefox.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableBuiltinPDFViewer": {
       "type": "boolean",
       "x-category": "Printing",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable the built in PDF viewer.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisabledCiphers": {
       "type": "object",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "76" },
+        "firefox_esr": { "version_added": "68.8.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable specific cryptographic ciphers, listed below.",
       "examples": [
         {
@@ -1114,64 +1272,121 @@
     "DisableDefaultBrowserAgent": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "75" },
+        "firefox_esr": { "version_added": "68.7.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Prevent the default browser agent from taking any actions.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableDeveloperTools": {
       "type": "boolean",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Remove access to all developer tools.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableEncryptedClientHello": {
       "type": "boolean",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "127" },
+        "firefox_esr": { "version_added": "128" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable the TLS Feature for Encrypted Client Hello.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableFeedbackCommands": {
       "type": "boolean",
       "x-category": "Browser UI",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable the menus for reporting sites (Submit Feedback, Report Deceptive Site).",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableFirefoxAccounts": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Disable Firefox Accounts integration (Sync).",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableFirefoxScreenshots": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Remove access to Firefox Screenshots.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableFirefoxStudies": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Disable Firefox studies (Shield).",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableForgetButton": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable the \"Forget\" button.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableFormHistory": {
       "type": "boolean",
       "x-category": "Local data storage",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Turn off saving information on web forms and the search bar.",
-      "examples": [true, false]
+      "examples": [true]
+    },
+
+    "DisableLaunchOnLogin": {
+      "type": "boolean",
+      "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "155" },
+        "firefox_esr": { "version_added": false },
+        "firefox_enterprise": { "version_added": "155" }
+      },
+      "description": "Prevent Firefox from launching automatically when the user logs in, and prevent the user from enabling this setting. This policy currently only has an effect on Windows.",
+      "examples": [true]
     },
     "DisableLocalPolicies": {
       "type": "boolean",
@@ -1182,69 +1397,119 @@
     "DisableMasterPasswordCreation": {
       "type": "boolean",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Remove the master password functionality.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisablePasswordReveal": {
       "type": "boolean",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "71" },
+        "firefox_esr": { "version_added": "68.3.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Do not allow passwords to be shown in saved logins.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisablePocket": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Remove Pocket in the Firefox UI.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisablePrivateBrowsing": {
       "type": "boolean",
       "x-category": "Browsing restrictions",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Remove access to private browsing.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableProfileImport": {
       "type": "boolean",
       "x-category": "Bookmarks",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Remove the ability to import data from other browsers.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableProfileRefresh": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable the Refresh Firefox button on 'about:support' and 'support.mozilla.org', as well as the prompt that displays offering to refresh Firefox when you haven't used it in a while.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableRemoteImprovements": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "148" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Prevent Firefox from applying performance, stability, and feature changes between updates.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableRemoteSettingsAndAcceptSecurityConsequences": {
       "type": "boolean",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "153" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "153" }
+      },
       "description": "Disable Remote Settings updates, stopping Firefox from receiving updated data such as blocklists, and accept the resulting security consequences.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableSafeMode": {
       "type": "boolean",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable safe mode (Troubleshoot Mode) within the browser.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableSecurityBypass": {
       "type": "object",
       "x-category": "Certificate management",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Prevent the user from bypassing security in certain cases.",
       "examples": [
         {
@@ -1265,33 +1530,58 @@
     "DisableSetDesktopBackground": {
       "type": "boolean",
       "x-category": "Browser UI",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Remove the \"Set As Desktop Background...\" menuitem when right clicking on an image.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableSystemAddonUpdate": {
       "type": "boolean",
       "x-category": "Device update settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Prevent system add-ons from being installed or updated.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableTelemetry": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Prevent the upload of telemetry data.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisableThirdPartyModuleBlocking": {
       "type": "boolean",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "110" },
+        "firefox_esr": { "version_added": "115" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Do not allow blocking third-party modules from the 'about:third-party' page.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DisplayBookmarksToolbar": {
       "x-category": "Bookmarks",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set the initial state of the bookmarks toolbar.",
       "examples": ["always"],
       "anyOf": [
@@ -1302,6 +1592,11 @@
 
     "DisplayMenuBar": {
       "x-category": "Browser UI",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set the state of the menubar.",
       "examples": ["always"],
       "anyOf": [
@@ -1316,6 +1611,11 @@
     "DNSOverHTTPS": {
       "type": "object",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "63" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure DNS over HTTPS (DoH).",
       "examples": [
         {
@@ -1349,13 +1649,23 @@
     "DontCheckDefaultBrowser": {
       "type": "boolean",
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Don't check if Firefox is the default browser at startup.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "DownloadDirectory": {
       "type": "string",
       "x-category": "Downloads",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set and lock the download directory.",
       "examples": ["${home}/Downloads"]
     },
@@ -1383,6 +1693,11 @@
     "EnableTrackingProtection": {
       "type": "object",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure tracking protection.",
       "examples": [
         {
@@ -1437,6 +1752,11 @@
     "EncryptedMediaExtensions": {
       "type": "object",
       "x-category": "Content settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "77" },
+        "firefox_esr": { "version_added": "68.9.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable Encrypted Media Extensions and optionally lock it.",
       "examples": [
         {
@@ -1464,6 +1784,11 @@
     "ExemptDomainFileTypePairsFromFileTypeDownloadWarnings": {
       "type": "array",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "102" },
+        "firefox_esr": { "version_added": "102" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable warnings based on file extension for specific file types on domains.",
       "examples": [
         [
@@ -1492,6 +1817,11 @@
     "Extensions": {
       "type": "object",
       "x-category": "Extensions",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Control the installation, uninstallation and locking of extensions.",
       "examples": [
         {
@@ -1528,6 +1858,11 @@
     "ExtensionSettings": {
       "type": "object",
       "x-category": "Extensions",
+      "x-compatibility": {
+        "firefox": { "version_added": "69" },
+        "firefox_esr": { "version_added": "68.1.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Manage all aspects of extensions.",
       "examples": [
         {
@@ -1682,13 +2017,23 @@
     "ExtensionUpdate": {
       "type": "boolean",
       "x-category": "Extensions",
+      "x-compatibility": {
+        "firefox": { "version_added": "67" },
+        "firefox_esr": { "version_added": "60.7.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Control extension updates.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "FirefoxHome": {
       "type": "object",
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Customize the Firefox Home page.",
       "examples": [
         {
@@ -1744,6 +2089,11 @@
     "FirefoxSuggest": {
       "type": "object",
       "x-category": "Search",
+      "x-compatibility": {
+        "firefox": { "version_added": "118" },
+        "firefox_esr": { "version_added": "115.3.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Customize Firefox Suggest (US only).",
       "examples": [
         {
@@ -1775,6 +2125,11 @@
     "GenerativeAI": {
       "type": "object",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "144" },
+        "firefox_esr": { "version_added": "140.4.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure generative AI features.",
       "examples": [
         {
@@ -1810,13 +2165,23 @@
     "GoToIntranetSiteForSingleWordEntryInAddressBar": {
       "type": "boolean",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "104" },
+        "firefox_esr": { "version_added": "102.2.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Whether to always go through the DNS server before sending a single word search string to a search engine.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "Handlers": {
       "type": "object",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "78" },
+        "firefox_esr": { "version_added": "78" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure default application handlers.",
       "examples": [
         {
@@ -1894,13 +2259,23 @@
     "HardwareAcceleration": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Control hardware acceleration.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "Homepage": {
       "type": "object",
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure the default homepage and how Firefox starts.",
       "examples": [
         {
@@ -1932,6 +2307,11 @@
     "HttpAllowlist": {
       "type": "array",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "127" },
+        "firefox_esr": { "version_added": "128" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure sites that will not be upgraded to HTTPS.",
       "examples": [["http://example.org", "http://example.edu"]],
       "items": { "$ref": "#/definitions/origin" }
@@ -1940,6 +2320,11 @@
     "HttpsOnlyMode": {
       "type": "string",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "127" },
+        "firefox_esr": { "version_added": "128" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure HTTPS-Only Mode.",
       "examples": ["allowed"],
       "enum": ["allowed", "disallowed", "enabled", "force_enabled"]
@@ -1948,6 +2333,11 @@
     "InstallAddonsPermission": {
       "type": "object",
       "x-category": "Extensions",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure the default extension install policy as well as origins for extension installs are allowed.",
       "examples": [
         {
@@ -1969,27 +2359,47 @@
     "IPProtectionAvailable": {
       "type": "boolean",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "149" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Control whether Firefox's built-in IP Protection (VPN) is available to users. When disabled, the feature is turned off and cannot be used.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "LegacyProfiles": {
       "type": "boolean",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "70" },
+        "firefox_esr": { "version_added": "68.2.0" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Disable the feature enforcing a separate profile for each installation.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "LegacySameSiteCookieBehaviorEnabled": {
       "type": "boolean",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "76" },
+        "firefox_esr": { "version_added": "78" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable default legacy SameSite cookie behavior setting.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "LegacySameSiteCookieBehaviorEnabledForDomainList": {
       "type": "array",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "76" },
+        "firefox_esr": { "version_added": "78" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Revert to legacy SameSite behavior for cookies on specified sites.",
       "examples": [["example.org", "example.edu"]],
       "items": {
@@ -2000,6 +2410,11 @@
     "LocalFileLinks": {
       "type": "array",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable linking to local files by origin.",
       "examples": [["http://example.org/", "http://example.edu/"]],
       "items": {
@@ -2010,13 +2425,18 @@
     "LocalNetworkAccess": {
       "type": "object",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "145" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure local network access security features.",
       "examples": [
         {
           "Enabled": true,
           "BlockTrackers": true,
           "EnablePrompting": true,
-          "SkipDomains": ["https://example.org/"],
+          "SkipDomains": ["example.org", "*.example.com"],
           "Locked": true
         }
       ],
@@ -2044,6 +2464,11 @@
 
     "ManagedBookmarks": {
       "x-category": "Bookmarks",
+      "x-compatibility": {
+        "firefox": { "version_added": "83" },
+        "firefox_esr": { "version_added": "78.5.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configures a list of bookmarks managed by an administrator that cannot be changed by the user.",
       "examples": [
         [
@@ -2116,61 +2541,106 @@
     "ManualAppUpdateOnly": {
       "type": "boolean",
       "x-category": "Device update settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "87" },
+        "firefox_esr": { "version_added": "91" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Switch to manual updates only.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "MicrosoftEntraSSO": {
       "type": "boolean",
       "x-category": "Authentication",
+      "x-compatibility": {
+        "firefox": { "version_added": "132.0.1" },
+        "firefox_esr": { "version_added": "128.5.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Allow single sign-on for Microsoft Entra accounts on macOS.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "NetworkPrediction": {
       "type": "boolean",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "67" },
+        "firefox_esr": { "version_added": "60.7.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable network prediction (DNS prefetching).",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "NewTabPage": {
       "type": "boolean",
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable the New Tab page.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "NoDefaultBookmarks": {
       "type": "boolean",
       "x-category": "Bookmarks",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable the creation of default bookmarks.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "OfferToSaveLogins": {
       "type": "boolean",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Control whether or not Firefox offers to save passwords.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "OfferToSaveLoginsDefault": {
       "type": "boolean",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "70" },
+        "firefox_esr": { "version_added": "68.2.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Sets the default value of 'signon.rememberSignons' without locking it.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "OverrideFirstRunPage": {
       "type": "string",
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Override the first run page.",
       "examples": ["https://example.org"]
     },
 
     "OverridePostUpdatePage": {
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Override the upgrade page.",
       "examples": ["http://example.org"],
       "$ref": "#/definitions/urlOrEmpty"
@@ -2179,13 +2649,23 @@
     "PasswordManagerEnabled": {
       "type": "boolean",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "70" },
+        "firefox_esr": { "version_added": "68.2.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Remove access to the password manager via preferences and blocks about:logins on Firefox 70.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "PasswordManagerExceptions": {
       "type": "array",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "101" },
+        "firefox_esr": { "version_added": "91.10.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Prevent Firefox from saving passwords for specific sites.",
       "examples": [["https://example.org", "https://example.edu"]],
       "items": { "$ref": "#/definitions/origin" }
@@ -2194,6 +2674,11 @@
     "PDFjs": {
       "type": "object",
       "x-category": "Printing",
+      "x-compatibility": {
+        "firefox": { "version_added": "77" },
+        "firefox_esr": { "version_added": "68.9.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Disable or configure PDF.js, the built-in PDF viewer.",
       "examples": [
         {
@@ -2214,6 +2699,11 @@
     "Permissions": {
       "type": "object",
       "x-category": "Content settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "62" },
+        "firefox_esr": { "version_added": "60.2.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set permissions associated with camera, microphone, location, notifications, autoplay, and virtual reality.",
       "examples": [
         {
@@ -2402,6 +2892,11 @@
     "PictureInPicture": {
       "type": "object",
       "x-category": "Content settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "78" },
+        "firefox_esr": { "version_added": "78" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable Picture-in-Picture as well as prevent the user from enabling or disabling it (Locked).",
       "examples": [
         {
@@ -2422,6 +2917,11 @@
     "PopupBlocking": {
       "type": "object",
       "x-category": "Content settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Allow certain websites to display popups and be redirected by third-party frames.",
       "examples": [
         {
@@ -2447,13 +2947,23 @@
     "PostQuantumKeyAgreementEnabled": {
       "type": "boolean",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "127" },
+        "firefox_esr": { "version_added": "128" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable post-quantum key agreement for TLS.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "Preferences": {
       "type": "object",
       "x-category": "Security",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set and lock preferences.",
       "examples": [
         {
@@ -2496,15 +3006,25 @@
     "PrimaryPassword": {
       "type": "boolean",
       "x-category": "Password manager",
+      "x-compatibility": {
+        "firefox": { "version_added": "79" },
+        "firefox_esr": { "version_added": "78.1.0" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Require or prevent using a primary (formerly master) password.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "PrintingEnabled": {
       "type": "boolean",
       "x-category": "Printing",
+      "x-compatibility": {
+        "firefox": { "version_added": "120" },
+        "firefox_esr": { "version_added": "115.5.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable printing.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "PrintPageTelemetry": {
@@ -2526,6 +3046,11 @@
     "PrivateBrowsingModeAvailability": {
       "type": "number",
       "x-category": "Browsing restrictions",
+      "x-compatibility": {
+        "firefox": { "version_added": "130" },
+        "firefox_esr": { "version_added": "128.3.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set availability of private browsing mode.",
       "examples": [0],
       "enum": [0, 1, 2]
@@ -2534,13 +3059,23 @@
     "PromptForDownloadLocation": {
       "type": "boolean",
       "x-category": "Downloads",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Ask where to save each file before downloading.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "Proxy": {
       "type": "object",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Configure proxy settings.",
       "examples": [
         {
@@ -2601,6 +3136,11 @@
     "RelaunchRequired": {
       "type": "object",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "150" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "150" }
+      },
       "description": "Control relaunch behavior.",
       "examples": [
         {
@@ -2632,6 +3172,11 @@
     "RequestedLocales": {
       "type": ["string", "array"],
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "64" },
+        "firefox_esr": { "version_added": "60.4.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set the the list of requested locales for the application in order of preference.",
       "examples": [["de", "en-US"]],
       "items": {
@@ -2642,6 +3187,11 @@
     "SanitizeOnShutdown": {
       "type": ["boolean", "object"],
       "x-category": "Local data storage",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Clear specified data on shutdown, such as History, Cookies, Logins, Cache, Form History, Site Preferences and Offline Website Data.",
       "examples": [
         true,
@@ -2693,6 +3243,11 @@
     "SearchBar": {
       "type": "string",
       "x-category": "Search",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set whether or not search bar is displayed.",
       "examples": ["unified"],
       "enum": ["unified", "separate"]
@@ -2701,6 +3256,11 @@
     "SearchEngines": {
       "type": "object",
       "x-category": "Search",
+      "x-compatibility": {
+        "firefox": { "version_added": "139" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "The following policies allow for configuring search engines in Firefox.",
       "examples": [
         {
@@ -2819,13 +3379,23 @@
     "SearchSuggestEnabled": {
       "type": "boolean",
       "x-category": "Search",
+      "x-compatibility": {
+        "firefox": { "version_added": "68" },
+        "firefox_esr": { "version_added": "68" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable search suggestions.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "SecurityDevices": {
       "type": "object",
       "x-category": "Certificate management",
+      "x-compatibility": {
+        "firefox": { "version_added": "64" },
+        "firefox_esr": { "version_added": "60.4.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Install PKCS #11 modules.",
       "examples": [
         {
@@ -2863,13 +3433,23 @@
     "ShowHomeButton": {
       "type": "boolean",
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "88" },
+        "firefox_esr": { "version_added": "78.10.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Show the home button on the toolbar.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "SitePolicies": {
       "type": "array",
       "x-category": "Browsing restrictions",
+      "x-compatibility": {
+        "firefox": { "version_added": "150" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "150" }
+      },
       "description": "Fine grained control over policies for specific sites.",
       "examples": [
         [
@@ -2883,6 +3463,12 @@
             "Exceptions": ["*.example.org"],
             "Policies": {
               "DisableJit": true
+            }
+          },
+          {
+            "Match": ["*.example.net"],
+            "Policies": {
+              "HttpsOnly": true
             }
           }
         ]
@@ -2907,6 +3493,9 @@
             "properties": {
               "DisableJit": {
                 "type": "boolean"
+              },
+              "HttpsOnly": {
+                "type": "boolean"
               }
             }
           }
@@ -2918,13 +3507,23 @@
     "SkipTermsOfUse": {
       "type": "boolean",
       "x-category": "Startup",
+      "x-compatibility": {
+        "firefox": { "version_added": "138" },
+        "firefox_esr": { "version_added": "140" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Configure display settings for the Firefox Terms of Use and Privacy Notice on startup.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "SSLVersionMax": {
       "type": "string",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "66" },
+        "firefox_esr": { "version_added": "60.6.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set and lock the maximum version of TLS.",
       "examples": ["tls1.3"],
       "enum": ["tls1", "tls1.1", "tls1.2", "tls1.3"]
@@ -2933,6 +3532,11 @@
     "SSLVersionMin": {
       "type": "string",
       "x-category": "Network security",
+      "x-compatibility": {
+        "firefox": { "version_added": "66" },
+        "firefox_esr": { "version_added": "60.6.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Set and lock the minimum version of TLS.",
       "examples": ["tls1.2"],
       "enum": ["tls1", "tls1.1", "tls1.2", "tls1.3"]
@@ -2941,13 +3545,23 @@
     "StartDownloadsInTempDirectory": {
       "type": "boolean",
       "x-category": "Downloads",
+      "x-compatibility": {
+        "firefox": { "version_added": "102" },
+        "firefox_esr": { "version_added": "102" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Force downloads to start off in a local, temporary location rather than the default download directory.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "SupportMenu": {
       "type": "object",
       "x-category": "Browser UI",
+      "x-compatibility": {
+        "firefox": { "version_added": "67" },
+        "firefox_esr": { "version_added": "60.7.0" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Add a menuitem to the help menu for specifying support information.",
       "examples": [
         {
@@ -3025,13 +3639,23 @@
     "TranslateEnabled": {
       "type": "boolean",
       "x-category": "Content settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "126" },
+        "firefox_esr": { "version_added": "128" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable webpage translation.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "UserMessaging": {
       "type": "object",
       "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "75" },
+        "firefox_esr": { "version_added": "68.7.0" },
+        "firefox_enterprise": { "version_added": false }
+      },
       "description": "Prevent Firefox from messaging the user in certain situations.",
       "examples": [
         {
@@ -3075,15 +3699,25 @@
     "UseSystemPrintDialog": {
       "type": "boolean",
       "x-category": "Printing",
+      "x-compatibility": {
+        "firefox": { "version_added": "102" },
+        "firefox_esr": { "version_added": "102" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Use the system print dialog instead of the print preview window.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "VisualSearchEnabled": {
       "type": "boolean",
       "x-category": "Search",
+      "x-compatibility": {
+        "firefox": { "version_added": "144" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Enable or disable visual search.",
-      "examples": [true, false]
+      "examples": [false]
     },
 
     "Watermark": {
@@ -3140,6 +3774,11 @@
     "WebsiteFilter": {
       "type": "object",
       "x-category": "Browsing restrictions",
+      "x-compatibility": {
+        "firefox": { "version_added": "60" },
+        "firefox_esr": { "version_added": "60" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Block websites from being visited.",
       "examples": [
         {
@@ -3167,15 +3806,25 @@
     "WindowsSSO": {
       "type": "boolean",
       "x-category": "Authentication",
+      "x-compatibility": {
+        "firefox": { "version_added": "91" },
+        "firefox_esr": { "version_added": "91" },
+        "firefox_enterprise": { "version_added": "149" }
+      },
       "description": "Allow Windows single sign-on for Microsoft, work, and school accounts.",
-      "examples": [true, false]
+      "examples": [true]
     },
 
     "XSLTEnabled": {
       "type": "boolean",
       "x-category": "Content settings",
+      "x-compatibility": {
+        "firefox": { "version_added": "151" },
+        "firefox_esr": { "version_added": "153" },
+        "firefox_enterprise": { "version_added": "151" }
+      },
       "description": "Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction.",
-      "examples": [true, false]
+      "examples": [false]
     }
   }
 }
