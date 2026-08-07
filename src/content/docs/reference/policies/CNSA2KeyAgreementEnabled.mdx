@@ -1,0 +1,55 @@
+---
+title: "CNSA2KeyAgreementEnabled"
+description: "Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS."
+category: "Network security"
+---
+
+Enables the CNSA 2.0 [ML-KEM-1024](https://www.ietf.org/archive/id/draft-ietf-tls-mlkem-02.html) key agreement for TLS.
+
+ML-KEM-1024 is the highest-strength parameter of the post-quantum key encapsulation mechanism specified in [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final), and the algorithm required by version 2.0 of the Commercial National Security Algorithm Suite (CNSA).
+When the policy is set to `true`, Firefox offers the ML-KEM-1024 key agreement group during the TLS handshake.
+ML-KEM-1024 is not offered by default.
+
+Setting this policy locks the preference, whether the value is `true` or `false`, so users cannot change it.
+
+**Compatibility:** Firefox 154\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `security.tls.enable_mlkem1024`
+
+## Examples
+
+<PolicyExample policy="CNSA2KeyAgreementEnabled" />
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\CNSA2KeyAgreementEnabled = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/CNSA2KeyAgreementEnabled
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>CNSA2KeyAgreementEnabled</key>
+  <true/> | <false/>
+</dict>
+```
+
+## See also
+
+- [`PostQuantumKeyAgreementEnabled`](/reference/policies/postquantumkeyagreementenabled/) policy, which controls the ML-KEM-768 key agreement offered to general web traffic.
+- [NIST FIPS 203, 204, and 205 Finalized: An Important Step Towards a Quantum-Safe Future](https://cloudsecurityalliance.org/blog/2024/08/15/nist-fips-203-204-and-205-finalized-an-important-step-towards-a-quantum-safe-future) on cloudsecurityalliance.org (2024)

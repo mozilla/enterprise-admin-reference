@@ -12,6 +12,8 @@ browser.newtabpage.activity-stream.asrouter
 browser.safebrowsing
 CHACHA
 chatbots
+cloudsecurityalliance
+CNSA
 cryptomining
 datareporting
 datareporting.healthreport
@@ -38,6 +40,8 @@ localfilelinks
 managedfirefox
 mathml
 menupanel
+middlebox
+mlkem
 msword
 network.dns.echconfig
 newtab
@@ -73,6 +77,7 @@ unsubmitted
 urlbar
 userprefs
 videocontrols
+webrtc
 webserial
 whattrainisitnow
 Widevine

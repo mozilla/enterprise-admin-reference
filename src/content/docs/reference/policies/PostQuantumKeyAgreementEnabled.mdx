@@ -6,9 +6,19 @@ category: "Network security"
 
 Enable post-quantum key agreement for TLS.
 
+Firefox offers hybrid [X25519](https://en.wikipedia.org/wiki/Curve25519) + [ML-KEM-768](https://csrc.nist.gov/pubs/fips/203/final) key agreement by default, so most deployments do not need this policy.
+The policy covers TLS, HTTP/3 as of Firefox 128, and WebRTC.
+
+> [!WARNING]
+> Disabling post-quantum key agreement removes protection against later decryption of recorded traffic.
+> Only set this policy to `false` as a temporary workaround if there are cases of failure, such as a middlebox, proxy, or legacy server that cannot handle the ClientHello.
+
+Setting this policy locks the preferences, whether the value is `true` or `false`, so users cannot change them.
+This policy is independent of [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): setting it to `false` does not stop Firefox from offering ML-KEM-1024 if that policy is enabled.
+
 **Compatibility:** Firefox 127\
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** `security.tls.enable_kyber`, `network.http.http3.enable_kyber` (Firefox 128)
+**Preferences Affected:** `security.tls.enable_kyber`, `network.http.http3.enable_kyber` (Firefox 128), `media.webrtc.enable_pq_hybrid_kex`
 
 ## Examples
 
@@ -42,3 +52,7 @@ Value (string):
   <true/> | <false/>
 </dict>
 ```
+
+## See also
+
+- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/) policy, which controls the CNSA 2.0 ML-KEM-1024 key agreement for TLS.
