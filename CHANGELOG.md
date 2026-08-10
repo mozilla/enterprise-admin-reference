@@ -6,6 +6,7 @@
 
 ### Added
 
+- `DefaultBrowserSettingEnabled` policy: Control whether the user can set Firefox as the default browser.
 - `DisableLocalPolicies` policy: Disable all local policy sources (policies.json, Windows GPO and macOS plist). [#216](https://github.com/mozilla/enterprise-admin-reference/pull/216)
 
 ### Changed

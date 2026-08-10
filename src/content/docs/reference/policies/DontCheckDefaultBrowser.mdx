@@ -6,6 +6,11 @@ category: "Startup"
 
 Don't check if Firefox is the default browser at startup.
 
+When set to `true`, the startup check is skipped, but users can still set Firefox as the default in the preferences.
+The preference is locked in both cases, so users cannot change whether the check runs.
+
+To remove the controls to set Firefox as the default browser, see the [`DefaultBrowserSettingEnabled`](/reference/policies/defaultbrowsersettingenabled/) policy instead.
+
 **Compatibility:** Firefox 60, Firefox ESR 60\
 **CCK2 Equivalent:** `dontCheckDefaultBrowser`\
 **Preferences Affected:** `browser.shell.checkDefaultBrowser`
@@ -42,3 +47,8 @@ Value (string):
   <true/> | <false/>
 </dict>
 ```
+
+## See also
+
+- [`DefaultBrowserSettingEnabled`](/reference/policies/defaultbrowsersettingenabled/) policy
+- [`DisableDefaultBrowserAgent`](/reference/policies/disabledefaultbrowseragent/) policy

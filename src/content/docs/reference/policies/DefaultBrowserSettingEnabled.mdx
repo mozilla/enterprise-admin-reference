@@ -1,0 +1,54 @@
+---
+title: "DefaultBrowserSettingEnabled"
+description: "Control whether the user can set Firefox as the default browser."
+category: "Startup"
+---
+
+Control whether the user can set Firefox as the default browser.
+
+When the policy is set to `false`, the default browser check is disabled and the controls for setting Firefox as the default browser are removed from the preferences.
+When it is set to `true`, the default browser check runs at startup and users cannot turn it off.
+
+To suppress the startup check without removing the controls from browser preferences, use the [`DontCheckDefaultBrowser`](/reference/policies/dontcheckdefaultbrowser/) policy instead.
+
+**Compatibility:** Firefox 154\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.shell.checkDefaultBrowser`
+
+## Examples
+
+<PolicyExample policy="DefaultBrowserSettingEnabled" />
+
+## Windows (GPO)
+
+```
+Software\Policies\Mozilla\Firefox\DefaultBrowserSettingEnabled = 0x1 | 0x0
+```
+
+## Windows (Intune)
+
+OMA-URI:
+
+```url
+./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DefaultBrowserSettingEnabled
+```
+
+Value (string):
+
+```xml
+<enabled/> or <disabled/>
+```
+
+## macOS
+
+```xml
+<dict>
+  <key>DefaultBrowserSettingEnabled</key>
+  <true/> | <false/>
+</dict>
+```
+
+## See also
+
+- [`DisableDefaultBrowserAgent`](/reference/policies/disabledefaultbrowseragent/) policy
+- [`DontCheckDefaultBrowser`](/reference/policies/dontcheckdefaultbrowser/) policy
