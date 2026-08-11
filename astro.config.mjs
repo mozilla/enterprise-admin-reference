@@ -5,7 +5,7 @@ import starlightGitHubAlerts from "starlight-github-alerts";
 import starlightChangelogs, { makeChangelogsSidebarLinks } from "starlight-changelogs";
 import starlightLinksValidator from "starlight-links-validator";
 import { unified } from "@astrojs/markdown-remark";
-import remarkAutoImportPolicyExample from "./src/plugins/auto-import-examples.mjs";
+import remarkAutoImportPolicyComponents from "./src/plugins/auto-import-policy-components.mjs";
 
 export const locales = {
   root: { label: "English", lang: "en" },
@@ -35,7 +35,7 @@ export default defineConfig({
   markdown: {
     processor: unified({
       smartypants: false,
-      remarkPlugins: [remarkAutoImportPolicyExample],
+      remarkPlugins: [remarkAutoImportPolicyComponents],
     }),
   },
   integrations: [
