@@ -61,6 +61,27 @@ export default defineConfig({
         },
       },
       favicon: "/favicon.png",
+      // Google tag (gtag.js) only in prod, so `astro dev` doesn't
+      // report localhost pageviews.
+      head: import.meta.env.PROD
+        ? [
+            {
+              tag: "script",
+              attrs: {
+                async: true,
+                src: "https://www.googletagmanager.com/gtag/js?id=G-LMXJXH34WG",
+              },
+            },
+            {
+              tag: "script",
+              content: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-LMXJXH34WG');`,
+            },
+          ]
+        : [],
       lastUpdated: true,
       plugins: [starlightGitHubAlerts(), starlightChangelogs(), starlightLinksValidator()],
       sidebar: [
