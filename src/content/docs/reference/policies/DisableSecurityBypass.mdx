@@ -6,7 +6,12 @@ category: "Certificate management"
 
 Prevent the user from bypassing security in certain cases.
 
+When Firefox blocks a page because of a bad certificate or Safe Browsing detection, the warning includes a bypass method.
+This is an **Accept the Risk and Continue** button on the certificate error page, and an **ignore the risk** link on the blocked site page.
+This policy removes the bypasses, so the user cannot reach the page from inside Firefox.
+
 These policies only affect what happens when an error is shown, they do not affect any settings in preferences.
+To change what gets blocked, use [Preferences](/reference/policies/preferences/) to set the relevant `browser.safebrowsing.*` preferences.
 
 ## Compatibility
 
@@ -23,6 +28,7 @@ These policies only affect what happens when an error is shown, they do not affe
 
 - `InvalidCertificate`: Prevents adding an exception when an invalid certificate is shown.
 - `SafeBrowsing`: Prevents selecting "ignore the risk" and visiting a harmful site anyway.
+  Also hide the **Unblock** button in the Downloads panel for downloads that Safe Browsing has flagged, so a blocked download can only be deleted, not kept.
 
 ## Windows (GPO)
 

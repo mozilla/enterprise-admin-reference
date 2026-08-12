@@ -6,17 +6,20 @@ category: "Bookmarks"
 
 Configures a list of bookmarks managed by an administrator that cannot be changed by the user.
 
-The bookmarks are only added as a button on the personal toolbar. They are not in the bookmarks folder.
+The bookmarks are only added as a button on the personal toolbar, they are not in the bookmarks folder.
 
 The syntax of this policy is based on the [Chrome ManagedBookmarks policy](https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ManagedBookmarks), with the addition of the Firefox-specific `favicon` property.
 
-A `favicon` can be specified for each bookmark. The value must be a `data:`, `http:`, or `https:` URL. (Added in Firefox 152)
+A `favicon` can be specified for each bookmark.
+The value must be a `data:`, `http:`, or `https:` URL.
 
-A bookmark's `url` can be a `javascript:` URL to create a bookmarklet. (Firefox 153)
+A bookmark's `url` can be a `javascript:` URL to create a bookmarklet.
 
 ## Compatibility
 
 <PolicyCompat policy="ManagedBookmarks" />
+
+`javascript:` URLs in Firefox 153, `favicon` in 152.
 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
