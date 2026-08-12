@@ -16,7 +16,10 @@ The policy covers TLS, HTTP/3 as of Firefox 128, and WebRTC.
 Setting this policy locks the preferences, whether the value is `true` or `false`, so users cannot change them.
 This policy is independent of [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): setting it to `false` does not stop Firefox from offering ML-KEM-1024 if that policy is enabled.
 
-**Compatibility:** Firefox 127\
+## Compatibility
+
+<PolicyCompat policy="PostQuantumKeyAgreementEnabled" />
+
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `security.tls.enable_kyber`, `network.http.http3.enable_kyber` (Firefox 128), `media.webrtc.enable_pq_hybrid_kex`
 
