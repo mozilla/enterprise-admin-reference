@@ -55,6 +55,19 @@ The schema is derived from the `schema/policies-schema.json` entry, with the fol
 Policies absent from `schema/policies-schema.json` render a `Missing schema` message rather than blocking the build.
 See `src/components/PolicySchema.astro` for details.
 
+### Policy compatibility
+
+Each reference page shows a table under `## Compatibility` giving the first Firefox, Firefox ESR, and Firefox Enterprise version that supports the policy.
+The versions come from the policy's `x-compatibility` entry in `schema/policies-schema.json`, so they follow `npm run schema:sync` instead of being maintained by hand.
+
+To add the table to a policy page, use the `PolicyCompat` component and pass the policy name as `policy="policy-name"`:
+
+```mdx
+<PolicyCompat policy="MyCoolPolicy" />
+```
+
+Anything the table cannot express belongs in prose directly below it.
+
 ## Changelog
 
 The changelog is based on **Firefox versions**, not documentation versions.  
