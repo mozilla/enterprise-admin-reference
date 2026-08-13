@@ -34,7 +34,7 @@ Local network access protections require permission before a website can make re
   When `true`, access to local network resources will be explicitly gated via user permission prompts.
   Users will be asked to grant permission before a website can access local resources.
 - `SkipDomains`: an array of domain names for which local network access checks should be skipped. This allows administrators to create exceptions for trusted domains.
-- `Locked`: if set to true, users cannot change the local network access settings.
+- `Locked`: if set to true, users cannot change any local network access settings set by the policy.
 
 > [!NOTE]
 > `BlockTrackers` and `EnablePrompting` only apply when `Enabled` is explicitly set to `true`, and both default to `true` if they are not defined.
