@@ -6,6 +6,9 @@ category: "Browser UI"
 
 Add a menuitem to the help menu for specifying support information.
 
+The item is added to the bottom of the Help menu, below a separator, so your own support contact sits alongside the built-in Firefox help entries.
+Selecting it opens the URL you specify in a new tab.
+
 ## Compatibility
 
 <PolicyCompat policy="SupportMenu" />
@@ -16,6 +19,12 @@ Add a menuitem to the help menu for specifying support information.
 ## Examples
 
 <PolicyExample policy="SupportMenu" />
+
+## Values
+
+- `Title`: a string label shown in the Help menu.
+- `URL`: a string with the URL that opens when the item is selected.
+- `AccessKey` (optional): a single character used as the keyboard shortcut for the item within the menu.
 
 ## Windows (GPO)
 

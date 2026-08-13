@@ -6,6 +6,11 @@ category: "Miscellaneous"
 
 Prevent Firefox from messaging the user in certain situations.
 
+Firefox shows a number of in-product messages that are unrelated to the page being viewed: [recommendations](https://support.mozilla.org/en-US/kb/extension-recommendations) for extensions and features based on the kind of sites visited, suggestions in the address bar, onboarding messages for new profiles, and information about Mozilla products in Settings.
+This policy turns those off individually, which is usually needed when users are not expected to install their own extensions or see product information.
+
+Each key covers one type of message, so setting one does not affect the others.
+
 ## Compatibility
 
 <PolicyCompat policy="UserMessaging" />
@@ -24,6 +29,7 @@ Prevent Firefox from messaging the user in certain situations.
 - `FeatureRecommendations`: If `false`, don't recommend browser features.
 - `UrlbarInterventions`: If `false`, don't offer Firefox specific suggestions in the URL bar.
 - `SkipOnboarding`: If `true`, don't show onboarding messages on the new tab page.
+  The [`OverrideFirstRunPage`](/reference/policies/overridefirstrunpage/) policy also turns onboarding off, and locks it.
 - `MoreFromMozilla`: If `false`, don't show the "More from Mozilla" section in Preferences. (Firefox 98)
 - `FirefoxLabs`: If `false`, don't show the "Firefox Labs" section in Preferences. (Firefox 130.0.1)
 - `Locked`: Prevents the user from changing user messaging preferences.

@@ -4,7 +4,14 @@ description: "Set and lock the minimum version of TLS."
 category: "Network security"
 ---
 
-Set and lock the minimum version of TLS (Firefox defaults to a minimum of TLS 1.2).
+Set and lock the minimum version of [TLS](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security).
+Firefox defaults to a minimum of TLS 1.2, meaning this policy can ensure users or other configuration mechanisms can't lower it.
+
+For setting and locking the maximum version of TLS, see the [`SSLVersionMax`](/reference/policies/sslversionmax/) policy.
+
+> [!WARNING]
+> TLS 1.0 and TLS 1.1 are deprecated, meaning it's not recommended to enable anything lower than TLS 1.2.
+> Setting a minimum of `tls1` or `tls1.1` re-enables them for every site, and the cipher suites those versions rely on may also need to be turned back on with the `security.tls.version.enable-deprecated` preference.
 
 ## Compatibility
 
@@ -35,7 +42,7 @@ Value (string):
 
 ```xml
 <enabled/>
-<data id="SSLVersion" value="tls1 | tls1.2 | tls1.3"/>
+<data id="SSLVersion" value="tls1 | tls1.1 | tls1.2 | tls1.3"/>
 ```
 
 ## macOS

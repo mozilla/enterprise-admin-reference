@@ -4,13 +4,17 @@ description: "Add or delete PKCS #11 modules."
 category: "Certificate management"
 ---
 
-Add or delete PKCS #11 modules.
+Add or delete [PKCS #11 modules](https://en.wikipedia.org/wiki/PKCS_11).
+
+A PKCS #11 module is an external library that lets Firefox talk to a cryptographic device such as a smart card or hardware token, so that certificates and keys on that device can be used for client authentication.
+The `SecurityDevices` policy loads those libraries instead of requiring the user to manage them manually from the Security Devices dialog in Settings.
 
 ## Compatibility
 
 <PolicyCompat policy="SecurityDevices" />
 
-The `Add` and `Delete` form was added in Firefox 114, Firefox ESR 102.12. Earlier versions map a device name directly to its module path.
+The `Add` and `Delete` form was added in Firefox 114, Firefox ESR 102.12.
+Earlier versions map a device name directly to its module path (see [legacy SecurityDevices implementation](https://mozilla.github.io/policy-templates/#securitydevices-deprecated) for details).
 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
@@ -19,11 +23,18 @@ The `Add` and `Delete` form was added in Firefox 114, Firefox ESR 102.12. Earlie
 
 <PolicyExample policy="SecurityDevices" />
 
+## Values
+
+- `Add` maps a device name to the full path of the module library on disk.
+  The name is what the device is listed as in Firefox, and the path must be readable on the machine where Firefox runs.
+- `Delete` is a list of device names to unload, using the name the module was added under.
+  Removing a name that is not loaded is not an error.
+
 ## Windows (GPO)
 
 ```
 Software\Policies\Mozilla\Firefox\SecurityDevices\Add\NAME_OF_DEVICE_TO_ADD = PATH_TO_LIBRARY_FOR_DEVICE
-Software\Policies\Mozilla\Firefox\SecurityDevices\Remove\1 = NAME_OF_DEVICE_TO_REMOVE
+Software\Policies\Mozilla\Firefox\SecurityDevices\Delete\1 = NAME_OF_DEVICE_TO_DELETE
 ```
 
 ## Windows (Intune)
@@ -60,20 +71,15 @@ Value (string):
 <dict>
   <key>SecurityDevices</key>
   <dict>
-    <key>Add<key>
+    <key>Add</key>
     <dict>
       <key>NAME_OF_DEVICE_TO_ADD</key>
       <string>PATH_TO_LIBRARY_FOR_DEVICE</string>
     </dict>
-    <key>Delete</add>
+    <key>Delete</key>
     <array>
       <string>NAME_OF_DEVICE_TO_DELETE</string>
     </array>
   </dict>
 </dict>
 ```
-
-## See also
-
-- Since Firefox 114, this policy expects `Add` and `Delete` keys instead of a single `"name" : "path"` combination.
-  See [SecurityDevices](https://mozilla.github.io/policy-templates/#securitydevices-deprecated) for the syntax prior to Firefox 114.
