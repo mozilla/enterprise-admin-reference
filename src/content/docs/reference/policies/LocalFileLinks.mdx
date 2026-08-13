@@ -4,14 +4,20 @@ description: "Enable linking to local files by origin."
 category: "Network security"
 ---
 
-Enable linking to local files by origin.
+Enable linking to local files by [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin).
+
+By default, a page served over `http://` or `https://` cannot link to a `file:///` URL.
+Firefox blocks the navigation and reports a security error in the browser console.
+
+This policy lists the origins that are allowed to link to the local file system.
+Intranet applications may need this, for example, to link to files on a shared drive.
 
 ## Compatibility
 
 <PolicyCompat policy="LocalFileLinks" />
 
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** `capability.policy.localfilelinks.*`
+**Preferences Affected:** `capability.policy.policynames`, `capability.policy.localfilelinks_*`
 
 ## Examples
 
@@ -50,3 +56,7 @@ Value (string):
   </array>
 </dict>
 ```
+
+## See also
+
+- [File URI scheme](https://en.wikipedia.org/wiki/File_URI_scheme) on wikipedia.org

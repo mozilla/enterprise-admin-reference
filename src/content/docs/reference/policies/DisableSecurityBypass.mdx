@@ -13,6 +13,8 @@ This policy removes the bypasses, so the user cannot reach the page from inside 
 These policies only affect what happens when an error is shown, they do not affect any settings in preferences.
 To change what gets blocked, use [Preferences](/reference/policies/preferences/) to set the relevant `browser.safebrowsing.*` preferences.
 
+If Firefox rejects a certificate that your organization needs to trust, add it with the [`Certificates`](/reference/policies/certificates/) policy instead.
+
 ## Compatibility
 
 <PolicyCompat policy="DisableSecurityBypass" />
@@ -76,3 +78,8 @@ Value (string):
   </dict>
 </dict>
 ```
+
+## See also
+
+- [What do the security warning codes mean?](https://support.mozilla.org/en-US/kb/what-does-your-connection-is-not-secure-mean) on support.mozilla.org
+- [How does built-in Phishing and Malware Protection work?](https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work) on support.mozilla.org

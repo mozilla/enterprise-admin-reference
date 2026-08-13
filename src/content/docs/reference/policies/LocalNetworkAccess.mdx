@@ -7,6 +7,10 @@ category: "Network security"
 Configure local network access security features.
 The `LocalNetworkAccess` policy controls Firefox's behavior when websites attempt to access local network resources (localhost and local network addresses).
 
+Without these checks, websites can send requests to devices such as routers, printers, or IoT devices on the user's network.
+This can be dangerous because some devices assume that requests originating from the local network are trusted, and this allow for attacks such as [cross-site request forgery](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF).
+Local network access protections require permission before a website can make requests to local or loopback addresses, where applicable.
+
 ## Compatibility
 
 <PolicyCompat policy="LocalNetworkAccess" />
@@ -153,3 +157,8 @@ Value (string):
   </dict>
 </dict>
 ```
+
+## See also
+
+- [Local network access](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Local_network_access) on MDN
+- [Local Network Access](https://wicg.github.io/local-network-access/) specification in the W3C Web Incubator Community Group

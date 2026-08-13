@@ -6,6 +6,12 @@ category: "Startup"
 
 Override the upgrade page. If the value is an empty string (`""`), no extra pages are displayed when Firefox is upgraded.
 
+The upgrade page, also called the "What's New" page, is the extra tab Firefox opens the first time it starts after updating to a new version.
+It is normally a page on mozilla.org describing what changed in that release.
+Setting this policy replaces that page and stops Firefox from using a page supplied with the update itself.
+
+For the page shown the first time a new profile is used, see the [`OverrideFirstRunPage`](/reference/policies/overridefirstrunpage/) policy.
+
 ## Compatibility
 
 <PolicyCompat policy="OverridePostUpdatePage" />
