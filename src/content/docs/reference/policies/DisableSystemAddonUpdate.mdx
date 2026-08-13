@@ -6,6 +6,11 @@ category: "Device update settings"
 
 Prevent system add-ons from being installed or updated.
 
+System add-ons are built-in Firefox features that are implemented as extensions so that Mozilla can ship and update them independently of the Firefox release cycle.
+Because Firefox treats them as part of the browser rather than as user add-ons, they are not managed from the Add-ons Manager.
+
+If this policy is set to `true`, Firefox does not install new system add-ons or update existing system add-ons through the system add-on update mechanism.
+
 ## Compatibility
 
 <PolicyCompat policy="DisableSystemAddonUpdate" />
@@ -45,3 +50,7 @@ Value (string):
   <true/> | <false/>
 </dict>
 ```
+
+## See also
+
+- [System Add-ons Overview](https://firefox-source-docs.mozilla.org/toolkit/mozapps/extensions/addon-manager/SystemAddons.html) on firefox-source-docs.mozilla.org

@@ -4,9 +4,10 @@ description: "Define a list of external protocols that can be used from listed o
 category: "Network security"
 ---
 
-Define a list of external protocols that can be used from listed origins without prompting the user. The origin is the scheme plus the hostname.
+Define a list of external protocols that can be used from listed [origins](https://developer.mozilla.org/en-US/docs/Glossary/Origin) without prompting the user.
+The origin is the scheme (protocol), hostname (domain), and port of the URL used to access it.
 
-The syntax of this policy is exactly the same as the [Chrome AutoLaunchProtocolsFromOrigins policy](https://chromeenterprise.google/policies/#AutoLaunchProtocolsFromOrigins) except that you can only use valid origins (not just hostnames).
+The syntax of this policy is the same as the [Chrome AutoLaunchProtocolsFromOrigins policy](https://chromeenterprise.google/policies/#AutoLaunchProtocolsFromOrigins) except that you can only use valid origins (not just hostnames).
 This also means that you cannot specify a wildcard (`*`) for all origins.
 
 ## Compatibility

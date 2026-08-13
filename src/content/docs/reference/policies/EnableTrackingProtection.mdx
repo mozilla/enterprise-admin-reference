@@ -4,7 +4,7 @@ description: "Configure tracking protection."
 category: "Network security"
 ---
 
-Configure tracking protection.
+Configure [Enhanced Tracking Protection in Firefox](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop).
 
 If this policy is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.
 
@@ -12,7 +12,7 @@ If this policy is not configured, tracking protection is not enabled by default 
 
 <PolicyCompat policy="EnableTrackingProtection" />
 
-`Cryptomining` and `Fingerprinting` added in 70/68.2, `Exceptions` added in 73/68.5, `Category` added in Firefox 142/140.2.
+`Cryptomining` and `Fingerprinting` added in 70/68.2, `Exceptions` added in 73/68.5, `EmailTracking` added in 112, `Category` and `SuspectedFingerprinting` added in 142/140.2, `BaselineExceptions` and `ConvenienceExceptions` added in 145.
 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `privacy.trackingprotection.enabled`, `privacy.trackingprotection.pbmode.enabled`, `privacy.trackingprotection.cryptomining.enabled`, `privacy.trackingprotection.fingerprinting.enabled`, `privacy.fingerprintingProtection`, `privacy.trackingprotection.emailtracking.enabled`, `privacy.trackingprotection.emailtracking.pbmode.enabled`, `privacy.trackingprotection.allow_list.baseline.enabled`, `privacy.trackingprotection.allow_list.convenience.enabled`
@@ -23,18 +23,22 @@ If this policy is not configured, tracking protection is not enabled by default 
 
 ## Values
 
-- If `Value` is set to false, tracking protection is disabled and locked in both the regular browser and private browsing.
-- If `Value` is set to true, tracking protection is enabled by default in both the regular browser and private browsing and the `Locked` value determines whether or not a user can change it.
-- If `Locked` is set to true, users cannot change tracking protection values.
-- If `Cryptomining` is set to true, cryptomining scripts on websites are blocked.
-- If `Fingerprinting` is set to true, fingerprinting scripts on websites are blocked.
-- If `EmailTracking` is set to true, hidden email tracking pixels and scripts on websites are blocked. (Firefox 112)
-- If `SuspectedFingerprinting` is set to true, Firefox reduces the amount of information exposed to websites to protect against potential fingerprinting attempts. (Firefox 142, Firefox ESR 140.2)
-- `Exceptions` are origins for which tracking protection is not enabled.
-- `Category` can be either `strict` or `standard`.
-  If category is set, it overrides all other settings except `Exceptions`, `BaselineExceptions` and `ConvenienceExceptions`, and the user cannot change the category. (Firefox 142, Firefox ESR 140.2)
-- If `BaselineExceptions` is true, Firefox will automatically apply exceptions required to avoid major website breakage. (Firefox 145)
-- If `ConvenienceExceptions` is true, Firefox will apply exceptions automatically that are only required to fix minor issues and make convenience features available. (Firefox 145)
+- `Value`: a Boolean that enables or disables tracking protection.
+  - When `true`, tracking protection is enabled by default in both the regular browser and private browsing, and the `Locked` value determines whether or not a user can change it.
+  - When `false`, tracking protection is disabled and locked in both the regular browser and private browsing.
+- `Locked`: if set to true, users cannot change tracking protection values.
+- `Cryptomining`: a Boolean that controls blocking cryptomining scripts. When `true`, cryptomining scripts on websites are blocked.
+- `Fingerprinting`: a Boolean that controls blocking fingerprinting scripts. When `true`, fingerprinting scripts on websites are blocked.
+- `EmailTracking`: a Boolean that controls blocking email tracking. When `true`, hidden email tracking pixels and scripts on websites are blocked.
+- `SuspectedFingerprinting`: a Boolean that controls protection against suspected fingerprinting.
+  When `true`, Firefox reduces the amount of information exposed to websites to protect against potential fingerprinting attempts.
+- `Exceptions`: an array of origins for which tracking protection is not enabled.
+- `Category`: a string that sets the tracking protection category, either `strict` or `standard`.
+  When set, it overrides all other settings except `Exceptions`, `BaselineExceptions` and `ConvenienceExceptions`, and the user cannot change the category.
+- `BaselineExceptions`: a Boolean that controls the exceptions required to avoid major website breakage.
+  When `true`, Firefox applies them automatically.
+- `ConvenienceExceptions`: a Boolean that controls the exceptions that are only required to fix minor issues and make convenience features available.
+  When `true`, Firefox applies them automatically.
 
 > [!NOTE]
 > Users can change `BaselineExceptions` and `ConvenienceExceptions` even when `Category` is set to `strict` unless `Locked` is set to true. If `Locked` is set to `true`, `BaselineExceptions` and `ConvenienceExceptions` use their initial values (based on the tracking protection `Category`) unless policy explicitly sets them.
@@ -208,3 +212,9 @@ Value (string):
   </dict>
 </dict>
 ```
+
+## See also
+
+- [Enhanced Tracking Protection in Firefox for desktop](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) on support.mozilla.org
+- [Trackers and scripts Firefox blocks in Enhanced Tracking Protection](https://support.mozilla.org/en-US/kb/trackers-and-scripts-firefox-blocks-enhanced-track) on support.mozilla.org
+- [Manage Enhanced Tracking Protection exceptions](https://support.mozilla.org/en-US/kb/manage-enhanced-tracking-protection-exceptions) on support.mozilla.org

@@ -4,8 +4,12 @@ description: "Configure local network access security features."
 category: "Network security"
 ---
 
-Configure local network access security features.
+Configure local network access (LNA) security features.
 The `LocalNetworkAccess` policy controls Firefox's behavior when websites attempt to access local network resources (localhost and local network addresses).
+
+Without these checks, websites can send requests to devices such as routers, printers, or IoT devices on the user's network.
+This can be dangerous because some devices assume that requests originating from the local network are trusted, which can enable attacks such as [cross-site request forgery](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF).
+Local network access protections require permission before a website can make requests to local or loopback addresses, where applicable.
 
 ## Compatibility
 
@@ -30,7 +34,14 @@ The `LocalNetworkAccess` policy controls Firefox's behavior when websites attemp
   When `true`, access to local network resources will be explicitly gated via user permission prompts.
   Users will be asked to grant permission before a website can access local resources.
 - `SkipDomains`: an array of domain names for which local network access checks should be skipped. This allows administrators to create exceptions for trusted domains.
-- `Locked`: if set to true, users cannot change the local network access settings.
+- `Locked`: if set to true, users cannot change any local network access settings set by the policy.
+
+> [!NOTE]
+> `BlockTrackers` and `EnablePrompting` only apply when `Enabled` is explicitly set to `true`, and both default to `true` if they are not defined.
+> Firefox does not block trackers from LNA by default, and setting `Enabled` to `true` on its own also turns LNA tracker blocking on.
+>
+> Setting `Enabled` to `false` turns both permission prompting and blocking third-party trackers off.
+> `SkipDomains` is applied independently, whether or not `Enabled` is defined.
 
 ## Description
 
@@ -153,3 +164,8 @@ Value (string):
   </dict>
 </dict>
 ```
+
+## See also
+
+- [Local network access](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Local_network_access) on MDN
+- [Local Network Access](https://wicg.github.io/local-network-access/) specification in the W3C Web Incubator Community Group

@@ -5,11 +5,12 @@ category: "Browsing restrictions"
 ---
 
 Block websites from being visited.
-As of Firefox 83 and Firefox ESR 78.5, `file:` URLs are supported.
 
 ## Compatibility
 
 <PolicyCompat policy="WebsiteFilter" />
+
+As of Firefox 83 and Firefox ESR 78.5, [`file:` URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes#file) are supported.
 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
@@ -25,7 +26,7 @@ The arrays are limited to 1000 entries each.
 
 - If you want to block all URLs, you can use the value `<all_urls>` or the pattern `*://*/*` (matching `<scheme>://<host><path>`).
   A single wildcard (`*`) as a value is not sufficient.
-- For specific protocols, use `https://*/*` or `http://*/*`.
+- For specific [protocols](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes#protocol), use `https://*/*` or `http://*/*`.
 
 ## Windows (GPO)
 
@@ -61,8 +62,8 @@ Value (string):
 <data id="WebsiteFilter" value="1&#xF000;http://example.org/*"/>
 ```
 
-If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
-to workaround the limit on the length of strings. Put all of your JSON on one line.
+If you are using custom ADMX and ADML administrative templates in Intune, you can use the OMA-URI to work around the limit on the length of strings.
+All JSON must be on one line.
 
 OMA-URI:
 

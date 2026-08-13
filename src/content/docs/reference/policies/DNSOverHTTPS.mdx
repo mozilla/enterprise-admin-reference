@@ -4,7 +4,10 @@ description: "Configure DNS over HTTPS (DoH)."
 category: "Network security"
 ---
 
-Configure DNS over HTTPS.
+Configure [DNS over HTTPS](https://support.mozilla.org/en-US/kb/firefox-dns-over-https).
+
+DNS over HTTPS (DoH) sends DNS lookups over an encrypted HTTPS connection to a trusted resolver instead of sending them in plain text to a local resolver.
+This makes it harder for the network to see or modify lookups, but they no longer go through your DNS infrastructure unless you use a `ProviderURL`.
 
 ## Compatibility
 
@@ -13,7 +16,7 @@ Configure DNS over HTTPS.
 `ExcludedDomains` added in 75/68.7, `Fallback` added in 124.
 
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** `network.trr.mode`, `network.trr.uri`
+**Preferences Affected:** `network.trr.mode`, `network.trr.uri`, `network.trr.excluded-domains`
 
 ## Examples
 
@@ -21,11 +24,19 @@ Configure DNS over HTTPS.
 
 ## Values
 
-- `Enabled` determines whether DNS over HTTPS is enabled
-- `ProviderURL` is a URL to another provider.
+- `Enabled` determines whether DNS over HTTPS is enabled.
+- `ProviderURL` is a URL to a DOH provider. If it is not set, Firefox uses its own default provider.
 - `Locked` prevents the user from changing DNS over HTTPS preferences.
-- `ExcludedDomains` excludes domains from DNS over HTTPS.
+- `ExcludedDomains` excludes domains from DNS over HTTPS, so they are resolved by the system resolver instead. Use this for internal hostnames that only your own DNS servers can resolve.
 - `Fallback` determines whether or not Firefox will use your default DNS resolver if there is a problem with the secure DNS provider.
+
+`Enabled` and `Fallback` together set the `network.trr.mode` preference:
+
+| `Enabled` | `Fallback`       | `network.trr.mode` | Behavior                                                                  |
+| --------- | ---------------- | ------------------ | ------------------------------------------------------------------------- |
+| `true`    | `true` (default) | 2                  | Firefox tries DNS over HTTPS first and falls back to the system resolver. |
+| `true`    | `false`          | 3                  | Firefox only uses DNS over HTTPS, and a failed lookup is an error.        |
+| `false`   | not applicable   | 5                  | DNS over HTTPS is off.                                                    |
 
 ## Windows (GPO)
 
@@ -122,3 +133,9 @@ Value (string):
   </dict>
 </dict>
 ```
+
+## See also
+
+- [Configure DNS over HTTPS protection levels in Firefox](https://support.mozilla.org/en-US/kb/dns-over-https) on support.mozilla.org
+- [Configure networks to disable DNS over HTTPS](https://support.mozilla.org/en-US/kb/configuring-networks-disable-dns-over-https) on support.mozilla.org
+- [Security/DOH-resolver-policy](https://wiki.mozilla.org/Security/DOH-resolver-policy) on wiki.mozilla.org

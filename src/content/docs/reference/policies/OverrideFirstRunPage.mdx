@@ -6,14 +6,19 @@ category: "Startup"
 
 Override the first run page. If the value is an empty string (`""`), the first run page is not displayed.
 
+The first run page is what Firefox opens the first time a new profile is used, normally the onboarding tour at `about:welcome`.
+Setting this policy replaces that page and turns the onboarding tour off, so users go directly to the URL you specify.
+
 Starting with Firefox 83, Firefox ESR 78.5, you can also specify multiple URLs separated by a vertical bar (`|`).
+
+For the page shown after Firefox updates, see the [`OverridePostUpdatePage`](/reference/policies/overridepostupdatepage/) policy.
 
 ## Compatibility
 
 <PolicyCompat policy="OverrideFirstRunPage" />
 
 **CCK2 Equivalent:** `welcomePage`,`noWelcomePage`\
-**Preferences Affected:** `startup.homepage_welcome_url`
+**Preferences Affected:** `startup.homepage_welcome_url`, `browser.aboutwelcome.enabled`
 
 ## Examples
 
