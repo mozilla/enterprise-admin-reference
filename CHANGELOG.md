@@ -32,13 +32,6 @@
 
 -->
 
-## fx-151.0.0
-
-### Added
-
-- `DefaultSerialGuardSetting`: Control use of the Web Serial API. ([#125](https://github.com/mozilla/enterprise-admin-reference/pull/125))
-- `XSLTEnabled`: Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction. ([#128](https://github.com/mozilla/enterprise-admin-reference/pull/128))
-
 ## esr-153.0.0
 
 ### Added
@@ -53,6 +46,13 @@
 - `RelaunchRequired`: Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch. ([#127](https://github.com/mozilla/enterprise-admin-reference/pull/127))
 - `SitePolicies`: Defines policies scoped to specific sites. ([#82](https://github.com/mozilla/enterprise-admin-reference/pull/82))
 - `VisualSearchEnabled`: Enable or disable visual search. ([#33](https://github.com/mozilla/enterprise-admin-reference/pull/33))
+- `XSLTEnabled`: Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction. ([#128](https://github.com/mozilla/enterprise-admin-reference/pull/128))
+
+## fx-151.0.0
+
+### Added
+
+- `DefaultSerialGuardSetting`: Control use of the Web Serial API. ([#125](https://github.com/mozilla/enterprise-admin-reference/pull/125))
 - `XSLTEnabled`: Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction. ([#128](https://github.com/mozilla/enterprise-admin-reference/pull/128))
 
 ## fx-150.0.0
