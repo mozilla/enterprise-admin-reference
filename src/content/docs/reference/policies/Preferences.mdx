@@ -148,52 +148,6 @@ Software\Policies\Mozilla\Firefox\Preferences (REG_MULTI_SZ) =
 }
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/Preferences
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSON" value='
-{
-  "accessibility.force_disabled": {
-    "Value": 1,
-    "Status": "default",
-    "Type": "number"
-  },
-  "browser.cache.disk.parent_directory": {
-    "Value": "SOME_NATIVE_PATH",
-    "Status": "user"
-  },
-  "browser.tabs.warnOnClose": {
-    "Value": false,
-    "Status": "locked"
-  }
-}'/>
-```
-
-If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
-to workaround the limit on the length of strings. Put all of your JSON on one line.
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/PreferencesOneLine
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSONOneLine" value='{}'/>
-```
-
 ## macOS
 
 ```xml

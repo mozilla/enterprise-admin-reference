@@ -68,6 +68,23 @@ To add the table to a policy page, use the `PolicyCompat` component and pass the
 
 Anything the table cannot express belongs in prose directly below it.
 
+### OMA-URIs
+
+Reference pages do not document OMA-URIs. They live in
+[`docs/oma-uris.md`](https://github.com/mozilla/policy-templates/blob/master/docs/oma-uris.md) in
+`mozilla/policy-templates`, generated from `windows/firefox.admx` and published at
+[mozilla.github.io/policy-templates/oma-uris](https://mozilla.github.io/policy-templates/oma-uris).
+
+`src/plugins/inject-oma-uri.mjs` adds the `**OMA-URI:**` line below `**CCK2 Equivalent:**` at build
+time, so a new policy page needs no markup.
+The anchor is the lowercased policy name.
+
+Two lists hardcode policies that get no addition:
+
+- `NO_ADMX_EQUIVALENT` — no ADMX equivalent.
+- `MISSING_UPSTREAM` — may need one but missing from `firefox.admx`. These log a build warning.
+  Remove a name once it lands upstream and the link starts rendering.
+
 ## Changelog
 
 The changelog is based on **Firefox versions**, not documentation versions.  

@@ -51,51 +51,6 @@ Software\Policies\Mozilla\Firefox\Homepage\StartPage = "none" | "homepage" | "pr
 Software\Policies\Mozilla\Firefox\Homepage\NewTabOnRestore = 0x1 | 0x0
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Homepage/HomepageURL
-```
-
-Value (string):
-
-```xml
-<enabled/>
-
-<data id="HomepageURL" value="https://example.com"/>
-<data id="HomepageLocked" value="true | false"/>
-```
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Homepage/HomepageAdditional
-```
-
-Value (string):
-
-```xml
-<enabled/>
-
-<data id="HomepageAdditional" value="1&#xF000;http://example.org&#xF000;2&#xF000;http://example.edu"/>
-```
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Homepage/HomepageStartPage
-```
-
-Value (string):
-
-```xml
-<enabled/>
-
-<data id="StartPage" value="none | homepage | previous-session"/>
-```
-
 ## macOS
 
 ```xml

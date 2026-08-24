@@ -6,6 +6,7 @@ import starlightChangelogs, { makeChangelogsSidebarLinks } from "starlight-chang
 import starlightLinksValidator from "starlight-links-validator";
 import { unified } from "@astrojs/markdown-remark";
 import remarkAutoImportPolicyComponents from "./src/plugins/auto-import-policy-components.mjs";
+import remarkInjectOmaUri from "./src/plugins/inject-oma-uri.mjs";
 
 export const locales = {
   root: { label: "English", lang: "en" },
@@ -35,7 +36,7 @@ export default defineConfig({
   markdown: {
     processor: unified({
       smartypants: false,
-      remarkPlugins: [remarkAutoImportPolicyComponents],
+      remarkPlugins: [remarkAutoImportPolicyComponents, remarkInjectOmaUri],
     }),
   },
   integrations: [

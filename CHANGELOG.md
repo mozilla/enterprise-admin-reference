@@ -12,6 +12,7 @@
 ### Changed
 
 - `CrashReportsSubmit` policy: Update policy structure to remove `ForceAutoSubmit` key in favor of `Enabled` key ([#222](https://github.com/mozilla/enterprise-admin-reference/pull/222))
+- Replace the hand-maintained `Windows (Intune)` sections with an `OMA-URI` link to the [Firefox ADMX OMA-URIs for Intune](https://mozilla.github.io/policy-templates/oma-uris) reference, which is generated from `firefox.admx`.
 
 <!-- unpublished for now
 

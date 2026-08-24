@@ -24,21 +24,6 @@ You can use `${home}` for the native home directory.
 Software\Policies\Mozilla\Firefox\DownloadDirectory = "${home}\Downloads"
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/DownloadDirectory
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="Preferences_String" value="${home}\Downloads"/>
-```
-
 ## macOS
 
 ```xml

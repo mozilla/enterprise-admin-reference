@@ -35,44 +35,6 @@ Software\Policies\Mozilla\Firefox\ExemptDomainFileTypePairsFromFileTypeDownloadW
 ]
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/ExemptDomainFileTypePairsFromFileTypeDownloadWarnings
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSON" value='
-[
-  {
-     "file_extension": "jnlp",
-     "domains": ["example.com"]
-  }
-]
-'/>
-```
-
-If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
-to workaround the limit on the length of strings. Put all of your JSON on one line.
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/ExemptDomainFileTypePairsFromFileTypeDownloadWarningsOneLine
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSONOneLine" value='[]'/>
-```
-
 ## macOS
 
 ```xml
