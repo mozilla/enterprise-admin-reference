@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.41.7",
-    "astro": "^7.2.2",
+    "astro": "^7.2.4",
     "astro-breadcrumbs": "^3.4.2",
     "sharp": "^0.35.3",
-    "starlight-changelogs": "^0.5.1",
+    "starlight-changelogs": "^0.6.0",
     "starlight-github-alerts": "^0.4.0",
     "starlight-links-validator": "^0.25.3"
   }
