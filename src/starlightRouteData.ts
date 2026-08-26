@@ -8,7 +8,7 @@ export const onRequest = defineRouteMiddleware((context) => {
   if (!version || version.includes("...")) return;
 
   const { starlightRoute } = context.locals;
-  const title = `Firefox ${version} release notes for admins`;
+  const title = `Firefox ${version} release notes for enterprise admins`;
 
   starlightRoute.entry.data.title = title;
 

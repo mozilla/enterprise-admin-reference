@@ -88,9 +88,10 @@ Two lists hardcode policies that get no addition:
 ## Release notes
 
 Release notes live in `release-notes/firefox.md` and are published at `/release-notes/`.
-We publish **one page per Firefox release**, covering everything enterprise-relevant that shipped on that release day.
+We publish **one page per major Firefox release**, covering everything enterprise-relevant in that release cycle: the major release itself, any point releases, and the Firefox ESR release that ships alongside it.
 
-That means a page for release 153 has a `New in Firefox 153` section and a `New in Firefox ESR 153.0.0` section, because both shipped that day.
+That means a page for release 153 has a `New in Firefox 153` section and a `New in Firefox ESR 153.0.0` section, because Firefox ESR 153.0.0 shipped alongside Firefox 153.
+The 149 page covers Firefox 149.0.2, which shipped later in the same cycle.
 
 ### Release note file structure
 
@@ -105,12 +106,12 @@ _Released 18 August 2026._
 
 <!-- Which versions the release notes apply to and the current ESR -->
 
-These changes apply to Firefox 154 and Firefox ESR 153.1.0.
+These changes apply to Firefox 154 and Firefox ESR 153.1.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
 
 ### New in Firefox 154
 
-- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 … ([bug 2000001](https://bugzilla.mozilla/show_bug.cgi?id=2000001))
+- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 … Does not apply to the ESR. ([bug 2000001](https://bugzilla.mozilla/show_bug.cgi?id=2000001))
 
 ### Changes
 
@@ -133,6 +134,11 @@ The following details matter for the generated pages:
   so `## 154` is published as `Firefox 154` at `/release-notes/version/firefox-154/`.
 - Link each policy to its reference page, at the lowercased policy name.
   Builds fail on broken internal links, so a policy with no reference page yet can be left unlinked.
+- The applicability line sets the default for every item on the page, so anything that does not
+  match it needs its own scope annotation: `Firefox 154 only.`, `Does not apply to the ESR.` or
+  `Also in Firefox ESR 140.12.0.`, placed at the end of the sentence and before the bug link.
+  Where most of a page does not reach the co-shipping ESR, scope the applicability line to the
+  Firefox release instead and annotate the exceptions, as the 152 entry does.
 
 ### Fact checking
 

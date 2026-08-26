@@ -25,7 +25,7 @@ Firefox ESR 153 is the current ESR.
 ### Fixes
 
 - [`SearchEngines`](/reference/policies/searchengines/): `PreventInstalls` did not prevent users from manually adding search engines in Settings or from the context menu. ([bug 2052965](https://bugzilla.mozilla.org/show_bug.cgi?id=2052965))
-- The `-width` and `-height` command-line options did not correctly set the Firefox window size. ([bug 1635927](https://bugzilla.mozilla.org/show_bug.cgi?id=1635927))
+- The `-width` and `-height` command-line options did not correctly set the Firefox window size. Firefox 154 only. ([bug 1635927](https://bugzilla.mozilla.org/show_bug.cgi?id=1635927))
 - Extended Protection (channel and service binding) for Windows SSPI authentication worked when using SPNEGO but not when using Kerberos directly. ([bug 1179722](https://bugzilla.mozilla.org/show_bug.cgi?id=1179722))
 
 ## 153
@@ -70,12 +70,13 @@ Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the
 
 _Released 16 June 2026._
 
-These changes apply to Firefox 152 and Firefox ESR 140.12.0 unless explicitly stated.
+These changes apply to Firefox 152 unless explicitly stated.
+Firefox ESR 140.12.0 shipped the same day, but most of these changes were not backported to it.
 
 ### Changes
 
 - [`DefaultSerialGuardSetting`](/reference/policies/defaultserialguardsetting/): Web Serial support is now disabled by default when Firefox is managed by enterprise policies.
-- [`FirefoxHome`](/reference/policies/firefoxhome/): Allow configuration of the Weather experience.
+- [`FirefoxHome`](/reference/policies/firefoxhome/): Allow configuration of the Weather experience. Also in Firefox ESR 140.12.0.
 - [`ExtensionSettings`](/reference/policies/extensionsettings/): Prevent users from disabling extension updates.
 - [`ManagedBookmarks`](/reference/policies/managedbookmarks/): Allow specifying favicons directly for managed bookmarks.
 
@@ -93,7 +94,6 @@ If you use the ESR, we recommend testing with Firefox Beta or Nightly to identif
 ### New in Firefox 151
 
 - [`DefaultSerialGuardSetting`](/reference/policies/defaultserialguardsetting/): Control use of the Web Serial API.
-- [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
 - [`XSLTEnabled`](/reference/policies/xsltenabled/): Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction. Firefox 151 only.
 
 ### Changes
@@ -116,6 +116,7 @@ Firefox ESR 140 is the current ESR.
 
 ### New in Firefox 150
 
+- [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
 - [`SitePolicies`](/reference/policies/sitepolicies/): Fine grained control over policies for specific sites.
 
 ### Changes
