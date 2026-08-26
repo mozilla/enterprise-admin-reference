@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
-import { docsLoader } from "@astrojs/starlight/loaders";
-import { docsSchema } from "@astrojs/starlight/schema";
+import { docsLoader, i18nLoader } from "@astrojs/starlight/loaders";
+import { docsSchema, i18nSchema } from "@astrojs/starlight/schema";
 import { changelogsLoader } from "starlight-changelogs/loader";
 
 export const collections = {
@@ -20,8 +20,10 @@ export const collections = {
         title: "Firefox Release Notes for Enterprise",
         changelog: "release-notes/firefox.md",
         pageSize: 20,
-        // No `process` hook yet. See https://starlight-changelogs.netlify.app/providers/changesets/#process
+        // See https://starlight-changelogs.netlify.app/providers/keep-a-changelog/#process
+        process: ({ title }) => (/^\d/.test(title) ? `Firefox ${title}` : title),
       },
     ]),
   }),
+  i18n: defineCollection({ loader: i18nLoader(), schema: i18nSchema() }),
 };

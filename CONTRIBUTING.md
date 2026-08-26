@@ -129,8 +129,8 @@ Firefox ESR 153 is the current ESR.
 
 The following details matter for the generated pages:
 
-- Headings are the version number and nothing else.
-  The page URL is derived from the heading, so `## 154` gives `/release-notes/version/154/`.
+- Headings are the version number only: a `process` hook prefixes the headings with `Firefox`,
+  so `## 154` is published as `Firefox 154` at `/release-notes/version/firefox-154/`.
 - Link each policy to its reference page, at the lowercased policy name.
   Builds fail on broken internal links, so a policy with no reference page yet can be left unlinked.
 

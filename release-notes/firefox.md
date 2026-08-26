@@ -7,7 +7,7 @@
 
 _Released 18 August 2026._
 
-These changes apply to Firefox 154 and Firefox ESR 153.1.0.
+These changes apply to Firefox 154 and Firefox ESR 153.1.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
 
 > **Firefox moves from a four-week to a two-week release cycle beginning with Firefox 155.**
@@ -32,7 +32,7 @@ Firefox ESR 153 is the current ESR.
 
 _Released 21 July 2026._
 
-These changes apply to Firefox 153 and Firefox ESR 153.
+These changes apply to Firefox 153 and Firefox ESR 153 unless explicitly stated.
 Firefox ESR 153 is the new ESR - enterprise changes are no longer backported to Firefox ESR 140.
 Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the first time in this release.
 
@@ -70,7 +70,7 @@ Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the
 
 _Released 16 June 2026._
 
-These changes apply to Firefox 152 and Firefox ESR 140.12.0.
+These changes apply to Firefox 152 and Firefox ESR 140.12.0 unless explicitly stated.
 
 ### Changes
 
@@ -83,7 +83,7 @@ These changes apply to Firefox 152 and Firefox ESR 140.12.0.
 
 _Released 19 May 2026._
 
-These changes apply to Firefox 151 and Firefox ESR 140.11.0.
+These changes apply to Firefox 151 and Firefox ESR 140.11.0 unless explicitly stated.
 Firefox ESR 140 is the current ESR, and enterprise changes are no longer backported to Firefox ESR 128.
 
 Firefox 153 will be the next ESR.
@@ -111,7 +111,7 @@ If you use the ESR, we recommend testing with Firefox Beta or Nightly to identif
 
 _Released 21 April 2026._
 
-These changes apply to Firefox 150 and Firefox ESR 140.10.0.
+These changes apply to Firefox 150 and Firefox ESR 140.10.0 unless explicitly stated.
 Firefox ESR 140 is the current ESR.
 
 ### New in Firefox 150
@@ -134,7 +134,7 @@ Firefox ESR 140 is the current ESR.
 
 _Released 24 March 2026._
 
-These changes apply to Firefox 149 and Firefox ESR 140.9.0.
+These changes apply to Firefox 149 and Firefox ESR 140.9.0 unless explicitly stated.
 
 ### New in Firefox 149.0.2
 
@@ -145,7 +145,7 @@ These changes apply to Firefox 149 and Firefox ESR 140.9.0.
 
 _Released 24 February 2026._
 
-These changes apply to Firefox 148 and Firefox ESR 140.8.0.
+These changes apply to Firefox 148 and Firefox ESR 140.8.0 unless explicitly stated.
 
 ### New in Firefox 148
 
@@ -161,7 +161,7 @@ These changes apply to Firefox 148 and Firefox ESR 140.8.0.
 
 _Released 13 January 2026._
 
-These changes apply to Firefox 147 and Firefox ESR 140.7.0.
+These changes apply to Firefox 147 and Firefox ESR 140.7.0 unless explicitly stated.
 Firefox ESR 140 is the current ESR, so enterprise changes are no longer backported to Firefox ESR 128.
 
 ### Fixes
@@ -178,7 +178,7 @@ Firefox ESR 140 is the current ESR, so enterprise changes are no longer backport
 
 _Released 9 December 2025._
 
-These changes apply to Firefox 146 and Firefox ESR 140.6.0.
+These changes apply to Firefox 146 and Firefox ESR 140.6.0 unless explicitly stated.
 
 ### New in Firefox 146
 
@@ -201,7 +201,7 @@ These changes apply to Firefox 146 and Firefox ESR 140.6.0.
 
 _Released 11 November 2025._
 
-These changes apply to Firefox 145 and Firefox ESR 140.5.0.
+These changes apply to Firefox 145 and Firefox ESR 140.5.0 unless explicitly stated.
 
 Mozilla has introduced Firefox Support for Organizations, a support offering for enterprise deployments of Firefox.
 
@@ -222,7 +222,7 @@ Mozilla has introduced Firefox Support for Organizations, a support offering for
 
 _Released 14 October 2025._
 
-These changes apply to Firefox 144 and Firefox ESR 140.4.0.
+These changes apply to Firefox 144 and Firefox ESR 140.4.0 unless explicitly stated.
 
 ### New in Firefox 144
 
@@ -250,7 +250,7 @@ These changes apply to Firefox 144 and Firefox ESR 140.4.0.
 
 _Released 16 September 2025._
 
-These changes apply to Firefox 143 and Firefox ESR 140.3.0.
+These changes apply to Firefox 143 and Firefox ESR 140.3.0 unless explicitly stated.
 
 ### Notes
 

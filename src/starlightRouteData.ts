@@ -1,6 +1,6 @@
 import { defineRouteMiddleware } from "@astrojs/starlight/route-data";
 
-const versionPagePath = /^\/release-notes\/version\/(?<version>[^/]+)\/$/;
+const versionPagePath = /^\/release-notes\/version\/firefox-(?<version>[^/]+)\/$/;
 
 export const onRequest = defineRouteMiddleware((context) => {
   const version = context.url.pathname.match(versionPagePath)?.groups?.version;
