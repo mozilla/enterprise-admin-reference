@@ -141,11 +141,6 @@ These changes apply to Firefox 149 and Firefox ESR 140.9.0.
 - [`AIControls`](/reference/policies/aicontrols/): Configure AI controls. Does not apply to the ESR.
 - [`IPProtectionAvailable`](/reference/policies/ipprotectionavailable/): Prevent the built-in VPN from being available to users. Does not apply to the ESR.
 
-### Changes
-
-- [`GenerativeAI`](/reference/policies/generativeai/): Updated to cover PDF alt text generation and translations. ([bug 2013938](https://bugzilla.mozilla.org/show_bug.cgi?id=2013938))
-- AI Controls settings now respect enterprise policy and locale or region restrictions. ([bug 2005805](https://bugzilla.mozilla.org/show_bug.cgi?id=2005805))
-
 ## 148
 
 _Released 24 February 2026._
@@ -158,11 +153,9 @@ These changes apply to Firefox 148 and Firefox ESR 140.8.0.
 
 ### Changes
 
+- [`GenerativeAI`](/reference/policies/generativeai/): Updated to cover PDF alt text generation and translations. ([bug 2013938](https://bugzilla.mozilla.org/show_bug.cgi?id=2013938))
+- AI Controls settings now respect enterprise policy and locale or region restrictions. ([bug 2005805](https://bugzilla.mozilla.org/show_bug.cgi?id=2005805))
 - Firefox now reports whether a profile is managed by enterprise policy, as `policies.is_enterprise` in the baseline telemetry ping. ([bug 1997959](https://bugzilla.mozilla.org/show_bug.cgi?id=1997959))
-
-### Fixes
-
-- Private Window options were still available from the Firefox View tab when private browsing was disabled. ([bug 2004669](https://bugzilla.mozilla.org/show_bug.cgi?id=2004669))
 
 ## 147
 
@@ -173,7 +166,8 @@ Firefox ESR 140 is the current ESR, so enterprise changes are no longer backport
 
 ### Fixes
 
-- A performance regression affecting extension native messaging. In earlier Firefox 140-series builds, native messaging operations could experience significantly increased latency, affecting enterprise extensions that communicate with external processes. ([bug 2002517](https://bugzilla.mozilla.org/show_bug.cgi?id=2002517))
+- Private Window options were still available from the Firefox View tab when private browsing was disabled. ([bug 2004669](https://bugzilla.mozilla.org/show_bug.cgi?id=2004669))
+- A performance regression affecting extension native messaging reached the ESR in Firefox ESR 140.7.0. In earlier Firefox 140-series builds, native messaging operations could experience significantly increased latency, affecting enterprise extensions that communicate with external processes. The release channel received this fix in Firefox 146. ([bug 2002517](https://bugzilla.mozilla.org/show_bug.cgi?id=2002517))
 
 ### Known issues
 
@@ -198,6 +192,7 @@ These changes apply to Firefox 146 and Firefox ESR 140.6.0.
 
 ### Fixes
 
+- Private Window options were still available when private browsing was disabled. ([bug 2001191](https://bugzilla.mozilla.org/show_bug.cgi?id=2001191))
 - [`DisableProfileImport`](/reference/policies/disableprofileimport/): Data could still be imported in Firefox View when the policy was set. ([bug 1993863](https://bugzilla.mozilla.org/show_bug.cgi?id=1993863))
 - [`DisplayMenuBar`](/reference/policies/displaymenubar/): User choice was not maintained. Did not affect the ESR. ([bug 1996449](https://bugzilla.mozilla.org/show_bug.cgi?id=1996449))
 - [`DisablePasswordReveal`](/reference/policies/disablepasswordreveal/): The policy had stopped working. ([bug 2001459](https://bugzilla.mozilla.org/show_bug.cgi?id=2001459))

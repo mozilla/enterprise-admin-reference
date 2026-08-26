@@ -5,14 +5,14 @@ sidebar:
   label: Firefox and Firefox ESR
 ---
 
-Firefox is made available in multiple software releases known as **release channels**.
+Firefox is available in multiple **release channels** which have different features and release schedules.
 This article describes the difference between the channels and the tradeoffs to consider when choosing one.
 The channels that are most appropriate for enterprise usage are **Firefox** and **Firefox Extended Support Release (ESR)**.
 
 ## Firefox release channel
 
 The **Firefox** release channel is mostly used by consumers, but it is also possible for people to use policies to manage the browser for enterprise use.
-Since September 2026, a new major release is made [every two weeks](https://whattrainisitnow.com/release/?version=release).
+Beginning with Firefox 155 (September 2026), a new major release is made [every two weeks](https://whattrainisitnow.com/release/?version=release).
 Releases include new features, enhancements, and bug fixes.
 
 The following resources are useful for tracking what's changed in Firefox releases:
@@ -22,7 +22,7 @@ The following resources are useful for tracking what's changed in Firefox releas
   This contains details on new or updated web platform features, APIs, and tools that developers use.
 
 > [!NOTE]
-> The Firefox release channel is best suited for organizations that want the latest and features as soon as they are available.
+> The Firefox release channel is best suited for organizations that want the latest fixes and features as soon as they are available.
 > Because this release channel contains more frequent updates than ESR, UI changes, privacy or security changes may require testing with your environment in a more frequent cadence than the Extended Support Release.
 
 ## Firefox Extended Support Release (ESR)
