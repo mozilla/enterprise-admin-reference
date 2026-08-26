@@ -85,42 +85,44 @@ Two lists hardcode policies that get no addition:
 - `MISSING_UPSTREAM` — may need one but missing from `firefox.admx`. These log a build warning.
   Remove a name once it lands upstream and the link starts rendering.
 
-## Changelog
+## Release notes
 
-The changelog is based on **Firefox versions**, not documentation versions.  
-If something changes, it should be recorded under the software version where an admin would expect to see those changes.
+Release notes live in `release-notes/firefox.md` and are published at `/release-notes/`.
+We publish **one page per Firefox release**, covering everything enterprise-relevant that shipped on that release day.
 
-### Version prefixes
+That means a page for release 153 has a `New in Firefox 153` section and a `New in Firefox ESR 153.0.0` section, because both shipped that day.
 
-Each version heading must include a release channel prefix so it's clear which release train it belongs to:
+### Release note file structure
 
-| Prefix | Channel            | Example          |
-| ------ | ------------------ | ---------------- |
-| `fx-`  | Firefox            | `## fx-119.0.0`  |
-| `esr-` | Firefox ESR        | `## esr-128.0.0` |
-| `ent-` | Firefox Enterprise | `## ent-150.0.0` |
-
-An `## Unreleased` section at the top of the file can be used for upcoming changes.  
-When a version ships, the unreleased entries can be moved out of the `## Unreleased` section as level 2 headings to be published:
-
-### Entries
-
-Changelog entries are user-facing to Firefox admins, meaning any changes specific to the docs site itself are mostly irrelevant.
-Use the following sections per release and omit any that don't apply:
-
-- `### Added`: new policies or functionality relating to the policy engine
-- `### Changed`: anything that modifies policy behavior or defaults
-- `### Fixed`: bug fixes, or corrections to documentation
-- `### Removed`: removed policies or deprecated functionality
-
-### Example
-
-The following entry is for Firefox release version 119:
+For each release, follow this convention:
 
 ```md
-## fx-119.0.0
+## 154
 
-### Added
+_Released 18 August 2026._
 
-- `DisableAccounts` policy: Disable account-based services, including sync. ([#68](https://github.com/mozilla/enterprise-admin-reference/pull/68))
+### New in Firefox 154
+
+- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS.
+
+### Changed
+
+- `SomePolicy`: Now defaults to `false`. ([bug 1900001](https://bugzilla.mozilla.org/show_bug.cgi?id=1900001))
 ```
+
+The following details matter for the generated pages:
+
+- Headings are the version number and nothing else.
+  The page URL is derived from the heading, so `## 154` gives `/release-notes/version/154/`.
+- Link each policy to its reference page, at the lowercased policy name.
+  Builds fail on broken internal links, so a policy with no reference page yet can be left unlinked.
+
+### Fact checking
+
+The following things should be checked:
+
+- **Which ESR version shipped with a Firefox release**.
+  Check <https://whattrainisitnow.com/api/firefox/releases/esr>.
+- **Ship dates** come from <https://product-details.mozilla.org/1.0/firefox_history_major_releases.json>, or the `future` endpoint for releases that haven't shipped.
+
+The daily `schema-sync` workflow opens a PR when upstream adds or changes a policy, which is the prompt to add a release note.

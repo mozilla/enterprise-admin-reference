@@ -28,6 +28,7 @@ export default defineConfig({
     "/reference/policies/searchengines--remove/": "/reference/policies/searchengines/",
     "/reference/policies/securitydevices--deprecated/": "/reference/policies/securitydevices/",
     "/reference/policies/disablepocket_deprecated_/": "/reference/policies/disablepocket/",
+    "/changelog/": "/release-notes/",
   },
   devToolbar: {
     enabled: false,
@@ -99,13 +100,18 @@ gtag('config', 'G-LMXJXH34WG');`,
           items: [{ label: "Support", slug: "support" }],
         },
         {
-          label: "Changelog",
+          label: "Release notes",
           items: [
             ...makeChangelogsSidebarLinks([
               {
+                type: "all",
+                base: "release-notes",
+                label: "All releases",
+              },
+              {
                 type: "recent",
-                base: "changelog",
-                count: 10,
+                base: "release-notes",
+                count: 6,
               },
             ]),
           ],

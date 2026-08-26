@@ -1,8 +1,8 @@
-name: Weekly schema sync
+name: Daily schema sync
 
 on:
   schedule:
-    # Mondays at 07:00 UTC
+    # Daily at 08:30 UTC
     - cron: "30 8 * * *"
   workflow_dispatch:
 
@@ -59,9 +59,9 @@ jobs:
           else
             gh pr create \
               --title "chore(schema): sync from upstream" \
-              --body "Automated weekly sync of \`schema/policies-schema.json\`.
+              --body "Automated daily sync of \`schema/policies-schema.json\`.
 
-          Review the diff for new, removed, or changed policies before merging.
+          Review the diff for new, removed, or changed policies before merging. A new policy here usually needs a matching entry in \`release-notes/firefox.md\`.
 
           _Opened by the [\`.github/workflows/schema-sync.yml\`](https://github.com/${{ github.repository }}/tree/main/.github/workflows/schema-sync.yml) workflow._" \
               --label schema-sync \
