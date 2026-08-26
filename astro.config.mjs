@@ -86,6 +86,8 @@ gtag('config', 'G-LMXJXH34WG');`,
         : [],
       lastUpdated: true,
       plugins: [starlightGitHubAlerts(), starlightChangelogs(), starlightLinksValidator()],
+      // Gives each generated release note page its own title.
+      routeMiddleware: "./src/starlightRouteData.ts",
       sidebar: [
         {
           label: "Reference",

@@ -15,12 +15,12 @@ Firefox ESR 153 is the current ESR.
 
 ### New in Firefox 154
 
-- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS.
-- [`DefaultBrowserSettingEnabled`](/reference/policies/defaultbrowsersettingenabled/): Prevent users from changing the default browser.
+- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS. Does not apply to the ESR. ([bug 2052296](https://bugzilla.mozilla.org/show_bug.cgi?id=2052296))
+- [`DefaultBrowserSettingEnabled`](/reference/policies/defaultbrowsersettingenabled/): Prevent users from changing the default browser. ([bug 2051921](https://bugzilla.mozilla.org/show_bug.cgi?id=2051921))
 
 ### Changes
 
-- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): Added an `Exceptions` option to configure sites whose data should not be cleared on shutdown.
+- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): Added an `Exceptions` option to configure sites whose data should not be cleared on shutdown. ([bug 2049937](https://bugzilla.mozilla.org/show_bug.cgi?id=2049937))
 
 ### Fixes
 
