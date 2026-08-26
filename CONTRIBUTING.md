@@ -99,15 +99,32 @@ For each release, follow this convention:
 ```md
 ## 154
 
+<!-- Release date -->
+
 _Released 18 August 2026._
+
+<!-- Which versions the release notes apply to and the current ESR -->
+
+These changes apply to Firefox 154 and Firefox ESR 153.1.0.
+Firefox ESR 153 is the current ESR.
 
 ### New in Firefox 154
 
-- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS.
+- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 … ([bug 2000001](https://bugzilla.mozilla/show_bug.cgi?id=2000001))
 
-### Changed
+### Changes
 
-- `SomePolicy`: Now defaults to `false`. ([bug 1900001](https://bugzilla.mozilla.org/show_bug.cgi?id=1900001))
+- `SomePolicy`: Now defaults to `false`. ([bug 2000000](https://bugzilla.mozilla/show_bug.cgi?id=2000000))
+
+### Fixes
+
+- [`SearchEngines`](/reference/policies/searchengines/): `PreventInstalls` did not prevent users from manually… ([bug 2052965](https://bugzilla.mozilla.org/show_bug.cgi?id=2052965))
+
+<!-- an optional notes section -->
+
+### Notes
+
+- Firefox ESR 115 support for Windows 7/8 and macOS 10.12, 10.13 and 10.14 extends to August 2026.
 ```
 
 The following details matter for the generated pages:

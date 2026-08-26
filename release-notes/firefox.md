@@ -1,4 +1,5 @@
 <!-- See the Release notes section of CONTRIBUTING.md. -->
+<!-- markdownlint-disable MD024 -->
 
 # Firefox release notes for enterprise admins
 
@@ -6,7 +7,8 @@
 
 _Released 18 August 2026._
 
-These changes apply to Firefox 154 and Firefox ESR 153.1.0. Firefox ESR 153 is the current ESR.
+These changes apply to Firefox 154 and Firefox ESR 153.1.0.
+Firefox ESR 153 is the current ESR.
 
 > **Firefox moves from a four-week to a two-week release cycle beginning with Firefox 155.**
 > Bug fixes, updates and features reach users more quickly once they are ready to ship.
@@ -16,11 +18,11 @@ These changes apply to Firefox 154 and Firefox ESR 153.1.0. Firefox ESR 153 is t
 - [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS.
 - [`DefaultBrowserSettingEnabled`](/reference/policies/defaultbrowsersettingenabled/): Prevent users from changing the default browser.
 
-### Changed
+### Changes
 
 - [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): Added an `Exceptions` option to configure sites whose data should not be cleared on shutdown.
 
-### Fixed
+### Fixes
 
 - [`SearchEngines`](/reference/policies/searchengines/): `PreventInstalls` did not prevent users from manually adding search engines in Settings or from the context menu. ([bug 2052965](https://bugzilla.mozilla.org/show_bug.cgi?id=2052965))
 - The `-width` and `-height` command-line options did not correctly set the Firefox window size. ([bug 1635927](https://bugzilla.mozilla.org/show_bug.cgi?id=1635927))
@@ -30,9 +32,25 @@ These changes apply to Firefox 154 and Firefox ESR 153.1.0. Firefox ESR 153 is t
 
 _Released 21 July 2026._
 
+These changes apply to Firefox 153 and Firefox ESR 153.
+Firefox ESR 153 is the new ESR - enterprise changes are no longer backported to Firefox ESR 140.
+Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the first time in this release.
+
 ### New in Firefox 153
 
-- [`DisableRemoteSettingsAndAcceptSecurityConsequences`](/reference/policies/disableremotesettingsandacceptsecurityconsequences/): Disable Remote Settings updates and accept the resulting security consequences.
+- [`DisableRemoteSettingsAndAcceptSecurityConsequences`](/reference/policies/disableremotesettingsandacceptsecurityconsequences/): Disable Remote Settings updates and accept the resulting security consequences. Only use this policy when the consequences are fully understood.
+
+### Changes
+
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Control extension host permissions using `runtime_allowed_hosts` and `runtime_blocked_hosts`, and control which permissions extensions may request.
+- Users can no longer change the host permissions of Manifest V3 extensions installed using `force_installed`.
+- Automatically discovered printers are now listed after manually configured printers in the print destination list.
+- Firefox installed from a macOS `.pkg` package can now update without prompting for administrator credentials.
+
+### Fixes
+
+- AutoConfig can once again set the `browser.startup.homepage` preference to a `data:` URL, fixing a regression introduced in Firefox 152.
+- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): The policy now correctly locks the History settings when configured.
 
 ### New in Firefox ESR 153.0.0
 
@@ -48,140 +66,197 @@ _Released 21 July 2026._
 - [`VisualSearchEnabled`](/reference/policies/visualsearchenabled/): Enable or disable visual search.
 - [`XSLTEnabled`](/reference/policies/xsltenabled/): Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction.
 
+## 152
+
+_Released 16 June 2026._
+
+These changes apply to Firefox 152 and Firefox ESR 140.12.0.
+
+### Changes
+
+- [`DefaultSerialGuardSetting`](/reference/policies/defaultserialguardsetting/): Web Serial support is now disabled by default when Firefox is managed by enterprise policies.
+- [`FirefoxHome`](/reference/policies/firefoxhome/): Allow configuration of the Weather experience.
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Prevent users from disabling extension updates.
+- [`ManagedBookmarks`](/reference/policies/managedbookmarks/): Allow specifying favicons directly for managed bookmarks.
+
 ## 151
 
 _Released 19 May 2026._
 
+These changes apply to Firefox 151 and Firefox ESR 140.11.0.
+Firefox ESR 140 is the current ESR, and enterprise changes are no longer backported to Firefox ESR 128.
+
+Firefox 153 will be the next ESR.
+As that transition approaches, fewer non-security fixes and policy changes will be backported to Firefox ESR 140.
+If you use the ESR, we recommend testing with Firefox Beta or Nightly to identify issues before Firefox ESR 153 ships.
+
 ### New in Firefox 151
 
 - [`DefaultSerialGuardSetting`](/reference/policies/defaultserialguardsetting/): Control use of the Web Serial API.
-- [`XSLTEnabled`](/reference/policies/xsltenabled/): Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction.
+- [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
+- [`XSLTEnabled`](/reference/policies/xsltenabled/): Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction. Firefox 151 only.
+
+### Changes
+
+- Policy documentation has officially moved to <https://firefox-admin-docs.mozilla.org/>. Update any existing bookmarks.
+- [`Preferences`](/reference/policies/preferences/): Allow setting preferences under the `devtools.` and `sidebar.` branches.
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Support overriding update URLs. Firefox 151 only.
+
+### Fixes
+
+- [`DisableRemoteImprovements`](/reference/policies/disableremoteimprovements/): The policy was not reflected correctly in preferences. Firefox 151 only.
+- Sites blocked by enterprise policy did not display the correct error message. Firefox 151 only.
 
 ## 150
 
 _Released 21 April 2026._
 
+These changes apply to Firefox 150 and Firefox ESR 140.10.0.
+Firefox ESR 140 is the current ESR.
+
 ### New in Firefox 150
 
-- [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
 - [`SitePolicies`](/reference/policies/sitepolicies/): Fine grained control over policies for specific sites.
+
+### Changes
+
+- Policy documentation has officially moved to <https://firefox-admin-docs.mozilla.org/>.
+
+### Fixes
+
+- [`Homepage`](/reference/policies/homepage/): The policy was not working correctly in Firefox 149. Fixed in Firefox 149.0.2. Does not apply to the ESR.
+
+### Notes
+
+- Firefox ESR 115 support for Windows 7/8 and macOS 10.12, 10.13 and 10.14 is extended to August 2026.
 
 ## 149
 
 _Released 24 March 2026._
 
-### New in Firefox 149
-
-- [`IPProtectionAvailable`](/reference/policies/ipprotectionavailable/): Prevent the built-in VPN from being available to users.
+These changes apply to Firefox 149 and Firefox ESR 140.9.0.
 
 ### New in Firefox 149.0.2
 
-- [`AIControls`](/reference/policies/aicontrols/): Configure AI controls.
+- [`AIControls`](/reference/policies/aicontrols/): Configure AI controls. Does not apply to the ESR.
+- [`IPProtectionAvailable`](/reference/policies/ipprotectionavailable/): Prevent the built-in VPN from being available to users. Does not apply to the ESR.
+
+### Changes
+
+- [`GenerativeAI`](/reference/policies/generativeai/): Updated to cover PDF alt text generation and translations. ([bug 2013938](https://bugzilla.mozilla.org/show_bug.cgi?id=2013938))
+- AI Controls settings now respect enterprise policy and locale or region restrictions. ([bug 2005805](https://bugzilla.mozilla.org/show_bug.cgi?id=2005805))
 
 ## 148
 
 _Released 24 February 2026._
 
+These changes apply to Firefox 148 and Firefox ESR 140.8.0.
+
 ### New in Firefox 148
 
 - [`DisableRemoteImprovements`](/reference/policies/disableremoteimprovements/): Prevent Firefox from applying performance, stability, and feature changes between updates.
+
+### Changes
+
+- Firefox now reports whether a profile is managed by enterprise policy, as `policies.is_enterprise` in the baseline telemetry ping. ([bug 1997959](https://bugzilla.mozilla.org/show_bug.cgi?id=1997959))
+
+### Fixes
+
+- Private Window options were still available from the Firefox View tab when private browsing was disabled. ([bug 2004669](https://bugzilla.mozilla.org/show_bug.cgi?id=2004669))
+
+## 147
+
+_Released 13 January 2026._
+
+These changes apply to Firefox 147 and Firefox ESR 140.7.0.
+Firefox ESR 140 is the current ESR, so enterprise changes are no longer backported to Firefox ESR 128.
+
+### Fixes
+
+- A performance regression affecting extension native messaging. In earlier Firefox 140-series builds, native messaging operations could experience significantly increased latency, affecting enterprise extensions that communicate with external processes. ([bug 2002517](https://bugzilla.mozilla.org/show_bug.cgi?id=2002517))
+
+### Known issues
+
+- Using Trellix DLP Endpoint for Windows can cause crashes when dragging and dropping files.
+  Set the `security.sandbox.content.close-ksecdd-handle` preference to `false` as a workaround.
 
 ## 146
 
 _Released 9 December 2025._
 
+These changes apply to Firefox 146 and Firefox ESR 140.6.0.
+
 ### New in Firefox 146
 
 - [`BrowserDataBackup`](/reference/policies/browserdatabackup/): Disable backup or restore of profile data.
+  Does not apply to the ESR.
+
+### Changes
+
+- The version number, architecture and language were removed from the Windows uninstall registry key, improving compatibility with third-party tools. Does not apply to the ESR. ([bug 1995769](https://bugzilla.mozilla.org/show_bug.cgi?id=1995769))
+- Firefox Labs can now be enabled regardless of the status of [`DisableTelemetry`](/reference/policies/disabletelemetry/) or [`DisableFirefoxStudies`](/reference/policies/disablefirefoxstudies/). Does not apply to the ESR. ([bug 1972647](https://bugzilla.mozilla.org/show_bug.cgi?id=1972647))
+
+### Fixes
+
+- [`DisableProfileImport`](/reference/policies/disableprofileimport/): Data could still be imported in Firefox View when the policy was set. ([bug 1993863](https://bugzilla.mozilla.org/show_bug.cgi?id=1993863))
+- [`DisplayMenuBar`](/reference/policies/displaymenubar/): User choice was not maintained. Did not affect the ESR. ([bug 1996449](https://bugzilla.mozilla.org/show_bug.cgi?id=1996449))
+- [`DisablePasswordReveal`](/reference/policies/disablepasswordreveal/): The policy had stopped working. ([bug 2001459](https://bugzilla.mozilla.org/show_bug.cgi?id=2001459))
 
 ## 145
 
 _Released 11 November 2025._
 
+These changes apply to Firefox 145 and Firefox ESR 140.5.0.
+
+Mozilla has introduced Firefox Support for Organizations, a support offering for enterprise deployments of Firefox.
+
 ### New in Firefox 145
 
 - [`LocalNetworkAccess`](/reference/policies/localnetworkaccess/): Configure local network access security features.
+
+### Changes
+
+- [`GenerativeAI`](/reference/policies/generativeai/): Added an option to enable or disable all generative AI features.
+- [`EnableTrackingProtection`](/reference/policies/enabletrackingprotection/): `BaselineExceptions` and `ConvenienceExceptions` can now be set in strict mode. Does not apply to the ESR.
+
+### Fixes
+
+- [`GenerativeAI`](/reference/policies/generativeai/): The `Chatbot` option did not turn off generative AI in the page context menu. ([bug 1994791](https://bugzilla.mozilla.org/show_bug.cgi?id=1994791))
 
 ## 144
 
 _Released 14 October 2025._
 
+These changes apply to Firefox 144 and Firefox ESR 140.4.0.
+
 ### New in Firefox 144
 
-- [`GenerativeAI`](/reference/policies/generativeai/): Configure generative AI features.
-- [`VisualSearchEnabled`](/reference/policies/visualsearchenabled/): Enable or disable visual search.
+- [`GenerativeAI`](/reference/policies/generativeai/): Configure generative AI features. `Chatbot` is the only option that applies to the ESR.
+- [`VisualSearchEnabled`](/reference/policies/visualsearchenabled/): Enable or disable visual search. Does not apply to the ESR.
 
 ### New in Firefox ESR 140.4.0
 
-- [`GenerativeAI`](/reference/policies/generativeai/): Configure generative AI features.
+- [`GenerativeAI`](/reference/policies/generativeai/): Configure generative AI features. Only the `Chatbot` option is available on the ESR.
 
-## 140
+### Changes
 
-_Released 24 June 2025._
+- [`Preferences`](/reference/policies/preferences/): Allow setting the `security.webauthn.always_allow_direct_attestation` preference.
 
-### New in Firefox ESR 140.0.0
+### Fixes
 
-- [`SkipTermsOfUse`](/reference/policies/skiptermsofuse/): Configure display settings for the Firefox Terms of Use and Privacy Notice on startup.
+- Some print options were still shown when printing was disabled. ([bug 1889569](https://bugzilla.mozilla.org/show_bug.cgi?id=1889569))
+- Windows Kerberos authentication with Extended Protection did not work with a SHA384 SSL certificate. ([bug 1895277](https://bugzilla.mozilla.org/show_bug.cgi?id=1895277))
 
-## 139
+### Notes
 
-_Released 27 May 2025._
+- Firefox ESR 115 support for Windows 7/8 and macOS 10.12, 10.13 and 10.14 is extended to March 2026.
 
-### New in Firefox 139
+## 143
 
-- [`SearchEngines`](/reference/policies/searchengines/): Configure search engines: add new ones, set defaults, prevent user installs, and remove built-ins.
+_Released 16 September 2025._
 
-## 138
+These changes apply to Firefox 143 and Firefox ESR 140.3.0.
 
-_Released 29 April 2025._
+### Notes
 
-### New in Firefox 138
-
-- [`SkipTermsOfUse`](/reference/policies/skiptermsofuse/): Configure display settings for the Firefox Terms of Use and Privacy Notice on startup.
-
-## 133
-
-_Released 26 November 2024._
-
-### New in Firefox ESR 128.5.0
-
-- [`MicrosoftEntraSSO`](/reference/policies/microsoftentrasso/): Allow single sign-on for Microsoft Entra accounts on macOS.
-
-## 132
-
-_Released 29 October 2024._
-
-### New in Firefox 132.0.1
-
-- [`MicrosoftEntraSSO`](/reference/policies/microsoftentrasso/): Allow single sign-on for Microsoft Entra accounts on macOS.
-
-## 131
-
-_Released 1 October 2024._
-
-### New in Firefox ESR 128.3.0
-
-- [`PrivateBrowsingModeAvailability`](/reference/policies/privatebrowsingmodeavailability/): Set availability of private browsing mode.
-
-## 130
-
-_Released 3 September 2024._
-
-### New in Firefox 130
-
-- [`PrivateBrowsingModeAvailability`](/reference/policies/privatebrowsingmodeavailability/): Set availability of private browsing mode.
-
-## 128
-
-_Released 9 July 2024._
-
-### New in Firefox ESR 128.0.0
-
-- [`AllowFileSelectionDialogs`](/reference/policies/allowfileselectiondialogs/): Enable or disable file selection dialogs.
-- [`ContentAnalysis`](/reference/policies/contentanalysis/): Configure Firefox to use an agent for Data Loss Prevention (DLP) that is compatible with the Google Chrome Content Analysis Connector Agent SDK.
-- [`DisableAccounts`](/reference/policies/disableaccounts/): Disable account-based services, including sync.
-- [`DisableEncryptedClientHello`](/reference/policies/disableencryptedclienthello/): Disable the TLS Feature for Encrypted Client Hello.
-- [`HttpAllowlist`](/reference/policies/httpallowlist/): Configure sites that will not be upgraded to HTTPS.
-- [`HttpsOnlyMode`](/reference/policies/httpsonlymode/): Configure HTTPS-Only Mode.
-- [`PostQuantumKeyAgreementEnabled`](/reference/policies/postquantumkeyagreementenabled/): Enable post-quantum key agreement for TLS.
-- [`TranslateEnabled`](/reference/policies/translateenabled/): Enable or disable webpage translation.
+- Firefox ESR 128 goes out of support with this release. Firefox ESR 128 users are upgraded to Firefox ESR 140.
