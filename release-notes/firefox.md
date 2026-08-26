@@ -42,15 +42,20 @@ Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the
 
 ### Changes
 
-- [`ExtensionSettings`](/reference/policies/extensionsettings/): Control extension host permissions using `runtime_allowed_hosts` and `runtime_blocked_hosts`, and control which permissions extensions may request.
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Control extension host permissions using `runtime_allowed_hosts` and `runtime_blocked_hosts`, and control which permissions extensions may request using `allowed_permissions`.
 - Users can no longer change the host permissions of Manifest V3 extensions installed using `force_installed`.
-- Automatically discovered printers are now listed after manually configured printers in the print destination list.
-- Firefox installed from a macOS `.pkg` package can now update without prompting for administrator credentials.
+- Automatically discovered printers are now listed after manually configured printers in the print destination list. ([bug 1996569](https://bugzilla.mozilla.org/show_bug.cgi?id=1996569))
+- Firefox installed from a macOS `.pkg` package can now update without prompting for administrator credentials. ([bug 1812480](https://bugzilla.mozilla.org/show_bug.cgi?id=1812480))
 
 ### Fixes
 
-- AutoConfig can once again set the `browser.startup.homepage` preference to a `data:` URL, fixing a regression introduced in Firefox 152.
-- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): The policy now correctly locks the History settings when configured.
+- AutoConfig can once again set the `browser.startup.homepage` preference to a `data:` URL, fixing a regression introduced in Firefox 152. ([bug 2047962](https://bugzilla.mozilla.org/show_bug.cgi?id=2047962))
+- [`DisableSecurityBypass`](/reference/policies/disablesecuritybypass/): The **Allow download** button was still shown when `SafeBrowsing` was set to `false`. ([bug 1894373](https://bugzilla.mozilla.org/show_bug.cgi?id=1894373))
+- [`FirefoxHome`](/reference/policies/firefoxhome/): The policy was not reflected correctly in the redesigned Settings. ([bug 2048048](https://bugzilla.mozilla.org/show_bug.cgi?id=2048048))
+- [`PasswordManagerEnabled`](/reference/policies/passwordmanagerenabled/): The policy did not disable the Passwords sidebar panel. ([bug 2041232](https://bugzilla.mozilla.org/show_bug.cgi?id=2041232))
+- [`PopupBlocking`](/reference/policies/popupblocking/): The policy did not lock all of the pop-up permission controls. ([bug 1888477](https://bugzilla.mozilla.org/show_bug.cgi?id=1888477))
+- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): The policy now correctly locks the History settings when configured. ([bug 1888451](https://bugzilla.mozilla.org/show_bug.cgi?id=1888451))
+- The Bookmarks and History sidebars could not be opened while the sidebar was hidden and [`PasswordManagerEnabled`](/reference/policies/passwordmanagerenabled/) was set to `false`. This regressed in Firefox 153.0 and was fixed in a later Firefox 153 release. ([bug 2056857](https://bugzilla.mozilla.org/show_bug.cgi?id=2056857))
 
 ### New in Firefox ESR 153.0.0
 
@@ -76,9 +81,18 @@ Firefox ESR 140.12.0 shipped the same day, but most of these changes were not ba
 ### Changes
 
 - [`DefaultSerialGuardSetting`](/reference/policies/defaultserialguardsetting/): Web Serial support is now disabled by default when Firefox is managed by enterprise policies.
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Force-installed extensions are now always updated automatically, regardless of the `updates_disabled` setting. ([bug 2037243](https://bugzilla.mozilla.org/show_bug.cgi?id=2037243))
 - [`FirefoxHome`](/reference/policies/firefoxhome/): Allow configuration of the Weather experience. Also in Firefox ESR 140.12.0.
-- [`ExtensionSettings`](/reference/policies/extensionsettings/): Prevent users from disabling extension updates.
 - [`ManagedBookmarks`](/reference/policies/managedbookmarks/): Allow specifying favicons directly for managed bookmarks.
+- Chatbot content is now available to extensions from content scripts. ([bug 1980404](https://bugzilla.mozilla.org/show_bug.cgi?id=1980404))
+- Firefox now accepts TURN server responses whose `XOR-MAPPED-ADDRESS` does not match the ICE check, improving compatibility with some TURN server implementations. ([bug 2034159](https://bugzilla.mozilla.org/show_bug.cgi?id=2034159))
+
+### Fixes
+
+- [`DisableBuiltinPDFViewer`](/reference/policies/disablebuiltinpdfviewer/): Setting the policy to `false` overrode the PDF handling configured in `handlers.json`. Also in Firefox ESR 140.12.0. ([bug 1983032](https://bugzilla.mozilla.org/show_bug.cgi?id=1983032))
+- [`DisableFirefoxAccounts`](/reference/policies/disablefirefoxaccounts/): The policy also disabled Backup and other unrelated settings after the Settings redesign. ([bug 2023825](https://bugzilla.mozilla.org/show_bug.cgi?id=2023825))
+- [`DisableProfileImport`](/reference/policies/disableprofileimport/): The **Import Bookmarks** button on the Bookmarks Toolbar bypassed the policy. ([bug 1828282](https://bugzilla.mozilla.org/show_bug.cgi?id=1828282))
+- [`DisableProfileImport`](/reference/policies/disableprofileimport/): The import option in `about:logins` was not covered by the policy. ([bug 1830463](https://bugzilla.mozilla.org/show_bug.cgi?id=1830463))
 
 ## 151
 
