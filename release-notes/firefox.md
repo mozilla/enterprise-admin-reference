@@ -3,6 +3,34 @@
 
 # Firefox release notes for enterprise admins
 
+## 155
+
+_Upcoming, expected 1 September 2026._
+
+These changes apply to Firefox 155 and Firefox ESR 153.2.0 unless explicitly stated.
+Firefox ESR 153 is the current ESR.
+
+### New in Firefox 155
+
+- [`DisableLaunchOnLogin`](/reference/policies/disablelaunchonlogin/): This policy prevents Firefox from launching automatically when the user logs in (Windows only in 155).
+  Does not apply to the ESR. ([bug 2001734](https://bugzil.la/2001734))
+
+### Changes
+
+- [`SitePolicies`](/reference/policies/sitepolicies/): Added an `HttpsOnly` option to prevent specific sites from being loaded over HTTP.
+  Firefox 155 only. ([bug 2045980](https://bugzil.la/2045980))
+- Captive portal and network connectivity checks now use `firefox-portal-detection.com` instead of `detectportal.firefox.com`.
+  Network allowlists and proxy rules naming the old domain need updating.
+  Firefox 155 only. ([bug 2049252](https://bugzil.la/2049252), [bug 1898891](https://bugzil.la/1898891))
+
+### Fixes
+
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): In Firefox 154, configurations that quoted booleans (`"true"`) would break and an invalid entry discarded the whole policy.
+  The validator is relaxed to accept quoted booleans again, and invalid entries are now individually skipped. ([bug 2065965](https://bugzil.la/2065965))
+- [`SearchEngines`](/reference/policies/searchengines/): Contextual search prompted users to install a search engine when `PreventInstalls` was `true`. Firefox 155 only. ([bug 2055614](https://bugzil.la/2055614))
+- Locking legacy preferences such as `pref.general.disable_button.default_browser` didn't disable the corresponding controls in Firefox Settings, following the Settings rewrite. ([bug 2056928](https://bugzil.la/2056928), [bug 2055887](https://bugzil.la/2055887))
+- Firefox reported that it could pin itself to the taskbar when Windows Group Policy blocked pinning. Firefox 155 only. ([bug 2059920](https://bugzil.la/2059920))
+
 ## 154
 
 _Released 18 August 2026._
