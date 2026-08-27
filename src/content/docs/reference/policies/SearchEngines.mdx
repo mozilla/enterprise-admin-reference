@@ -54,66 +54,6 @@ Software\Policies\Mozilla\Firefox\SearchEngines\PreventInstalls = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\SearchEngines\Remove\1 = NAME_OF_SEARCH_ENGINE
 ```
 
-## Windows (Intune)
-
-`Add` OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_1
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="SearchEngine_Name" value="Example1"/>
-<data id="SearchEngine_URLTemplate" value="https://www.example.org/q={searchTerms}"/>
-<data id="SearchEngine_Method" value="GET | POST"/>
-<data id="SearchEngine_IconURL" value="https://www.example.org/favicon.ico"/>
-<data id="SearchEngine_Alias" value="example"/>
-<data id="SearchEngine_Description" value="Example Description"/>
-<data id="SearchEngine_SuggestURLTemplate" value="https://www.example.org/suggestions/q={searchTerms}"/>
-<data id="SearchEngine_PostData" value="name=value&amp;q={searchTerms}"/>
-```
-
-`Default` OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_Default
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="SearchEngines_Default" value="NAME_OF_SEARCH_ENGINE"/>
-```
-
-`PreventInstalls` OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_PreventInstalls
-```
-
-Value (string):
-
-```xml
-<enabled/> or <disabled/>
-```
-
-`Remove` OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Search/SearchEngines_Remove
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="SearchEngines_Remove" value="1&#xF000;NAME_OF_SEARCH_ENGINE"/>
-```
-
 ## macOS
 
 ```xml

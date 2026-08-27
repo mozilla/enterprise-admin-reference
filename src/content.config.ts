@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
-import { docsLoader } from "@astrojs/starlight/loaders";
-import { docsSchema } from "@astrojs/starlight/schema";
+import { docsLoader, i18nLoader } from "@astrojs/starlight/loaders";
+import { docsSchema, i18nSchema } from "@astrojs/starlight/schema";
 import { changelogsLoader } from "starlight-changelogs/loader";
 
 export const collections = {
@@ -16,16 +16,14 @@ export const collections = {
     loader: changelogsLoader([
       {
         provider: "keep-a-changelog",
-        base: "changelog",
-        changelog: "CHANGELOG.md",
-        // see https://starlight-changelogs.netlify.app/providers/keep-a-changelog/#process
-        process: ({ title }) => {
-          if (title.startsWith("ent-")) return `Firefox Enterprise ${title.slice(4)}`;
-          if (title.startsWith("esr-")) return `Firefox ESR ${title.slice(4)}`;
-          if (title.startsWith("fx-")) return `Firefox ${title.slice(3)}`;
-          return title;
-        },
+        base: "release-notes",
+        title: "Firefox Release Notes for Enterprise",
+        changelog: "release-notes/firefox.md",
+        pageSize: 20,
+        // See https://starlight-changelogs.netlify.app/providers/keep-a-changelog/#process
+        process: ({ title }) => (/^\d/.test(title) ? `Firefox ${title}` : title),
       },
     ]),
   }),
+  i18n: defineCollection({ loader: i18nLoader(), schema: i18nSchema() }),
 };

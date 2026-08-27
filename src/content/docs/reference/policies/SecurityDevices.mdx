@@ -37,34 +37,6 @@ Software\Policies\Mozilla\Firefox\SecurityDevices\Add\NAME_OF_DEVICE_TO_ADD = PA
 Software\Policies\Mozilla\Firefox\SecurityDevices\Delete\1 = NAME_OF_DEVICE_TO_DELETE
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/SecurityDevices/SecurityDevices_Add
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="SecurityDevices" value="NAME_OF_DEVICE_TO_ADD&#xF000;PATH_TO_LIBRARY_FOR_DEVICE"/>
-```
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/SecurityDevices/SecurityDevices_Delete
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="SecurityDevices" value="1&#xF000;NAME_OF_DEVICE_TO_REMOVE"/>
-```
-
 ## macOS
 
 ```xml

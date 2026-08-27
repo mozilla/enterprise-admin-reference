@@ -38,47 +38,6 @@ Software\Policies\Mozilla\Firefox\Extensions\Uninstall\1 = "bad_addon_id@mozilla
 Software\Policies\Mozilla\Firefox\Extensions\Locked\1 = "addon_id@mozilla.org"
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Extensions/Extensions_Install
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="Extensions" value="1&#xF000;https://addons.mozilla.org/firefox/downloads/somefile.xpi&#xF000;2&#xF000;//path/to/xpi"/>
-```
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Extensions/Extensions_Uninstall
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="Extensions" value="1&#xF000;bad_addon_id@mozilla.org"/>
-```
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Extensions/Extensions_Locked
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="Extensions" value="1&#xF000;addon_id@mozilla.org"/>
-```
-
 ## macOS
 
 ```xml

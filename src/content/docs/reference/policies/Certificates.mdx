@@ -60,33 +60,6 @@ Software\Policies\Mozilla\Firefox\Certificates\Install\1 = "cert1.der"
 Software\Policies\Mozilla\Firefox\Certificates\Install\2 = "C:\Users\username\cert2.pem"
 ```
 
-## Windows (Intune)
-
-`ImportEnterpriseRoots` OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Certificates/Certificates_ImportEnterpriseRoots
-```
-
-Value (string):
-
-```xml
-<enabled/> or <disabled/>
-```
-
-`Install` OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Certificates/Certificates_Install
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="Certificates_Install" value="1&#xF000;cert1.der&#xF000;2&#xF000;C:\Users\username\cert2.pem"/>
-```
-
 ## macOS
 
 ```xml

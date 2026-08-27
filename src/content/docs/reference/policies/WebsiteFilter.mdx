@@ -35,49 +35,6 @@ Software\Policies\Mozilla\Firefox\WebsiteFilter\Block\1 = "<all_urls>"
 Software\Policies\Mozilla\Firefox\WebsiteFilter\Exceptions\1 = "http://example.org/*"
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/B_WebsiteFilter_Block
-```
-
-Value (string):
-
-```xml
-<enabled/> <data id="WebsiteFilter" value="1&#xF000;&#60;all_urls&#62;"/>
-```
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/B_WebsiteFilter_Exceptions
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="WebsiteFilter" value="1&#xF000;http://example.org/*"/>
-```
-
-If you are using custom ADMX and ADML administrative templates in Intune, you can use the OMA-URI to work around the limit on the length of strings.
-All JSON must be on one line.
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/WebsiteFilterOneLine
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSONOneLine" value='{"Block": ["<all_urls>"],"Exceptions": ["http://example.org/*"]}'/>
-```
-
 ## macOS
 
 ```xml

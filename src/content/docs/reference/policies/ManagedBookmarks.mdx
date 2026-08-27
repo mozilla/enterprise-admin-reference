@@ -58,60 +58,6 @@ Software\Policies\Mozilla\Firefox\ManagedBookmarks (REG_MULTI_SZ) =
 ]
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/ManagedBookmarks
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSON" value='
-[
-  {
-    "toplevel_name": "My managed bookmarks folder"
-  },
-  {
-    "url": "example.com",
-    "name": "Example",
-    "favicon": "https://example.com/favicon.ico"
-  },
-  {
-    "name": "Mozilla links",
-    "children": [
-      {
-        "url": "https://mozilla.org",
-        "name": "Mozilla.org"
-      },
-      {
-        "url": "https://support.mozilla.org/",
-        "name": "SUMO"
-      }
-    ]
-  }
-]'/>
-```
-
-If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
-to workaround the limit on the length of strings. Put all of your JSON on one line.
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/ManagedBookmarksOneLine
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSONOneLine" value='[]'/>
-```
-
 ## macOS
 
 ```xml

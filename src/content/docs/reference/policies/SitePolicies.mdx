@@ -85,28 +85,6 @@ Software\Policies\Mozilla\Firefox\SitePolicies (REG_MULTI_SZ) =
 ]
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/SitePolicies
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSON" value='[
-  {
-    "Exceptions": ["*.example.com"],
-    "Policies": {
-      "DisableJit": true
-    }
-  }
-]'/>
-```
-
 ## macOS
 
 ```xml

@@ -33,45 +33,6 @@ Software\Policies\Mozilla\Firefox\PopupBlocking\Default = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\PopupBlocking\Locked = 0x1 | 0x0
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Popups/PopupBlocking_Allow
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="Permissions" value="1&#xF000;https://example.org&#xF000;2&#xF000;https://example.edu"/>
-```
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Popups/PopupBlocking_Default
-```
-
-Value (string):
-
-```xml
-<enabled/> or <disabled/>
-```
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox~Popups/PopupBlocking_Locked
-```
-
-Value (string):
-
-```xml
-<enabled/> or <disabled/>
-```
-
 ## macOS
 
 ```xml

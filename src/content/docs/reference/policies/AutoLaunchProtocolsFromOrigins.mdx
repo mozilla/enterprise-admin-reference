@@ -35,45 +35,6 @@ Software\Policies\Mozilla\Firefox\AutoLaunchProtocolsFromOrigins (REG_MULTI_SZ) 
 ]
 ```
 
-## Windows (Intune)
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/AutoLaunchProtocolsFromOrigins
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSON" value='
-[
-  {
-    "protocol": "zoommtg",
-    "allowed_origins": [
-      "https://somesite.zoom.us"
-    ]
-  }
-]'/>
-```
-
-If you are using custom ADMX and ADML administrative templates in Intune, you can use this OMA-URI instead
-to workaround the limit on the length of strings. Put all of your JSON on one line.
-
-OMA-URI:
-
-```url
-./Device/Vendor/MSFT/Policy/Config/Firefox~Policy~firefox/AutoLaunchProtocolsFromOriginsOneLine
-```
-
-Value (string):
-
-```xml
-<enabled/>
-<data id="JSONOneLine" value='[]'/>
-```
-
 ## macOS
 
 ```xml
