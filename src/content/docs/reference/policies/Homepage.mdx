@@ -13,7 +13,7 @@ It does not change what a new tab shows: use the [`NewTabPage`](/reference/polic
 
 <PolicyCompat policy="Homepage" />
 
-`StartPage` was added in Firefox 60, Firefox ESR 60.4, `homepage-locked` added in Firefox 78, `NewTabOnRestore` added in Firefox 154.
+`StartPage` was added in Firefox 60, Firefox ESR 60.4, `homepage-locked` added in Firefox 78, `NewTabOnRestore` added in Firefox 153, Firefox ESR 153.
 
 **CCK2 Equivalent:** `homePage`,`lockHomePage`\
 **Preferences Affected:** `browser.startup.homepage`, `browser.startup.page`, `browser.sessionstore.newTabOnRestore`, `browser.sessionstore.newTabOnRestore.showSetting`
@@ -35,7 +35,7 @@ The following members are configurable:
   - `homepage`: Start with the homepage in `URL` policy.
   - `previous-session`: Restore the previous session (all tabs and windows reopen).
   - `homepage-locked`: Always force the homepage at startup, users cannot choose session restore. (Firefox 78)
-- `NewTabOnRestore` (Firefox 154) controls the "Also open new tab" option under Settings, in the Startup section. When it is enabled, Firefox opens an extra tab whenever it restores your previous windows and tabs at startup. Firefox may turn this option on for your users on its own, so set `NewTabOnRestore` to `false` to keep it off, or `true` to always enable it.
+- `NewTabOnRestore` (Firefox 153) controls the "Also open new tab" option under Settings, in the Startup section. When it is enabled, Firefox opens an extra tab whenever it restores your previous windows and tabs at startup. Firefox may turn this option on for your users on its own, so set `NewTabOnRestore` to `false` to keep it off, or `true` to always enable it.
 
 > [!NOTE]
 > Firefox may turn on "Also open new tab" for your users on its own. If you don't want your users to suddenly get an extra tab when their previous windows and tabs are restored, set `NewTabOnRestore` to `false`.
