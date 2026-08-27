@@ -70,6 +70,7 @@ sslproxy
 SSPI
 subkeys
 subresources
+SUMO
 systemconfig
 topsites
 topstories

@@ -130,15 +130,10 @@ Firefox ESR 153 is the current ESR.
 
 The following details matter for the generated pages:
 
-- Headings are the version number only: a `process` hook prefixes the headings with `Firefox`,
-  so `## 154` is published as `Firefox 154` at `/release-notes/version/firefox-154/`.
+- Headings are the version number only: a `process` hook prefixes the headings with `Firefox`, so `## 154` is published as `Firefox 154` at `/release-notes/version/firefox-154/`.
 - Link each policy to its reference page, at the lowercased policy name.
   Builds fail on broken internal links, so a policy with no reference page yet can be left unlinked.
-- The applicability line sets the default for every item on the page, so anything that does not
-  match it needs its own scope annotation: `Firefox 154 only.`, `Does not apply to the ESR.` or
-  `Also in Firefox ESR 140.12.0.`, placed at the end of the sentence and before the bug link.
-  Where most of a page does not reach the co-shipping ESR, scope the applicability line to the
-  Firefox release instead and annotate the exceptions, as the 152 entry does.
+- Anything that deviates from co-shipping needs a scope note, like `Firefox 154 only.`, `Does not apply to the ESR.` at the end of the sentence before the bug link.
 
 ### Fact checking
 
@@ -147,5 +142,8 @@ The following things should be checked:
 - **Which ESR version shipped with a Firefox release**.
   Check <https://whattrainisitnow.com/api/firefox/releases/esr>.
 - **Ship dates** come from <https://product-details.mozilla.org/1.0/firefox_history_major_releases.json>, or the `future` endpoint for releases that haven't shipped.
+- **Whether something also reached ESR**.
+  For a new policy or a new option, check whether it's in `browser/components/enterprisepolicies/schemas/policies-schema.json` at the ESR release tag, like `FIREFOX_140_11_0esr_RELEASE`.
+  For a fix, check the bug's `cf_status_firefox_esr140` or `cf_status_firefox_esr153` flag on Bugzilla.
 
 The daily `schema-sync` workflow opens a PR when upstream adds or changes a policy, which is the prompt to add a release note.

@@ -107,8 +107,8 @@ If you use the ESR, we recommend testing with Firefox Beta or Nightly to identif
 
 ### New in Firefox 151
 
-- [`DefaultSerialGuardSetting`](/reference/policies/defaultserialguardsetting/): Control use of the Web Serial API.
-- [`XSLTEnabled`](/reference/policies/xsltenabled/): Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction. Firefox 151 only.
+- [`DefaultSerialGuardSetting`](/reference/policies/defaultserialguardsetting/): Control use of the Web Serial API. Does not apply to the ESR.
+- [`XSLTEnabled`](/reference/policies/xsltenabled/): Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction. Does not apply to the ESR.
 
 ### Changes
 
@@ -130,8 +130,8 @@ Firefox ESR 140 is the current ESR.
 
 ### New in Firefox 150
 
-- [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
-- [`SitePolicies`](/reference/policies/sitepolicies/): Fine grained control over policies for specific sites.
+- [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch. Does not apply to the ESR.
+- [`SitePolicies`](/reference/policies/sitepolicies/): Fine grained control over policies for specific sites. Does not apply to the ESR.
 
 ### Changes
 
@@ -160,7 +160,8 @@ These changes apply to Firefox 149 and Firefox ESR 140.9.0 unless explicitly sta
 
 _Released 24 February 2026._
 
-These changes apply to Firefox 148 and Firefox ESR 140.8.0 unless explicitly stated.
+These changes apply to Firefox 148 unless explicitly stated.
+Firefox ESR 140.8.0 shipped the same day, but these changes were not backported to it.
 
 ### New in Firefox 148
 
@@ -222,7 +223,7 @@ Mozilla has introduced Firefox Support for Organizations, a support offering for
 
 ### New in Firefox 145
 
-- [`LocalNetworkAccess`](/reference/policies/localnetworkaccess/): Configure local network access security features.
+- [`LocalNetworkAccess`](/reference/policies/localnetworkaccess/): Configure local network access security features. Does not apply to the ESR.
 
 ### Changes
 
