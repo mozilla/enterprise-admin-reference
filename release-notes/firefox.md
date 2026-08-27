@@ -5,7 +5,7 @@
 
 ## 155
 
-_Upcoming, expected 1 September 2026._
+_Released 1 September 2026._
 
 These changes apply to Firefox 155 and Firefox ESR 153.2.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
@@ -25,7 +25,7 @@ Firefox ESR 153 is the current ESR.
 
 ### Fixes
 
-- [`ExtensionSettings`](/reference/policies/extensionsettings/): In Firefox 154, configurations that quoted booleans (`"true"`) would break and an invalid entry discarded the whole policy.
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): In Firefox 154 and Firefox ESR 153.1.0, configurations that quoted booleans (`"true"`) would break and an invalid entry discarded the whole policy.
   The validator is relaxed to accept quoted booleans again, and invalid entries are now individually skipped. ([bug 2065965](https://bugzil.la/2065965))
 - [`SearchEngines`](/reference/policies/searchengines/): Contextual search prompted users to install a search engine when `PreventInstalls` was `true`. Firefox 155 only. ([bug 2055614](https://bugzil.la/2055614))
 - Locking legacy preferences such as `pref.general.disable_button.default_browser` didn't disable the corresponding controls in Firefox Settings, following the Settings rewrite. ([bug 2056928](https://bugzil.la/2056928), [bug 2055887](https://bugzil.la/2055887))
