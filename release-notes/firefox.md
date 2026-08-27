@@ -20,7 +20,7 @@ Firefox ESR 153 is the current ESR.
 
 ### Changes
 
-- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): Added an `Exceptions` option to configure sites whose data should not be cleared on shutdown. ([bug 2049937](https://bugzilla.mozilla.org/show_bug.cgi?id=2049937))
+- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): Added an `Exceptions` option to configure sites whose data should not be cleared on shutdown. Firefox 154 only. ([bug 2049937](https://bugzilla.mozilla.org/show_bug.cgi?id=2049937))
 
 ### Fixes
 
@@ -42,8 +42,13 @@ Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the
 
 ### Changes
 
+- [`Containers`](/reference/policies/containers/): Updated for the new container color palette. Existing color names are migrated to the new names automatically.
+- [`Cookies`](/reference/policies/cookies/): `Behavior` and `BehaviorPrivateBrowsing` accept `partition-foreign`, the new name for the `reject-tracker-and-partition-foreign` cookie behavior. Configurations using the old name continue to work.
 - [`ExtensionSettings`](/reference/policies/extensionsettings/): Control extension host permissions using `runtime_allowed_hosts` and `runtime_blocked_hosts`, and control which permissions extensions may request using `allowed_permissions`.
 - Users can no longer change the host permissions of Manifest V3 extensions installed using `force_installed`.
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): `force_installed` and `normal_installed` extensions can be installed directly from addons.mozilla.org when `install_url` is omitted.
+- [`Homepage`](/reference/policies/homepage/): Added a `NewTabOnRestore` option to open the default start page or `about:newtab` after restoring a previous session.
+- [`ManagedBookmarks`](/reference/policies/managedbookmarks/): Bookmarklets using `javascript:` URLs are now supported.
 - Automatically discovered printers are now listed after manually configured printers in the print destination list. ([bug 1996569](https://bugzilla.mozilla.org/show_bug.cgi?id=1996569))
 - Firefox installed from a macOS `.pkg` package can now update without prompting for administrator credentials. ([bug 1812480](https://bugzilla.mozilla.org/show_bug.cgi?id=1812480))
 
@@ -51,6 +56,8 @@ Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the
 
 - AutoConfig can once again set the `browser.startup.homepage` preference to a `data:` URL, fixing a regression introduced in Firefox 152. ([bug 2047962](https://bugzilla.mozilla.org/show_bug.cgi?id=2047962))
 - [`DisableSecurityBypass`](/reference/policies/disablesecuritybypass/): The **Allow download** button was still shown when `SafeBrowsing` was set to `false`. ([bug 1894373](https://bugzilla.mozilla.org/show_bug.cgi?id=1894373))
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Extensions that were no longer permitted by `allowed_types` were not removed or blocked when the setting changed. ([bug 2008100](https://bugzilla.mozilla.org/show_bug.cgi?id=2008100))
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Individual Windows registry `REG_SZ` values overrode the JSON policy configuration when both were present. ([bug 2048696](https://bugzilla.mozilla.org/show_bug.cgi?id=2048696))
 - [`FirefoxHome`](/reference/policies/firefoxhome/): The policy was not reflected correctly in the redesigned Settings. ([bug 2048048](https://bugzilla.mozilla.org/show_bug.cgi?id=2048048))
 - [`PasswordManagerEnabled`](/reference/policies/passwordmanagerenabled/): The policy did not disable the Passwords sidebar panel. ([bug 2041232](https://bugzilla.mozilla.org/show_bug.cgi?id=2041232))
 - [`PopupBlocking`](/reference/policies/popupblocking/): The policy did not lock all of the pop-up permission controls. ([bug 1888477](https://bugzilla.mozilla.org/show_bug.cgi?id=1888477))
@@ -67,7 +74,7 @@ Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the
 - [`IPProtectionAvailable`](/reference/policies/ipprotectionavailable/): Prevent the built-in VPN from being available to users.
 - [`LocalNetworkAccess`](/reference/policies/localnetworkaccess/): Configure local network access security features.
 - [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
-- [`SitePolicies`](/reference/policies/sitepolicies/): Fine grained control over policies for specific sites.
+- [`SitePolicies`](/reference/policies/sitepolicies/): Fine-grained control over policies for specific sites.
 - [`VisualSearchEnabled`](/reference/policies/visualsearchenabled/): Enable or disable visual search.
 - [`XSLTEnabled`](/reference/policies/xsltenabled/): Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction.
 
@@ -131,7 +138,7 @@ Firefox ESR 140 is the current ESR.
 ### New in Firefox 150
 
 - [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch. Does not apply to the ESR.
-- [`SitePolicies`](/reference/policies/sitepolicies/): Fine grained control over policies for specific sites. Does not apply to the ESR.
+- [`SitePolicies`](/reference/policies/sitepolicies/): Fine-grained control over policies for specific sites. Does not apply to the ESR.
 
 ### Changes
 
