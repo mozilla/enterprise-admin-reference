@@ -143,11 +143,11 @@ The following things should be checked:
   Check <https://whattrainisitnow.com/api/firefox/releases/esr>.
 - **Ship dates** come from <https://product-details.mozilla.org/1.0/firefox_history_major_releases.json>, or the `future` endpoint for releases that haven't shipped.
 - **Whether something reached ESR**.
-  For a new policy or option, check whether it's in `schemas/policies-schema.json` at the ESR release tag, like `FIREFOX_140_11_0esr_RELEASE`.
+  For a new policy or option, check whether it's in `browser/components/enterprisepolicies/schemas/policies-schema.json` at the ESR release tag, like `FIREFOX_140_11_0esr_RELEASE`.
   For a fix, check the bug's `cf_status_firefox_esr140` or `cf_status_firefox_esr153` flag on Bugzilla.
 - **Sub-properties or options**.
   The policy's block in `Policies.sys.mjs` at the release tag is a good primary source, because it shows the options the build reads.
-  For example, `NewTabOnRestore` added in Firefox 153; since the compat table covers the policy as a whole rather than its individual options.
-  Fetch a file at a tag with `https://hg-edge.mozilla.org/releases/<branch>/raw-file/<tag>/browser/components/enterprisepolicies/Policies.sys.mjs`, using branches like `mozilla-release` or `mozilla-esr153` and tags like `FIREFOX_154_0_RELEASE` or `FIREFOX_153_1_0esr_RELEASE`.
+  For example, the `NewTabOnRestore` sub-property was added in Firefox 153, but the compat table currently describes a policy as a whole rather than its options.
+  You can fetch a file at a tag with `https://hg-edge.mozilla.org/releases/<branch>/raw-file/<tag>/browser/components/enterprisepolicies/Policies.sys.mjs`, using branches like `mozilla-release` or `mozilla-esr153` and tags like `FIREFOX_154_0_RELEASE` or `FIREFOX_153_1_0esr_RELEASE`.
 
 The daily `schema-sync` workflow opens a PR when upstream adds or changes a policy, which is the prompt to add a release note.
