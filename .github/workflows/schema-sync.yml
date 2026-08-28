@@ -54,8 +54,17 @@ jobs:
           git commit -m "chore(schema): sync from upstream"
           git push --force origin automation/schema-sync
 
-          if gh pr view automation/schema-sync --json number >/dev/null 2>&1; then
-            echo "PR already open for automation/schema-sync -> branch updated."
+          pr_number=$(
+            gh pr list \
+              --head automation/schema-sync \
+              --base main \
+              --state open \
+              --json number \
+              --jq '.[0].number'
+          )
+
+          if [ -n "$pr_number" ]; then
+            echo "Updated existing schema-sync PR #${pr_number}."
           else
             gh pr create \
               --title "chore(schema): sync from upstream" \
