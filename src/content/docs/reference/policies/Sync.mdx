@@ -6,12 +6,12 @@ category: "Local data storage"
 
 Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be enabled and which features should be enabled for syncing.
 
-> [!NOTE]
-> Currently, this is only implemented in Firefox Enterprise.
+## Compatibility
 
-**Compatibility:** Firefox Enterprise 150.0.0\
+<PolicyCompat policy="Sync" />
+
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** N/A
+**Preferences Affected:** `services.sync.engine.addons`, `services.sync.engine.addresses`, `services.sync.engine.bookmarks`, `services.sync.engine.creditcards`, `services.sync.engine.history`, `services.sync.engine.passwords`, `services.sync.engine.prefs`, `services.sync.engine.tabs`
 
 ## Examples
 
@@ -24,11 +24,13 @@ Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be 
 - `Bookmarks`: A Boolean. Controls whether syncing bookmarks should be enabled.
 - `Enabled`: A Boolean. Controls whether sync itself should be enabled.
 - `History`: A Boolean. Controls whether syncing history should be enabled.
-- `Locked`: A Boolean. Controls whether to lock the customized sync settings.
 - `OpenTabs`: A Boolean. Controls whether syncing open tabs should be enabled.
 - `Passwords`: A Boolean. Controls whether syncing passwords should be enabled.
 - `PaymentMethods`: A Boolean. Controls whether syncing payment methods should be enabled.
 - `Settings`: A Boolean. Controls whether syncing settings should be enabled.
+- `Locked`: A Boolean. Controls whether the settings are enforced, and whether `Enabled` applies at all.
+  If `Locked` is `true`, the Sync data type settings are locked so users cannot change them, and `Enabled` connects or disconnects sync.
+  Users can no longer turn sync on or off themselves, whether `Enabled` is `true` or `false`, and only a policy update can change it.
 
 ## Windows (GPO)
 

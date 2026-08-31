@@ -1,0 +1,51 @@
+---
+title: "SecurityLogging"
+description: "Enable and configure security logging for security-relevant events."
+category: "Cloud reporting"
+---
+
+Enable and configure logging of security-relevant events, such as downloads, printing, add-on installs, and Safe Browsing detections.
+
+Each event is configured independently.
+When an event is logged, Firefox records it and submits it in the `enterprise` telemetry ping, which is kept separate from general Firefox telemetry.
+
+Values set by this policy are locked, so users cannot change them.
+
+## Compatibility
+
+<PolicyCompat policy="SecurityLogging" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.download.enterprise.telemetry.enabled`, `browser.download.enterprise.telemetry.fileLogging`, `browser.download.enterprise.telemetry.urlLogging`, `browser.policies.enterprise.telemetry.blocklistDomainBrowsed.enabled`, `browser.policies.enterprise.telemetry.blocklistDomainBrowsed.urlLogging`, `browser.safebrowsing.enterprise.telemetry.unsafeDownload.enabled`, `browser.safebrowsing.enterprise.telemetry.unsafeDownload.urlLogging`, `browser.safebrowsing.enterprise.telemetry.unsafeSiteVisit.enabled`, `browser.safebrowsing.enterprise.telemetry.unsafeSiteVisit.urlLogging`, `extensions.enterprise.telemetry.addonInstall.enabled`, `print.enterprise.telemetry.printPage.enabled`, `print.enterprise.telemetry.printPage.urlLogging`
+
+## Examples
+
+<PolicyExample policy="SecurityLogging" />
+
+## Values
+
+Each key configures one event.
+Events and settings that are left out of the policy keep their defaults.
+The following event keys are available:
+
+- `AddonInstall`: Recorded when an add-on installation completes. This is the only event with no `UrlLogging` setting.
+- `BlocklistDomainBrowsed`: Recorded when a user browses to a site blocked by the [`WebsiteFilter`](/reference/policies/websitefilter/) policy.
+  `UrlLogging` applies to the requested URL, the URL that was blocked, and the referrer.
+- `Download`: Recorded when a download completes. This is the only event with a `FileLogging` setting.
+- `PrintPage`: Recorded when a page is printed.
+  `UrlLogging` applies to both the printed page URL and the top-level page URL.
+- `UnsafeDownload`: Recorded when download protection flags a download as dangerous, from a dangerous host, uncommon, or potentially unwanted.
+  The event is recorded whether or not the download was blocked.
+- `UnsafeSiteVisit`: Recorded when Safe Browsing flags a page, frame, or subresource, for example as malware or phishing.
+
+All keys accept the following sub-keys:
+
+- `Enabled`: A Boolean. If `false`, the event is not recorded. The default is `true`.
+- `UrlLogging`: Controls how much URL information the event records. The default is `full`.
+  - `full`: Log complete URLs, including paths and parameters. Any password in the URL is masked.
+  - `domain`: Log only URL hostnames.
+  - `none`: Do not log URL information.
+- `FileLogging`: Controls how much file information the `Download` event records. The default is `full`.
+  - `full`: Log filenames, file paths, extensions, and MIME types.
+  - `metadata`: Log only file extensions and MIME types.
+  - `none`: Do not log file information.

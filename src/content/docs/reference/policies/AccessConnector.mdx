@@ -5,14 +5,15 @@ category: "Network security"
 ---
 
 Configure an Access Connector for proxying web traffic.
-When this policy is set, Firefox traffic matching the specified URL patterns is routed through the configured proxy.
+When this policy is set, Firefox routes traffic through the server given by `Host` and `Port`.
+If `MatchPatterns` is set, only URLs matching those patterns are routed through the connector.
 
-> [!NOTE]
-> Currently, this is only implemented in Firefox Enterprise.
+## Compatibility
 
-**Compatibility:** Firefox Enterprise 149.0.0\
+<PolicyCompat policy="AccessConnector" />
+
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** N/A
+**Preferences Affected:** `browser.ipProtection.autoStartEnabled`, `browser.ipProtection.enabled`, `browser.ipProtection.features.autoStart`, `browser.ipProtection.inclusion.match_patterns`, `browser.ipProtection.mode`, `browser.ipProtection.openedPanelWithLocation`, `browser.ipProtection.override.serverlist`
 
 ## Examples
 
@@ -23,8 +24,11 @@ When this policy is set, Firefox traffic matching the specified URL patterns is 
 - `Host`: A string that defines the hostname or IP address of the proxy server to use.
 - `Port`: A number defining the port number of the proxy server (e.g., `443`).
 - `MatchPatterns`: A list of URL match patterns for which traffic should be routed through the Access Connector.
+  If this is not set, all traffic is routed through the connector.
   See [Match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) for syntax.
 - `Locked`: Prevents the user from changing Access Connector settings.
+  Unlike most policies, this defaults to `true`.
+  Set it to `false` to apply the settings as defaults that users can still change.
 
 ## Windows (GPO)
 
