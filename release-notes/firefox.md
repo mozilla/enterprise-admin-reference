@@ -51,18 +51,18 @@ Firefox ESR 153 is the current ESR.
 
 ### New in Firefox 154
 
-- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS. Does not apply to the ESR. ([bug 2052296](https://bugzilla.mozilla.org/show_bug.cgi?id=2052296))
-- [`DefaultBrowserSettingEnabled`](/reference/policies/defaultbrowsersettingenabled/): Prevent users from changing the default browser. ([bug 2051921](https://bugzilla.mozilla.org/show_bug.cgi?id=2051921))
+- [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): Enable the CNSA 2.0 ML-KEM-1024 key agreement for TLS. Does not apply to the ESR. ([bug 2052296](https://bugzil.la/2052296))
+- [`DefaultBrowserSettingEnabled`](/reference/policies/defaultbrowsersettingenabled/): Prevent users from changing the default browser. ([bug 2051921](https://bugzil.la/2051921))
 
 ### Changes
 
-- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): Added an `Exceptions` option to configure sites whose data should not be cleared on shutdown. Firefox 154 only. ([bug 2049937](https://bugzilla.mozilla.org/show_bug.cgi?id=2049937))
+- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): Added an `Exceptions` option to configure sites whose data should not be cleared on shutdown. Firefox 154 only. ([bug 2049937](https://bugzil.la/2049937))
 
 ### Fixes
 
-- [`SearchEngines`](/reference/policies/searchengines/): `PreventInstalls` did not prevent users from manually adding search engines in Settings or from the context menu. ([bug 2052965](https://bugzilla.mozilla.org/show_bug.cgi?id=2052965))
-- The `-width` and `-height` command-line options did not correctly set the Firefox window size. Firefox 154 only. ([bug 1635927](https://bugzilla.mozilla.org/show_bug.cgi?id=1635927))
-- Extended Protection (channel and service binding) for Windows SSPI authentication worked when using SPNEGO but not when using Kerberos directly. ([bug 1179722](https://bugzilla.mozilla.org/show_bug.cgi?id=1179722))
+- [`SearchEngines`](/reference/policies/searchengines/): `PreventInstalls` did not prevent users from manually adding search engines in Settings or from the context menu. ([bug 2052965](https://bugzil.la/2052965))
+- The `-width` and `-height` command-line options did not correctly set the Firefox window size. Firefox 154 only. ([bug 1635927](https://bugzil.la/1635927))
+- Extended Protection (channel and service binding) for Windows SSPI authentication worked when using SPNEGO but not when using Kerberos directly. ([bug 1179722](https://bugzil.la/1179722))
 
 ## 153
 
@@ -85,20 +85,20 @@ Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the
 - [`ExtensionSettings`](/reference/policies/extensionsettings/): `force_installed` and `normal_installed` extensions can be installed directly from addons.mozilla.org when `install_url` is omitted.
 - [`Homepage`](/reference/policies/homepage/): Added a `NewTabOnRestore` option to open the default start page or `about:newtab` after restoring a previous session.
 - [`ManagedBookmarks`](/reference/policies/managedbookmarks/): Bookmarklets using `javascript:` URLs are now supported.
-- Automatically discovered printers are now listed after manually configured printers in the print destination list. ([bug 1996569](https://bugzilla.mozilla.org/show_bug.cgi?id=1996569))
-- Firefox installed from a macOS `.pkg` package can now update without prompting for administrator credentials. ([bug 1812480](https://bugzilla.mozilla.org/show_bug.cgi?id=1812480))
+- Automatically discovered printers are now listed after manually configured printers in the print destination list. ([bug 1996569](https://bugzil.la/1996569))
+- Firefox installed from a macOS `.pkg` package can now update without prompting for administrator credentials. ([bug 1812480](https://bugzil.la/1812480))
 
 ### Fixes
 
-- AutoConfig can once again set the `browser.startup.homepage` preference to a `data:` URL, fixing a regression introduced in Firefox 152. ([bug 2047962](https://bugzilla.mozilla.org/show_bug.cgi?id=2047962))
-- [`DisableSecurityBypass`](/reference/policies/disablesecuritybypass/): The **Allow download** button was still shown when `SafeBrowsing` was set to `false`. ([bug 1894373](https://bugzilla.mozilla.org/show_bug.cgi?id=1894373))
-- [`ExtensionSettings`](/reference/policies/extensionsettings/): Extensions that were no longer permitted by `allowed_types` were not removed or blocked when the setting changed. ([bug 2008100](https://bugzilla.mozilla.org/show_bug.cgi?id=2008100))
-- [`ExtensionSettings`](/reference/policies/extensionsettings/): Individual Windows registry `REG_SZ` values overrode the JSON policy configuration when both were present. ([bug 2048696](https://bugzilla.mozilla.org/show_bug.cgi?id=2048696))
-- [`FirefoxHome`](/reference/policies/firefoxhome/): The policy was not reflected correctly in the redesigned Settings. ([bug 2048048](https://bugzilla.mozilla.org/show_bug.cgi?id=2048048))
-- [`PasswordManagerEnabled`](/reference/policies/passwordmanagerenabled/): The policy did not disable the Passwords sidebar panel. ([bug 2041232](https://bugzilla.mozilla.org/show_bug.cgi?id=2041232))
-- [`PopupBlocking`](/reference/policies/popupblocking/): The policy did not lock all of the pop-up permission controls. ([bug 1888477](https://bugzilla.mozilla.org/show_bug.cgi?id=1888477))
-- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): The policy now correctly locks the History settings when configured. ([bug 1888451](https://bugzilla.mozilla.org/show_bug.cgi?id=1888451))
-- The Bookmarks and History sidebars could not be opened while the sidebar was hidden and [`PasswordManagerEnabled`](/reference/policies/passwordmanagerenabled/) was set to `false`. This regressed in Firefox 153.0 and was fixed in a later Firefox 153 release. ([bug 2056857](https://bugzilla.mozilla.org/show_bug.cgi?id=2056857))
+- AutoConfig can once again set the `browser.startup.homepage` preference to a `data:` URL, fixing a regression introduced in Firefox 152. ([bug 2047962](https://bugzil.la/2047962))
+- [`DisableSecurityBypass`](/reference/policies/disablesecuritybypass/): The **Allow download** button was still shown when `SafeBrowsing` was set to `false`. ([bug 1894373](https://bugzil.la/1894373))
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Extensions that were no longer permitted by `allowed_types` were not removed or blocked when the setting changed. ([bug 2008100](https://bugzil.la/2008100))
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Individual Windows registry `REG_SZ` values overrode the JSON policy configuration when both were present. ([bug 2048696](https://bugzil.la/2048696))
+- [`FirefoxHome`](/reference/policies/firefoxhome/): The policy was not reflected correctly in the redesigned Settings. ([bug 2048048](https://bugzil.la/2048048))
+- [`PasswordManagerEnabled`](/reference/policies/passwordmanagerenabled/): The policy did not disable the Passwords sidebar panel. ([bug 2041232](https://bugzil.la/2041232))
+- [`PopupBlocking`](/reference/policies/popupblocking/): The policy did not lock all of the pop-up permission controls. ([bug 1888477](https://bugzil.la/1888477))
+- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): The policy now correctly locks the History settings when configured. ([bug 1888451](https://bugzil.la/1888451))
+- The Bookmarks and History sidebars could not be opened while the sidebar was hidden and [`PasswordManagerEnabled`](/reference/policies/passwordmanagerenabled/) was set to `false`. This regressed in Firefox 153.0 and was fixed in a later Firefox 153 release. ([bug 2056857](https://bugzil.la/2056857))
 
 ### New in Firefox ESR 153.0.0
 
@@ -124,18 +124,18 @@ Firefox ESR 140.12.0 shipped the same day, but most of these changes were not ba
 ### Changes
 
 - [`DefaultSerialGuardSetting`](/reference/policies/defaultserialguardsetting/): Web Serial support is now disabled by default when Firefox is managed by enterprise policies.
-- [`ExtensionSettings`](/reference/policies/extensionsettings/): Force-installed extensions are now always updated automatically, regardless of the `updates_disabled` setting. ([bug 2037243](https://bugzilla.mozilla.org/show_bug.cgi?id=2037243))
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): Force-installed extensions are now always updated automatically, regardless of the `updates_disabled` setting. ([bug 2037243](https://bugzil.la/2037243))
 - [`FirefoxHome`](/reference/policies/firefoxhome/): Allow configuration of the Weather experience. Also in Firefox ESR 140.12.0.
 - [`ManagedBookmarks`](/reference/policies/managedbookmarks/): Allow specifying favicons directly for managed bookmarks.
-- Chatbot content is now available to extensions from content scripts. ([bug 1980404](https://bugzilla.mozilla.org/show_bug.cgi?id=1980404))
-- Firefox now accepts TURN server responses whose `XOR-MAPPED-ADDRESS` does not match the ICE check, improving compatibility with some TURN server implementations. ([bug 2034159](https://bugzilla.mozilla.org/show_bug.cgi?id=2034159))
+- Chatbot content is now available to extensions from content scripts. ([bug 1980404](https://bugzil.la/1980404))
+- Firefox now accepts TURN server responses whose `XOR-MAPPED-ADDRESS` does not match the ICE check, improving compatibility with some TURN server implementations. ([bug 2034159](https://bugzil.la/2034159))
 
 ### Fixes
 
-- [`DisableBuiltinPDFViewer`](/reference/policies/disablebuiltinpdfviewer/): Setting the policy to `false` overrode the PDF handling configured in `handlers.json`. Also in Firefox ESR 140.12.0. ([bug 1983032](https://bugzilla.mozilla.org/show_bug.cgi?id=1983032))
-- [`DisableFirefoxAccounts`](/reference/policies/disablefirefoxaccounts/): The policy also disabled Backup and other unrelated settings after the Settings redesign. ([bug 2023825](https://bugzilla.mozilla.org/show_bug.cgi?id=2023825))
-- [`DisableProfileImport`](/reference/policies/disableprofileimport/): The **Import Bookmarks** button on the Bookmarks Toolbar bypassed the policy. ([bug 1828282](https://bugzilla.mozilla.org/show_bug.cgi?id=1828282))
-- [`DisableProfileImport`](/reference/policies/disableprofileimport/): The import option in `about:logins` was not covered by the policy. ([bug 1830463](https://bugzilla.mozilla.org/show_bug.cgi?id=1830463))
+- [`DisableBuiltinPDFViewer`](/reference/policies/disablebuiltinpdfviewer/): Setting the policy to `false` overrode the PDF handling configured in `handlers.json`. Also in Firefox ESR 140.12.0. ([bug 1983032](https://bugzil.la/1983032))
+- [`DisableFirefoxAccounts`](/reference/policies/disablefirefoxaccounts/): The policy also disabled Backup and other unrelated settings after the Settings redesign. ([bug 2023825](https://bugzil.la/2023825))
+- [`DisableProfileImport`](/reference/policies/disableprofileimport/): The **Import Bookmarks** button on the Bookmarks Toolbar bypassed the policy. ([bug 1828282](https://bugzil.la/1828282))
+- [`DisableProfileImport`](/reference/policies/disableprofileimport/): The import option in `about:logins` was not covered by the policy. ([bug 1830463](https://bugzil.la/1830463))
 
 ## 151
 
@@ -212,9 +212,9 @@ Firefox ESR 140.8.0 shipped the same day, but these changes were not backported 
 
 ### Changes
 
-- [`GenerativeAI`](/reference/policies/generativeai/): Updated to cover PDF alt text generation and translations. ([bug 2013938](https://bugzilla.mozilla.org/show_bug.cgi?id=2013938))
-- AI Controls settings now respect enterprise policy and locale or region restrictions. ([bug 2005805](https://bugzilla.mozilla.org/show_bug.cgi?id=2005805))
-- Firefox now reports whether a profile is managed by enterprise policy, as `policies.is_enterprise` in the baseline telemetry ping. ([bug 1997959](https://bugzilla.mozilla.org/show_bug.cgi?id=1997959))
+- [`GenerativeAI`](/reference/policies/generativeai/): Updated to cover PDF alt text generation and translations. ([bug 2013938](https://bugzil.la/2013938))
+- AI Controls settings now respect enterprise policy and locale or region restrictions. ([bug 2005805](https://bugzil.la/2005805))
+- Firefox now reports whether a profile is managed by enterprise policy, as `policies.is_enterprise` in the baseline telemetry ping. ([bug 1997959](https://bugzil.la/1997959))
 
 ## 147
 
@@ -225,8 +225,8 @@ Firefox ESR 140 is the current ESR, so enterprise changes are no longer backport
 
 ### Fixes
 
-- Private Window options were still available from the Firefox View tab when private browsing was disabled. ([bug 2004669](https://bugzilla.mozilla.org/show_bug.cgi?id=2004669))
-- A performance regression affecting extension native messaging reached the ESR in Firefox ESR 140.7.0. In earlier Firefox 140-series builds, native messaging operations could experience significantly increased latency, affecting enterprise extensions that communicate with external processes. The release channel received this fix in Firefox 146. ([bug 2002517](https://bugzilla.mozilla.org/show_bug.cgi?id=2002517))
+- Private Window options were still available from the Firefox View tab when private browsing was disabled. ([bug 2004669](https://bugzil.la/2004669))
+- A performance regression affecting extension native messaging reached the ESR in Firefox ESR 140.7.0. In earlier Firefox 140-series builds, native messaging operations could experience significantly increased latency, affecting enterprise extensions that communicate with external processes. The release channel received this fix in Firefox 146. ([bug 2002517](https://bugzil.la/2002517))
 
 ### Known issues
 
@@ -246,15 +246,15 @@ These changes apply to Firefox 146 and Firefox ESR 140.6.0 unless explicitly sta
 
 ### Changes
 
-- The version number, architecture and language were removed from the Windows uninstall registry key, improving compatibility with third-party tools. Does not apply to the ESR. ([bug 1995769](https://bugzilla.mozilla.org/show_bug.cgi?id=1995769))
-- Firefox Labs can now be enabled regardless of the status of [`DisableTelemetry`](/reference/policies/disabletelemetry/) or [`DisableFirefoxStudies`](/reference/policies/disablefirefoxstudies/). Does not apply to the ESR. ([bug 1972647](https://bugzilla.mozilla.org/show_bug.cgi?id=1972647))
+- The version number, architecture and language were removed from the Windows uninstall registry key, improving compatibility with third-party tools. Does not apply to the ESR. ([bug 1995769](https://bugzil.la/1995769))
+- Firefox Labs can now be enabled regardless of the status of [`DisableTelemetry`](/reference/policies/disabletelemetry/) or [`DisableFirefoxStudies`](/reference/policies/disablefirefoxstudies/). Does not apply to the ESR. ([bug 1972647](https://bugzil.la/1972647))
 
 ### Fixes
 
-- Private Window options were still available when private browsing was disabled. ([bug 2001191](https://bugzilla.mozilla.org/show_bug.cgi?id=2001191))
-- [`DisableProfileImport`](/reference/policies/disableprofileimport/): Data could still be imported in Firefox View when the policy was set. ([bug 1993863](https://bugzilla.mozilla.org/show_bug.cgi?id=1993863))
-- [`DisplayMenuBar`](/reference/policies/displaymenubar/): User choice was not maintained. Did not affect the ESR. ([bug 1996449](https://bugzilla.mozilla.org/show_bug.cgi?id=1996449))
-- [`DisablePasswordReveal`](/reference/policies/disablepasswordreveal/): The policy had stopped working. ([bug 2001459](https://bugzilla.mozilla.org/show_bug.cgi?id=2001459))
+- Private Window options were still available when private browsing was disabled. ([bug 2001191](https://bugzil.la/2001191))
+- [`DisableProfileImport`](/reference/policies/disableprofileimport/): Data could still be imported in Firefox View when the policy was set. ([bug 1993863](https://bugzil.la/1993863))
+- [`DisplayMenuBar`](/reference/policies/displaymenubar/): User choice was not maintained. Did not affect the ESR. ([bug 1996449](https://bugzil.la/1996449))
+- [`DisablePasswordReveal`](/reference/policies/disablepasswordreveal/): The policy had stopped working. ([bug 2001459](https://bugzil.la/2001459))
 
 ## 145
 
@@ -275,7 +275,7 @@ Mozilla has introduced Firefox Support for Organizations, a support offering for
 
 ### Fixes
 
-- [`GenerativeAI`](/reference/policies/generativeai/): The `Chatbot` option did not turn off generative AI in the page context menu. ([bug 1994791](https://bugzilla.mozilla.org/show_bug.cgi?id=1994791))
+- [`GenerativeAI`](/reference/policies/generativeai/): The `Chatbot` option did not turn off generative AI in the page context menu. ([bug 1994791](https://bugzil.la/1994791))
 
 ## 144
 
@@ -298,8 +298,8 @@ These changes apply to Firefox 144 and Firefox ESR 140.4.0 unless explicitly sta
 
 ### Fixes
 
-- Some print options were still shown when printing was disabled. ([bug 1889569](https://bugzilla.mozilla.org/show_bug.cgi?id=1889569))
-- Windows Kerberos authentication with Extended Protection did not work with a SHA384 SSL certificate. ([bug 1895277](https://bugzilla.mozilla.org/show_bug.cgi?id=1895277))
+- Some print options were still shown when printing was disabled. ([bug 1889569](https://bugzil.la/1889569))
+- Windows Kerberos authentication with Extended Protection did not work with a SHA384 SSL certificate. ([bug 1895277](https://bugzil.la/1895277))
 
 ### Notes
 
