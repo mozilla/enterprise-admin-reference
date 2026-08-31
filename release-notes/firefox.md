@@ -22,6 +22,10 @@ Firefox ESR 153 is the current ESR.
 - Captive portal and network connectivity checks now use `firefox-portal-detection.com` instead of `detectportal.firefox.com`.
   Network allowlists and proxy rules naming the old domain need updating.
   Firefox 155 only. ([bug 2049252](https://bugzil.la/2049252), [bug 1898891](https://bugzil.la/1898891))
+- Some sites may load slowly or fail to load on networks that block UDP.
+  This can affect corporate networks where a proxy or firewall blocks QUIC as part of TLS inspection.
+  To work around it, set `network.http.happy_eyeballs_enabled` to `false` with the `Preferences` policy.
+  A fix is planned for a dot release the week of 7 September. ([bug 2063452](https://bugzil.la/2063452))
 
 ### Fixes
 
