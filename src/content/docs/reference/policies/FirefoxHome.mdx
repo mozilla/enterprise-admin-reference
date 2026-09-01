@@ -10,14 +10,27 @@ Customize the Firefox Home page.
 
 <PolicyCompat policy="FirefoxHome" />
 
-`SponsoredTopSites` and `SponsoredPocket` were added in Firefox 95, Firefox ESR 91.4, `Snippets` was deprecated in Firefox 122, `Stories` and `SponsoredStories` were added in Firefox 141 to replace `Pocket` and `SponsoredPocket`, `Weather` was added in Firefox 152, Firefox ESR 140.12.
+`SponsoredTopSites` and `SponsoredPocket` were added in Firefox 95, Firefox ESR 91.4, `Snippets` was deprecated in Firefox 122, `Stories` and `SponsoredStories` were added in Firefox 141 to replace `Pocket` and `SponsoredPocket`, `Weather` was added in Firefox 152, Firefox ESR 140.12, and `Widgets` was added in Firefox 156.
 
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** `browser.newtabpage.activity-stream.showSearch`, `browser.newtabpage.activity-stream.feeds.topsites`, `browser.newtabpage.activity-stream.feeds.section.highlights`, `browser.newtabpage.activity-stream.feeds.section.topstories`, `browser.newtabpage.activity-stream.feeds.snippets`, `browser.newtabpage.activity-stream.showSponsoredTopSites`, `browser.newtabpage.activity-stream.showSponsored`, `browser.newtabpage.activity-stream.showWeather`
+**Preferences Affected:** `browser.newtabpage.activity-stream.showSearch`, `browser.newtabpage.activity-stream.feeds.topsites`, `browser.newtabpage.activity-stream.feeds.section.highlights`, `browser.newtabpage.activity-stream.feeds.section.topstories`, `browser.newtabpage.activity-stream.feeds.snippets`, `browser.newtabpage.activity-stream.showSponsoredTopSites`, `browser.newtabpage.activity-stream.showSponsored`, `browser.newtabpage.activity-stream.showWeather`, `browser.newtabpage.activity-stream.widgets.enabled`, `browser.newtabpage.activity-stream.widgets.weather.enabled`, and one `browser.newtabpage.activity-stream.widgets.<id>.enabled` per blocked widget
 
 ## Examples
 
 <PolicyExample policy="FirefoxHome" />
+
+## Values
+
+Each key named after a Firefox Home section is a Boolean that shows or hides that section, and `Locked` prevents the user from changing any of them.
+
+`Widgets` controls the new tab widgets and takes two sub-keys:
+
+- `Enabled`: A Boolean that shows or hides widgets as a whole.
+  It follows `Locked` like the other keys.
+- `Blocked`: A list of widget ids to turn off individually.
+  Blocked widgets are always locked, whether or not `Locked` is set.
+  The ids are `clocks`, `crossword`, `focusTimer`, `lists`, `pictureOfTheDay`, `privacy`, `recentSearches`, `sportsWidget`, `stocks`, and `weather`.
+  An invalid widget id is ignored.
 
 ## Windows (GPO)
 
@@ -32,6 +45,8 @@ Software\Policies\Mozilla\Firefox\FirefoxHome\Stories = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\FirefoxHome\SponsoredPocket = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\FirefoxHome\SponsoredStories = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\FirefoxHome\Snippets = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\FirefoxHome\Widgets\Enabled = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\FirefoxHome\Widgets\Blocked\1 = "crossword"
 Software\Policies\Mozilla\Firefox\FirefoxHome\Locked = 0x1 | 0x0
 ```
 
@@ -61,6 +76,15 @@ Software\Policies\Mozilla\Firefox\FirefoxHome\Locked = 0x1 | 0x0
     <true/> | <false/>
     <key>Snippets</key>
     <true/> | <false/>
+    <key>Widgets</key>
+    <dict>
+      <key>Enabled</key>
+      <true/> | <false/>
+      <key>Blocked</key>
+      <array>
+        <string>crossword</string>
+      </array>
+    </dict>
     <key>Locked</key>
     <true/> | <false/>
   </dict>
