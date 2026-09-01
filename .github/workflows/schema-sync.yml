@@ -42,7 +42,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -z "$(git status --porcelain schema/)" ]; then
+          if [ -z "$(git status --porcelain schema/policies-schema.json)" ]; then
             echo "No schema changes to commit."
             exit 0
           fi
