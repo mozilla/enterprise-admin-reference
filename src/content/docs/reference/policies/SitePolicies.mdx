@@ -71,6 +71,9 @@ Currently the supported site policies are:
 - `HttpsOnly` stops the site from being loaded over plain HTTP when `true`.
   When it is `false`, HTTP is explicitly allowed for the site, which is how you carve a site out of a broader rule.
 
+- `DisableServiceWorkers` stops the site from registering or using [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) when `true`.
+  Only `http` and `https` sites are affected, and sites relying on service workers for offline support or push notifications will lose those features.
+
 ## Windows (GPO)
 
 ```
