@@ -1,0 +1,49 @@
+---
+title: "DataLossPrevention"
+description: "Configure built-in Data Loss Prevention rules that warn on or block data actions per domain."
+category: "Cloud reporting"
+---
+
+Configure built-in Data Loss Prevention (DLP) rules that warn on or block data actions per domain.
+
+Unlike [`ContentAnalysis`](/reference/policies/contentanalysis/), which hands each operation to an external agent, this policy is evaluated by the built-in DLP engine, so no agent has to be manually installed.
+
+Only one DLP service can be active:
+
+- If `ContentAnalysis` has `Enabled` set to `true`, the external agent (`ContentAnalysis`) wins and these rules are ignored.
+- If `ContentAnalysis` is absent, or present without enabling an agent, the built-in `DataLossPrevention` rules apply.
+
+## Compatibility
+
+<PolicyCompat policy="DataLossPrevention" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.contentanalysis.agent_name`, `browser.contentanalysis.agent_timeout`, `browser.contentanalysis.allow_url_regex_list`, `browser.contentanalysis.bypass_for_same_tab_operations`, `browser.contentanalysis.default_result`, `browser.contentanalysis.deny_url_regex_list`, `browser.contentanalysis.dlp_rules`, `browser.contentanalysis.enabled`, `browser.contentanalysis.interception_point.clipboard.enabled`, `browser.contentanalysis.interception_point.clipboard.plain_text_only`, `browser.contentanalysis.interception_point.download.enabled`, `browser.contentanalysis.interception_point.drag_and_drop.enabled`, `browser.contentanalysis.interception_point.drag_and_drop.plain_text_only`, `browser.contentanalysis.interception_point.file_upload.enabled`, `browser.contentanalysis.interception_point.print.enabled`, `browser.contentanalysis.show_blocked_result`, `browser.contentanalysis.timeout_result`, `browser.contentanalysis.use_wasm_backend`
+
+## Examples
+
+<PolicyExample policy="DataLossPrevention" />
+
+## Values
+
+- `FallbackResult`: What happens to an operation the engine cannot reach a verdict on, including a request that has timed out. The default is `block`.
+  - `block`: Deny the operation.
+  - `warn`: Warn the user and let them choose whether to continue.
+  - `allow`: Allow the operation.
+- `AllowUrlRegexList`: A space-separated list of regular expressions.
+  Operations on matching URLs are always allowed, without being checked against the rules.
+- `Rules`: The list of DLP rules. Each rule takes:
+  - `Name`: (**required**) An identifier for the rule, using lowercase letters, digits, and hyphens, up to 64 characters.
+  - `Enabled`: A Boolean. A rule only takes effect when this is `true`.
+  - `Actions`: (**required**) The data actions the rule covers, at least one of `TextPaste`, `FileUpload`, `FileDownload`, and `Print`.
+  - `Domains`: (**required**) The domains the rule applies to, at least one.
+  - `ContentPatterns`: A list of regular expressions matched against the content of the operation.
+    If a pattern is not a valid regular expression, the whole rule is dropped and the problem is reported in `about:policies#errors`.
+  - `Type`: (**required**) What the rule does when it matches, either `warn` or `block`.
+  - `Message`: The text shown to the user when the rule triggers.
+
+## See also
+
+- [`ContentAnalysisTelemetry`](/reference/policies/contentanalysistelemetry/) policy controls what is logged when a rule is triggered.
+- [`ContentAnalysis`](/reference/policies/contentanalysis/) policy configures DLP through an external agent.
+- [`SecurityLogging`](/reference/policies/securitylogging/) policy covers other security-relevant events.

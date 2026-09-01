@@ -1,0 +1,37 @@
+---
+title: "ContentAnalysisTelemetry"
+description: "Enable and configure security logging when a DLP rule is triggered."
+category: "Cloud reporting"
+---
+
+Enable and configure logging of Data Loss Prevention events.
+
+When a DLP rule is triggered, Firefox records the event and submits it in the `enterprise` telemetry ping, which is kept separate from general Firefox telemetry.
+Events are logged with full URLs by default, so this policy is normally used to turn logging off or to reduce what it records.
+
+Values set by this policy are locked, so users cannot change them.
+
+## Compatibility
+
+<PolicyCompat policy="ContentAnalysisTelemetry" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.contentanalysis.enterprise.telemetry.enabled`, `browser.contentanalysis.enterprise.telemetry.urlLogging`
+
+## Examples
+
+<PolicyExample policy="ContentAnalysisTelemetry" />
+
+## Values
+
+- `Enabled`: A Boolean. If `false`, DLP events are not recorded. The default is `true`.
+- `UrlLogging`: Controls how much URL information each event records. The default is `full`.
+  - `full`: Log complete URLs, including paths and parameters.
+  - `domain`: Log only URL hostnames.
+  - `none`: Do not log URL information.
+
+## See also
+
+- [`ContentAnalysis`](/reference/policies/contentanalysis/) policy configures DLP through an external agent.
+- [`DataLossPrevention`](/reference/policies/datalossprevention/) policy configures the built-in DLP rules.
+- [`SecurityLogging`](/reference/policies/securitylogging/) policy covers other security-relevant events.

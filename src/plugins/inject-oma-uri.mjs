@@ -10,11 +10,15 @@ const DOC_URL = "https://mozilla.github.io/policy-templates/oma-uris";
 // Policies with no ADMX equivalent.
 const NO_ADMX_EQUIVALENT = new Set([
   "3rdparty", // The extension developer supplies their own ADMX.
+  "ContentAnalysisTelemetry", // Configured through the admin console, not local policy.
+  "DataLossPrevention", // Configured through the admin console, not local policy.
   "DisableLocalPolicies", // Registry bootstrap, outside the ADMX namespace.
   "DisablePocket", // Deprecated, deliberately omitted upstream.
   "EnterprisePoliciesEnabled", // Registry bootstrap, outside the ADMX namespace.
+  "EnterpriseStorageEncryption", // Configured through the admin console, not local policy.
   "MicrosoftEntraSSO", // macOS only.
   "SecurityLogging", // Configured through the admin console, not local policy.
+  "Watermark", // Configured through the admin console, not local policy.
 ]);
 
 // TODO: Missing from `firefox.admx`
