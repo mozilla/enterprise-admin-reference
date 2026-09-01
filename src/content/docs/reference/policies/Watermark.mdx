@@ -1,0 +1,41 @@
+---
+title: "Watermark"
+description: "Display a textual watermark over a configurable list of websites for traceability."
+category: "Miscellaneous"
+---
+
+Display a textual watermark over a configurable list of websites for traceability.
+
+The watermark is drawn over every matching page, including when a page is opened in Reader Mode or View Source.
+By default it shows the signed-in user's email address with a timestamp below it, which makes screenshots of internal sites traceable.
+
+## Compatibility
+
+<PolicyCompat policy="Watermark" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## Examples
+
+<PolicyExample policy="Watermark" />
+
+## Values
+
+- `Match`: (**required**) A list of URL match patterns for the pages to watermark.
+  See [Match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) for syntax.
+  Invalid patterns are ignored, and is limited to the first 1000 patterns.
+- `Copy`: The main line of text.
+  `%t` is replaced with the current timestamp and `%e` with the signed-in user's email address.
+  Defaults to the email address, or to `CONFIDENTIAL` when no email address is available.
+- `SecondaryCopy`: A smaller second line below `Copy`, with the same substitutions.
+  Defaults to `%t`. Set it to an empty string to omit the second line.
+- `Color`: The text color, as a CSS color value.
+  Defaults to `rgba(200, 0, 0, 0.5)`, which is also used when the value cannot be parsed.
+- `FontSize`: The font size of `Copy`, in CSS pixels. Defaults to `28` and is capped at `64`.
+- `Angle`: The rotation of the text in degrees. Defaults to `-45`.
+- `Size`: The size of a single watermark tile, in CSS pixels. Defaults to `300` and is clamped between `100` and `2048`.
+
+## See also
+
+- [`WebsiteFilter`](/reference/policies/websitefilter/) policy to block sites completely rather than apply a watermark to them.
