@@ -1,6 +1,6 @@
 ---
 title: "DataLossPrevention"
-description: "Configure built-in Data Loss Prevention rules that warn on or block data actions per domain."
+description: "Configure built-in Data Loss Prevention (DLP) rules that warn on or block data actions per domain."
 category: "Cloud reporting"
 ---
 
@@ -36,11 +36,11 @@ Only one DLP service can be active:
   - `Name`: (**required**) An identifier for the rule, using lowercase letters, digits, and hyphens, up to 64 characters.
   - `Enabled`: A Boolean. A rule only takes effect when this is `true`.
   - `Actions`: (**required**) The data actions the rule covers, at least one of `TextPaste`, `FileUpload`, `FileDownload`, and `Print`.
-  - `Domains`: (**required**) The domains the rule applies to, at least one.
+  - `Domains`: (**required**) The domains the rule applies to, at least one. Use `*` to match all domains.
   - `ContentPatterns`: A list of regular expressions matched against the content of the operation.
     If a pattern is not a valid regular expression, the whole rule is dropped and the problem is reported in `about:policies#errors`.
   - `Type`: (**required**) What the rule does when it matches, either `warn` or `block`.
-  - `Message`: The text shown to the user when the rule triggers.
+  - `Message`: Text shown to the user when the rule triggers.
 
 ## See also
 
