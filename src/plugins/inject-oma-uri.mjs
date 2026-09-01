@@ -15,7 +15,6 @@ const NO_ADMX_EQUIVALENT = new Set([
   "DisableLocalPolicies", // Registry bootstrap, outside the ADMX namespace.
   "DisablePocket", // Deprecated, deliberately omitted upstream.
   "EnterprisePoliciesEnabled", // Registry bootstrap, outside the ADMX namespace.
-  "EnterpriseStorageEncryption", // Configured through the admin console, not local policy.
   "MicrosoftEntraSSO", // macOS only.
   "SecurityLogging", // Configured through the admin console, not local policy.
   "Watermark", // Configured through the admin console, not local policy.
