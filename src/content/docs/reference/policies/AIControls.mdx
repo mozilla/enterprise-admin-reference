@@ -30,6 +30,7 @@ The following AI feature keys are available:
 - `LinkPreviewKeyPoints`: Controls AI-generated key point summaries shown in link previews.
 - `SidebarChatbot`: Controls the AI chatbot panel in the Firefox sidebar.
 - `SmartWindow`: Controls AI-powered window arrangement features.
+- `SpeechRecognition`: Controls AI-powered on-device speech recognition.
 
 All keys accept the following sub-keys:
 
@@ -56,6 +57,8 @@ Software\Policies\Mozilla\Firefox\AIControls\SidebarChatbot\Value = "available" 
 Software\Policies\Mozilla\Firefox\AIControls\SidebarChatbot\Locked = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\AIControls\SmartWindow\Value = "available" | "blocked"
 Software\Policies\Mozilla\Firefox\AIControls\SmartWindow\Locked = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIControls\SpeechRecognition\Value = "available" | "blocked"
+Software\Policies\Mozilla\Firefox\AIControls\SpeechRecognition\Locked = 0x1 | 0x0
 ```
 
 ## macOS
@@ -107,6 +110,13 @@ Software\Policies\Mozilla\Firefox\AIControls\SmartWindow\Locked = 0x1 | 0x0
       <true/> | <false/>
     </dict>
     <key>SmartWindow</key>
+    <dict>
+      <key>Value</key>
+      <string>available | blocked</string>
+      <key>Locked</key>
+      <true/> | <false/>
+    </dict>
+    <key>SpeechRecognition</key>
     <dict>
       <key>Value</key>
       <string>available | blocked</string>
