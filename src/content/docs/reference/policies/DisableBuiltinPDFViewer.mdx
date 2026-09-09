@@ -21,6 +21,13 @@ Disable the built in PDF viewer. PDF files are downloaded and sent externally.
 
 <PolicyExample policy="DisableBuiltinPDFViewer" />
 
+## Values
+
+- Set to `true` to hand PDF files to the operating system's default PDF handler.
+- Set to `false` to open PDF files in Firefox. Unlike most policies, this actively sets the handler back to the built-in viewer rather than doing nothing.
+
+If the [`Handlers`](/reference/policies/handlers/) policy already configures `application/pdf` or the `pdf` extension, that policy wins and `DisableBuiltinPDFViewer` is ignored.
+
 ## Windows (GPO)
 
 ```

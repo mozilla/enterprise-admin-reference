@@ -17,6 +17,13 @@ Disable Firefox Accounts integration (Sync).
 
 <PolicyExample policy="DisableFirefoxAccounts" />
 
+## Values
+
+- Set to `true` to disable Firefox accounts and sync.
+- Set to `false` to leave Firefox accounts available. This is the same as not setting the policy.
+
+If [`DisableAccounts`](/reference/policies/disableaccounts/) is also set, it takes precedence and `DisableFirefoxAccounts` is ignored.
+
 ## Windows (GPO)
 
 ```

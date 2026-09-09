@@ -19,6 +19,13 @@ You can use `${home}` for the native home directory.
 
 <PolicyExample policy="DefaultDownloadDirectory" />
 
+## Values
+
+`DefaultDownloadDirectory` expects a path to the directory downloads are saved to, such as `/Users/username/Documents`.
+The user can still change it.
+
+- `${home}` expands to the user's home directory, so `${home}/Downloads` works across profiles and platforms.
+
 ## Windows (GPO)
 
 ```

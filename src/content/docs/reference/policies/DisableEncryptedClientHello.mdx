@@ -18,6 +18,11 @@ Note that TLS Client Hellos will still contain an ECH extension, but this extens
 
 <PolicyExample policy="DisableEncryptedClientHello" />
 
+## Values
+
+- Set to `true` to disable Encrypted Client Hello (ECH) for both DNS and HTTP/3.
+- Set to `false` to leave ECH enabled. This is the same as not setting the policy.
+
 ## Windows (GPO)
 
 ```
