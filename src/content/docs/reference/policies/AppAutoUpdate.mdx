@@ -4,11 +4,10 @@ description: "Enable or disable **automatic** application update."
 category: "Device update settings"
 ---
 
-Enable or disable **automatic** application update.
+Enable or disable automatic application update.
 
-If set to `true`, application updates are installed without user approval within Firefox. The operating system might still require approval.
-
-If set to `false`, application updates are downloaded but the user can choose when to install the update.
+Allows application updates to be installed without user approval within Firefox, although the operating system might still require approval.
+When the policy is disabled, application updates are downloaded and the user can choose when to install the update.
 
 If you have disabled updates via [`DisableAppUpdate`](/reference/policies/disableappupdate/), this policy has no effect.
 
@@ -22,6 +21,11 @@ If you have disabled updates via [`DisableAppUpdate`](/reference/policies/disabl
 ## Examples
 
 <PolicyExample policy="AppAutoUpdate" />
+
+## Values
+
+- Set to `true` to install application updates without user approval, and prevent the user from turning automatic updates off. The operating system might still require approval.
+- Set to `false` to download updates but let the user choose when to install them, and prevent the user from turning automatic updates on.
 
 ## Windows (GPO)
 

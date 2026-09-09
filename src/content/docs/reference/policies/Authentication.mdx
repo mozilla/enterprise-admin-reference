@@ -7,8 +7,6 @@ category: "Authentication"
 Configure sites that support integrated authentication.
 See [Integrated authentication](https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html) for more information.
 
-The `PrivateBrowsing` member enables integrated authentication in private browsing.
-
 ## Compatibility
 
 <PolicyCompat policy="Authentication" />
@@ -21,6 +19,20 @@ The `PrivateBrowsing` member enables integrated authentication in private browsi
 ## Examples
 
 <PolicyExample policy="Authentication" />
+
+## Values
+
+- `SPNEGO`: A list of sites permitted to use SPNEGO (Kerberos) authentication.
+- `Delegated`: A list of sites permitted to use Kerberos delegation.
+- `NTLM`: A list of sites permitted to use NTLM authentication.
+- `AllowNonFQDN`: Allows authentication for hosts that are not fully qualified domain names.
+  Accepts `SPNEGO` and `NTLM`, each a boolean.
+- `AllowProxies`: Allows authentication to proxies.
+  Accepts `SPNEGO` and `NTLM`, each a boolean.
+- `PrivateBrowsing`: Set to `true` to allow integrated authentication in private browsing.
+- `Locked`: Prevents the user from changing these settings.
+  Unlike most policies, this defaults to `true`.
+  Set it to `false` to apply the values as defaults that users can still change.
 
 ## Windows (GPO)
 

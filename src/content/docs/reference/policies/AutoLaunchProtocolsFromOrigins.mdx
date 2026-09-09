@@ -21,6 +21,15 @@ This also means that you cannot specify a wildcard (`*`) for all origins.
 
 <PolicyExample policy="AutoLaunchProtocolsFromOrigins" />
 
+## Values
+
+Each entry in the list accepts the following keys:
+
+- `protocol` (required): The external protocol scheme, without the colon, such as `zoommtg`.
+- `allowed_origins` (required): A list of origins allowed to launch that protocol without a prompt.
+  Each origin is a scheme, hostname and optional port.
+  Paths and wildcards are not supported.
+
 ## Windows (GPO)
 
 ```

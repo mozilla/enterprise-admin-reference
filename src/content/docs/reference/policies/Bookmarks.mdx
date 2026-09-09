@@ -9,9 +9,6 @@ category: "Bookmarks"
 > The `Bookmarks` policy will continue to be supported for backwards-compatibility purposes.
 
 Add bookmarks in either the bookmarks toolbar or menu.
-Only `Title` and `URL` are required.
-If `Placement` is not specified, the bookmark will be placed on the toolbar.
-If `Folder` is specified, it is automatically created and bookmarks with the same folder name are grouped together.
 
 If you want to clear all bookmarks set with this policy, you can set the value to an empty array (`[]`). This can be on Windows via the new Bookmarks (JSON) policy available with GPO and Intune.
 
@@ -25,6 +22,18 @@ If you want to clear all bookmarks set with this policy, you can set the value t
 ## Examples
 
 <PolicyExample policy="Bookmarks" />
+
+## Values
+
+Each entry in the list accepts the following keys:
+
+- `Title` (required): The name shown for the bookmark.
+- `URL` (required): The address the bookmark opens.
+- `Favicon`: The URL of an icon to show for the bookmark.
+- `Placement`: `toolbar` adds the bookmark to the bookmarks toolbar, `menu` adds it to the bookmarks menu.
+  Defaults to `toolbar`.
+- `Folder`: The name of a folder to put the bookmark in.
+  The folder is created if it doesn't exist, and bookmarks that name the same folder are grouped together.
 
 ## Windows (GPO)
 

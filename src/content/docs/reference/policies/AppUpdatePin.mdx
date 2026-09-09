@@ -29,6 +29,13 @@ If you specify a version that doesn't exist, Firefox will update beyond that ver
 
 <PolicyExample policy="AppUpdatePin" />
 
+## Values
+
+`AppUpdatePin` expects a version prefix ending in a dot:
+
+- `MAJOR.`, such as `140.`, pins Firefox to the major version and allows every update within it.
+- `MAJOR.MINOR.`, such as `140.0.`, pins Firefox to the minor version and allows only patch updates within it.
+
 ## Windows (GPO)
 
 ```

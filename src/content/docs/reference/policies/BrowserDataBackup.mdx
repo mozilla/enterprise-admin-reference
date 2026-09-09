@@ -21,6 +21,20 @@ Backup and restore can be disabled individually.
 
 <PolicyExample policy="BrowserDataBackup" />
 
+## Values
+
+`BrowserDataBackup` accepts either a boolean or an object.
+When set as a boolean:
+
+- Set to `true` to allow backup and restore of profile data, and lock both settings.
+- Set to `false` to disable backup and restore of profile data, and lock both settings.
+
+When set as an object, backup and restore can be controlled separately.
+Both keys are locked, and a key that is left out keeps its existing value:
+
+- `AllowBackup`: Set to `false` to stop profile data being backed up.
+- `AllowRestore`: Set to `false` to stop a profile being restored from a backup.
+
 ## Windows (GPO)
 
 ```

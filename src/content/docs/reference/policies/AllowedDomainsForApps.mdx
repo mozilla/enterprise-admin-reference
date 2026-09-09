@@ -19,6 +19,13 @@ If this policy is enabled, users can only access Google Workspace using accounts
 
 <PolicyExample policy="AllowedDomainsForApps" />
 
+## Values
+
+`AllowedDomainsForApps` expects a comma-separated list of domains, sent to Google as the `X-GoogApps-Allowed-Domains` header:
+
+- A domain, such as `example.com`, allows Google Workspace accounts from that domain.
+- `consumer_accounts` allows personal Gmail accounts.
+
 ## Windows (GPO)
 
 ```
