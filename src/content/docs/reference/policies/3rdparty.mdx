@@ -19,6 +19,12 @@ For GPO and Intune, the extension developer should provide an ADMX file.
 
 <PolicyExample policy="3rdparty" />
 
+## Values
+
+- `Extensions`: An object keyed by extension ID.
+  The value for each ID is the configuration passed to that extension.
+  Firefox does not define those keys and values, the extension does, so check the extension's documentation for what it accepts.
+
 ## macOS
 
 ```xml

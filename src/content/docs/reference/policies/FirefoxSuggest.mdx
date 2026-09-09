@@ -18,6 +18,16 @@ As of Firefox 146, `WebSuggestions` turns off Suggest completely.
 
 <PolicyExample policy="FirefoxSuggest" />
 
+## Values
+
+- `WebSuggestions`: Set to `false` to turn off Firefox Suggest.
+- `SponsoredSuggestions`: Set to `false` to stop sponsored suggestions appearing.
+- `OnlineEnabled`: Set to `false` to limit Firefox Suggest to suggestions stored locally, rather than fetched as the user types.
+- `ImproveSuggest`: Deprecated, use `OnlineEnabled` instead.
+- `Locked`: Prevents the user from changing these settings.
+
+Values are applied as defaults that users can change, unless `Locked` is set to `true`.
+
 ## Windows (GPO)
 
 ```

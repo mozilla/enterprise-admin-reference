@@ -18,6 +18,12 @@ The sites are specified as a list of origins.
 
 <PolicyExample policy="HttpAllowlist" />
 
+## Values
+
+`HttpAllowlist` expects a list of origins that are not upgraded to HTTPS, such as `http://example.org`.
+Each entry is a scheme, hostname and optional port.
+Paths and wildcards are not supported.
+
 ## Windows (GPO)
 
 ```

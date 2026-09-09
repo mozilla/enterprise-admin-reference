@@ -20,6 +20,11 @@ See [Configuring policies](/guides/policies-configuration/) for where each polic
 > - Setting `EnterprisePoliciesEnabled` in `policies.json` has no effect and is reported as an error in `about:policies`.
 >   For this reason, all non-macOS sections are omitted deliberately from this page.
 
+## Values
+
+- Set to `true` to enable policy support on macOS, so Firefox reads the policies in the plist.
+- Set to `false`, or leave the key out, and Firefox ignores every policy in the plist.
+
 ## macOS
 
 ```xml

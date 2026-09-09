@@ -10,11 +10,6 @@ The bookmarks are only added as a button on the personal toolbar, they are not i
 
 The syntax of this policy is based on the [Chrome ManagedBookmarks policy](https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ManagedBookmarks), with the addition of the Firefox-specific `favicon` property.
 
-A `favicon` can be specified for each bookmark.
-The value must be a `data:`, `http:`, or `https:` URL.
-
-A bookmark's `url` can be a `javascript:` URL to create a bookmarklet.
-
 ## Compatibility
 
 <PolicyCompat policy="ManagedBookmarks" />
@@ -27,6 +22,20 @@ A bookmark's `url` can be a `javascript:` URL to create a bookmarklet.
 ## Examples
 
 <PolicyExample policy="ManagedBookmarks" />
+
+## Values
+
+The first entry in the list names the toolbar folder, and the entries after it are the bookmarks:
+
+- `toplevel_name`: The name of the folder button added to the bookmarks toolbar.
+  Only used in the first entry.
+- `name`: The name shown for a bookmark or folder.
+- `url`: The address the bookmark opens.
+  A `javascript:` URL creates a bookmarklet.
+- `favicon`: The URL of an icon to show for the bookmark.
+  Must be a `data:`, `http:` or `https:` URL.
+- `children`: A list of bookmarks to put in a folder.
+  Folders can be nested.
 
 ## Windows (GPO)
 

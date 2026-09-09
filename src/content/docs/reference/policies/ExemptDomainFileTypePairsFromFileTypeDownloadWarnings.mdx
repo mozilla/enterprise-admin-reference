@@ -23,6 +23,14 @@ This policy is based on the [Chrome policy](https://chromeenterprise.google/poli
 
 <PolicyExample policy="ExemptDomainFileTypePairsFromFileTypeDownloadWarnings" />
 
+## Values
+
+Each entry in the list accepts the following keys:
+
+- `file_extension`: The file extension the exemption applies to, without a leading dot, such as `jnlp`.
+- `domains`: A list of domains the exemption applies to, such as `example.com`.
+  These are domains, not URL patterns, and a wildcard (`*`) is not supported.
+
 ## Windows (GPO)
 
 ```

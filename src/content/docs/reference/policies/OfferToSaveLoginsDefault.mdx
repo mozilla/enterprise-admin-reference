@@ -17,6 +17,13 @@ Sets the default value of `signon.rememberSignons` without locking it.
 
 <PolicyExample policy="OfferToSaveLoginsDefault" />
 
+## Values
+
+- Set to `true` to offer to save logins and passwords by default. The user can still change it.
+- Set to `false` to not offer to save logins and passwords by default. The user can still change it.
+
+If [`OfferToSaveLogins`](/reference/policies/offertosavelogins/) is also set, it takes precedence and `OfferToSaveLoginsDefault` is ignored.
+
 ## Windows (GPO)
 
 ```

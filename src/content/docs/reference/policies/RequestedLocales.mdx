@@ -20,6 +20,16 @@ As of Firefox 68, this can be a string so that you can specify an empty value (`
 
 <PolicyExample policy="RequestedLocales" />
 
+## Values
+
+`RequestedLocales` accepts either an array of locale codes or a comma-separated string, in order of preference:
+
+- `["de", "en-US"]` as an array.
+- `"de,en-US"` as a string.
+
+The first locale with an available language pack becomes active.
+The policy is applied when its value changes, so a user who switches language afterwards is not switched back.
+
 ## Windows (GPO)
 
 ```

@@ -19,6 +19,13 @@ If this policy is set to true, cookies set for domains in this list will revert 
 
 <PolicyExample policy="LegacySameSiteCookieBehaviorEnabledForDomainList" />
 
+## Values
+
+`LegacySameSiteCookieBehaviorEnabledForDomainList` expects a list of domains, such as `example.org`.
+Cookies set for those domains revert to legacy `SameSite` behavior.
+
+The policy sets the default behavior rather than locking it, so a user can still change it.
+
 ## Windows (GPO)
 
 ```

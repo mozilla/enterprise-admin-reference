@@ -19,6 +19,13 @@ If this policy is set to true, it reverts all cookies to legacy SameSite behavio
 
 <PolicyExample policy="LegacySameSiteCookieBehaviorEnabled" />
 
+## Values
+
+- Set to `true` to treat cookies with no `SameSite` attribute as `SameSite=None`.
+- Set to `false` to treat them as `SameSite=Lax`.
+
+The policy sets the default behavior rather than locking it, so a user can still change it.
+
 ## Windows (GPO)
 
 ```
