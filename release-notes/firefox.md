@@ -3,6 +3,27 @@
 
 # Firefox release notes for enterprise admins
 
+## 156
+
+_Upcoming, expected 15 September 2026._
+
+These changes apply to Firefox 156 and Firefox ESR 153.3.0 unless explicitly stated.
+Firefox ESR 153 is the current ESR.
+
+### Changes
+
+- [`FirefoxHome`](/reference/policies/firefoxhome/): Added a `Widgets` option to turn the new tab widgets on or off with `Enabled`, and to block individual widgets by ID with `Blocked`. ([bug 1980406](https://bugzil.la/1980406))
+- [`SitePolicies`](/reference/policies/sitepolicies/): Added a `DisableServiceWorkers` option to stop specific sites from registering or using service workers. Firefox 156 only. ([bug 2045811](https://bugzil.la/2045811))
+- [`DisableLaunchOnLogin`](/reference/policies/disablelaunchonlogin/): Now applies on macOS as well as Windows, following the macOS launch on login implementation. Does not apply to the ESR. ([bug 2053447](https://bugzil.la/2053447))
+
+### Fixes
+
+- [`DefaultBrowserSettingEnabled`](/reference/policies/defaultbrowsersettingenabled/): Firefox startup and in-product set-as-default actions did not honor the default browser policies. ([bug 2065138](https://bugzil.la/2065138))
+- [`Cookies`](/reference/policies/cookies/): Page Info did not consistently disable cookie permission controls that were set by policy, for both a locked cookie behavior and the `Block` list. ([bug 2061452](https://bugzil.la/2061452))
+- [`DisablePrivateBrowsing`](/reference/policies/disableprivatebrowsing/): The "New Private Window" item was still shown in the menubar File menu. ([bug 2063975](https://bugzil.la/2063975))
+- [`InstallAddonsPermission`](/reference/policies/installaddonspermission/): The "Discover extensions" button in the extensions panel was not hidden when installs were blocked. Firefox 156 only. ([bug 2041238](https://bugzil.la/2041238))
+- [`FirefoxHome`](/reference/policies/firefoxhome/): Controls in the new tab customize panel are now disabled when the corresponding preference is locked. Firefox 156 only. ([bug 1983258](https://bugzil.la/1983258))
+
 ## 155
 
 _Released 1 September 2026._
