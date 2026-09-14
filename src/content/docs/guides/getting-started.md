@@ -14,12 +14,12 @@ It provides a high-level overview for getting Firefox installed and managed acro
 Consider which release channel is appropriate before downloading and deploying Firefox.
 There are two recommended release channels for enterprise purposes:
 
-- **Firefox:** The stable release channel has major version released every four weeks, which include the latest features and fixes.
+- **Firefox:** The stable release channel has major version released every two weeks, which include the latest features and fixes.
 - **Firefox Extended Support Release (ESR):** The ESR channel is a long-term support channel branched once per year from the latest major Firefox release.
   Security and stability updates are backported as minor and patch versions during the release's lifecycle.
 
-If you prefer faster feature delivery, use the standard **Firefox** release.
-If your organization needs stability, **Firefox ESR** is recommended.
+If you prefer faster feature delivery, use the **Firefox** release.
+If your organization needs stability over features, **Firefox ESR** is recommended.
 See [Firefox and Firefox Extended Support Release (ESR)](/guides/firefox-channels/) for more information.
 
 ## Download Firefox for your platform
