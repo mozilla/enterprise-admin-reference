@@ -6,13 +6,6 @@ category: "Extensions"
 
 Configure the default extension install policy as well as origins for extension installs are allowed. This policy does not override turning off all extension installs.
 
-## Compatibility
-
-<PolicyCompat policy="InstallAddonsPermission" />
-
-**CCK2 Equivalent:** `permissions.install`\
-**Preferences Affected:** `xpinstall.enabled`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`
-
 ## Examples
 
 <PolicyExample policy="InstallAddonsPermission" />
@@ -46,3 +39,10 @@ Software\Policies\Mozilla\Firefox\InstallAddonsPermission\Default = 0x1 | 0x0
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="InstallAddonsPermission" />
+
+**CCK2 Equivalent:** `permissions.install`\
+**Preferences Affected:** `xpinstall.enabled`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons`, `browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features`

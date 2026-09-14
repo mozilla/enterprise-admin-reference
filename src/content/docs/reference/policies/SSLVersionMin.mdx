@@ -13,13 +13,6 @@ For setting and locking the maximum version of TLS, see the [`SSLVersionMax`](/r
 > TLS 1.0 and TLS 1.1 are deprecated, meaning it's not recommended to enable anything lower than TLS 1.2.
 > Setting a minimum of `tls1` or `tls1.1` re-enables them for every site, and the cipher suites those versions rely on may also need to be turned back on with the `security.tls.version.enable-deprecated` preference.
 
-## Compatibility
-
-<PolicyCompat policy="SSLVersionMin" />
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `security.tls.version.min`
-
 ## Examples
 
 <PolicyExample policy="SSLVersionMin" />
@@ -47,3 +40,10 @@ Software\Policies\Mozilla\Firefox\SSLVersionMin = "tls1" | "tls1.1" | "tls1.2" |
   <string>tls1 | tls1.1 | tls1.2 | tls1.3</string>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="SSLVersionMin" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `security.tls.version.min`

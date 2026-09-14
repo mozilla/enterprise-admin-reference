@@ -11,13 +11,6 @@ Without these checks, websites can send requests to devices such as routers, pri
 This can be dangerous because some devices assume that requests originating from the local network are trusted, which can enable attacks such as [cross-site request forgery](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF).
 Local network access protections require permission before a website can make requests to local or loopback addresses, where applicable.
 
-## Compatibility
-
-<PolicyCompat policy="LocalNetworkAccess" />
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `network.lna.enabled`, `network.lna.block_trackers`, `network.lna.blocking`, `network.lna.skip-domains`
-
 ## Examples
 
 <PolicyExample policy="LocalNetworkAccess" />
@@ -101,6 +94,13 @@ Software\Policies\Mozilla\Firefox\LocalNetworkAccess\Locked = 0x1 | 0x0
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="LocalNetworkAccess" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.lna.enabled`, `network.lna.block_trackers`, `network.lna.blocking`, `network.lna.skip-domains`
 
 ## See also
 

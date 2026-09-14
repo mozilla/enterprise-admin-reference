@@ -8,15 +8,6 @@ Configure [Enhanced Tracking Protection in Firefox](https://support.mozilla.org/
 
 If this policy is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.
 
-## Compatibility
-
-<PolicyCompat policy="EnableTrackingProtection" />
-
-`Cryptomining` and `Fingerprinting` added in 70/68.2, `Exceptions` added in 73/68.5, `EmailTracking` added in 112, `Category` and `SuspectedFingerprinting` added in 142/140.2, `BaselineExceptions` and `ConvenienceExceptions` added in 145.
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `privacy.trackingprotection.enabled`, `privacy.trackingprotection.pbmode.enabled`, `privacy.trackingprotection.cryptomining.enabled`, `privacy.trackingprotection.fingerprinting.enabled`, `privacy.fingerprintingProtection`, `privacy.trackingprotection.emailtracking.enabled`, `privacy.trackingprotection.emailtracking.pbmode.enabled`, `privacy.trackingprotection.allow_list.baseline.enabled`, `privacy.trackingprotection.allow_list.convenience.enabled`
-
 ## Examples
 
 <PolicyExample policy="EnableTrackingProtection" />
@@ -89,6 +80,15 @@ Software\Policies\Mozilla\Firefox\EnableTrackingProtection\ConvenienceExceptions
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="EnableTrackingProtection" />
+
+`Cryptomining` and `Fingerprinting` added in 70/68.2, `Exceptions` added in 73/68.5, `EmailTracking` added in 112, `Category` and `SuspectedFingerprinting` added in 142/140.2, `BaselineExceptions` and `ConvenienceExceptions` added in 145.
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `privacy.trackingprotection.enabled`, `privacy.trackingprotection.pbmode.enabled`, `privacy.trackingprotection.cryptomining.enabled`, `privacy.trackingprotection.fingerprinting.enabled`, `privacy.fingerprintingProtection`, `privacy.trackingprotection.emailtracking.enabled`, `privacy.trackingprotection.emailtracking.pbmode.enabled`, `privacy.trackingprotection.allow_list.baseline.enabled`, `privacy.trackingprotection.allow_list.convenience.enabled`
 
 ## See also
 

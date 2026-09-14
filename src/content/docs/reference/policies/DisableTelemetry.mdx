@@ -9,15 +9,6 @@ Prevent the upload of telemetry data.
 Mozilla recommends that you do not disable telemetry.
 Information collected through telemetry helps us build a better product for businesses like yours.
 
-## Compatibility
-
-<PolicyCompat policy="DisableTelemetry" />
-
-From Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is also disabled.
-
-**CCK2 Equivalent:** `disableTelemetry`\
-**Preferences Affected:** `datareporting.healthreport.uploadEnabled`, `datareporting.policy.dataSubmissionEnabled`, `toolkit.telemetry.archive.enabled`, `datareporting.usage.uploadEnabled`
-
 ## Examples
 
 <PolicyExample policy="DisableTelemetry" />
@@ -41,3 +32,12 @@ Software\Policies\Mozilla\Firefox\DisableTelemetry = 0x1 | 0x0
   <true/> | <false/>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="DisableTelemetry" />
+
+From Firefox 83 and Firefox ESR 78.5, local storage of telemetry data is also disabled.
+
+**CCK2 Equivalent:** `disableTelemetry`\
+**Preferences Affected:** `datareporting.healthreport.uploadEnabled`, `datareporting.policy.dataSubmissionEnabled`, `toolkit.telemetry.archive.enabled`, `datareporting.usage.uploadEnabled`

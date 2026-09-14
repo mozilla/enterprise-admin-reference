@@ -9,15 +9,6 @@ Configure [DNS over HTTPS](https://support.mozilla.org/en-US/kb/firefox-dns-over
 DNS over HTTPS (DoH) sends DNS lookups over an encrypted HTTPS connection to a trusted resolver instead of sending them in plain text to a local resolver.
 This makes it harder for the network to see or modify lookups, but they no longer go through your DNS infrastructure unless you use a `ProviderURL`.
 
-## Compatibility
-
-<PolicyCompat policy="DNSOverHTTPS" />
-
-`ExcludedDomains` added in 75/68.7, `Fallback` added in 124.
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `network.trr.mode`, `network.trr.uri`, `network.trr.excluded-domains`
-
 ## Examples
 
 <PolicyExample policy="DNSOverHTTPS" />
@@ -69,6 +60,15 @@ Software\Policies\Mozilla\Firefox\DNSOverHTTPS\Fallback = 0x1 | 0x0
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="DNSOverHTTPS" />
+
+`ExcludedDomains` added in 75/68.7, `Fallback` added in 124.
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.trr.mode`, `network.trr.uri`, `network.trr.excluded-domains`
 
 ## See also
 

@@ -15,13 +15,6 @@ To change what gets blocked, use [Preferences](/reference/policies/preferences/)
 
 If Firefox rejects a certificate that your organization needs to trust, add it with the [`Certificates`](/reference/policies/certificates/) policy instead.
 
-## Compatibility
-
-<PolicyCompat policy="DisableSecurityBypass" />
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `security.certerror.hideAddException`, `browser.safebrowsing.allowOverride`
-
 ## Examples
 
 <PolicyExample policy="DisableSecurityBypass" />
@@ -52,6 +45,13 @@ Software\Policies\Mozilla\Firefox\DisableSecurityBypass\SafeBrowsing = 0x1 | 0x0
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="DisableSecurityBypass" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `security.certerror.hideAddException`, `browser.safebrowsing.allowOverride`
 
 ## See also
 

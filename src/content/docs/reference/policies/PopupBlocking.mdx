@@ -7,13 +7,6 @@ category: "Content settings"
 Allow certain websites to display popups and be [redirected by third-party frames](https://support.mozilla.org/en-US/kb/pop-blocker-settings-exceptions-troubleshooting).
 Third-party redirect blocking is an extension of the pop-up blocker, so the same origins and settings apply to both.
 
-## Compatibility
-
-<PolicyCompat policy="PopupBlocking" />
-
-**CCK2 Equivalent:** `permissions.popup`\
-**Preferences Affected:** `dom.disable_open_during_load`
-
 ## Examples
 
 <PolicyExample policy="PopupBlocking" />
@@ -51,6 +44,13 @@ Software\Policies\Mozilla\Firefox\PopupBlocking\Locked = 0x1 | 0x0
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="PopupBlocking" />
+
+**CCK2 Equivalent:** `permissions.popup`\
+**Preferences Affected:** `dom.disable_open_during_load`
 
 ## See also
 

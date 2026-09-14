@@ -12,13 +12,6 @@ Setting this policy replaces that page and stops Firefox from using a page suppl
 
 For the page shown the first time a new profile is used, see the [`OverrideFirstRunPage`](/reference/policies/overridefirstrunpage/) policy.
 
-## Compatibility
-
-<PolicyCompat policy="OverridePostUpdatePage" />
-
-**CCK2 Equivalent:** `upgradePage`,`noUpgradePage`\
-**Preferences Affected:** `startup.homepage_override_url`
-
 ## Examples
 
 <PolicyExample policy="OverridePostUpdatePage" />
@@ -44,3 +37,10 @@ Software\Policies\Mozilla\Firefox\OverridePostUpdatePage = "http://example.org"
   <string>http://example.org</string>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="OverridePostUpdatePage" />
+
+**CCK2 Equivalent:** `upgradePage`,`noUpgradePage`\
+**Preferences Affected:** `startup.homepage_override_url`

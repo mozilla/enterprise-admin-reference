@@ -7,15 +7,6 @@ category: "Authentication"
 Configure sites that support integrated authentication.
 See [Integrated authentication](https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html) for more information.
 
-## Compatibility
-
-<PolicyCompat policy="Authentication" />
-
-`AllowNonFQDN` added in 62/60.2, `AllowProxies` added in 70/68.2, `Locked` added in 71/68.3, `PrivateBrowsing` added in 77/68.9.
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `network.negotiate-auth.trusted-uris`,`network.negotiate-auth.delegation-uris`,`network.automatic-ntlm-auth.trusted-uris`,`network.automatic-ntlm-auth.allow-non-fqdn`,`network.negotiate-auth.allow-non-fqdn`,`network.automatic-ntlm-auth.allow-proxies`,`network.negotiate-auth.allow-proxies`,`network.auth.private-browsing-sso`
-
 ## Examples
 
 <PolicyExample policy="Authentication" />
@@ -93,6 +84,15 @@ Software\Policies\Mozilla\Firefox\Authentication\PrivateBrowsing = 0x1 | 0x0
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="Authentication" />
+
+`AllowNonFQDN` added in 62/60.2, `AllowProxies` added in 70/68.2, `Locked` added in 71/68.3, `PrivateBrowsing` added in 77/68.9.
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `network.negotiate-auth.trusted-uris`,`network.negotiate-auth.delegation-uris`,`network.automatic-ntlm-auth.trusted-uris`,`network.automatic-ntlm-auth.allow-non-fqdn`,`network.negotiate-auth.allow-non-fqdn`,`network.automatic-ntlm-auth.allow-proxies`,`network.negotiate-auth.allow-proxies`,`network.auth.private-browsing-sso`
 
 ## See also
 

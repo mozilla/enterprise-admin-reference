@@ -13,13 +13,6 @@ Only one DLP service can be active:
 - If `ContentAnalysis` has `Enabled` set to `true`, the external agent (`ContentAnalysis`) wins and these rules are ignored.
 - If `ContentAnalysis` is absent, or present without enabling an agent, the built-in `DataLossPrevention` rules apply.
 
-## Compatibility
-
-<PolicyCompat policy="DataLossPrevention" />
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `browser.contentanalysis.agent_name`, `browser.contentanalysis.agent_timeout`, `browser.contentanalysis.allow_url_regex_list`, `browser.contentanalysis.bypass_for_same_tab_operations`, `browser.contentanalysis.default_result`, `browser.contentanalysis.deny_url_regex_list`, `browser.contentanalysis.dlp_rules`, `browser.contentanalysis.enabled`, `browser.contentanalysis.interception_point.clipboard.enabled`, `browser.contentanalysis.interception_point.clipboard.plain_text_only`, `browser.contentanalysis.interception_point.download.enabled`, `browser.contentanalysis.interception_point.drag_and_drop.enabled`, `browser.contentanalysis.interception_point.drag_and_drop.plain_text_only`, `browser.contentanalysis.interception_point.file_upload.enabled`, `browser.contentanalysis.interception_point.print.enabled`, `browser.contentanalysis.show_blocked_result`, `browser.contentanalysis.timeout_result`, `browser.contentanalysis.use_wasm_backend`
-
 ## Examples
 
 <PolicyExample policy="DataLossPrevention" />
@@ -41,6 +34,13 @@ Only one DLP service can be active:
     If a pattern is not a valid regular expression, the whole rule is dropped and the problem is reported in `about:policies#errors`.
   - `Type`: (**required**) What the rule does when it matches, either `warn` or `block`.
   - `Message`: Text shown to the user when the rule triggers.
+
+## Compatibility
+
+<PolicyCompat policy="DataLossPrevention" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.contentanalysis.agent_name`, `browser.contentanalysis.agent_timeout`, `browser.contentanalysis.allow_url_regex_list`, `browser.contentanalysis.bypass_for_same_tab_operations`, `browser.contentanalysis.default_result`, `browser.contentanalysis.deny_url_regex_list`, `browser.contentanalysis.dlp_rules`, `browser.contentanalysis.enabled`, `browser.contentanalysis.interception_point.clipboard.enabled`, `browser.contentanalysis.interception_point.clipboard.plain_text_only`, `browser.contentanalysis.interception_point.download.enabled`, `browser.contentanalysis.interception_point.drag_and_drop.enabled`, `browser.contentanalysis.interception_point.drag_and_drop.plain_text_only`, `browser.contentanalysis.interception_point.file_upload.enabled`, `browser.contentanalysis.interception_point.print.enabled`, `browser.contentanalysis.show_blocked_result`, `browser.contentanalysis.timeout_result`, `browser.contentanalysis.use_wasm_backend`
 
 ## See also
 

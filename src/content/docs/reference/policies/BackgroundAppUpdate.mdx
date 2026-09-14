@@ -15,15 +15,6 @@ If you are having trouble getting the background task to run, verify your config
 > [!NOTE]
 > The `BackgroundAppUpdate` policy has no effect if you have disabled updates via the [`DisableAppUpdate`](/reference/policies/disableappupdate/) policy or disabled automatic updates via the [`AppAutoUpdate`](/reference/policies/appautoupdate/) policy.
 
-## Compatibility
-
-<PolicyCompat policy="BackgroundAppUpdate" />
-
-Windows only.
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `app.update.background.enabled`
-
 ## Examples
 
 <PolicyExample policy="BackgroundAppUpdate" />
@@ -47,3 +38,12 @@ Software\Policies\Mozilla\Firefox\BackgroundAppUpdate = 0x1 | 0x0
   <true/> | <false/>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="BackgroundAppUpdate" />
+
+Windows only.
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `app.update.background.enabled`

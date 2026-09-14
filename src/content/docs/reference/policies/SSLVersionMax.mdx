@@ -13,13 +13,6 @@ For setting and locking the minimum version of TLS, see the [`SSLVersionMin`](/r
 > TLS 1.0 and TLS 1.1 are deprecated.
 > It's not recommended to set a maximum of `tls1` or `tls1.1`, which stops Firefox from using TLS 1.2 and above.
 
-## Compatibility
-
-<PolicyCompat policy="SSLVersionMax" />
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `security.tls.version.max`
-
 ## Examples
 
 <PolicyExample policy="SSLVersionMax" />
@@ -47,3 +40,10 @@ Software\Policies\Mozilla\Firefox\SSLVersionMax = "tls1" | "tls1.1" | "tls1.2" |
   <string>tls1 | tls1.1 | tls1.2 | tls1.3</string>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="SSLVersionMax" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `security.tls.version.max`

@@ -8,13 +8,6 @@ Configure an Access Connector for proxying web traffic.
 When this policy is set, Firefox routes traffic through the server given by `Host` and `Port`.
 If `MatchPatterns` is set, only URLs matching those patterns are routed through the connector.
 
-## Compatibility
-
-<PolicyCompat policy="AccessConnector" />
-
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** `browser.ipProtection.autoStartEnabled`, `browser.ipProtection.enabled`, `browser.ipProtection.features.autoStart`, `browser.ipProtection.inclusion.match_patterns`, `browser.ipProtection.mode`, `browser.ipProtection.openedPanelWithLocation`, `browser.ipProtection.override.serverlist`
-
 ## Examples
 
 <PolicyExample policy="AccessConnector" />
@@ -58,3 +51,10 @@ Software\Policies\Mozilla\Firefox\AccessConnector\Locked = 0x1 | 0x0
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="AccessConnector" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `browser.ipProtection.autoStartEnabled`, `browser.ipProtection.enabled`, `browser.ipProtection.features.autoStart`, `browser.ipProtection.inclusion.match_patterns`, `browser.ipProtection.mode`, `browser.ipProtection.openedPanelWithLocation`, `browser.ipProtection.override.serverlist`

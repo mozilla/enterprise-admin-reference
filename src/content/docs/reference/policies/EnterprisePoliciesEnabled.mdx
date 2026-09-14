@@ -10,15 +10,10 @@ This turns on policy support **for macOS via plist**, rather than a policy that 
 Until this policy is set, Firefox ignores every policy in the plist.
 See [Configuring policies](/guides/policies-configuration/) for where each policy source lives.
 
-**Compatibility:** Firefox 63, Firefox ESR 60.3 (macOS only)\
-**CCK2 Equivalent:** N/A\
-**Preferences Affected:** N/A
-
 > [!WARNING]
 >
 > - A `policies.json` file is read on macOS regardless of whether `EnterprisePoliciesEnabled` is set or not.
 > - Setting `EnterprisePoliciesEnabled` in `policies.json` has no effect and is reported as an error in `about:policies`.
->   For this reason, all non-macOS sections are omitted deliberately from this page.
 
 ## Values
 
@@ -45,6 +40,12 @@ Or, for the current user only, in `~/Library` without `sudo`:
 ```bash
 defaults write ~/Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE
 ```
+
+## Compatibility
+
+**Compatibility:** Firefox 63, Firefox ESR 60.3 (macOS only)\
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
 
 ## See also
 

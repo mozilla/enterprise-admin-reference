@@ -9,15 +9,6 @@ Configure the default homepage and how Firefox starts.
 This policy covers startup and the Home button.
 It does not change what a new tab shows: use the [`NewTabPage`](/reference/policies/newtabpage/) policy to turn the New Tab page off, or the [`FirefoxHome`](/reference/policies/firefoxhome/) policy to change the sections on it.
 
-## Compatibility
-
-<PolicyCompat policy="Homepage" />
-
-`StartPage` was added in Firefox 60, Firefox ESR 60.4, `homepage-locked` added in Firefox 78, `NewTabOnRestore` added in Firefox 153, Firefox ESR 153.
-
-**CCK2 Equivalent:** `homePage`,`lockHomePage`\
-**Preferences Affected:** `browser.startup.homepage`, `browser.startup.page`, `browser.sessionstore.newTabOnRestore`, `browser.sessionstore.newTabOnRestore.showSetting`
-
 ## Examples
 
 <PolicyExample policy="Homepage" />
@@ -73,3 +64,12 @@ Software\Policies\Mozilla\Firefox\Homepage\NewTabOnRestore = 0x1 | 0x0
   </dict>
 </dict>
 ```
+
+## Compatibility
+
+<PolicyCompat policy="Homepage" />
+
+`StartPage` was added in Firefox 60, Firefox ESR 60.4, `homepage-locked` added in Firefox 78, `NewTabOnRestore` added in Firefox 153, Firefox ESR 153.
+
+**CCK2 Equivalent:** `homePage`,`lockHomePage`\
+**Preferences Affected:** `browser.startup.homepage`, `browser.startup.page`, `browser.sessionstore.newTabOnRestore`, `browser.sessionstore.newTabOnRestore.showSetting`
