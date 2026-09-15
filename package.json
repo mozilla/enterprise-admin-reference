@@ -13,10 +13,10 @@
   "dependencies": {
     "@astrojs/starlight": "^0.42.0",
     "@astrojs/markdown-remark": "^7.3.0",
-    "astro": "^7.3.1",
+    "astro": "^7.3.2",
     "astro-breadcrumbs": "^3.4.2",
     "sharp": "^0.35.3",
-    "starlight-changelogs": "^0.6.0",
+    "starlight-changelogs": "^0.7.0",
     "starlight-github-alerts": "^0.4.0",
     "starlight-links-validator": "^0.26.0"
   }
