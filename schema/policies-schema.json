@@ -497,7 +497,7 @@
       "x-compatibility": {
         "firefox": { "version_added": "62" },
         "firefox_esr": { "version_added": "60.2.0" },
-        "firefox_enterprise": { "version_added": false }
+        "firefox_enterprise": { "version_added": "149" }
       },
       "x-restart-required": true,
       "description": "Change the URL for application update if you are providing Firefox updates from a custom update server.",
@@ -713,7 +713,7 @@
       "x-compatibility": {
         "firefox": { "version_added": "60" },
         "firefox_esr": { "version_added": "60" },
-        "firefox_enterprise": { "version_added": "149" }
+        "firefox_enterprise": { "version_added": false }
       },
       "x-restart-required": true,
       "description": "Add bookmarks in either the bookmarks toolbar or menu. Use 'ManagedBookmarks' instead.",
@@ -919,7 +919,7 @@
         "firefox_enterprise": { "version_added": "149" }
       },
       "x-restart-required": false,
-      "description": "Configure Firefox to use an agent for Data Loss Prevention (DLP) that is compatible with the Google Chrome Content Analysis Connector Agent SDK.",
+      "description": "Configure Firefox to use a third-party agent for Data Loss Prevention (DLP) that is compatible with the Google Chrome Content Analysis Connector Agent SDK.",
       "examples": [
         {
           "AgentName": "My DLP Product",
@@ -1059,7 +1059,7 @@
         "firefox_enterprise": { "version_added": "155" }
       },
       "x-restart-required": false,
-      "description": "Enable and configure security logging when a DLP rule is triggered.",
+      "description": "Enable and configure security logging when a Data Loss Prevention (DLP) rule is triggered.",
       "examples": [
         {
           "Enabled": true,
@@ -1259,7 +1259,7 @@
         "firefox_enterprise": { "version_added": "155" }
       },
       "x-restart-required": false,
-      "description": "Configure built-in Data Loss Prevention rules that warn on or block data actions (paste, copy, upload, download, print) per domain.",
+      "description": "Configure built-in Data Loss Prevention (DLP) rules to warn or block on data actions (paste, copy, upload, download, print) per domain.",
       "examples": [
         {
           "FallbackResult": "block",
@@ -1689,7 +1689,7 @@
       "x-compatibility": {
         "firefox": { "version_added": "60" },
         "firefox_esr": { "version_added": "60" },
-        "firefox_enterprise": { "version_added": "149" }
+        "firefox_enterprise": { "version_added": false }
       },
       "x-restart-required": true,
       "description": "Remove access to private browsing.",
