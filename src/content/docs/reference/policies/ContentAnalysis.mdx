@@ -26,12 +26,12 @@ Configure Firefox to use an agent for Data Loss Prevention (DLP) that is compati
 - `DenyUrlRegexList`: a space-separated list of regular expressions that indicates URLs for which DLP operations will always be denied without consulting the agent. The default is the empty string.
 - `Enabled`: indicates whether Firefox should use DLP. Note that if this value is true and no DLP agent is running, all DLP requests will be denied unless `DefaultResult` is set to 1 or 2.
 - `InterceptionPoints` controls settings for specific interception points.
-  - `Clipboard`: controls clipboard operations for files and text.
-    - `Enabled`: indicates whether clipboard operations should use DLP. The default is `true`.
+  - `Clipboard`: controls clipboard paste operations for files and text (for copy operations, see `ClipboardCopy`).
+    - `Enabled`: indicates whether clipboard paste operations should use DLP. The default is `true`.
     - `PlainTextOnly`: indicates whether to only analyze the text/plain format on the clipboard.
-      If this value is false, all formats will be analyzed, which some DLP agents may not expect.
+      If this value is `false`, all formats will be analyzed, which some DLP agents may not expect.
       Regardless of this value, files will be analyzed as usual. The default is `true`.
-  - `ClipboardCopy`: controls web content copying data to the clipboard.
+  - `ClipboardCopy`: controls web content copying data to the clipboard (for paste operations, see `Clipboard`).
     - `Enabled`: indicates whether clipboard copy operations should use DLP.
       The default is false, so that existing DLP deployments are unaffected.
     - `PlainTextOnly`: indicates whether to only analyze the text/plain format being copied.
