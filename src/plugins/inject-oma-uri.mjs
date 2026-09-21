@@ -25,6 +25,7 @@ const NO_ADMX_EQUIVALENT = new Set([
 const MISSING_UPSTREAM = new Set([
   "AccessConnector",
   "AIChatbot",
+  "ClearOnShutdown",
   "CrashReportsSubmit",
   "DisableAccounts",
   "RelaunchRequired",
