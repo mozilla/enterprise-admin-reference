@@ -92,6 +92,11 @@ Currently the supported site policies are:
   These containers are not listed in the containers UI, they have no colored tab indicator, and the user cannot pick them from the container menu.
   When a container is no longer named by any rule, Firefox deletes it along with its data.
 
+  > [!NOTE]
+  > `ephemeral` controls when a container's data is deleted, not whether it is written to disk.
+  > If Firefox crashes instead of shutting down normally, data may be left behind.
+  > At the next startup, Firefox clears the data of ephemeral containers that are no longer named by a rule, but container that is still named by a rule keeps its data until its last tab closes again or Firefox next shuts down normally.
+
 ## Windows (GPO)
 
 ```
