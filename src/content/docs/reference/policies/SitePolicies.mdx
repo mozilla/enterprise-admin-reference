@@ -6,8 +6,7 @@ category: "Browsing restrictions"
 
 Fine grained control over policies for specific sites.
 
-Use this to harden or restrict individual sites rather than the whole browser, for example turning the JIT engine off on untrusted sites or requiring HTTPS for a set of internal hosts.
-Each rule applies only to the sites it matches, so you can tighten the browser where it matters without changing behavior everywhere else.
+Admins can use `SitePolicies` to apply restrictions to individual sites rather than the whole browser, for example turning [the JIT engine](https://developer.mozilla.org/en-US/docs/Glossary/Just_In_Time_Compilation) off on untrusted sites, disallowing HTTP downgrades, or isolating sites in their own [container](https://support.mozilla.org/en-US/kb/how-use-firefox-containers).
 
 ## Examples
 
@@ -40,6 +39,22 @@ While this setting would disable the JIT on every site except `*.example.org`:
 ]
 ```
 
+This setting loads `*.example.com` in a container whose data is cleared once its last tab closes:
+
+```json
+[
+  {
+    "Match": ["*.example.com"],
+    "Policies": {
+      "Container": {
+        "id": "company",
+        "ephemeral": true
+      }
+    }
+  }
+]
+```
+
 ## Values
 
 The policy is made up of a list of rules that are evaluated in order.
@@ -66,6 +81,16 @@ Currently the supported site policies are:
 
 - `DisableServiceWorkers` stops the site from registering or using [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) when `true`.
   Only `http` and `https` sites are affected, and sites relying on service workers for offline support or push notifications will lose those features.
+
+- `Container` loads the site in a dedicated container, keeping its cookies, storage, and logins separate from the rest of the browser.
+  Setting `Container` in a rule turns container support on and locks it, so the user cannot switch it off. (Firefox 158) \
+  Accepts the following values:
+  - `id`: (**required**) A non-empty identifier you choose for the container. Every rule that uses the same `id` shares one container.
+  - `ephemeral`: An optional boolean. When `true`, the container's data is cleared after its last tab closes, and at shutdown. Defaults to `false`.
+
+  Navigating to a matching site loads it in a new tab inside the container.
+  These containers are not listed in the containers UI, they have no colored tab indicator, and the user cannot pick them from the container menu.
+  When a container is no longer named by any rule, Firefox deletes it along with its data.
 
 ## Windows (GPO)
 
@@ -107,8 +132,9 @@ Software\Policies\Mozilla\Firefox\SitePolicies (REG_MULTI_SZ) =
 <PolicyCompat policy="SitePolicies" />
 
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** N/A
+**Preferences Affected:** `privacy.userContext.enabled`, `privacy.containers.switchDuringNavigation.enabled` (locked on only when a rule uses `Container`)
 
 ## See also
 
 - [`HttpsOnlyMode`](/reference/policies/httpsonlymode/) policy covers all browsing and can be configured to let the user turn it off.
+- [`Containers`](/reference/policies/containers/) policy sets up the named containers the user sees and can choose between, which are separate from the containers `SitePolicies` manages.
