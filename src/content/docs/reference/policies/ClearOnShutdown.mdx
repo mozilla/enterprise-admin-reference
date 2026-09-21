@@ -1,0 +1,105 @@
+---
+title: "ClearOnShutdown"
+description: "Clear browsing data when the browser closes."
+category: "Local data storage"
+---
+
+Clear browsing data when the browser closes.
+
+This policy reflects the categories that users see in Firefox Settings: browsing & download history, cookies and site data, temporary cached files and pages, saved form info, and site settings.
+
+This policy supersedes [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/) and when both are set, `SanitizeOnShutdown` is ignored and Firefox logs an error.
+Unlike `SanitizeOnShutdown`, only the categories an admin defines through policy are enforced.
+Omitted categories are under the user's control rather than being disabled.
+
+## Examples
+
+<PolicyExample policy="ClearOnShutdown" />
+
+## Values
+
+`ClearOnShutdown` accepts either a boolean or an object.
+When set as a boolean:
+
+- Set to `true` to clear every data category on shutdown.
+- Set to `false` to enforce that nothing is cleared on shutdown.
+  Users cannot turn data clearing back on.
+
+When set as an object, clearing on shutdown is turned on and each named member is locked to the value in the policy.
+Accepts one or more of the following members:
+
+- `BrowsingHistoryAndDownloads`: Browsing and download history
+- `CookiesAndStorage`: Cookies, site data and active logins
+- `Cache`: Temporary cached files and pages
+- `FormData`: Saved form and search entries
+- `SiteSettings`: Site permissions and preferences
+- `Exceptions`: A list of origins (not domains) whose cookies and site data are not cleared on shutdown. You must include `http` or `https`.
+
+> [!NOTE]
+> Every category the policy sets is locked, so there is no `Locked` option.
+
+## Windows (GPO)
+
+Clear all data:
+
+```
+Software\Policies\Mozilla\Firefox\ClearOnShutdown = 0x1 | 0x0
+```
+
+Clear specific data types:
+
+```
+Software\Policies\Mozilla\Firefox\ClearOnShutdown\BrowsingHistoryAndDownloads = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\ClearOnShutdown\CookiesAndStorage = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\ClearOnShutdown\Cache = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\ClearOnShutdown\FormData = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\ClearOnShutdown\SiteSettings = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\ClearOnShutdown\Exceptions\1 = "https://example.com"
+```
+
+## macOS
+
+Clear all data:
+
+```xml
+<dict>
+  <key>ClearOnShutdown</key>
+  <true/> | <false/>
+</dict>
+```
+
+Clear specific data types:
+
+```xml
+<dict>
+  <key>ClearOnShutdown</key>
+  <dict>
+    <key>BrowsingHistoryAndDownloads</key>
+    <true/> | <false/>
+    <key>CookiesAndStorage</key>
+    <true/> | <false/>
+    <key>Cache</key>
+    <true/> | <false/>
+    <key>FormData</key>
+    <true/> | <false/>
+    <key>SiteSettings</key>
+    <true/> | <false/>
+    <key>Exceptions</key>
+    <array>
+      <string>https://example.com</string>
+    </array>
+  </dict>
+</dict>
+```
+
+## Compatibility
+
+<PolicyCompat policy="ClearOnShutdown" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** `privacy.sanitize.sanitizeOnShutdown`, `privacy.clearOnShutdown_v2.browsingHistoryAndDownloads`, `privacy.clearOnShutdown_v2.cookiesAndStorage`, `privacy.clearOnShutdown_v2.cache`, `privacy.clearOnShutdown_v2.formdata`, `privacy.clearOnShutdown_v2.siteSettings`
+
+## See also
+
+- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/), superseded by `ClearOnShutdown`.
+- [`Cookies`](/reference/policies/cookies/) to allow or block cookies per site.
