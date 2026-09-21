@@ -17,6 +17,7 @@ const NO_ADMX_EQUIVALENT = new Set([
   "EnterprisePoliciesEnabled", // Registry bootstrap, outside the ADMX namespace.
   "MicrosoftEntraSSO", // macOS only.
   "SecurityLogging", // Configured through the admin console, not local policy.
+  "SignOut", // Configured through the admin console, not local policy.
   "Watermark", // Configured through the admin console, not local policy.
 ]);
 
