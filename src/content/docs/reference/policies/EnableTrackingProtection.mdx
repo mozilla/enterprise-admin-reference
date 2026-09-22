@@ -8,10 +8,6 @@ Configure [Enhanced Tracking Protection in Firefox](https://support.mozilla.org/
 
 If this policy is not configured, tracking protection is not enabled by default in the browser, but it is enabled by default in private browsing and the user can change it.
 
-## Examples
-
-<PolicyExample policy="EnableTrackingProtection" />
-
 ## Values
 
 - `Value`: a Boolean that enables or disables tracking protection.
@@ -33,6 +29,10 @@ If this policy is not configured, tracking protection is not enabled by default 
 
 > [!NOTE]
 > Users can change `BaselineExceptions` and `ConvenienceExceptions` even when `Category` is set to `strict` unless `Locked` is set to true. If `Locked` is set to `true`, `BaselineExceptions` and `ConvenienceExceptions` use their initial values (based on the tracking protection `Category`) unless policy explicitly sets them.
+
+## Examples
+
+<PolicyExample policy="EnableTrackingProtection" />
 
 ## Windows (GPO)
 

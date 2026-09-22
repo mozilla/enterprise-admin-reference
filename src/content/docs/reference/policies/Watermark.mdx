@@ -9,10 +9,6 @@ Display a textual watermark over a configurable list of websites for traceabilit
 The watermark is drawn over every matching page, including when a page is opened in Reader Mode or View Source.
 By default it shows the signed-in user's email address with a timestamp below it, which makes screenshots of internal sites traceable.
 
-## Examples
-
-<PolicyExample policy="Watermark" />
-
 ## Values
 
 - `Match`: (**required**) A list of URL match patterns for the pages to watermark.
@@ -28,6 +24,10 @@ By default it shows the signed-in user's email address with a timestamp below it
 - `FontSize`: The font size of `Copy`, in CSS pixels. Defaults to `28` and is capped at `64`.
 - `Angle`: The rotation of the text in degrees. Defaults to `-45`.
 - `Size`: The size of a single watermark tile, in CSS pixels. Defaults to `300` and is clamped between `100` and `2048`.
+
+## Examples
+
+<PolicyExample policy="Watermark" />
 
 ## Compatibility
 

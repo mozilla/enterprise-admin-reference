@@ -8,6 +8,48 @@ Fine grained control over policies for specific sites.
 
 Admins can use `SitePolicies` to apply policies to individual sites rather than the whole browser, for example turning [the JIT engine](https://developer.mozilla.org/en-US/docs/Glossary/Just_In_Time_Compilation) off on untrusted sites, disallowing HTTP downgrades, or isolating sites in their own [container](https://support.mozilla.org/en-US/kb/how-use-firefox-containers).
 
+## Values
+
+The policy is made up of a list of rules that are evaluated in order.
+Each rule can contain:
+
+- `Match`: a list of sites.
+  An empty list or missing property means to match all sites.
+- `Exceptions`: a list of sites which when matched bypasses this set of rules.
+- `Policies`: an object defining the site policies.
+
+> [!NOTE]
+> A "site" refers to a registerable domain, so `*.example.com` is a valid site but `*.com` is not.
+
+Currently the supported site policies are:
+
+- `DisableJit` disables the JIT engine for the site when `true`.
+
+  > [!WARNING]
+  > When the JIT engine is disabled, some sites may be slow, experience breakages, and WebAssembly won't be executed.
+  > Be sure to scope `DisableJit` as narrowly as possible using `Match` patterns, or via exemptions using `Exceptions`.
+
+- `HttpsOnly` stops the site from being loaded over plain HTTP when `true`.
+  When it is `false`, HTTP is explicitly allowed for the site, which is how you carve a site out of a broader rule.
+
+- `DisableServiceWorkers` stops the site from registering or using [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) when `true`.
+  Only `http` and `https` sites are affected, and sites relying on service workers for offline support or push notifications will lose those features.
+
+- `Container` loads the site in a dedicated container, keeping its cookies, storage, and logins separate from the rest of the browser.
+  Setting `Container` in a rule turns container support on and locks it, so the user cannot switch it off. (Firefox 158) \
+  Accepts the following values:
+  - `id`: (**required**) A non-empty identifier you choose for the container. Every rule that uses the same `id` shares one container.
+  - `ephemeral`: An optional boolean. When `true`, the container's data is cleared after its last tab closes, and at shutdown. Defaults to `false`.
+
+  Navigating to a matching site loads it in a new tab inside the container.
+  These containers are not listed in the containers UI, they have no colored tab indicator, and the user cannot pick them from the container menu.
+  When a container is no longer named by any rule, Firefox deletes it along with its data.
+
+  > [!NOTE]
+  > `ephemeral` controls when a container's data is deleted, not whether it is written to disk.
+  > If Firefox crashes instead of shutting down normally, data may be left behind.
+  > At the next startup, Firefox clears the data of ephemeral containers that are no longer named by a rule, but container that is still named by a rule keeps its data until its last tab closes again or Firefox next shuts down normally.
+
 ## Examples
 
 <PolicyExample policy="SitePolicies" />
@@ -54,48 +96,6 @@ This setting loads `*.example.com` in a container whose data is cleared once its
   }
 ]
 ```
-
-## Values
-
-The policy is made up of a list of rules that are evaluated in order.
-Each rule can contain:
-
-- `Match`: a list of sites.
-  An empty list or missing property means to match all sites.
-- `Exceptions`: a list of sites which when matched bypasses this set of rules.
-- `Policies`: an object defining the site policies.
-
-> [!NOTE]
-> A "site" refers to a registerable domain, so `*.example.com` is a valid site but `*.com` is not.
-
-Currently the supported site policies are:
-
-- `DisableJit` disables the JIT engine for the site when `true`.
-
-  > [!WARNING]
-  > When the JIT engine is disabled, some sites may be slow, experience breakages, and WebAssembly won't be executed.
-  > Be sure to scope `DisableJit` as narrowly as possible using `Match` patterns, or via exemptions using `Exceptions`.
-
-- `HttpsOnly` stops the site from being loaded over plain HTTP when `true`.
-  When it is `false`, HTTP is explicitly allowed for the site, which is how you carve a site out of a broader rule.
-
-- `DisableServiceWorkers` stops the site from registering or using [service workers](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) when `true`.
-  Only `http` and `https` sites are affected, and sites relying on service workers for offline support or push notifications will lose those features.
-
-- `Container` loads the site in a dedicated container, keeping its cookies, storage, and logins separate from the rest of the browser.
-  Setting `Container` in a rule turns container support on and locks it, so the user cannot switch it off. (Firefox 158) \
-  Accepts the following values:
-  - `id`: (**required**) A non-empty identifier you choose for the container. Every rule that uses the same `id` shares one container.
-  - `ephemeral`: An optional boolean. When `true`, the container's data is cleared after its last tab closes, and at shutdown. Defaults to `false`.
-
-  Navigating to a matching site loads it in a new tab inside the container.
-  These containers are not listed in the containers UI, they have no colored tab indicator, and the user cannot pick them from the container menu.
-  When a container is no longer named by any rule, Firefox deletes it along with its data.
-
-  > [!NOTE]
-  > `ephemeral` controls when a container's data is deleted, not whether it is written to disk.
-  > If Firefox crashes instead of shutting down normally, data may be left behind.
-  > At the next startup, Firefox clears the data of ephemeral containers that are no longer named by a rule, but container that is still named by a rule keeps its data until its last tab closes again or Firefox next shuts down normally.
 
 ## Windows (GPO)
 

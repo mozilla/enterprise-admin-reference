@@ -10,10 +10,6 @@ Backup and restore can be disabled individually.
 > [!NOTE]
 > The policy can be used to disable backup and restore if it would otherwise be enabled, but cannot be used to force backup or restore to be enabled under conditions where it would not otherwise be (such as a platform on which backup or restore are not yet supported).
 
-## Examples
-
-<PolicyExample policy="BrowserDataBackup" />
-
 ## Values
 
 `BrowserDataBackup` accepts either a boolean or an object.
@@ -27,6 +23,10 @@ Both keys are locked, and a key that is left out keeps its existing value:
 
 - `AllowBackup`: Set to `false` to stop profile data being backed up.
 - `AllowRestore`: Set to `false` to stop a profile being restored from a backup.
+
+## Examples
+
+<PolicyExample policy="BrowserDataBackup" />
 
 ## Windows (GPO)
 

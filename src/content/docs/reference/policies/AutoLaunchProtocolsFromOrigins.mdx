@@ -10,10 +10,6 @@ The origin is the scheme (protocol), hostname (domain), and port of the URL used
 The syntax of this policy is the same as the [Chrome AutoLaunchProtocolsFromOrigins policy](https://chromeenterprise.google/policies/#AutoLaunchProtocolsFromOrigins) except that you can only use valid origins (not just hostnames).
 This also means that you cannot specify a wildcard (`*`) for all origins.
 
-## Examples
-
-<PolicyExample policy="AutoLaunchProtocolsFromOrigins" />
-
 ## Values
 
 Each entry in the list accepts the following keys:
@@ -22,6 +18,10 @@ Each entry in the list accepts the following keys:
 - `allowed_origins` (required): A list of origins allowed to launch that protocol without a prompt.
   Each origin is a scheme, hostname and optional port.
   Paths and wildcards are not supported.
+
+## Examples
+
+<PolicyExample policy="AutoLaunchProtocolsFromOrigins" />
 
 ## Windows (GPO)
 

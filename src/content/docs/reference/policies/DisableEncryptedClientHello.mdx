@@ -7,14 +7,14 @@ category: "Network security"
 Disable the TLS Feature for [Encrypted Client Hello](https://support.mozilla.org/en-US/kb/understand-encrypted-client-hello).
 Note that TLS Client Hellos will still contain an ECH extension, but this extension will not be used by Firefox during the TLS handshake.
 
-## Examples
-
-<PolicyExample policy="DisableEncryptedClientHello" />
-
 ## Values
 
 - Set to `true` to disable Encrypted Client Hello (ECH) for both DNS and HTTP/3.
 - Set to `false` to leave ECH enabled. This is the same as not setting the policy.
+
+## Examples
+
+<PolicyExample policy="DisableEncryptedClientHello" />
 
 ## Windows (GPO)
 

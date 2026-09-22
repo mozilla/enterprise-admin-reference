@@ -9,16 +9,16 @@ Add or delete [PKCS #11 modules](https://en.wikipedia.org/wiki/PKCS_11).
 A PKCS #11 module is an external library that lets Firefox talk to a cryptographic device such as a smart card or hardware token, so that certificates and keys on that device can be used for client authentication.
 The `SecurityDevices` policy loads those libraries instead of requiring the user to manage them manually from the Security Devices dialog in Settings.
 
-## Examples
-
-<PolicyExample policy="SecurityDevices" />
-
 ## Values
 
 - `Add` maps a device name to the full path of the module library on disk.
   The name is what the device is listed as in Firefox, and the path must be readable on the machine where Firefox runs.
 - `Delete` is a list of device names to unload, using the name the module was added under.
   Removing a name that is not loaded is not an error.
+
+## Examples
+
+<PolicyExample policy="SecurityDevices" />
 
 ## Windows (GPO)
 

@@ -16,14 +16,14 @@ The policy covers TLS, HTTP/3 as of Firefox 128, and WebRTC.
 Setting this policy locks the preferences, whether the value is `true` or `false`, so users cannot change them.
 This policy is independent of [`CNSA2KeyAgreementEnabled`](/reference/policies/cnsa2keyagreementenabled/): setting it to `false` does not stop Firefox from offering ML-KEM-1024 if that policy is enabled.
 
-## Examples
-
-<PolicyExample policy="PostQuantumKeyAgreementEnabled" />
-
 ## Values
 
 - Set to `true` to enable post-quantum key agreement for TLS, HTTP/3 and WebRTC, and lock the settings.
 - Set to `false` to disable post-quantum key agreement for TLS, HTTP/3 and WebRTC, and lock the settings.
+
+## Examples
+
+<PolicyExample policy="PostQuantumKeyAgreementEnabled" />
 
 ## Windows (GPO)
 

@@ -6,10 +6,6 @@ category: "Local data storage"
 
 Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be enabled and which features should be enabled for syncing.
 
-## Examples
-
-<PolicyExample policy="Sync" />
-
 ## Values
 
 - `Addons`: A Boolean. Controls whether syncing addons should be enabled.
@@ -24,6 +20,10 @@ Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be 
 - `Locked`: A Boolean. Controls whether the settings are enforced, and whether `Enabled` applies at all.
   If `Locked` is `true`, the Sync data type settings are locked so users cannot change them, and `Enabled` connects or disconnects sync.
   Users can no longer turn sync on or off themselves, whether `Enabled` is `true` or `false`, and only a policy update can change it.
+
+## Examples
+
+<PolicyExample policy="Sync" />
 
 ## Windows (GPO)
 

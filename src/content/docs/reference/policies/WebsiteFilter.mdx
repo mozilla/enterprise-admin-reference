@@ -6,10 +6,6 @@ category: "Browsing restrictions"
 
 Block websites from being visited.
 
-## Examples
-
-<PolicyExample policy="WebsiteFilter" />
-
 ## Values
 
 `WebsiteFilter` expects an array of Match Patterns, as described in https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns.
@@ -18,6 +14,10 @@ The arrays are limited to 1000 entries each.
 - If you want to block all URLs, you can use the value `<all_urls>` or the pattern `*://*/*` (matching `<scheme>://<host><path>`).
   A single wildcard (`*`) as a value is not sufficient.
 - For specific [protocols](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes#protocol), use `https://*/*` or `http://*/*`.
+
+## Examples
+
+<PolicyExample policy="WebsiteFilter" />
 
 ## Windows (GPO)
 

@@ -12,10 +12,6 @@ Add bookmarks in either the bookmarks toolbar or menu.
 
 If you want to clear all bookmarks set with this policy, you can set the value to an empty array (`[]`). This can be on Windows via the new Bookmarks (JSON) policy available with GPO and Intune.
 
-## Examples
-
-<PolicyExample policy="Bookmarks" />
-
 ## Values
 
 Each entry in the list accepts the following keys:
@@ -27,6 +23,10 @@ Each entry in the list accepts the following keys:
   Defaults to `toolbar`.
 - `Folder`: The name of a folder to put the bookmark in.
   The folder is created if it doesn't exist, and bookmarks that name the same folder are grouped together.
+
+## Examples
+
+<PolicyExample policy="Bookmarks" />
 
 ## Windows (GPO)
 

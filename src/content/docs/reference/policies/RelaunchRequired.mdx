@@ -7,10 +7,6 @@ category: "Device update settings"
 Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.
 This policy takes effect when an update has been downloaded or staged and is ready to install.
 
-## Examples
-
-<PolicyExample policy="RelaunchRequired" />
-
 ## Values
 
 - `NotificationPeriodHours`: The minimum number of hours before users are notified of the required relaunch.
@@ -18,6 +14,10 @@ This policy takes effect when an update has been downloaded or staged and is rea
   If less than one hour remains until the scheduled time, the restart is deferred to the same time the following day.
   - `Hour`: The hour in 24-hour format (between `0` and `23`).
   - `Minute`: The minute (between `0` and `59`).
+
+## Examples
+
+<PolicyExample policy="RelaunchRequired" />
 
 ## Windows (GPO)
 

@@ -11,10 +11,6 @@ Without these checks, websites can send requests to devices such as routers, pri
 This can be dangerous because some devices assume that requests originating from the local network are trusted, which can enable attacks such as [cross-site request forgery](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/CSRF).
 Local network access protections require permission before a website can make requests to local or loopback addresses, where applicable.
 
-## Examples
-
-<PolicyExample policy="LocalNetworkAccess" />
-
 ## Values
 
 - `Enabled`: a Boolean that enables or disables the policy.
@@ -35,6 +31,10 @@ Local network access protections require permission before a website can make re
 >
 > Setting `Enabled` to `false` turns both permission prompting and blocking third-party trackers off.
 > `SkipDomains` is applied independently, whether or not `Enabled` is defined.
+
+## Examples
+
+<PolicyExample policy="LocalNetworkAccess" />
 
 ## Description
 

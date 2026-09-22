@@ -13,10 +13,6 @@ Starting with Firefox 83, Firefox ESR 78.5, you can also specify multiple URLs s
 
 For the page shown after Firefox updates, see the [`OverridePostUpdatePage`](/reference/policies/overridepostupdatepage/) policy.
 
-## Examples
-
-<PolicyExample policy="OverrideFirstRunPage" />
-
 ## Values
 
 `OverrideFirstRunPage` expects the URL to show the first time a new profile is used:
@@ -24,6 +20,10 @@ For the page shown after Firefox updates, see the [`OverridePostUpdatePage`](/re
 - A URL, such as `https://example.com`, replaces the onboarding tour with that page.
   Multiple URLs can be separated by a vertical bar (`|`), each opening in its own tab.
 - An empty string (`""`) shows no first run page at all.
+
+## Examples
+
+<PolicyExample policy="OverrideFirstRunPage" />
 
 ## Windows (GPO)
 

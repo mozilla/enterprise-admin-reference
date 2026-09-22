@@ -10,10 +10,6 @@ The bookmarks are only added as a button on the personal toolbar, they are not i
 
 The syntax of this policy is based on the [Chrome ManagedBookmarks policy](https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ManagedBookmarks), with the addition of the Firefox-specific `favicon` property.
 
-## Examples
-
-<PolicyExample policy="ManagedBookmarks" />
-
 ## Values
 
 The first entry in the list names the toolbar folder, and the entries after it are the bookmarks:
@@ -27,6 +23,10 @@ The first entry in the list names the toolbar folder, and the entries after it a
   Must be a `data:`, `http:` or `https:` URL.
 - `children`: A list of bookmarks to put in a folder.
   Folders can be nested.
+
+## Examples
+
+<PolicyExample policy="ManagedBookmarks" />
 
 ## Windows (GPO)
 

@@ -7,10 +7,6 @@ category: "Miscellaneous"
 Configure AI controls.
 For more information, see [Block generative AI features with Firefox AI controls](https://support.mozilla.org/en-US/kb/firefox-ai-controls) on support.mozilla.org.
 
-## Examples
-
-<PolicyExample policy="AIControls" />
-
 ## Values
 
 Each key controls the availability of a specific AI feature.
@@ -32,6 +28,10 @@ All keys accept the following sub-keys:
   - `blocked` the feature is disabled and users won't see the feature.
     For on-device AI, any models already downloaded are removed.
 - `Locked`: if `true`, the user cannot change the setting.
+
+## Examples
+
+<PolicyExample policy="AIControls" />
 
 ## Windows (GPO)
 

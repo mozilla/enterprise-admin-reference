@@ -9,10 +9,6 @@ Configure sign-out behavior for enterprise users.
 By default, shutting the browser down signs the session out, so the next launch requires the user to sign in again.
 Set this policy to lock the session on shutdown instead, so that returning users only need to unlock it.
 
-## Examples
-
-<PolicyExample policy="SignOut" />
-
 ## Values
 
 - `Shutdown`: Controls what happens to the session when the browser shuts down.
@@ -20,6 +16,10 @@ Set this policy to lock the session on shutdown instead, so that returning users
     - `lock`: Lock the session, so the next launch only requires the user to unlock.
     - `signout`: Sign the session out, so the next launch requires a full sign-in.
       This is what happens when the policy is not set.
+
+## Examples
+
+<PolicyExample policy="SignOut" />
 
 ## Compatibility
 

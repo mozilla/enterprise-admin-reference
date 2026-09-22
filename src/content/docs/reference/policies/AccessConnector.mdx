@@ -8,10 +8,6 @@ Configure an Access Connector for proxying web traffic.
 When this policy is set, Firefox routes traffic through the server given by `Host` and `Port`.
 If `MatchPatterns` is set, only URLs matching those patterns are routed through the connector.
 
-## Examples
-
-<PolicyExample policy="AccessConnector" />
-
 ## Values
 
 - `Host`: A string that defines the hostname or IP address of the proxy server to use.
@@ -22,6 +18,10 @@ If `MatchPatterns` is set, only URLs matching those patterns are routed through 
 - `Locked`: Prevents the user from changing Access Connector settings.
   Unlike most policies, this defaults to `true`.
   Set it to `false` to apply the settings as defaults that users can still change.
+
+## Examples
+
+<PolicyExample policy="AccessConnector" />
 
 ## Windows (GPO)
 

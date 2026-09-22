@@ -12,6 +12,11 @@ If this policy set to `false`, Firefox will create a new profile for each unique
 
 This policy only work on Windows via GPO (not via `policies.json`).
 
+## Values
+
+- Set to `true` to share one profile across every installation, the same as the `MOZ_LEGACY_PROFILES` environment variable.
+- Set to `false` to create a separate profile for each installation. This is the same as not setting the policy.
+
 ## Examples
 
 ```json
@@ -21,11 +26,6 @@ This policy only work on Windows via GPO (not via `policies.json`).
   }
 }
 ```
-
-## Values
-
-- Set to `true` to share one profile across every installation, the same as the `MOZ_LEGACY_PROFILES` environment variable.
-- Set to `false` to create a separate profile for each installation. This is the same as not setting the policy.
 
 ## Windows (GPO)
 

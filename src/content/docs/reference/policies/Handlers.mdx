@@ -9,10 +9,6 @@ This policy is based on the internal format of `handlers.json`.
 
 You can configure handlers based on a [mime type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/MIME_types) (`mimeTypes`), a file's extension (`extensions`), or a [protocol](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes) (`schemes`).
 
-## Examples
-
-<PolicyExample policy="Handlers" />
-
 ## Values
 
 Within each handler type, you specify the given mimeType/extension/scheme as a key and use the following subkeys to describe how it is handled.
@@ -25,6 +21,10 @@ Within each handler type, you specify the given mimeType/extension/scheme as a k
 | &nbsp;`name`        | The display name of the handler (might not be used).                                                                                                                                   |
 | &nbsp;`path`        | The native path to the executable to be used.                                                                                                                                          |
 | &nbsp;`uriTemplate` | A url to a web based application handler. The URL must be https and contain a %s to be used for substitution.                                                                          |
+
+## Examples
+
+<PolicyExample policy="Handlers" />
 
 ## Windows (GPO)
 

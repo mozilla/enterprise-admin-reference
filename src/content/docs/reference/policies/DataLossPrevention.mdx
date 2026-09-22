@@ -13,10 +13,6 @@ Only one DLP service can be active:
 - If `ContentAnalysis` has `Enabled` set to `true`, the external agent (`ContentAnalysis`) wins and these rules are ignored.
 - If `ContentAnalysis` is absent, or present without enabling an agent, the built-in `DataLossPrevention` rules apply.
 
-## Examples
-
-<PolicyExample policy="DataLossPrevention" />
-
 ## Values
 
 - `FallbackResult`: What happens to an operation the engine cannot reach a verdict on, including a request that has timed out. The default is `block`.
@@ -34,6 +30,10 @@ Only one DLP service can be active:
     If a pattern is not a valid regular expression, the whole rule is dropped and the problem is reported in `about:policies#errors`.
   - `Type`: (**required**) What the rule does when it matches, either `warn` or `block`.
   - `Message`: Text shown to the user when the rule triggers.
+
+## Examples
+
+<PolicyExample policy="DataLossPrevention" />
 
 ## Compatibility
 

@@ -6,10 +6,6 @@ category: "Network security"
 
 Configure cookie preferences.
 
-## Examples
-
-<PolicyExample policy="Cookies" />
-
 ## Values
 
 - `Allow` is a list of origins (not domains) where cookies are always allowed. You must include `http` or `https`.
@@ -31,6 +27,10 @@ Configure cookie preferences.
 - `AcceptThirdParty` determines how third-party cookies are handled. (_Deprecated_. Use `Behavior` instead)
 - `RejectTracker` only rejects cookies for trackers. (_Deprecated_. Use `Behavior` instead)
 - `ExpireAtSessionEnd` determines when cookies expire. (_Deprecated_. Use [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/) instead)
+
+## Examples
+
+<PolicyExample policy="Cookies" />
 
 ## Windows (GPO)
 

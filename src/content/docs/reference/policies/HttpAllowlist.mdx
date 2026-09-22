@@ -7,15 +7,15 @@ category: "Network security"
 Configure sites that will not be upgraded to HTTPS.
 The sites are specified as a list of origins.
 
-## Examples
-
-<PolicyExample policy="HttpAllowlist" />
-
 ## Values
 
 `HttpAllowlist` expects a list of origins that are not upgraded to HTTPS, such as `http://example.org`.
 Each entry is a scheme, hostname and optional port.
 Paths and wildcards are not supported.
+
+## Examples
+
+<PolicyExample policy="HttpAllowlist" />
 
 ## Windows (GPO)
 

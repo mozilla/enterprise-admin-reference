@@ -13,10 +13,6 @@ Unless you lock this policy, changes the user already has in place will take eff
 > [!NOTE]
 > In the Windows ADMX templates, these settings were moved to their own category to make them easier to configure via Intune.
 
-## Examples
-
-<PolicyExample policy="Proxy" />
-
 ## Values
 
 - `Mode` is the proxy method being used.
@@ -31,6 +27,10 @@ Unless you lock this policy, changes the user already has in place will take eff
 - `AutoConfigURL` is a URL for proxy configuration (only used if `Mode` is `autoConfig`).
 - `AutoLogin` means do not prompt for authentication if password is saved.
 - `UseProxyForDNS` to use proxy DNS when using SOCKS v5.
+
+## Examples
+
+<PolicyExample policy="Proxy" />
 
 ## Windows (GPO)
 

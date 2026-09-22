@@ -9,10 +9,6 @@ Configure [HTTPS-Only Mode](https://support.mozilla.org/en-US/kb/https-only-pref
 In HTTPS-Only Mode, Firefox attempts to upgrade HTTP connections to HTTPS and shows a warning page when a site is only available over HTTP.
 To exempt specific sites from the upgrade, use the [`HttpAllowlist`](/reference/policies/httpallowlist/) policy.
 
-## Examples
-
-<PolicyExample policy="HttpsOnlyMode" />
-
 ## Values
 
 | Value         | Description                                                     |
@@ -21,6 +17,10 @@ To exempt specific sites from the upgrade, use the [`HttpAllowlist`](/reference/
 | disallowed    | HTTPS-Only Mode is off and the user can't turn it on.           |
 | enabled       | HTTPS-Only Mode is on by default, but the user can turn it off. |
 | force_enabled | HTTPS-Only Mode is on and the user can't turn it off.           |
+
+## Examples
+
+<PolicyExample policy="HttpsOnlyMode" />
 
 ## Windows (GPO)
 

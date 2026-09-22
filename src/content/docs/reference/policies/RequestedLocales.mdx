@@ -7,10 +7,6 @@ category: "Miscellaneous"
 Set the list of requested locales for the application in order of preference.
 It will cause the corresponding language pack to become active.
 
-## Examples
-
-<PolicyExample policy="RequestedLocales" />
-
 ## Values
 
 `RequestedLocales` accepts either an array of locale codes or a comma-separated string, in order of preference:
@@ -20,6 +16,10 @@ It will cause the corresponding language pack to become active.
 
 The first locale with an available language pack becomes active.
 The policy is applied when its value changes, so a user who switches language afterwards is not switched back.
+
+## Examples
+
+<PolicyExample policy="RequestedLocales" />
 
 ## Windows (GPO)
 

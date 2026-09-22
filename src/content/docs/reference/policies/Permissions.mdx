@@ -8,10 +8,6 @@ Set permissions associated with camera, microphone, location, notifications, aut
 Because these are [origins](https://developer.mozilla.org/en-US/docs/Glossary/Origin), not domains, entries with unique ports must be specified separately.
 This explicitly means that it is not possible to add wildcards. See examples below.
 
-## Examples
-
-<PolicyExample policy="Permissions" />
-
 ## Values
 
 - `Allow` is a list of origins where the feature is allowed.
@@ -19,6 +15,10 @@ This explicitly means that it is not possible to add wildcards. See examples bel
 - `BlockNewRequests` determines whether or not new requests can be made for the feature.
 - `Locked` prevents the user from changing preferences for the feature.
 - `Default` specifies the default value for Autoplay. block-audio-video is not supported on Firefox ESR 68.
+
+## Examples
+
+<PolicyExample policy="Permissions" />
 
 ## Windows (GPO)
 

@@ -8,15 +8,15 @@ Allow WebExtensions to configure policies.
 For more information, see [Adding policy support to your extension](https://extensionworkshop.com/documentation/enterprise/enterprise-development/#how-to-add-policy).
 For GPO and Intune, the extension developer should provide an ADMX file.
 
-## Examples
-
-<PolicyExample policy="3rdparty" />
-
 ## Values
 
 - `Extensions`: An object keyed by extension ID.
   The value for each ID is the configuration passed to that extension.
   Firefox does not define those keys and values, the extension does, so check the extension's documentation for what it accepts.
+
+## Examples
+
+<PolicyExample policy="3rdparty" />
 
 ## macOS
 

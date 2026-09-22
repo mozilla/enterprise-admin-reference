@@ -12,10 +12,6 @@ Items that can be selectively deleted include browsing & download history, cooki
 > Starting with Firefox 158, [`ClearOnShutdown`](/reference/policies/clearonshutdown/) supersedes this policy.
 > When both are set, `SanitizeOnShutdown` is ignored entirely.
 
-## Examples
-
-<PolicyExample policy="SanitizeOnShutdown" />
-
 ## Values
 
 `SanitizeOnShutdown` accepts either a boolean or an object.
@@ -37,6 +33,10 @@ Accepts one or more of the following members to clear specific data types:
 - `OfflineApps`: Offline Website Data (_Deprecated - use `Cookies` instead_)
 - `Locked`: Prevents the user from changing these preferences.
 - `Exceptions`: (Firefox 154) A list of origins (not domains) whose cookies and site data are not cleared on shutdown. You must include `http` or `https`.
+
+## Examples
+
+<PolicyExample policy="SanitizeOnShutdown" />
 
 ## Windows (GPO)
 
