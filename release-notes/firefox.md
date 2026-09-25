@@ -3,9 +3,33 @@
 
 # Firefox release notes for enterprise admins
 
+## 157
+
+_Upcoming, expected 29 September 2026._
+
+These changes apply to Firefox 157 and Firefox ESR 153.4.0 unless explicitly stated.
+Firefox ESR 153 is the current ESR.
+
+### Changes
+
+- [`AIControls`](/reference/policies/aicontrols/): Added a `SpeechRecognition` option to make on-device speech recognition available or block it, with `Locked` to prevent users from changing it.
+  Firefox 157 only. ([bug 1940906](https://bugzil.la/1940906))
+- `about:policies` now shows an error for a policy that only partially applied, naming the entry that failed, instead of listing it as active. ([bug 2067123](https://bugzil.la/2067123))
+
+### Fixes
+
+- [`Homepage`](/reference/policies/homepage/): In Firefox 154 and Firefox ESR 153.1.0, setting `URL` to several homepages separated by `|` stopped working after policy validation changes.
+  The pipe separator is accepted again, and the extra URLs are treated as `Additional`. ([bug 2067248](https://bugzil.la/2067248))
+- [`Handlers`](/reference/policies/handlers/): An invalid `mimeTypes` entry caused every later entry, including the `extensions` and `schemes` blocks, to be discarded.
+  Invalid entries are now skipped individually. ([bug 2067099](https://bugzil.la/2067099))
+
+### Notes
+
+- Firefox ESR 140 goes out of support with this release. Firefox ESR 140.17.0 is its final build.
+
 ## 156
 
-_Upcoming, expected 15 September 2026._
+_Released 15 September 2026._
 
 These changes apply to Firefox 156 and Firefox ESR 153.3.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
