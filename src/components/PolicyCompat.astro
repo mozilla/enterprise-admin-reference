@@ -15,22 +15,126 @@ const CHANNELS = [
   { key: "firefox_enterprise", label: "Firefox Enterprise" },
 ] as const;
 
-// The version replaces `visible` if the channel is supported.
-const STATES = {
-  yes: { announced: "Available since ", visible: null },
-  no: { announced: "Not supported", visible: "No" },
-} as const;
+type State = "yes" | "no";
+type Notes = string | string[];
+type Support = { version_added?: string | false; version_removed?: string; notes?: Notes };
+type Compatibility = Partial<Record<(typeof CHANNELS)[number]["key"], Support>> & { notes?: Notes };
+type Entry = {
+  "x-compatibility"?: Compatibility;
+  properties?: Record<string, Entry>;
+  items?: Entry;
+};
 
-type State = keyof typeof STATES;
-type Support = { version_added?: string | false };
-type Entry = { "x-compatibility"?: Record<string, Support | undefined> };
+const entry = (schema.properties as Record<string, Entry>)[policy];
+const compatibility = entry?.["x-compatibility"];
 
-const compatibility = (schema.properties as Record<string, Entry>)[policy]?.["x-compatibility"];
+type Row = { name: string; depth: number; compatibility: Compatibility };
 
-const cells = CHANNELS.map(({ key, label }) => {
-  const added = compatibility?.[key]?.version_added;
-  const state: State = typeof added === "string" ? "yes" : "no";
-  return { label, state, version: typeof added === "string" ? added : null };
+// Drop trailing `.0`s
+const label = (version: string) => version.replace(/(\.0)+$/, "");
+
+// Notes may use backticks for code. Remove them for tooltips.
+const plain = (note: string) => note.replaceAll("`", "");
+
+// Each distinct note is numbered once, in order of first reference
+const footnotes: string[] = [];
+const unmarked: string[] = [];
+const noteRefs = (notes: Notes = []) =>
+  [notes].flat().map((note) => {
+    const index = footnotes.indexOf(note);
+    return index === -1 ? footnotes.push(note) : index + 1;
+  });
+const noteId = (n: number) => `compat-note-${policy}-${n}`;
+
+// A removed feature reads as unsupported, with the range it existed in.
+const toCells = (support: Compatibility) =>
+  CHANNELS.map(({ key, label: channel }) => {
+    const { version_added: added, version_removed: removed, notes } = support[key] ?? {};
+    const refs = noteRefs(notes);
+    const cell = (state: State, visible: string, announced: string) => ({
+      state,
+      visible,
+      announced,
+      refs,
+      title: [`${channel}: ${announced.toLowerCase()}`, ...[notes ?? []].flat().map(plain)].join(
+        ". ",
+      ),
+    });
+    if (typeof added !== "string") return cell("no", "No", "Not supported");
+    if (removed) {
+      return cell(
+        "no",
+        `${label(added)} - ${label(removed)}`,
+        `Available from ${label(added)}, removed in ${label(removed)}`,
+      );
+    }
+    return cell("yes", label(added), `Available since ${label(added)}`);
+  });
+
+// Inherited channels keep their versions but not their notes
+const inherit = (support: Compatibility): Compatibility =>
+  Object.fromEntries(
+    CHANNELS.map(({ key }) => {
+      const { version_added, version_removed } = support[key] ?? {};
+      return [key, { version_added, version_removed }];
+    }),
+  );
+
+// A sub-property compat indicates the channels where it differs from the parent.
+// i.e., sub-properties that shipped with their parent don't have compat.
+// A sub-prop that is unavailable says `version_added: false`
+// See https://firefox-source-docs.mozilla.org/browser/components/enterprisepolicies/docs/index.html#enterprise-policies
+const toRows = (parent: Entry, inherited: Compatibility, path: string[]): Row[] => {
+  const children = { ...parent.properties, ...parent.items?.properties };
+  return Object.entries(children).flatMap(([key, child]) => {
+    const own = child["x-compatibility"];
+    const merged = own ? { ...inherit(inherited), ...own } : inherit(inherited);
+    const keyPath = [...path, key];
+    return [
+      ...(own ? [{ name: keyPath.join("."), depth: 1, compatibility: merged }] : []),
+      ...toRows(child, merged, keyPath),
+    ];
+  });
+};
+
+// Unsupported and unknown both sort last
+const byVersion = (a?: string | false, b?: string | false) => {
+  const parts = (v?: string | false) =>
+    typeof v === "string" ? v.split(".").map(Number) : [Infinity];
+  const [x, y] = [parts(a), parts(b)];
+  for (let i = 0; i < Math.max(x.length, y.length); i++) {
+    const diff = (x[i] ?? 0) - (y[i] ?? 0);
+    if (diff) return diff;
+  }
+  return 0;
+};
+
+// Chronological, like the prose these tables replace
+const chronological = (a: Row, b: Row) =>
+  byVersion(a.compatibility.firefox?.version_added, b.compatibility.firefox?.version_added) ||
+  byVersion(
+    a.compatibility.firefox_esr?.version_added,
+    b.compatibility.firefox_esr?.version_added,
+  ) ||
+  a.name.split(".").length - b.name.split(".").length ||
+  a.name.localeCompare(b.name);
+
+// The policy row (top-level) is pinned first rather than sorted
+const rows: Row[] = compatibility
+  ? [
+      { name: policy, depth: 0, compatibility },
+      ...toRows(entry, compatibility, []).sort(chronological),
+    ]
+  : [];
+
+// The label column exists only to name sub-property rows
+const hasSubRows = rows.length > 1;
+
+// Without a label column, the policy's own notes have no row name to mark.
+const tableRows = rows.map((row) => {
+  const notes = [row.compatibility.notes ?? []].flat();
+  if (!hasSubRows) unmarked.push(...notes);
+  return { ...row, refs: hasSubRows ? noteRefs(notes) : [], cells: toCells(row.compatibility) };
 });
 
 // A policy missing from the schema, or one with no `x-compatibility`
@@ -41,58 +145,104 @@ if (!compatibility) {
 
 {
   compatibility && (
-    <table class="compat">
-      <thead>
-        <tr>
-          {cells.map(({ label }) => (
-            <th scope="col">{label}</th>
+    <>
+      <table class="compat">
+        <thead>
+          <tr>
+            {hasSubRows && <td />}
+            {CHANNELS.map(({ label }) => (
+              <th scope="col">{label}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {tableRows.map(({ name, depth, refs, cells }) => (
+            <tr>
+              {hasSubRows && (
+                <th scope="row" class:list={["key", { sub: depth > 0 }]}>
+                  <code>{name}</code>
+                  {refs.map((n) => (
+                    <sup class="ref">
+                      <a href={`#${noteId(n)}`} aria-label={`Note ${n}`}>
+                        {n}
+                      </a>
+                    </sup>
+                  ))}
+                </th>
+              )}
+              {cells.map(({ state, visible, announced, refs, title }) => (
+                <td class={state}>
+                  <span class="cell" title={title}>
+                    <svg
+                      viewBox="0 0 16 16"
+                      width="14"
+                      height="14"
+                      aria-hidden="true"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width={state === "yes" ? 2 : 1.5}
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      {state === "yes" ? (
+                        <path d="M2.5 8.5 6 12l7.5-8" />
+                      ) : (
+                        <>
+                          <circle cx="8" cy="8" r="6.25" />
+                          <path d="m5.75 5.75 4.5 4.5m0-4.5-4.5 4.5" />
+                        </>
+                      )}
+                    </svg>
+                    <span class="sr-only">{announced}</span>
+                    <span aria-hidden="true">{visible}</span>
+                  </span>
+                  {refs.map((n) => (
+                    <sup class="ref">
+                      <a href={`#${noteId(n)}`} aria-label={`Note ${n}`}>
+                        {n}
+                      </a>
+                    </sup>
+                  ))}
+                </td>
+              ))}
+            </tr>
           ))}
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          {cells.map(({ state, version }) => (
-            <td class={state}>
-              <span class="cell">
-                <svg
-                  viewBox="0 0 16 16"
-                  width="14"
-                  height="14"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width={state === "yes" ? 2 : 1.5}
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  {state === "yes" ? (
-                    <path d="M2.5 8.5 6 12l7.5-8" />
-                  ) : (
-                    <>
-                      <circle cx="8" cy="8" r="6.25" />
-                      <path d="m5.75 5.75 4.5 4.5m0-4.5-4.5 4.5" />
-                    </>
-                  )}
-                </svg>
-                <span class="sr-only">{STATES[state].announced}</span>
-                {version ?? <span aria-hidden="true">{STATES[state].visible}</span>}
-              </span>
-            </td>
+        </tbody>
+      </table>
+      {unmarked.map((note) => (
+        <p class="compat-notes">
+          {note.split("`").map((part, i) => (i % 2 ? <code>{part}</code> : part))}
+        </p>
+      ))}
+      {footnotes.length > 0 && (
+        <ol class="compat-notes">
+          {footnotes.map((note, i) => (
+            <li id={noteId(i + 1)}>
+              {note.split("`").map((part, i) => (i % 2 ? <code>{part}</code> : part))}
+            </li>
           ))}
-        </tr>
-      </tbody>
-    </table>
+        </ol>
+      )}
+    </>
   )
 }
 
 <style>
   .compat {
+    --compat-border: 1px solid #51565d;
     width: fit-content;
-    border: 1px solid #51565d;
+    border: var(--compat-border);
     border-radius: 0.25rem;
   }
+  /* Each cell draws its bottom and start edges, and the frame supplies the outer ones. */
   .compat :is(th, td) {
     white-space: nowrap;
+    border: 0;
+    border-bottom: var(--compat-border);
+    border-inline-start: var(--compat-border);
+  }
+  .compat :is(th, td):first-child {
+    border-inline-start: 0;
   }
 
   table.compat :is(th, td):is(:first-child, :last-child) {
@@ -101,6 +251,22 @@ if (!compatibility) {
   /* The frame draws the bottom edge, so drop the last row's cell rule. */
   .compat tbody tr:last-child :is(th, td) {
     border-bottom: 0;
+  }
+  /* Row headers name the setting; the weight belongs on the versions */
+  .compat .key {
+    color: var(--sl-color-text);
+    font-weight: 400;
+  }
+  /* Sub-properties sit under the policy row */
+  .compat .sub code {
+    margin-inline-start: 1rem;
+  }
+  .ref {
+    margin-inline-start: 0.125rem;
+  }
+  .compat-notes {
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
   }
   .cell {
     display: inline-flex;
