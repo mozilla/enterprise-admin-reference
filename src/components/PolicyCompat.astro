@@ -229,20 +229,12 @@ if (!compatibility) {
 
 <style>
   .compat {
-    --compat-border: 1px solid #51565d;
     width: fit-content;
-    border: var(--compat-border);
+    border: 1px solid #51565d;
     border-radius: 0.25rem;
   }
-  /* Each cell draws its bottom and start edges, and the frame supplies the outer ones. */
   .compat :is(th, td) {
     white-space: nowrap;
-    border: 0;
-    border-bottom: var(--compat-border);
-    border-inline-start: var(--compat-border);
-  }
-  .compat :is(th, td):first-child {
-    border-inline-start: 0;
   }
 
   table.compat :is(th, td):is(:first-child, :last-child) {
