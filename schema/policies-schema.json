@@ -4458,6 +4458,9 @@
           },
           "Restart": {
             "Action": "lock"
+          },
+          "Crash": {
+            "Action": "lock"
           }
         }
       ],
@@ -4498,6 +4501,27 @@
                   "const": "lock",
                   "title": "Lock",
                   "description": "Lock the session when a restart applies a pending update, so the next launch only requires the user to unlock."
+                }
+              ]
+            }
+          },
+          "required": ["Action"]
+        },
+        "Crash": {
+          "type": "object",
+          "properties": {
+            "Action": {
+              "type": "string",
+              "oneOf": [
+                {
+                  "const": "signout",
+                  "title": "Sign out",
+                  "description": "Sign the session out when repeated crashes stop the browser from restarting, so the next launch requires a full sign-in. This is what happens when the policy is not set."
+                },
+                {
+                  "const": "lock",
+                  "title": "Lock",
+                  "description": "Lock the session when repeated crashes stop the browser from restarting, so the next launch only requires the user to unlock."
                 }
               ]
             }
@@ -4598,7 +4622,7 @@
       "x-compatibility": {
         "firefox": { "version_added": "138" },
         "firefox_esr": { "version_added": "140" },
-        "firefox_enterprise": { "version_added": false }
+        "firefox_enterprise": { "version_added": "149" }
       },
       "x-restart-required": true,
       "description": "Configure display settings for the Firefox Terms of Use and Privacy Notice on startup.",
