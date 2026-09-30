@@ -3,9 +3,7 @@
 
 # Firefox release notes for enterprise admins
 
-## 157
-
-_Upcoming, expected 29 September 2026._
+## 157 - 2026-09-29
 
 These changes apply to Firefox 157 and Firefox ESR 153.4.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
@@ -27,9 +25,7 @@ Firefox ESR 153 is the current ESR.
 
 - Firefox ESR 140 goes out of support with this release. Firefox ESR 140.17.0 is its final build.
 
-## 156
-
-_Released 15 September 2026._
+## 156 - 2026-09-15
 
 These changes apply to Firefox 156 and Firefox ESR 153.3.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
@@ -48,9 +44,7 @@ Firefox ESR 153 is the current ESR.
 - [`InstallAddonsPermission`](/reference/policies/installaddonspermission/): The "Discover extensions" button in the extensions panel was not hidden when installs were blocked. Firefox 156 only. ([bug 2041238](https://bugzil.la/2041238))
 - [`FirefoxHome`](/reference/policies/firefoxhome/): Controls in the new tab customize panel are now disabled when the corresponding preference is locked. Firefox 156 only. ([bug 1983258](https://bugzil.la/1983258))
 
-## 155
-
-_Released 1 September 2026._
+## 155 - 2026-09-01
 
 These changes apply to Firefox 155 and Firefox ESR 153.2.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
@@ -84,9 +78,7 @@ Firefox ESR 153 is the current ESR.
   A fix is planned for the next dot release.
   Does not apply to the ESR. ([bug 2063452](https://bugzil.la/2063452))
 
-## 154
-
-_Released 18 August 2026._
+## 154 - 2026-08-18
 
 These changes apply to Firefox 154 and Firefox ESR 153.1.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
@@ -109,9 +101,7 @@ Firefox ESR 153 is the current ESR.
 - The `-width` and `-height` command-line options did not correctly set the Firefox window size. Firefox 154 only. ([bug 1635927](https://bugzil.la/1635927))
 - Extended Protection (channel and service binding) for Windows SSPI authentication worked when using SPNEGO but not when using Kerberos directly. ([bug 1179722](https://bugzil.la/1179722))
 
-## 153
-
-_Released 21 July 2026._
+## 153 - 2026-07-21
 
 These changes apply to Firefox 153 and Firefox ESR 153 unless explicitly stated.
 Firefox ESR 153 is the new ESR - enterprise changes are no longer backported to Firefox ESR 140.
@@ -159,9 +149,7 @@ Policies listed under Firefox ESR 153.0.0 became available to ESR admins for the
 - [`VisualSearchEnabled`](/reference/policies/visualsearchenabled/): Enable or disable visual search.
 - [`XSLTEnabled`](/reference/policies/xsltenabled/): Enable or disable support for the XSLTProcessor JavaScript API and the XSLT processing instruction.
 
-## 152
-
-_Released 16 June 2026._
+## 152 - 2026-06-16
 
 These changes apply to Firefox 152 unless explicitly stated.
 Firefox ESR 140.12.0 shipped the same day, but most of these changes were not backported to it.
@@ -182,9 +170,7 @@ Firefox ESR 140.12.0 shipped the same day, but most of these changes were not ba
 - [`DisableProfileImport`](/reference/policies/disableprofileimport/): The **Import Bookmarks** button on the Bookmarks Toolbar bypassed the policy. ([bug 1828282](https://bugzil.la/1828282))
 - [`DisableProfileImport`](/reference/policies/disableprofileimport/): The import option in `about:logins` was not covered by the policy. ([bug 1830463](https://bugzil.la/1830463))
 
-## 151
-
-_Released 19 May 2026._
+## 151 - 2026-05-19
 
 These changes apply to Firefox 151 and Firefox ESR 140.11.0 unless explicitly stated.
 Firefox ESR 140 is the current ESR, and enterprise changes are no longer backported to Firefox ESR 128.
@@ -209,9 +195,7 @@ If you use the ESR, we recommend testing with Firefox Beta or Nightly to identif
 - [`DisableRemoteImprovements`](/reference/policies/disableremoteimprovements/): The policy was not reflected correctly in preferences. Firefox 151 only.
 - Sites blocked by enterprise policy did not display the correct error message. Firefox 151 only.
 
-## 150
-
-_Released 21 April 2026._
+## 150 - 2026-04-21
 
 These changes apply to Firefox 150 and Firefox ESR 140.10.0 unless explicitly stated.
 Firefox ESR 140 is the current ESR.
@@ -233,9 +217,7 @@ Firefox ESR 140 is the current ESR.
 
 - Firefox ESR 115 support for Windows 7/8 and macOS 10.12, 10.13 and 10.14 is extended to August 2026.
 
-## 149
-
-_Released 24 March 2026._
+## 149 - 2026-03-24
 
 These changes apply to Firefox 149 and Firefox ESR 140.9.0 unless explicitly stated.
 
@@ -244,9 +226,7 @@ These changes apply to Firefox 149 and Firefox ESR 140.9.0 unless explicitly sta
 - [`AIControls`](/reference/policies/aicontrols/): Configure AI controls. Does not apply to the ESR.
 - [`IPProtectionAvailable`](/reference/policies/ipprotectionavailable/): Prevent the built-in VPN from being available to users. Does not apply to the ESR.
 
-## 148
-
-_Released 24 February 2026._
+## 148 - 2026-02-24
 
 These changes apply to Firefox 148 unless explicitly stated.
 Firefox ESR 140.8.0 shipped the same day, but these changes were not backported to it.
@@ -261,9 +241,7 @@ Firefox ESR 140.8.0 shipped the same day, but these changes were not backported 
 - AI Controls settings now respect enterprise policy and locale or region restrictions. ([bug 2005805](https://bugzil.la/2005805))
 - Firefox now reports whether a profile is managed by enterprise policy, as `policies.is_enterprise` in the baseline telemetry ping. ([bug 1997959](https://bugzil.la/1997959))
 
-## 147
-
-_Released 13 January 2026._
+## 147 - 2026-01-13
 
 These changes apply to Firefox 147 and Firefox ESR 140.7.0 unless explicitly stated.
 Firefox ESR 140 is the current ESR, so enterprise changes are no longer backported to Firefox ESR 128.
@@ -278,9 +256,7 @@ Firefox ESR 140 is the current ESR, so enterprise changes are no longer backport
 - Using Trellix DLP Endpoint for Windows can cause crashes when dragging and dropping files.
   Set the `security.sandbox.content.close-ksecdd-handle` preference to `false` as a workaround.
 
-## 146
-
-_Released 9 December 2025._
+## 146 - 2025-12-09
 
 These changes apply to Firefox 146 and Firefox ESR 140.6.0 unless explicitly stated.
 
@@ -301,9 +277,7 @@ These changes apply to Firefox 146 and Firefox ESR 140.6.0 unless explicitly sta
 - [`DisplayMenuBar`](/reference/policies/displaymenubar/): User choice was not maintained. Did not affect the ESR. ([bug 1996449](https://bugzil.la/1996449))
 - [`DisablePasswordReveal`](/reference/policies/disablepasswordreveal/): The policy had stopped working. ([bug 2001459](https://bugzil.la/2001459))
 
-## 145
-
-_Released 11 November 2025._
+## 145 - 2025-11-11
 
 These changes apply to Firefox 145 and Firefox ESR 140.5.0 unless explicitly stated.
 
@@ -322,9 +296,7 @@ Mozilla has introduced Firefox Support for Organizations, a support offering for
 
 - [`GenerativeAI`](/reference/policies/generativeai/): The `Chatbot` option did not turn off generative AI in the page context menu. ([bug 1994791](https://bugzil.la/1994791))
 
-## 144
-
-_Released 14 October 2025._
+## 144 - 2025-10-14
 
 These changes apply to Firefox 144 and Firefox ESR 140.4.0 unless explicitly stated.
 
@@ -350,9 +322,7 @@ These changes apply to Firefox 144 and Firefox ESR 140.4.0 unless explicitly sta
 
 - Firefox ESR 115 support for Windows 7/8 and macOS 10.12, 10.13 and 10.14 is extended to March 2026.
 
-## 143
-
-_Released 16 September 2025._
+## 143 - 2025-09-16
 
 These changes apply to Firefox 143 and Firefox ESR 140.3.0 unless explicitly stated.
 

@@ -1,3 +1,4 @@
 {
-  "starlightChangelogs.version.title": "{{version}}"
+  "starlightChangelogs.version.title": "{{version}}",
+  "starlightChangelogs.version.date": "{{date, datetime(dateStyle: long)}}"
 }

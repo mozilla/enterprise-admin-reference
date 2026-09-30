@@ -1,0 +1,70 @@
+name: Daily release date sync
+
+on:
+  schedule:
+    # Daily at 18:00 UTC, after the usual release window
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-dates
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    # Don't run in forks
+    if: github.repository == 'mozilla/enterprise-admin-reference'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Mark shipped releases
+        run: npm run release-dates:sync
+
+      - name: Open PR on change
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain release-notes/firefox.md)" ]; then
+            echo "No release dates to update."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}"
+          git switch -C automation/release-dates
+          git add release-notes/firefox.md
+          git commit -m "docs(release-notes): mark shipped releases as released"
+          git push --force origin automation/release-dates
+
+          pr_number=$(
+            gh pr list \
+              --head automation/release-dates \
+              --base main \
+              --state open \
+              --json number \
+              --jq '.[0].number'
+          )
+
+          if [ -n "$pr_number" ]; then
+            echo "Updated existing release-dates PR #${pr_number}."
+          else
+            gh pr create \
+              --title "docs(release-notes): mark shipped releases as released" \
+              --body "Automated daily check against [product-details](https://product-details.mozilla.org/1.0/firefox_history_major_releases.json).
+
+          _Opened by the [\`.github/workflows/release-dates.yml\`](https://github.com/${{ github.repository }}/tree/main/.github/workflows/release-dates.yml) workflow._" \
+              --label "automated pr"
+          fi

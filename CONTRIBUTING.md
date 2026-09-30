@@ -98,11 +98,9 @@ The 149 page covers Firefox 149.0.2, which shipped later in the same cycle.
 For each release, follow this convention:
 
 ```md
-## 154
+<!-- Version and release date (YYYY-MM-DD). The date is shown under the heading. -->
 
-<!-- Release date -->
-
-_Released 18 August 2026._
+## 154 - 2026-08-18
 
 <!-- Which versions the release notes apply to and the current ESR -->
 
@@ -130,7 +128,10 @@ Firefox ESR 153 is the current ESR.
 
 The following details matter for the generated pages:
 
-- Headings are the version number only: a `process` hook prefixes the headings with `Firefox`, so `## 154` is published as `Firefox 154` at `/release-notes/version/firefox-154/`.
+- Headings are the version number and release date: a `process` hook strips the date and prefixes `Firefox`, so `## 154 - 2026-08-18` is published as `Firefox 154` at `/release-notes/version/firefox-154/`.
+  Any other heading text changes the page URL, so the build fails on a malformed date.
+- For a release that has not shipped, use the expected date and add `_Upcoming, not yet released._` after one blank line under the heading.
+  The daily `release-dates.yml` workflow opens a PR that removes it and corrects the date once the release ships.
 - Link each policy to its reference page, at the lowercased policy name.
   Builds fail on broken internal links, so a policy with no reference page yet can be left unlinked.
 - Anything that deviates from co-shipping needs a scope note, like `Firefox 154 only.`, `Does not apply to the ESR.` at the end of the sentence before the bug link.

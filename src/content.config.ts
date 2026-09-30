@@ -21,7 +21,14 @@ export const collections = {
         changelog: "release-notes/firefox.md",
         pageSize: 20,
         // See https://starlight-changelogs.netlify.app/providers/keep-a-changelog/#process
-        process: ({ title }) => (/^\d/.test(title) ? `Firefox ${title}` : title),
+        // Headings are `157 - 2026-09-29`. Keep titles and slugs as `Firefox 157`.
+        process: ({ title }) => {
+          if (!/^\d/.test(title)) return title;
+          // A malformed date would otherwise end up in the slug and silently move the page
+          const match = /^(\d+)(?: - \d{4}-\d{2}-\d{2})?$/.exec(title);
+          if (!match) throw new Error(`Release heading must be "157 - 2026-09-29", got "${title}"`);
+          return `Firefox ${match[1]}`;
+        },
       },
     ]),
   }),
