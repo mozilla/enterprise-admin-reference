@@ -14,6 +14,7 @@ The arrays are limited to 1000 entries each.
 - If you want to block all URLs, you can use the value `<all_urls>` or the pattern `*://*/*` (matching `<scheme>://<host><path>`).
   A single wildcard (`*`) as a value is not sufficient.
 - For specific [protocols](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes#protocol), use `https://*/*` or `http://*/*`.
+- [`file:` URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes#file) are supported.
 
 ## Examples
 
@@ -47,8 +48,6 @@ Software\Policies\Mozilla\Firefox\WebsiteFilter\Exceptions\1 = "http://example.o
 ## Compatibility
 
 <PolicyCompat policy="WebsiteFilter" />
-
-As of Firefox 83 and Firefox ESR 78.5, [`file:` URLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes#file) are supported.
 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A

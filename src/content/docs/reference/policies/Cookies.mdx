@@ -18,8 +18,8 @@ Configure cookie preferences.
   - `reject`: Reject all cookies.
   - `limit-foreign`: Reject third party cookies for sites you haven't visited.
   - `reject-tracker`: Reject cookies for known trackers (default).
-  - `partition-foreign`: (Firefox 153) Reject cookies for known trackers and partition third-party cookies, also known as Total Cookie Protection (default for private browsing).
-  - `reject-tracker-and-partition-foreign`: (_Deprecated_. Renamed to `partition-foreign` in Firefox 153. Update existing configurations to use `partition-foreign`.)
+  - `partition-foreign`: Reject cookies for known trackers and partition third-party cookies, also known as Total Cookie Protection (default for private browsing).
+  - `reject-tracker-and-partition-foreign`: (_Deprecated_. Renamed to `partition-foreign`. Update existing configurations to use `partition-foreign`.)
 - `BehaviorPrivateBrowsing` sets the default behavior for cookies in private browsing.
   Accepts the same values as `Behavior`.
 - `Locked` prevents the user from changing cookie preferences.
@@ -75,7 +75,7 @@ Software\Policies\Mozilla\Firefox\Cookies\Locked = 0x1 | 0x0
 
 <PolicyCompat policy="Cookies" />
 
-`RejectTracker` added in Firefox 63, `AllowSession` added in Firefox 79/78.1, `Behavior` added in Firefox 95/91.4, `reject-tracker-and-partition-foreign` renamed to `partition-foreign` in Firefox 153.
+`reject-tracker-and-partition-foreign` renamed to `partition-foreign` in Firefox 153, using `Allow` to exempt sites from clearing on shutdown is deprecated in 154.
 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** `network.cookie.cookieBehavior`, `network.cookie.cookieBehavior.pbmode`, `network.cookie.lifetimePolicy`

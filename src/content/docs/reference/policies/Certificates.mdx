@@ -28,7 +28,7 @@ Install and manage certificates in Firefox.
     - `/usr/lib64/mozilla/certificates`
     - `~/.mozilla/certificates`
 
-  Starting with Firefox 65, Firefox 60.5 ESR, a fully qualified path can be used, including UNC paths.
+  A fully qualified path can be used, including UNC paths.
   You should use the native path style for your operating system.
   We do not support using `%USERPROFILE%` or other environment variables on Windows.
 
@@ -71,8 +71,6 @@ Software\Policies\Mozilla\Firefox\Certificates\Install\2 = "C:\Users\username\ce
 ## Compatibility
 
 <PolicyCompat policy="Certificates" />
-
-`ImportEnterpriseRoots` macOS support added in Firefox 63/ESR 68, `Install` added in Firefox 64/ESR 64.
 
 **CCK2 Equivalent:** `certs.ca` (Install)\
 **Preferences Affected:** `security.enterprise_roots.enabled`
