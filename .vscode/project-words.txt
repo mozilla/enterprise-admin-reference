@@ -5,6 +5,7 @@ ADML
 ADMX
 autoconfig
 badware
+Bitwarden
 browser.contentanalysis
 browser.formfill
 browser.newtabpage
