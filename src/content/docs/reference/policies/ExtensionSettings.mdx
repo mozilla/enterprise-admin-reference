@@ -4,14 +4,13 @@ description: "Manage all aspects of extensions."
 category: "Extensions"
 ---
 
-Manage all aspects of extensions.
-This policy is based heavily on the [Chrome policy](https://dev.chromium.org/administrators/policy-list-3/extension-settings-full) of the same name.
+Manage all aspects of extensions, setting extension defaults, force installing extensions, managing permissions, and more.
+This policy is based on the [Chrome policy](https://dev.chromium.org/administrators/policy-list-3/extension-settings-full) of the same name.
 
 This policy maps an extension ID to its configuration.
-With an extension ID, the configuration will be applied to the specified extension only.
-A default configuration can be set for the special ID `*`, which will apply to all extensions that don't have a specific configuration set in this policy.
+Default extension settings can be set using a wildcard `*`, which applies to all extensions that don't have a specific configuration set in this policy.
 
-To obtain an extension ID, navigate to an extension's listing page on https://addons.mozilla.org, and click the "Copy add-on ID" button in the "More information" section.
+To obtain an extension ID, navigate to an extension's listing page on https://addons.mozilla.org, and click **Copy add-on ID** in the "More information" section.
 For locally-installed extensions, go to `about:support` and in the "Add-ons" section, you will find the IDs of all installed extensions.
 
 > [!NOTE]
@@ -19,62 +18,203 @@ For locally-installed extensions, go to `about:support` and in the "Add-ons" sec
 
 ## Values
 
-The configuration for each extension is a dictionary that can contain the fields documented below.
+You can use a wildcard (`*`) to set default extension settings and set specific extension settings by ID:
 
-- `installation_mode`: Maps to a string indicating the installation mode for the extension.  
-  Valid values:
-  - `allowed`: Allows the extension to be installed by the user. This is the default behavior. There is no need for an `install_url`; it will automatically be allowed based on the ID.
-  - `blocked`: Blocks installation of the extension and removes it from the device if already installed. If used in the default (`"*"`) configuration, it blocks all extensions that do not have an explicit configuration with a different `installation_mode`.
-  - `force_installed`: Automatically installs the extension and prevents it from being removed by the user. This option is not valid for the default configuration and requires an `install_url` (as of Firefox 153, the `install_url` is optional for extensions hosted on [addons.mozilla.org](https://addons.mozilla.org); see `install_url`). (As of Firefox 152, force-installed extensions are always updated automatically, regardless of the `updates_disabled` setting.)
-  - `normal_installed`: Automatically installs the extension but allows it to be disabled by the user. This option is not valid for the default configuration and requires an `install_url` (as of Firefox 153, the `install_url` is optional for extensions hosted on [addons.mozilla.org](https://addons.mozilla.org); see `install_url`).
-- `install_url`: The URL from which Firefox can download a `force_installed` or `normal_installed` extension. Firefox automatically installs, updates, or re-installs the extension when the XPI file's internal [`version`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) changes.
-  - As of Firefox 153, `install_url` is optional. When it is omitted for a `force_installed` or `normal_installed` extension, Firefox installs the latest version from [addons.mozilla.org](https://addons.mozilla.org) using the extension's ID.
-  - If installing from `addons.mozilla.org`, use `https://addons.mozilla.org/firefox/downloads/latest/ADDON_ID/latest.xpi` and substitute **ADDON_ID** with the extension's ID (for example, `uBlock0@raymondhill.net` or `{446900e4-71c2-419f-a6a7-df9c091e268b}`).
+```json
+    "ExtensionSettings": {
+      "*": {
+        // defaults
+      },
+      "example@my_extension.example.com": {
+       // extension settings
+      }
+    }
+```
+
+### Extensions by ID
+
+For each extension, you can provide the following fields:
+
+- `installation_mode`: Maps to a string indicating the installation mode for the extension.
+  May be one of:
+  - `allowed`: Allows the extension to be installed by the user.
+    This is the default behavior.
+  - `blocked`: Blocks installation of the extension and removes it from the device if already installed.
+  - `force_installed`: Automatically installs the extension and prevents it from being removed by the user.
+    Requires an `install_url` unless the extension is hosted on addons.mozilla.org (see `install_url`).
+    As of Firefox 152, force-installed extensions are updated automatically unless `updates_disabled` is explicitly set to `true`.
+    See [Installing an extension by ID](#installing-an-extension-by-id).
+  - `normal_installed`: Automatically installs the extension but allows it to be disabled by the user.
+    Requires an `install_url` unless the extension is hosted on addons.mozilla.org (see `install_url`).
+- `install_url`: The URL from which Firefox can download a `force_installed` or `normal_installed` extension.
+  Firefox automatically installs, updates, or re-installs the extension when the XPI file's internal [`version`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) changes.
+  - As of Firefox 153, `install_url` is optional.
+    When it is omitted for a `force_installed` or `normal_installed` extension, Firefox installs the latest version from [addons.mozilla.org](https://addons.mozilla.org) using the extension's ID.
+  - If installing from `addons.mozilla.org`, use `https://addons.mozilla.org/firefox/downloads/latest/ADDON_ID/latest.xpi`, substituting `ADDON_ID` with the extension's ID (for example, `uBlock0@raymondhill.net` or `{446900e4-71c2-419f-a6a7-df9c091e268b}`).
     Using the AMO ID ensures Firefox always downloads the latest version that matches the user's platform.
   - If installing from the local file system, use a [`file:///` URL](https://en.wikipedia.org/wiki/File_URI_scheme). Firefox will update or re-install the extension whenever the XPI file at that path changes. You can also manually trigger an update by changing the file name or path.
-  - Language packs are available from  
-    `https://releases.mozilla.org/pub/firefox/releases/VERSION/PLATFORM/xpi/LANGUAGE.xpi`  
-    (for example, `https://releases.mozilla.org/pub/firefox/releases/111.0.1/win64/xpi/en-US.xpi`). These URLs can be used as `install_url` values for managing language pack installation.
-- `install_sources`: A list of sources from which installing extensions is allowed using URL match patterns. **This is unnecessary if you are only allowing the installation of certain extensions by ID.**  
-  Each item in this list is an extension-style match pattern. Users will be able to easily install items from any URL that matches an item in this list. Both the location of the `.xpi` file and the page where the download is started (the referrer) must be allowed by these patterns. This setting can be used only for the default configuration.
-- `allowed_types`: Restricts which types of add-ons can be installed. Note that this setting only applies when installation is otherwise allowed.
-  If `"installation_mode": "blocked"` is set (either for a specific ID or for `"*"`), extensions remain blocked regardless of `allowed_types`.
-  This setting can be used only for the default configuration.
-  Accepts one or more of:
-  - `"dictionary"`
-  - `"extension"`
-  - `"locale"`
-  - `"sitepermission"`
-  - `"theme"`
-- `blocked_install_message`: Maps to a string specifying the error message to display to users if they're blocked from installing an extension. This allows you to append text to the generic error message, for example to direct users to a help desk or explain why an extension is blocked. This setting can be used only for the default configuration.
-- `restricted_domains`: An array of domains on which content scripts can't be run. This setting can be used only for the default configuration.
-- `runtime_blocked_hosts`: (Firefox 153) An array of hosts, specified as [match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), on which the extension is not allowed to run. This blocks the extension from injecting content scripts into, or sending requests to, matching hosts. Match patterns must not contain a path component (for example, `*://*.example.com` is valid, but `*://*.example.com/*` is not). Can be set for a specific extension or, using the `"*"` ID, for all extensions.
-- `runtime_allowed_hosts`: (Firefox 153) An array of hosts (as match patterns) on which the extension is allowed to run, overriding any matching entries in `runtime_blocked_hosts`. The same path restriction applies. Can be set for a specific extension or for all extensions using `"*"`.
+  - Language packs are available from
+    `https://releases.mozilla.org/pub/firefox/releases/VERSION/PLATFORM/xpi/LANGUAGE.xpi`
+    (for example, `https://releases.mozilla.org/pub/firefox/releases/111.0.1/win64/xpi/en-US.xpi`).
+    These URLs can be used as `install_url` values for managing language pack installation.
+- `blocked_install_message`: A string that Firefox appends to its standard error message when a user is blocked from installing an extension. Use this to direct users to your help desk or explain why an extension is blocked.
+- `runtime_blocked_hosts`: (Firefox 153) An array of hosts, specified as [match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns), on which the extension is not allowed to run.
+  This blocks the extension from injecting [content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) into, or sending requests to, matching hosts. Match patterns must not contain a path component (for example, `*://*.example.com` is valid, but `*://*.example.com/*` is not).
+- `runtime_allowed_hosts`: (Firefox 153) An array of hosts (as match patterns) on which the extension is allowed to run, overriding any matching entries in `runtime_blocked_hosts`. The same path restriction applies.
 - `updates_disabled`: (Firefox 89, Firefox ESR 78.11) Boolean that indicates whether to disable automatic updates for an individual extension. As of Firefox 152, setting this to `false` forces automatic updates to stay enabled and prevents the user from disabling updates for the extension in the Add-ons Manager.
 - `default_area`: (Firefox 113) String that indicates where to place the extension icon by default. Possible values are `navbar` and `menupanel`.
 - `temporarily_allow_weak_signatures`: (Firefox 127) Boolean that indicates whether to allow installing extensions signed using deprecated signature algorithms.
 - `private_browsing`: (Firefox 136, Firefox ESR 128.8) Boolean that indicates whether this extension should be enabled in private browsing.
-- `update_url`: (Firefox 151) A string specifying the URL Firefox will use to check for extension updates. This overrides the update_url specified in the extension manifest or is used if no update_url is specified in the manifest.
+- `update_url`: (Firefox 151) A string specifying the URL Firefox will use to check for extension updates. This overrides the `update_url` specified in the extension manifest or is used if no `update_url` is specified in the manifest.
 - `blocked_permissions`: (Firefox 153) An array of [API permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) that extensions cannot be granted.
   An extension that requires one of these permissions cannot be installed, and is disabled if it is already installed.
   Optional permissions matching the list that were previously granted are revoked, and calls to `permissions.request()` for a blocked permission are rejected.
   Host permissions (such as `<all_urls>` or match patterns) and internal permissions are ignored.
 - `allowed_permissions`: (Firefox 153) An array of [API permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) that are exempted from `blocked_permissions` within the same configuration.
   A per-extension `allowed_permissions` carves out exceptions to that extension's own `blocked_permissions`.
-  Setting `allowed_permissions` in the default (`"*"`) configuration has no effect.
+  Setting `allowed_permissions` in the default extension settings has no effect.
+
+### Default extension settings (`*`)
+
+Default extension settings are set using the `*` wildcard and apply to every extension that doesn't have its own entry.
+If an extension has its own entry, Firefox ignores `*` settings for that extension (see [Default extension settings and overriding](#default-extension-settings-and-overriding)).
+The following exceptions apply to every extension, even if it has its own entry:
+
+- `install_sources` (can only be set in `*`)
+- `restricted_domains` (can only be set in `*`)
+- `temporarily_allow_weak_signatures`, unless the extension's own entry also sets it
+- `runtime_blocked_hosts` and `runtime_allowed_hosts`, unless the extension's own entry sets either one.
+  If it does, the extension's own host lists replace the `*` lists entirely.
+
+These fields are also supported in `*`, and work as described in [Extensions by ID](#extensions-by-id) above:
+
+- `installation_mode`: May be only `allowed` or `blocked` as described above. The `force_installed` and `normal_installed` values aren't supported as they don't make sense to apply as defaults without an extension ID.
+- `blocked_install_message`
+- `runtime_blocked_hosts` and `runtime_allowed_hosts`
+- `temporarily_allow_weak_signatures`
+- `blocked_permissions`
+
+These values can only be used in `*`:
+
+- `install_sources`: A list of sources from which installing extensions is allowed using URL match patterns.
+  This is unnecessary if you are only allowing the installation of certain extensions by ID.
+  Each item in this list is an extension-style match pattern.
+  Users will be allowed to install items from any URL that matches an item in this list. Both the location of the `.xpi` file and the page where the download is started (the referrer) must be allowed by these patterns.
+- `allowed_types`: Restricts which types of add-ons can be installed. Note that this setting only applies when installation is otherwise allowed.
+  If `"installation_mode": "blocked"` is set (either for a specific ID or for `*`), extensions remain blocked regardless of `allowed_types`.
+  Accepts one or more of:
+  - `"dictionary"`
+  - `"extension"`
+  - `"locale"`
+  - `"sitepermission"`
+  - `"theme"`
+- `restricted_domains`: A list of domains on which [content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts) can't be run.
 
 ## Examples
 
-<PolicyExample policy="ExtensionSettings" />
+### Installing an extension by ID
 
-## Interaction notes
+The following configuration installs uBlock Origin from addons.mozilla.org when Firefox starts.
+Users can't remove or disable it, and Firefox keeps it updated automatically.
+The `install_url` is optional for extensions hosted on `addons.mozilla.org`, so it's omitted here:
 
-- `"installation_mode": "blocked"` takes precedence over all other settings.
-  When set, extensions cannot be installed regardless of `allowed_types` or `install_sources`.
-  A configuration for a specific extension ID still overrides the `"*"` configuration.
-- To block all extensions except a few, use `"installation_mode": "blocked"` for `"*"` and explicitly override it for allowed or force-installed extensions.
-- To block extensions but allow themes, dictionaries, and language packs, leave the default (`"*"` ) `installation_mode` as `"allowed"` and set `"allowed_types": ["theme", "dictionary", "locale"]`. (`"locale"` corresponds to Firefox language packs.)
-  **Do not set `"installation_mode": "blocked"` in this scenario**, because `allowed_types` is ignored when installation is blocked.
+```json
+{
+  "policies": {
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed"
+      }
+    }
+  }
+}
+```
+
+### Default extension settings and overriding
+
+A per-extension entry replaces the default `blocked_permissions` setting.
+For example, with this configuration the `geolocation` permission is blocked for all extensions except uBlock Origin, because uBlock Origin has its own entry without `blocked_permissions`:
+
+```json
+{
+  "policies": {
+    "ExtensionSettings": {
+      "*": {
+        "blocked_permissions": ["geolocation"]
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed"
+      }
+    }
+  }
+}
+```
+
+To retain those restrictions for uBlock Origin, repeat `blocked_permissions` in its entry:
+
+```json
+{
+  "policies": {
+    "ExtensionSettings": {
+      "*": {
+        "blocked_permissions": ["geolocation"]
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed",
+        "blocked_permissions": ["geolocation"]
+      }
+    }
+  }
+}
+```
+
+### Allowing only specific extensions
+
+To block all extensions except a few, set `"installation_mode": "blocked"` in `*` and give each permitted extension its own entry.
+With this configuration, uBlock Origin is force-installed, users can choose to install Bitwarden, and every other extension is blocked:
+
+```json
+{
+  "policies": {
+    "ExtensionSettings": {
+      "*": {
+        "installation_mode": "blocked",
+        "blocked_install_message": "Contact the IT help desk to request an extension."
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed"
+      },
+      "{446900e4-71c2-419f-a6a7-df9c091e268b}": {
+        "installation_mode": "allowed"
+      }
+    }
+  }
+}
+```
+
+Only per-ID entries override a blocked `*`.
+A per-extension entry without `installation_mode` defaults to `allowed`, overriding a blocked `*` configuration.
+Adding `install_sources` or `allowed_types` to `*` doesn't allow any other extensions to be installed.
+
+### Allowing only themes, dictionaries, and language packs
+
+To block extensions but let users install themes, dictionaries, and language packs (`locale`), set `allowed_types` in `*`:
+
+```json
+{
+  "policies": {
+    "ExtensionSettings": {
+      "*": {
+        "allowed_types": ["theme", "dictionary", "locale"]
+      }
+    }
+  }
+}
+```
+
+**Don't set `"installation_mode": "blocked"` in `*` here.** Firefox ignores `allowed_types` when installation is blocked, so nothing could be installed.
+When Firefox starts, it uninstalls any installed add-ons whose type isn't in `allowed_types`.
+Extensions whose own entry sets `installation_mode` to `allowed`, `force_installed`, or `normal_installed` aren't restricted by `allowed_types`, so you can still force-install specific extensions alongside this configuration.
 
 ## Windows (GPO)
 
@@ -83,21 +223,14 @@ The configuration for each extension is a dictionary that can contain the fields
 ```json
 {
   "*": {
-    "blocked_install_message": "Custom error message.",
-    "install_sources": ["https://yourwebsite.com/*"],
-    "installation_mode": "blocked"
+    "installation_mode": "blocked",
+    "blocked_install_message": "Contact the IT help desk to request an extension."
   },
   "uBlock0@raymondhill.net": {
-    "installation_mode": "force_installed",
-    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+    "installation_mode": "force_installed"
   },
-  "adguardadblocker@adguard.com": {
-    "installation_mode": "force_installed",
-    "install_url": "https://addons.mozilla.org/firefox/downloads/latest/adguardadblocker@adguard.com/latest.xpi"
-  },
-  "https-everywhere@eff.org": {
-    "installation_mode": "allowed",
-    "updates_disabled": false
+  "{446900e4-71c2-419f-a6a7-df9c091e268b}": {
+    "installation_mode": "allowed"
   }
 }
 ```
@@ -110,35 +243,20 @@ The configuration for each extension is a dictionary that can contain the fields
   <dict>
     <key>*</key>
     <dict>
-      <key>blocked_install_message</key>
-      <string>Custom error message.</string>
-      <key>install_sources</key>
-      <array>
-        <string>"https://yourwebsite.com/*"</string>
-      </array>
       <key>installation_mode</key>
       <string>blocked</string>
+      <key>blocked_install_message</key>
+      <string>Contact the IT help desk to request an extension.</string>
     </dict>
     <key>uBlock0@raymondhill.net</key>
     <dict>
       <key>installation_mode</key>
       <string>force_installed</string>
-      <key>install_url</key>
-      <string>https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi</string>
     </dict>
-    <key>adguardadblocker@adguard.com</key>
-    <dict>
-      <key>installation_mode</key>
-      <string>force_installed</string>
-      <key>install_url</key>
-      <string>https://addons.mozilla.org/firefox/downloads/latest/adguardadblocker@adguard.com/latest.xpi</string>
-    </dict>
-    <key>https-everywhere@eff.org</key>
+    <key>{446900e4-71c2-419f-a6a7-df9c091e268b}</key>
     <dict>
       <key>installation_mode</key>
       <string>allowed</string>
-      <key>updates_disabled</key>
-      <true/> | <false/>
     </dict>
   </dict>
 </dict>
