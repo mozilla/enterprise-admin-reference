@@ -44,7 +44,7 @@
         "firefox_enterprise": { "version_added": "149" }
       },
       "x-restart-required": true,
-      "description": "Allow WebExtensions to configure policy.",
+      "description": "Provide configuration to WebExtensions, which they can read through the `storage.managed` API.",
       "examples": [
         {
           "Extensions": {
