@@ -41,15 +41,17 @@ For each extension, you can provide the following fields:
     This is the default behavior.
   - `blocked`: Blocks installation of the extension and removes it from the device if already installed.
   - `force_installed`: Automatically installs the extension and prevents it from being removed by the user.
-    Requires an `install_url` unless the extension is hosted on addons.mozilla.org (see `install_url`).
+    Requires an `install_url` unless the extension is hosted on addons.mozilla.org or has an `update_url` (see `install_url`).
     As of Firefox 152, force-installed extensions are updated automatically unless `updates_disabled` is explicitly set to `true`.
     See [Installing an extension by ID](#installing-an-extension-by-id).
   - `normal_installed`: Automatically installs the extension but allows it to be disabled by the user.
-    Requires an `install_url` unless the extension is hosted on addons.mozilla.org (see `install_url`).
+    Requires an `install_url` unless the extension is hosted on addons.mozilla.org or has an `update_url` (see `install_url`).
 - `install_url`: The URL from which Firefox can download a `force_installed` or `normal_installed` extension.
   Firefox automatically installs, updates, or re-installs the extension when the XPI file's internal [`version`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version) changes.
   - As of Firefox 153, `install_url` is optional.
     When it is omitted for a `force_installed` or `normal_installed` extension, Firefox installs the latest version from [addons.mozilla.org](https://addons.mozilla.org) using the extension's ID.
+  - As of Firefox 158, when `install_url` is omitted and `update_url` is set, Firefox installs the extension from the update manifest at `update_url` instead.
+    Use this for self-hosted extensions that already publish an update manifest.
   - If installing from `addons.mozilla.org`, use `https://addons.mozilla.org/firefox/downloads/latest/ADDON_ID/latest.xpi`, substituting `ADDON_ID` with the extension's ID (for example, `uBlock0@raymondhill.net` or `{446900e4-71c2-419f-a6a7-df9c091e268b}`).
     Using the AMO ID ensures Firefox always downloads the latest version that matches the user's platform.
   - If installing from the local file system, use a [`file:///` URL](https://en.wikipedia.org/wiki/File_URI_scheme). Firefox will update or re-install the extension whenever the XPI file at that path changes. You can also manually trigger an update by changing the file name or path.
@@ -66,6 +68,7 @@ For each extension, you can provide the following fields:
 - `temporarily_allow_weak_signatures`: (Firefox 127) Boolean that indicates whether to allow installing extensions signed using deprecated signature algorithms.
 - `private_browsing`: (Firefox 136, Firefox ESR 128.8) Boolean that indicates whether this extension should be enabled in private browsing.
 - `update_url`: (Firefox 151) A string specifying the URL Firefox will use to check for extension updates. This overrides the `update_url` specified in the extension manifest or is used if no `update_url` is specified in the manifest.
+  As of Firefox 158, if `install_url` is omitted, Firefox also uses this URL to install the extension.
 - `blocked_permissions`: (Firefox 153) An array of [API permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) that extensions cannot be granted.
   An extension that requires one of these permissions cannot be installed, and is disabled if it is already installed.
   Optional permissions matching the list that were previously granted are revoked, and calls to `permissions.request()` for a blocked permission are rejected.
