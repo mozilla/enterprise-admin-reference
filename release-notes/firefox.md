@@ -3,6 +3,51 @@
 
 # Firefox release notes for enterprise admins
 
+## 158 - 2026-10-13
+
+_Upcoming, not yet released._
+
+These changes apply to Firefox 158 and Firefox ESR 153.5.0 unless explicitly stated.
+Firefox ESR 153 is the current ESR.
+
+### New in Firefox 158
+
+- [`ClearOnShutdown`](/reference/policies/clearonshutdown/): Clear browsing data when the browser closes.
+  Supersedes `SanitizeOnShutdown`, which is ignored when both are set. ([bug 2040977](https://bugzil.la/2040977))
+
+### New in Firefox ESR 153.5.0
+
+- [`ClearOnShutdown`](/reference/policies/clearonshutdown/): Clear browsing data when the browser closes.
+  Supersedes `SanitizeOnShutdown`, which is ignored when both are set. ([bug 2040977](https://bugzil.la/2040977))
+
+### Changes
+
+- [`SitePolicies`](/reference/policies/sitepolicies/): Added a `Container` option to load matching sites in a dedicated container, with `ephemeral` to clear its data after the last tab closes and at shutdown.
+  Firefox 158 only. ([bug 2045801](https://bugzil.la/2045801), [bug 2045798](https://bugzil.la/2045798))
+- [`ContentAnalysis`](/reference/policies/contentanalysis/): Added `InterceptionPoints.ClipboardCopy` to send data copied from web content to the DLP agent. Off by default, so existing deployments are unaffected.
+  Firefox 158 only. ([bug 2067877](https://bugzil.la/2067877))
+- [`ExtensionSettings`](/reference/policies/extensionsettings/): An entry with `update_url` but no `install_url` now installs the add-on from the update manifest, so self-hosted add-ons no longer need an `install_url`.
+  Firefox 158 only. ([bug 2061439](https://bugzil.la/2061439))
+- [`DisableDeveloperTools`](/reference/policies/disabledevelopertools/): Now also disables Marionette and the Remote Agent, so browser automation tools that rely on them no longer work while the policy is set.
+- [`Extensions`](/reference/policies/extensions/): Add-ons listed in `Uninstall` are now removed at every startup, not only when the policy changes.
+- The illustration on network error pages can be hidden by setting `browser.netError.illustration.enabled` to `false`.
+  Administrators may want to set this using the [`Preferences`](/reference/policies/preferences/) policy.
+  Firefox 158 only. ([bug 2061552](https://bugzil.la/2061552))
+
+### Fixes
+
+- Policy URL fields rejected some valid URLs, such as internationalized domain names, non-ASCII paths and URLs containing spaces. ([bug 2067819](https://bugzil.la/2067819))
+- [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/): When the policy turned clearing on, Manage Exceptions and the category settings in Firefox Settings were disabled too, even for categories the policy left unset.
+  Firefox 158 only. ([bug 2065295](https://bugzil.la/2065295))
+- [`DisableFirefoxAccounts`](/reference/policies/disablefirefoxaccounts/): The toolbar could report a signed-in account when accounts were disabled.
+  Firefox 158 only. ([bug 2066062](https://bugzil.la/2066062))
+- The Labs quick action in the address bar was still shown when Firefox Labs was turned off with [`UserMessaging`](/reference/policies/usermessaging/), and Manage AI was still shown when `browser.preferences.aiControls` was `false`.
+  Firefox 158 only. ([bug 2070378](https://bugzil.la/2070378))
+- [`WebsiteFilter`](/reference/policies/websitefilter/): Blocking is now applied more consistently to redirected and embedded content.
+- Site lists in policies such as [`Permissions`](/reference/policies/permissions/) and [`PopupBlocking`](/reference/policies/popupblocking/) now also apply when a host is written with a trailing dot, such as `example.com.`.
+- A policy set to `null` could stop other policies from applying.
+- The `toolkit.policies.perUserDir` preference is now only adhered to in automated testing.
+
 ## 157 - 2026-09-29
 
 These changes apply to Firefox 157 and Firefox ESR 153.4.0 unless explicitly stated.
