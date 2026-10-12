@@ -48,6 +48,10 @@ Firefox ESR 153 is the current ESR.
 - A policy set to `null` could stop other policies from applying.
 - The `toolkit.policies.perUserDir` preference is now only adhered to in automated testing.
 
+### Notes
+
+- Firefox ESR 140 is no longer supported. Firefox ESR 140.17.0, released with Firefox 157, was its final build.
+
 ## 157 - 2026-09-29
 
 These changes apply to Firefox 157 and Firefox ESR 153.4.0 unless explicitly stated.
