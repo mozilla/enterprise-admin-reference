@@ -3,7 +3,7 @@ title: Firefox administrator reference
 description: Firefox enterprise administration guide with policies, deployment documentation, configuration instructions, and ESR support.
 template: splash
 hero:
-  tagline: Documentation for administrators who deploy Firefox or Firefox ESR as an enterprise browser, including technical references for policies, deployments, support information, and more.
+  tagline: Documentation for administrators who deploy Firefox, Firefox ESR or Firefox Enterprise, including technical references for policies, deployments, support information, and more.
   image:
     file: ../../assets/fx-logo.svg
   actions:
@@ -13,7 +13,26 @@ hero:
 lastUpdated: false
 ---
 
-import { Card, CardGrid } from "@astrojs/starlight/components";
+import { CardGrid, LinkCard } from "@astrojs/starlight/components";
+
+## Firefox Enterprise
+
+Firefox Enterprise is a dedicated version of Firefox for organizations with strict security, governance and compliance requirements, now available in early access.
+It is managed from an Admin Console that runs on your own infrastructure, adding centralized policy management, company sign-in, data protection, update control and security event visibility.
+Firefox and Firefox ESR can continue to be managed with the same tools and policies.
+
+<CardGrid>
+  <LinkCard
+    title="About Firefox Enterprise"
+    href="/guides/firefox-enterprise/"
+    description="Learn what Firefox Enterprise adds to Firefox and how to get access."
+  />
+  <LinkCard
+    title="Firefox Enterprise 158 release notes"
+    href="https://www.firefox.com/en-US/firefox/enterprise/158.0/releasenotes/"
+    description="See what's included in the first Firefox Enterprise release."
+  />
+</CardGrid>
 
 ## Configuring Firefox as an enterprise browser
 
@@ -21,14 +40,14 @@ Organizations have fine-grained administrative and orchestration control of the 
 Firefox can be deployed and managed with common enterprise configuration systems such as Microsoft Intune, JAMF, MDM, and other software-distribution platforms.
 
 <CardGrid>
-  <Card title="Firefox policy reference">
-    Policies allow administrators control how managed versions of Firefox behave. See the full list
-    of available settings in the [Policy
-    reference](/reference/policies/).
-  </Card>
-  <Card title="Documentation">
-    Learn how to apply policies, manage downloads, and use deployment software to configure and
-    maintain Firefox in your organization. Explore step-by-step instructions in the [Getting
-    started](/guides/getting-started/) guide.
-  </Card>
+  <LinkCard
+    title="Firefox policy reference"
+    href="/reference/policies/"
+    description="See the full list of policies that control how managed versions of Firefox behave."
+  />
+  <LinkCard
+    title="Getting started"
+    href="/guides/getting-started/"
+    description="Learn how to deploy Firefox, apply policies and maintain it in your organization."
+  />
 </CardGrid>

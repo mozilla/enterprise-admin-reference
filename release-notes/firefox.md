@@ -8,6 +8,12 @@
 These changes apply to Firefox 158 and Firefox ESR 153.5.0 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
 
+> **Firefox Enterprise is now available in early access.**
+> Firefox Enterprise is a dedicated version of Firefox for organizations with strict security, governance and compliance requirements, managed from an Admin Console that runs on your own infrastructure.
+> The first version, Firefox Enterprise 158, ships alongside Firefox 158 on the Nightly and Release channels, and an ESR channel is expected in future.
+> See the [Firefox Enterprise 158 release notes](https://www.firefox.com/en-US/firefox/enterprise/158.0/releasenotes/) for details.
+> Firefox and Firefox ESR deployments are unaffected: existing policies and tools continue to work, and release schedules are unchanged.
+
 ### New in Firefox 158
 
 - [`RelaunchRequired`](/reference/policies/relaunchrequired/): Require Firefox to be relaunched within a given period and notify the user of the upcoming relaunch.

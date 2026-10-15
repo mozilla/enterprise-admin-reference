@@ -39,6 +39,7 @@ jnlp
 knowledgebase
 ksecdd
 localfilelinks
+Lockdown
 managedfirefox
 mathml
 menupanel
@@ -61,6 +62,7 @@ security.certerror
 security.osclientcerts
 securitydevices
 Shiki
+SIEM
 signon
 signon.autologin
 Signons

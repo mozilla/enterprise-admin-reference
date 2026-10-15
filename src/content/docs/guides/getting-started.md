@@ -6,21 +6,22 @@ sidebar:
   order: 1
 ---
 
-This document describes the basic steps needed to deploy Firefox as an enterprise browser, from choosing a release channel, download, deployment, and configuration.
+This document describes the basic steps needed to deploy Firefox as an enterprise browser, from choosing a version of Firefox, download, deployment, and configuration.
 It provides a high-level overview for getting Firefox installed and managed across your organization, whether you're using Windows, macOS, or Linux.
 
-## Choose a release channel
+## Choose a version of Firefox
 
-Consider which release channel is appropriate before downloading and deploying Firefox.
-There are two recommended release channels for enterprise purposes:
+Consider which version of Firefox suits your organization before downloading and deploying it:
 
-- **Firefox:** The stable release channel has major version released every two weeks, which include the latest features and fixes.
+- **Firefox:** The stable release channel has a major version released every two weeks, which includes the latest features and fixes.
 - **Firefox Extended Support Release (ESR):** The ESR channel is a long-term support channel branched once per year from the latest major Firefox release.
   Security and stability updates are backported as minor and patch versions during the release's lifecycle.
+- **Firefox Enterprise:** A dedicated version of Firefox for organizations with strict security, governance and compliance requirements, managed from an Admin Console that runs on your own infrastructure.
 
-If you prefer faster feature delivery, use the **Firefox** release.
-If your organization needs stability over features, **Firefox ESR** is recommended.
-See [Firefox and Firefox Extended Support Release (ESR)](/guides/firefox-channels/) for more information.
+If you prefer faster feature delivery, use **Firefox**.
+If your organization needs stability over features, use **Firefox ESR**.
+If you need centralized management, company sign-in or data protection controls, evaluate [Firefox Enterprise](/guides/firefox-enterprise/).
+See [Choosing a Firefox release channel](/guides/firefox-channels/) for more information.
 
 ## Download Firefox for your platform
 
@@ -38,7 +39,7 @@ See [Configuring a Flatpak package](/guides/policies-configuration/#configuring-
 
 ## Deploy Firefox
 
-Once you've selected a release channel and downloaded the appropriate installers, the next step is to deploy Firefox across your devices.
+Once you've selected a version of Firefox and downloaded the appropriate installers, the next step is to deploy Firefox across your devices.
 Firefox is deployed using a variety of common enterprise management tools:
 
 | Method                      | Description                                                                                                    |
