@@ -18,6 +18,87 @@ For GPO and Intune, the extension developer should provide an ADMX file.
 
 <PolicyExample policy="3rdparty" />
 
+### Configuring uBlock Origin
+
+This configuration installs uBlock Origin and sets the filter lists it uses.
+The keys, such as `toOverwrite.filterLists`, are defined by uBlock Origin.
+Here, they set it to use the `ublock-filters` and `ublock-privacy` lists:
+
+```json
+{
+  "policies": {
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed"
+      }
+    },
+    "3rdparty": {
+      "Extensions": {
+        "uBlock0@raymondhill.net": {
+          "toOverwrite": {
+            "filterLists": ["ublock-filters", "ublock-privacy"]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Granting data collection consent
+
+An extension can let you grant consent on behalf of your users by reading a value from `storage.managed`.
+If the value isn't set, the extension shows the consent experience as usual.
+See [Best practices for collecting user data consents](https://extensionworkshop.com/documentation/develop/best-practices-for-collecting-user-data-consents/).
+
+The extension chooses the key name and the values it accepts, so check its documentation.
+In this example, `some-extension@example.com` reads a `dataCollectionConsent` key:
+
+```json
+{
+  "policies": {
+    "ExtensionSettings": {
+      "some-extension@example.com": {
+        "installation_mode": "force_installed"
+      }
+    },
+    "3rdparty": {
+      "Extensions": {
+        "some-extension@example.com": {
+          "dataCollectionConsent": true
+        }
+      }
+    }
+  }
+}
+```
+
+> [!TIP]
+> On Windows, a `REG_DWORD` registry value reaches the extension as `1` or `0`, not `true` or `false`.
+> If the extension expects a boolean, set its configuration as a JSON string in a `REG_SZ` or `REG_MULTI_SZ` value named after the extension ID under `Software\Policies\Mozilla\Firefox\3rdparty\Extensions`, such as `{"dataCollectionConsent": true}`.
+
+### Reading the values in an extension
+
+An extension must have the `storage` permission to read the managed storage (see the [Requesting the right permissions](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/) guide):
+
+```json
+{
+  "permissions": ["storage"]
+}
+```
+
+The extension reads its configuration with [`browser.storage.managed.get()`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/get), which rejects when no configuration is set for the extension.
+For example, `some-extension@example.com` reads the `dataCollectionConsent` key set in [Granting data collection consent](#granting-data-collection-consent) like this:
+
+```js
+const { dataCollectionConsent } = await browser.storage.managed
+  .get("dataCollectionConsent")
+  .catch(() => ({}));
+if (dataCollectionConsent !== true) {
+  // Show the disclosure and consent experience.
+}
+```
+
 ## macOS
 
 ```xml
@@ -28,21 +109,24 @@ For GPO and Intune, the extension developer should provide an ADMX file.
     <dict>
       <key>uBlock0@raymondhill.net</key>
       <dict>
-        <key>adminSettings</key>
+        <key>toOverwrite</key>
         <dict>
-          <key>selectedFilterLists</key>
+          <key>filterLists</key>
           <array>
-            <string>ublock-privacy</string>
-            <string>ublock-badware</string>
             <string>ublock-filters</string>
-            <string>user-filters</string>
+            <string>ublock-privacy</string>
           </array>
         </dict>
       </dict>
+      <key>some-extension@example.com</key>
+      <string>{"dataCollectionConsent": true}</string>
     </dict>
   </dict>
 </dict>
 ```
+
+Firefox converts plist numbers to integers before passing them to the extension, so `<true/>` arrives as `1`, `<false/>` as `0`, and a `<real>` loses its fractional part.
+If the extension expects a boolean or a decimal number, set its configuration as a JSON string, as `some-extension@example.com` does above.
 
 ## Compatibility
 
@@ -50,3 +134,11 @@ For GPO and Intune, the extension developer should provide an ADMX file.
 
 **CCK2 Equivalent:** N/A\
 **Preferences Affected:** N/A
+
+## See also
+
+- [`ExtensionSettings`](/reference/policies/extensionsettings/) to install extensions and manage their permissions.
+- [Managed storage manifests](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#managed_storage_manifests) on MDN, another way to provide `storage.managed` data.
+  If this policy has an entry for an extension, Firefox ignores any manifest for it.
+  Users can override a system-wide manifest with a per-user one, but they can't override this policy.
+- [Deploying uBlock Origin: configuration](https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin:-configuration) for the settings uBlock Origin accepts.
