@@ -5,7 +5,7 @@ category: "Security"
 ---
 
 Provide configuration to WebExtensions, which they can read through the [`storage.managed`](https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage/managed) API.
-For more information, see [Adding policy support to your extension](https://extensionworkshop.com/documentation/enterprise/enterprise-development/#how-to-add-policy).
+If you want an extension to support enterprise policy, point its developer to [Adding policy support to your extension](https://extensionworkshop.com/documentation/enterprise/enterprise-development/#how-to-add-policy).
 For GPO and Intune, the extension developer should provide an ADMX file.
 
 ## Values
@@ -13,6 +13,13 @@ For GPO and Intune, the extension developer should provide an ADMX file.
 - `Extensions`: An object keyed by extension ID.
   The value for each ID is the configuration passed to that extension.
   Firefox does not define those keys and values, the extension does, so check the extension's documentation for what it accepts.
+
+> [!TIP]
+> Firefox doesn't convert Windows registry or macOS plist values to the types an extension expects.
+> A `REG_DWORD` or a plist `<true/>` or `<false/>` arrives as `1` or `0`, and a plist `<real>` loses its fractional part.
+> If the extension expects booleans or decimal numbers, set its configuration as a JSON string, such as `{"enabled": true}`.
+> On Windows, use a `REG_SZ` or `REG_MULTI_SZ` value named after the extension ID under `Software\Policies\Mozilla\Firefox\3rdparty\Extensions`.
+> On macOS, use a `<string>` under the extension ID key.
 
 ## Examples
 
@@ -45,60 +52,6 @@ Here, they set it to use the `ublock-filters` and `ublock-privacy` lists:
 }
 ```
 
-### Granting data collection consent
-
-An extension can let you grant consent on behalf of your users by reading a value from `storage.managed`.
-If the value isn't set, the extension shows the consent experience as usual.
-See [Best practices for collecting user data consents](https://extensionworkshop.com/documentation/develop/best-practices-for-collecting-user-data-consents/).
-
-The extension chooses the key name and the values it accepts, so check its documentation.
-In this example, `some-extension@example.com` reads a `dataCollectionConsent` key:
-
-```json
-{
-  "policies": {
-    "ExtensionSettings": {
-      "some-extension@example.com": {
-        "installation_mode": "force_installed"
-      }
-    },
-    "3rdparty": {
-      "Extensions": {
-        "some-extension@example.com": {
-          "dataCollectionConsent": true
-        }
-      }
-    }
-  }
-}
-```
-
-> [!TIP]
-> On Windows, a `REG_DWORD` registry value reaches the extension as `1` or `0`, not `true` or `false`.
-> If the extension expects a boolean, set its configuration as a JSON string in a `REG_SZ` or `REG_MULTI_SZ` value named after the extension ID under `Software\Policies\Mozilla\Firefox\3rdparty\Extensions`, such as `{"dataCollectionConsent": true}`.
-
-### Reading the values in an extension
-
-An extension must have the `storage` permission to read the managed storage (see the [Requesting the right permissions](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/) guide):
-
-```json
-{
-  "permissions": ["storage"]
-}
-```
-
-The extension reads its configuration with [`browser.storage.managed.get()`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/get), which rejects when no configuration is set for the extension.
-For example, `some-extension@example.com` reads the `dataCollectionConsent` key set in [Granting data collection consent](#granting-data-collection-consent) like this:
-
-```js
-const { dataCollectionConsent } = await browser.storage.managed
-  .get("dataCollectionConsent")
-  .catch(() => ({}));
-if (dataCollectionConsent !== true) {
-  // Show the disclosure and consent experience.
-}
-```
-
 ## macOS
 
 ```xml
@@ -118,15 +71,10 @@ if (dataCollectionConsent !== true) {
           </array>
         </dict>
       </dict>
-      <key>some-extension@example.com</key>
-      <string>{"dataCollectionConsent": true}</string>
     </dict>
   </dict>
 </dict>
 ```
-
-Firefox converts plist numbers to integers before passing them to the extension, so `<true/>` arrives as `1`, `<false/>` as `0`, and a `<real>` loses its fractional part.
-If the extension expects a boolean or a decimal number, set its configuration as a JSON string, as `some-extension@example.com` does above.
 
 ## Compatibility
 
