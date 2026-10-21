@@ -27,9 +27,9 @@ For GPO and Intune, the extension developer should provide an ADMX file.
 
 ### Configuring uBlock Origin
 
-This configuration installs uBlock Origin and sets the filter lists it uses.
-The keys, such as `toOverwrite.filterLists`, are defined by uBlock Origin.
-Here, they set it to use the `ublock-filters` and `ublock-privacy` lists:
+This configuration force installs uBlock Origin and sets the filter lists it uses.
+The extension's keys (`toOverwrite.filterLists`) are [defined by uBlock Origin](https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin:-configuration#tooverwrite).
+Here, the `filterLists` are set to use the `ublock-filters` and `ublock-privacy` lists:
 
 ```json
 {

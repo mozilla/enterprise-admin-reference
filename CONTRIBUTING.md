@@ -9,20 +9,6 @@ Images can be added to `src/assets/` and embedded in Markdown with a relative li
 
 Static assets, like favicons, can be placed in the `public/` directory.
 
-### Code examples
-
-Reusable code snippets can be placed in `src/examples/`.
-To reuse a snippet like `src/examples/policy.json`, include it in markdown like so:
-
-```mdx
-import { Code } from "@astrojs/starlight/components";
-import policy from "/src/examples/policy.json?raw";
-
-See my example:
-
-<Code code={policy} lang="json" title="policies.json" />
-```
-
 ### Policy examples
 
 Each reference page shows a copy & paste-ready JSON example under `## Examples`.
@@ -41,8 +27,44 @@ title: "Some page"
 <PolicyExample policy="MyCoolPolicy" />
 ```
 
-`PolicyExample` is auto-imported into every page under `src/content/docs/reference/policies`, so there's no need for an `import` line.
-IDEs may flag `PolicyExample` as undefined in the `.mdx` files, but this is safe to ignore.
+Some pages benefit from additional examples when they deal with complex behavior or cover multiple configuration methods.
+To add curated examples that don't overlap with schema examples, include a new section under the `PolicyExample` component.
+It should have the following format:
+
+- **Section heading:** An H3 section heading describing the goal or outcome of the example.
+- **A description:** A short paragraph describing the example, with new concepts or mechanisms explained in plain language and links to secondary docs or resources where appropriate.
+- **A code snippet:** A JSON code block illustrating the concept or feature in a minimal way.
+
+This is a good policy reference example:
+
+````mdx
+### Configuring uBlock Origin
+
+This configuration force installs uBlock Origin and sets the filter lists it uses.
+The extension's keys (`toOverwrite.filterLists`) are [defined by uBlock Origin](https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin:-configuration#tooverwrite).
+Here, the `filterLists` are set to use the `ublock-filters` and `ublock-privacy` lists:
+
+```json
+{
+  "policies": {
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed"
+      }
+    },
+    "3rdparty": {
+      "Extensions": {
+        "uBlock0@raymondhill.net": {
+          "toOverwrite": {
+            "filterLists": ["ublock-filters", "ublock-privacy"]
+          }
+        }
+      }
+    }
+  }
+}
+```
+````
 
 ### Policy schema
 
