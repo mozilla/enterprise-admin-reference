@@ -41,7 +41,7 @@ This is a good policy reference example:
 ### Configuring uBlock Origin
 
 This configuration force installs uBlock Origin and sets the filter lists it uses.
-The extension's keys (`toOverwrite.filterLists`) are [defined by uBlock Origin](https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin:-configuration#tooverwrite).
+The keys, such as `toOverwrite.filterLists` are the extension's keys [defined by uBlock Origin](https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin:-configuration#tooverwrite).
 Here, the `filterLists` are set to use the `ublock-filters` and `ublock-privacy` lists:
 
 ```json
