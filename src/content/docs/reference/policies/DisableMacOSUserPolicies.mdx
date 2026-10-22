@@ -1,0 +1,54 @@
+---
+title: "DisableMacOSUserPolicies"
+description: "Ignore policies from the user's preferences and from user-scope configuration profiles on macOS."
+category: "Miscellaneous"
+---
+
+Ignore policies from the user's preferences and from user-scope configuration profiles on macOS.
+On macOS, Firefox reads policies from sources that an administrator can write to, and from sources that a standard user can write to:
+
+- **Administrator sources:** `policies.json`, device-scope configuration profiles, `/Library/Preferences/org.mozilla.firefox.plist`, and policies from the Firefox Enterprise console.
+- **User sources:** `~/Library/Preferences/org.mozilla.firefox.plist` and user-scope configuration profiles, which a standard user can install.
+
+Policies from user sources always rank below policies from administrator sources, so a user cannot override a policy that an administrator has set.
+A user can still set policies that no administrator source sets.
+Setting `DisableMacOSUserPolicies` to `true` stops Firefox from reading policies from user sources entirely.
+
+## Values
+
+- Set to `true` to ignore every policy from user sources.
+- Set to `false` to allow policies from user sources. This is the same as not setting the policy.
+
+## Examples
+
+```json
+{
+  "policies": {
+    "DisableMacOSUserPolicies": true
+  }
+}
+```
+
+## macOS
+
+Set this key in a device-scope configuration profile or in `/Library/Preferences/org.mozilla.firefox.plist`:
+
+```xml
+<dict>
+  <key>DisableMacOSUserPolicies</key>
+  <true/> | <false/>
+</dict>
+```
+
+## Compatibility
+
+<PolicyCompat policy="DisableMacOSUserPolicies" />
+
+**CCK2 Equivalent:** N/A\
+**Preferences Affected:** N/A
+
+## See also
+
+- [`EnterprisePoliciesEnabled`](/reference/policies/enterprisepoliciesenabled/)
+- [`DisableLocalPolicies`](/reference/policies/disablelocalpolicies/)
+- [Configuring policies](/guides/policies-configuration/)
