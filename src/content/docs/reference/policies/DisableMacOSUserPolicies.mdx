@@ -12,7 +12,7 @@ On macOS, Firefox reads policies from sources that an administrator can write to
 
 Policies from user sources always rank below policies from administrator sources, so a user cannot override a policy that an administrator has set.
 A user can still set policies that no administrator source sets.
-Setting `DisableMacOSUserPolicies` to `true` stops Firefox from reading policies from user sources.
+Setting `DisableMacOSUserPolicies` to `true` stops Firefox from reading policies from user sources entirely.
 
 ## Values
 
@@ -38,12 +38,6 @@ Set this key in a device-scope configuration profile or in `/Library/Preferences
   <key>DisableMacOSUserPolicies</key>
   <true/> | <false/>
 </dict>
-```
-
-To set it from the command line:
-
-```bash
-sudo defaults write /Library/Preferences/org.mozilla.firefox DisableMacOSUserPolicies -bool TRUE
 ```
 
 ## Compatibility
