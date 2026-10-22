@@ -1748,6 +1748,22 @@
       "description": "Disable all local policy sources (policies.json, Windows GPO and macOS plist).",
       "examples": [true, false]
     },
+    "DisableMacOSUserPolicies": {
+      "type": "boolean",
+      "x-category": "Miscellaneous",
+      "x-compatibility": {
+        "firefox": { "version_added": "160" },
+        "firefox_esr": { "version_added": false },
+        "firefox_enterprise": { "version_added": "160" },
+        "notes": [
+          "Only affects macOS. Ignored when set in the user's preferences or in a user-scope configuration profile."
+        ]
+      },
+      "x-restart-required": true,
+      "description": "Ignore policies from the user's preferences and from user-scope configuration profiles on macOS.",
+      "examples": [true]
+    },
+
     "DisableMasterPasswordCreation": {
       "type": "boolean",
       "x-category": "Password manager",
@@ -4634,7 +4650,7 @@
         "firefox_enterprise": { "version_added": "149" }
       },
       "x-restart-required": true,
-      "description": "Configure display settings for the Firefox Terms of Use and Privacy Notice on startup.",
+      "description": "Configure display settings for the Firefox Terms of Use and Privacy Notice on startup. Reminder: Under the Enterprise Agreement and Data Processing Addendum, your organization is responsible for sharing any legally required notices with your Users and for their use of the Services.",
       "examples": [true]
     },
 
