@@ -79,6 +79,29 @@ Writing `*.example.com` has the same effect:
 }
 ```
 
+### Isolating a site in a temporary container
+
+This configuration loads `example.com` in a container named `company`, keeping its cookies and storage separate from other sites.
+Setting `ephemeral` to `true` clears the container's data once its last tab closes, and at shutdown:
+
+```json
+{
+  "policies": {
+    "SitePolicies": [
+      {
+        "Match": ["example.com"],
+        "Policies": {
+          "Container": {
+            "id": "company",
+            "ephemeral": true
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
