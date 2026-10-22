@@ -24,6 +24,7 @@ Each entry in `Match` and `Exceptions` covers the domain and all of its subdomai
 - The `*.` prefix is optional, so `example.com` and `*.example.com` both match `example.com`, `www.example.com`, and every other subdomain.
 - An entry that is more specific than a site widens to the whole site, so `mail.example.com` also matches `www.example.com` and `example.com`.
   Firefox logs a warning in the Browser Console when it does this.
+- Firefox uses the [Public Suffix List](https://publicsuffix.org/) to work out the registrable domain, so multi-part suffixes such as `.co.uk` are handled correctly.
 
 Currently the supported site policies are:
 
