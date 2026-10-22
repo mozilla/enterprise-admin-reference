@@ -18,8 +18,12 @@ Each rule can contain:
 - `Exceptions`: a list of sites which when matched bypasses this set of rules.
 - `Policies`: an object defining the site policies.
 
-> [!NOTE]
-> A "site" refers to a registerable domain, so `*.example.com` is a valid site but `*.com` is not.
+A "site" refers to a registrable domain, such as `example.com`, or `*` for all sites.
+Each entry in `Match` and `Exceptions` covers the domain and all of its subdomains:
+
+- The `*.` prefix is optional, so `example.com` and `*.example.com` both match `example.com`, `www.example.com`, and every other subdomain.
+- An entry that is more specific than a site widens to the whole site, so `mail.example.com` also matches `www.example.com` and `example.com`.
+  Firefox logs a warning in the Browser Console when it does this.
 
 Currently the supported site policies are:
 
@@ -54,47 +58,25 @@ Currently the supported site policies are:
 
 <PolicyExample policy="SitePolicies" />
 
-A wildcard `*` can be used to refer to all sites.
-For example this setting would disable the JIT for only `*.example.com`:
+### Disabling the JIT on a site and its subdomains
+
+This configuration disables the JIT engine on `example.com`.
+The entry has no `*.` prefix, but it still covers subdomains such as `www.example.com` and `mail.example.com`.
+Writing `*.example.com` has the same effect:
 
 ```json
-[
-  {
-    "Match": ["*.example.com"],
-    "Policies": {
-      "DisableJit": true
-    }
-  }
-]
-```
-
-While this setting would disable the JIT on every site except `*.example.org`:
-
-```json
-[
-  {
-    "Exceptions": ["*.example.org"],
-    "Policies": {
-      "DisableJit": true
-    }
-  }
-]
-```
-
-This setting loads `*.example.com` in a container whose data is cleared once its last tab closes:
-
-```json
-[
-  {
-    "Match": ["*.example.com"],
-    "Policies": {
-      "Container": {
-        "id": "company",
-        "ephemeral": true
+{
+  "policies": {
+    "SitePolicies": [
+      {
+        "Match": ["example.com"],
+        "Policies": {
+          "DisableJit": true
+        }
       }
-    }
+    ]
   }
-]
+}
 ```
 
 ## Windows (GPO)
