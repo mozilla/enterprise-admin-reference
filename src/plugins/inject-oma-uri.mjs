@@ -13,6 +13,7 @@ const NO_ADMX_EQUIVALENT = new Set([
   "ContentAnalysisTelemetry", // Configured through the admin console, not local policy.
   "DataLossPrevention", // Configured through the admin console, not local policy.
   "DisableLocalPolicies", // Registry bootstrap, outside the ADMX namespace.
+  "DisableMacOSUserPolicies", // macOS only.
   "DisablePocket", // Deprecated, deliberately omitted upstream.
   "EnterprisePoliciesEnabled", // Registry bootstrap, outside the ADMX namespace.
   "MicrosoftEntraSSO", // macOS only.
