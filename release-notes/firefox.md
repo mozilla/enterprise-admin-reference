@@ -3,6 +3,21 @@
 
 # Firefox release notes for enterprise admins
 
+## 159 - 2026-10-27
+
+_Upcoming, not yet released._
+
+These changes apply to Firefox 159, Firefox ESR 153.6.0 and Firefox Enterprise 159 unless explicitly stated.
+Firefox ESR 153 is the current ESR.
+
+### Changes
+
+- [`SignOut`](/reference/policies/signout/): Added `Crash.Action` to define whether users are fully signed out or if the browser is locked when the browser crashes.
+  Firefox Enterprise only. ([bug 2068950](https://bugzil.la/2068950))
+- [`SkipTermsOfUse`](/reference/policies/skiptermsofuse/): Now supported in Firefox Enterprise. ([bug 2074742](https://bugzil.la/2074742))
+- [`Cookies`](/reference/policies/cookies/): Cookies for hosts listed in `Block` are now cleared every time the policy is applied, not only when the list changes.
+  Firefox Enterprise only.
+
 ## 158 - 2026-10-13
 
 These changes apply to Firefox 158 and Firefox ESR 153.5.0 unless explicitly stated.
@@ -39,7 +54,6 @@ Firefox ESR 153 is the current ESR.
 ### Fixes
 
 - Policy URL fields rejected some valid URLs, such as internationalized domain names, non-ASCII paths and URLs containing spaces. ([bug 2067819](https://bugzil.la/2067819))
-  Firefox 158 only. ([bug 2065295](https://bugzil.la/2065295))
 - [`DisableFirefoxAccounts`](/reference/policies/disablefirefoxaccounts/): The toolbar could report a signed-in account when accounts were disabled.
   Firefox 158 only. ([bug 2066062](https://bugzil.la/2066062))
 - The Labs quick action in the address bar was still shown when Firefox Labs was turned off with [`UserMessaging`](/reference/policies/usermessaging/), and Manage AI was still shown when `browser.preferences.aiControls` was `false`.
