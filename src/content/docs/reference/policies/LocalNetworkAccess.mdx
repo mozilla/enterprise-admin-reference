@@ -36,10 +36,10 @@ Local network access protections require permission before a website can make re
 
 <PolicyExample policy="LocalNetworkAccess" />
 
-### Allowing a trusted site
+### Allowing requests from a trusted site
 
 This example adds `intranet.example.com` to the `SkipDomains` list and sets `Locked` to `true`, so users can't change the exception list.
-When a web app on `intranet.example.com` requests access to a local network resource, Firefox sees the site in the `SkipDomains` list and allows the request without a permission prompt:
+When a web app on `intranet.example.com` requests access to a local network resource, Firefox matches the requesting site against `SkipDomains` and allows the request without a local network access permission prompt:
 
 ```json
 {
@@ -52,7 +52,7 @@ When a web app on `intranet.example.com` requests access to a local network reso
 }
 ```
 
-### Allowing trusted devices
+### Allowing requests to trusted devices
 
 This example adds `*.devices.internal` to the `SkipDomains` list, which lets any website reach devices such as `printer.devices.internal` without permission prompts.
 The `*.` prefix matches `devices.internal` and all of its subdomains:
@@ -72,11 +72,13 @@ The `*.` prefix matches `devices.internal` and all of its subdomains:
 When providing a list of exceptions for trusted domains, the `SkipDomains` array can contain both **source domains** (the website making the request) and **target domains** (the local resource being accessed).
 Firefox checks every entry against both the requesting website and the local resource, so an entry can match either way.
 
-When a **source domain** is listed, that website is allowed to access local network resources without restrictions.
-For example, if `"trusted-app.example.com"` is listed, that website can freely make requests to any local network resources.
+When a website requests access to a local network resource, Firefox checks the **source domain** against `SkipDomains`.
+If it matches, Firefox skips the local network access permission prompt.
+For example, listing `"trusted-app.example.com"` skips these prompts for requests from that website to any local network resource.
 
-When a **target domain** is listed, any website can access that specific local network resource without restrictions.
-For example, if `"printer.local"` is listed, all websites can access the printer device.
+Additionally, Firefox checks the **target domain** against `SkipDomains`.
+If it matches, Firefox skips the prompt regardless of which website made the request.
+For example, listing `"printer.local"` skips these prompts for requests from any website to that device.
 
 Suffix wildcard patterns are supported using the `*.` prefix to match all subdomains:
 
