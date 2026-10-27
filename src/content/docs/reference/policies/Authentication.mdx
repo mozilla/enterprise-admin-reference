@@ -25,6 +25,52 @@ See [Integrated authentication](https://htmlpreview.github.io/?https://github.co
 
 <PolicyExample policy="Authentication" />
 
+### Enabling Kerberos single sign-on for an internal domain
+
+This example lets Firefox use Kerberos (SPNEGO) single sign-on with HTTPS sites on `example.com` and its subdomains, such as `https://intranet.example.com`.
+The `https://` prefix keeps Firefox from offering Kerberos authentication over plain HTTP.
+Because `Locked` defaults to `true`, users can't change the list:
+
+```json
+{
+  "policies": {
+    "Authentication": {
+      "SPNEGO": ["https://example.com"]
+    }
+  }
+}
+```
+
+### Allowing Kerberos delegation to a single web app
+
+Some web apps, such as a reporting server that queries a database as the signed-in user, need Firefox to forward the user's Kerberos credentials.
+This example allows SPNEGO for all of `example.com` but only permits delegation to `reports.example.com`.
+Firefox only delegates to a site that SPNEGO already allows, so every site in `Delegated` must also match an entry in `SPNEGO`:
+
+```json
+{
+  "policies": {
+    "Authentication": {
+      "SPNEGO": ["https://example.com"],
+      "Delegated": ["https://reports.example.com"]
+    }
+  }
+}
+```
+
+## Description
+
+Firefox matches each entry in `SPNEGO`, `Delegated` and `NTLM` against the end of the site's host name, on a dot boundary.
+For example, `example.com` matches `example.com` and `intranet.example.com`, but not `myexample.com`.
+An entry can also include a scheme, a port, or both:
+
+- `https://example.com` matches only HTTPS connections to `example.com` and its subdomains.
+- `example.com:8443` matches only connections on port 8443.
+- `https://` on its own matches every HTTPS site.
+
+`AllowProxies` controls authentication to proxies separately.
+Firefox doesn't check proxies against these lists, and allows both SPNEGO and NTLM for proxies by default.
+
 ## Windows (GPO)
 
 ```
@@ -95,3 +141,5 @@ Software\Policies\Mozilla\Firefox\Authentication\PrivateBrowsing = 0x1 | 0x0
 ## See also
 
 - [Integrated authentication](https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html)
+- [NTLM user authentication](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/ntlm-user-authentication) on learn.microsoft.com
+- [SPNEGO](https://en.wikipedia.org/wiki/SPNEGO) on wikipedia.org

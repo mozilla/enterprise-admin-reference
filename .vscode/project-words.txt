@@ -49,6 +49,7 @@ msword
 network.dns.echconfig
 newtab
 nonsponsored
+NTLM
 OCSP
 pbmode
 preventinstalls
