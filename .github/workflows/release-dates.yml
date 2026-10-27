@@ -63,7 +63,7 @@ jobs:
           else
             gh pr create \
               --title "docs(release-notes): mark shipped releases as released" \
-              --body "Automated daily check against [product-details](https://product-details.mozilla.org/1.0/firefox_history_major_releases.json).
+              --body "Automated daily check for upcoming releases whose heading date has arrived.
 
           _Opened by the [\`.github/workflows/release-dates.yml\`](https://github.com/${{ github.repository }}/tree/main/.github/workflows/release-dates.yml) workflow._" \
               --label "automated pr"

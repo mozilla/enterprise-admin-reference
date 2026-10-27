@@ -153,7 +153,8 @@ The following details matter for the generated pages:
 - Headings are the version number and release date: a `process` hook strips the date and prefixes `Firefox`, so `## 154 - 2026-08-18` is published as `Firefox 154` at `/release-notes/version/firefox-154/`.
   Any other heading text changes the page URL, so the build fails on a malformed date.
 - For a release that has not shipped, use the expected date and add `_Upcoming, not yet released._` after one blank line under the heading.
-  The daily `release-dates.yml` workflow opens a PR that removes it and corrects the date once the release ships.
+  The daily `release-dates.yml` workflow opens a PR that removes it once the heading date arrives.
+  If a release slips, update the heading date before then.
 - Link each policy to its reference page, at the lowercased policy name.
   Builds fail on broken internal links, so a policy with no reference page yet can be left unlinked.
 - Anything that deviates from co-shipping needs a scope note, like `Firefox 154 only.`, `Does not apply to the ESR.` at the end of the sentence before the bug link.
