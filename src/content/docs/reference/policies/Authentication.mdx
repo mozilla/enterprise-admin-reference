@@ -28,7 +28,7 @@ See [Integrated authentication](https://htmlpreview.github.io/?https://github.co
 ### Enabling Kerberos single sign-on for an internal domain
 
 This example lets Firefox use Kerberos (SPNEGO) single sign-on with HTTPS sites on `example.com` and its subdomains, such as `https://intranet.example.com`.
-The `https://` prefix keeps Firefox from offering Kerberos authentication over plain HTTP.
+The `https://` prefix restricts this entry to HTTPS connections, so Firefox doesn't send Kerberos credentials to these sites over plain HTTP.
 Because `Locked` defaults to `true`, users can't change the list:
 
 ```json
@@ -41,11 +41,12 @@ Because `Locked` defaults to `true`, users can't change the list:
 }
 ```
 
-### Allowing Kerberos delegation to a single web app
+### Allowing Kerberos delegation to a reporting server
 
 Some web apps, such as a reporting server that queries a database as the signed-in user, need Firefox to forward the user's Kerberos credentials.
-This example allows SPNEGO for all of `example.com` but only permits delegation to `reports.example.com`.
-Firefox only delegates to a site that SPNEGO already allows, so every site in `Delegated` must also match an entry in `SPNEGO`:
+This example allows SPNEGO for HTTPS sites on `example.com` and its subdomains, but only permits delegation to HTTPS sites on `reports.example.com` and its subdomains.
+Delegation also requires SPNEGO authentication to be allowed for the site.
+Here, the `SPNEGO` entry covers `reports.example.com`:
 
 ```json
 {
