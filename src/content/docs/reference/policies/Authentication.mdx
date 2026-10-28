@@ -28,7 +28,7 @@ See [Integrated authentication](https://htmlpreview.github.io/?https://github.co
 ### Enabling Kerberos single sign-on for an internal domain
 
 This example lets Firefox use Kerberos (SPNEGO) single sign-on with HTTPS sites on `example.com` and its subdomains, such as `https://intranet.example.com`.
-The `https://` prefix restricts this entry to HTTPS connections, so Firefox doesn't send Kerberos credentials to these sites over plain HTTP.
+The `https://` prefix restricts this entry to HTTPS connections, so it doesn't allow Kerberos authentication over plain HTTP.
 Because `Locked` defaults to `true`, users can't change the list:
 
 ```json
@@ -66,7 +66,7 @@ For example, `example.com` matches `example.com` and `intranet.example.com`, but
 An entry can also include a scheme, a port, or both:
 
 - `https://example.com` matches only HTTPS connections to `example.com` and its subdomains.
-- `example.com:8443` matches only connections on port 8443.
+- `example.com:8443` matches only connections to `example.com` and its subdomains on port 8443.
 - `https://` on its own matches every HTTPS site.
 
 `AllowProxies` controls authentication to proxies separately.
