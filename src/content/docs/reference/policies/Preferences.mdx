@@ -119,6 +119,57 @@ See the examples below for more detail.
 
 <PolicyExample policy="Preferences" />
 
+### Keeping Safe Browsing turned on
+
+This example locks the Safe Browsing preferences to `true`, which keeps the **Block dangerous and deceptive content** and **Block dangerous downloads** checkboxes in Firefox Settings selected and prevents users from clearing them.
+It also sets the [`DisableSecurityBypass`](/reference/policies/disablesecuritybypass/) policy so users can't click through a Safe Browsing warning or keep a download that Safe Browsing has flagged:
+
+```json
+{
+  "policies": {
+    "DisableSecurityBypass": {
+      "SafeBrowsing": true
+    },
+    "Preferences": {
+      "browser.safebrowsing.phishing.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.safebrowsing.malware.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.safebrowsing.downloads.enabled": {
+        "Value": true,
+        "Status": "locked"
+      }
+    }
+  }
+}
+```
+
+### Showing internationalized domain names as Punycode
+
+This example locks `network.IDN_show_punycode` to `true`, so Firefox shows every domain name containing non-ASCII characters in Punycode.
+This makes it easier to spot lookalike domains used in [IDN homograph attacks](https://en.wikipedia.org/wiki/IDN_homograph_attack).
+An example lookalike is the domain `аррӏе.com`, which uses Cyrillic letters to look like `apple.com`.
+With `network.IDN_show_punycode` set to `true`, `аррӏе.com` shows as `xn--80ak6aa92e.com`:
+
+```json
+{
+  "policies": {
+    "Preferences": {
+      "network.IDN_show_punycode": {
+        "Value": true,
+        "Status": "locked"
+      }
+    }
+  }
+}
+```
+
+This also makes legitimate internationalized domain names harder to read, so consider whether your users regularly visit sites with non-ASCII domain names.
+
 ## Windows (GPO)
 
 Software\Policies\Mozilla\Firefox\Preferences (REG_MULTI_SZ) =
