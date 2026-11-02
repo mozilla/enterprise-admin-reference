@@ -33,7 +33,7 @@ Install and manage certificates in Firefox.
   We do not support using `%USERPROFILE%` or other environment variables on Windows.
 
   If you are specifying the path in the policies.json file on Windows, you need to escape your backslashes (`\\`) which means that for UNC paths, you need to escape both (`\\\\`).
-  If you use group policy, you only need one backslash.
+  If you use Group Policy, you only need one backslash.
 
   Certificates are installed using the trust string `CT,CT,`.
 
@@ -42,6 +42,41 @@ Install and manage certificates in Firefox.
 ## Examples
 
 <PolicyExample policy="Certificates" />
+
+### Trusting root certificates from the operating system
+
+On Windows and macOS, deploy your organization's root certificate to the operating system certificate store, for example with Group Policy or an MDM profile, and have Firefox trust it from there.
+Firefox loads these certificates into memory from the operating system each time it starts, rather than adding them to the profile.
+When you replace or remove a certificate in the operating system store, the change takes effect the next time Firefox starts.
+
+Certificates added with `Install` stay in each user's profile even after you remove them from the policy.
+This example also locks the setting, so users can't turn it off:
+
+```json
+{
+  "policies": {
+    "Certificates": {
+      "ImportEnterpriseRoots": true
+    }
+  }
+}
+```
+
+### Installing a root certificate on Linux
+
+This example uses a full path to a directory that only administrators can write to.
+If you give only a filename, Firefox checks each user's `~/.mozilla/certificates` directory before the system certificate directory, so a user's file with the same name would be installed instead.
+Firefox installs the certificate into each user's profile, and doesn't remove it if you later take it out of the policy:
+
+```json
+{
+  "policies": {
+    "Certificates": {
+      "Install": ["/usr/lib/mozilla/certificates/example-root-ca.pem"]
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 
