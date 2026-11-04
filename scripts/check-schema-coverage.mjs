@@ -34,11 +34,11 @@ if (missingDocs.length === 0 && missingSchema.length === 0) process.exit(0);
 const lines = ["## Docs coverage", ""];
 
 if (missingDocs.length > 0) {
-  lines.push(`**In the schema, no docs page** (add one under \`${DOCS_PATH}/\`):`, "");
+  lines.push(`**Policies without docs** (add a page under \`${DOCS_PATH}/\`):`, "");
   lines.push(...missingDocs.map((p) => `- \`${p}\``), "");
 }
 if (missingSchema.length > 0) {
-  lines.push("**Docs page, not in the schema** (removed or renamed upstream?):", "");
+  lines.push("**Docs without a schema entry** (removed or renamed upstream?):", "");
   lines.push(...missingSchema.map((p) => `- \`${p}\``), "");
 }
 
