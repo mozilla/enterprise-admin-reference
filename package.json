@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "schema:sync": "node scripts/sync-schema.mjs",
+    "schema:coverage": "node scripts/check-schema-coverage.mjs",
     "release-dates:sync": "node scripts/sync-release-dates.mjs"
   },
   "dependencies": {
