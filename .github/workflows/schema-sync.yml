@@ -76,3 +76,13 @@ jobs:
               --label schema-sync \
               --label "automated pr"
           fi
+
+          # Keep a coverage comment on the PR, updated on each sync
+          npm run --silent schema:coverage > coverage.md
+          if [ ! -s coverage.md ]; then
+            printf '## Docs coverage\n\nPolicy docs and schema entries match.\n' > coverage.md
+          fi
+          gh pr comment automation/schema-sync \
+            --body-file coverage.md \
+            --edit-last \
+            --create-if-none
