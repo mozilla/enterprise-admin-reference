@@ -6,14 +6,10 @@ category: "Network security"
 
 Disable specific cryptographic ciphers.
 
-> [!NOTE]
-> This policy was updated in Firefox 78 to allow _enabling_ ciphers as well.
-> Setting a value to `true` disables the cipher, setting a value to `false` enables the cipher.
-> Previously, setting any value (`true` or `false`) disabled the cipher.
-
 ## Values
 
-The following cryptographic cyphers are configurable as `CIPHER_NAME`:
+Set a cipher to `true` to disable it, or to `false` to enable it.
+The following cryptographic ciphers are configurable as `CIPHER_NAME`:
 
 - `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`
 - `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`
@@ -24,21 +20,54 @@ The following cryptographic cyphers are configurable as `CIPHER_NAME`:
 - `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
 - `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
 - `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
-- `TLS_RSA_WITH_AES_128_GCM_SHA256` (Firefox 78)
-- `TLS_RSA_WITH_AES_256_GCM_SHA384` (Firefox 78)
-- `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256` (Firefox 97 and Firefox ESR 91.6)
-- `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256` (Firefox 97 and Firefox ESR 91.6)
-- `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` (Firefox 97 and Firefox ESR 91.6)
-- `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384` (Firefox 97 and Firefox ESR 91.6)
-- `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` (Firefox 97 and Firefox ESR 91.6)
-- `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` (Firefox 97 and Firefox ESR 91.6)
-- `TLS_CHACHA20_POLY1305_SHA256` (Firefox 138, Firefox ESR 128.10)
-- `TLS_AES_128_GCM_SHA256` (Firefox 138, Firefox ESR 128.10)
-- `TLS_AES_256_GCM_SHA384` (Firefox 138, Firefox ESR 128.10)
+- `TLS_RSA_WITH_AES_128_GCM_SHA256`
+- `TLS_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+- `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`
+- `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`
+- `TLS_CHACHA20_POLY1305_SHA256`
+- `TLS_AES_128_GCM_SHA256`
+- `TLS_AES_256_GCM_SHA384`
 
 ## Examples
 
 <PolicyExample policy="DisabledCiphers" />
+
+### Disabling a weak cipher
+
+This example disables the [3DES](https://en.wikipedia.org/wiki/Triple_DES) cipher, which is enabled by default:
+
+```json
+{
+  "policies": {
+    "DisabledCiphers": {
+      "TLS_RSA_WITH_3DES_EDE_CBC_SHA": true
+    }
+  }
+}
+```
+
+### Disabling ciphers without forward secrecy
+
+This example disables the `TLS_RSA_WITH_*` ciphers, as they don't provide [forward secrecy](https://en.wikipedia.org/wiki/Forward_secrecy).
+Verify that your servers support TLS 1.3 or a cipher that starts with `TLS_ECDHE_`, otherwise Firefox won't be able to connect to a server that only supports disabled ciphers.
+
+```json
+{
+  "policies": {
+    "DisabledCiphers": {
+      "TLS_RSA_WITH_3DES_EDE_CBC_SHA": true,
+      "TLS_RSA_WITH_AES_128_CBC_SHA": true,
+      "TLS_RSA_WITH_AES_256_CBC_SHA": true,
+      "TLS_RSA_WITH_AES_128_GCM_SHA256": true,
+      "TLS_RSA_WITH_AES_256_GCM_SHA384": true
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 

@@ -23,22 +23,12 @@ Set the state of the menubar.
 Software\Policies\Mozilla\Firefox\DisplayMenuBar = "always", "never", "default-on", "default-off"
 ```
 
-## macOS
-
-```xml
-<dict>
-  <key>DisplayMenuBar</key>
-  <string>always | never | default-on | default-off</string>
-</dict>
-```
-
 ## Compatibility
 
 <PolicyCompat policy="DisplayMenuBar" />
 
-Windows and some Linux only.
-
-The string values below were added in Firefox 72, Firefox ESR 68.5. Earlier versions accept only `true` or `false`.
+String values were added in Firefox 72, Firefox ESR 68.5.
+Earlier versions accept only `true` or `false`.
 
 **CCK2 Equivalent:** `displayMenuBar`\
 **Preferences Affected:** N/A
