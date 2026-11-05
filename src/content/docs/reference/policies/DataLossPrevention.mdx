@@ -35,6 +35,58 @@ Only one DLP service can be active:
 
 <PolicyExample policy="DataLossPrevention" />
 
+### Blocking uploads to cloud storage
+
+This rule blocks file uploads to specific cloud storage services, with a message for where to put files instead.
+`FileUpload` covers files chosen in the file picker and files dragged onto the page.
+A rule only takes effect when `Enabled` is `true`:
+
+```json
+{
+  "policies": {
+    "DataLossPrevention": {
+      "Rules": [
+        {
+          "Name": "block-cloud-uploads",
+          "Enabled": true,
+          "Actions": ["FileUpload"],
+          "Domains": ["drive.google.com", "www.dropbox.com", "wetransfer.com"],
+          "Type": "block",
+          "Message": "Upload work files to the company file share instead."
+        }
+      ]
+    }
+  }
+}
+```
+
+### Blocking clipboard paste in AI chat applications
+
+This rule blocks pasting text into specific AI chat services, with a message pointing users to an approved tool.
+Unlike the warning in the first example, users can't choose to continue (`"Type": "block"`).
+Blocking also applies when a user pastes into one of these services as the AI chatbot in the Firefox sidebar:
+
+```json
+{
+  "policies": {
+    "DataLossPrevention": {
+      "Rules": [
+        {
+          "Name": "block-ai-paste",
+          "Enabled": true,
+          "Actions": ["TextPaste"],
+          "Domains": ["chatgpt.com", "claude.ai", "gemini.google.com", "copilot.microsoft.com"],
+          "Type": "block",
+          "Message": "Pasting into AI chat services isn't allowed. Use the company AI assistant instead."
+        }
+      ]
+    }
+  }
+}
+```
+
+To also block attaching files, you can add `FileUpload` to `Actions`.
+
 ## Compatibility
 
 <PolicyCompat policy="DataLossPrevention" />

@@ -58,6 +58,27 @@ Configure Firefox to use an agent for Data Loss Prevention (DLP) that is compati
 
 <PolicyExample policy="ContentAnalysis" />
 
+### Connecting to a DLP agent
+
+Take the pipe name and agent name from your DLP vendor's documentation.
+`ClientSignature` makes Firefox check that the agent's program is signed by your vendor before it sends the agent any data, so another program can't pose as the agent.
+The value must exactly match the organization name on the agent's code-signing certificate.
+
+If Firefox can't reach the agent, or the agent doesn't respond in time, the operation is denied, because `DefaultResult` and `TimeoutResult` both default to `0`:
+
+```json
+{
+  "policies": {
+    "ContentAnalysis": {
+      "Enabled": true,
+      "AgentName": "Example DLP",
+      "PipePathName": "example_dlp_agent",
+      "ClientSignature": "Example DLP Inc."
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```
