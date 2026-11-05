@@ -9,7 +9,6 @@ Disable specific cryptographic ciphers.
 ## Values
 
 Set a cipher to `true` to disable it, or to `false` to enable it.
-
 The following cryptographic ciphers are configurable as `CIPHER_NAME`:
 
 - `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`
@@ -36,6 +35,39 @@ The following cryptographic ciphers are configurable as `CIPHER_NAME`:
 ## Examples
 
 <PolicyExample policy="DisabledCiphers" />
+
+### Disabling a weak cipher
+
+This example disables the [3DES](https://en.wikipedia.org/wiki/Triple_DES) cipher, which is enabled by default:
+
+```json
+{
+  "policies": {
+    "DisabledCiphers": {
+      "TLS_RSA_WITH_3DES_EDE_CBC_SHA": true
+    }
+  }
+}
+```
+
+### Disabling ciphers without forward secrecy
+
+This example disables the `TLS_RSA_WITH_*` ciphers, as they don't provide [forward secrecy](https://en.wikipedia.org/wiki/Forward_secrecy).
+Verify that your servers support TLS 1.3 or a cipher that starts with `TLS_ECDHE_`, otherwise Firefox won't be able to connect to a server that only supports disabled ciphers.
+
+```json
+{
+  "policies": {
+    "DisabledCiphers": {
+      "TLS_RSA_WITH_3DES_EDE_CBC_SHA": true,
+      "TLS_RSA_WITH_AES_128_CBC_SHA": true,
+      "TLS_RSA_WITH_AES_256_CBC_SHA": true,
+      "TLS_RSA_WITH_AES_128_GCM_SHA256": true,
+      "TLS_RSA_WITH_AES_256_GCM_SHA384": true
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 

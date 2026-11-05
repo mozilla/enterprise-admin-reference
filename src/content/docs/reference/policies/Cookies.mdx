@@ -6,12 +6,20 @@ category: "Network security"
 
 Configure cookie preferences.
 
+This policy sets how Firefox handles cookies, and to allow or block cookies for specific sites.
+With `Locked`, users can't change these settings in Firefox.
+
+> [!NOTE]
+> The `Allow`, `AllowSession` and `Block` values take a list of [origins](https://developer.mozilla.org/en-US/docs/Glossary/Origin).
+> A domain such as `example.com` isn't a valid origin, you must include the `http://` or `https://` scheme.
+> Additionally, you shouldn't include a path: `https://example.com/login` isn't a valid origin.
+
 ## Values
 
-- `Allow` is a list of origins (not domains) where cookies are always allowed. You must include `http` or `https`.
+- `Allow` is a list of [origins](https://developer.mozilla.org/en-US/docs/Glossary/Origin) where cookies are always allowed.
   Using `Allow` to exempt sites from clearing on shutdown is deprecated. Firefox migrates origins to the new mechanism, but you should use [`SanitizeOnShutdown`](/reference/policies/sanitizeonshutdown/)'s `Exceptions` instead.
-- `AllowSession` is a list of origins (not domains) where cookies are only allowed for the current session. You must include `http` or `https`.
-- `Block` is a list of origins (not domains) where cookies are always blocked. You must include `http` or `https`.
+- `AllowSession` is a list of origins where cookies are only allowed for the current session.
+- `Block` is a list of origins where cookies are always blocked.
 - `Behavior` sets the default behavior for cookies based on the following values:
   - `accept`: Accept all cookies.
   - `reject-foreign`: Reject third party cookies.
