@@ -14,14 +14,49 @@ Each key named after a Firefox Home section is a Boolean that shows or hides tha
 
 - `Enabled`: A Boolean that shows or hides widgets as a whole.
   It follows `Locked` like the other keys.
-- `Blocked`: A list of widget ids to turn off individually.
+- `Blocked`: A list of widget IDs to turn off individually.
   Blocked widgets are always locked, whether or not `Locked` is set.
-  The ids are `clocks`, `crossword`, `focusTimer`, `lists`, `pictureOfTheDay`, `privacy`, `recentSearches`, `sportsWidget`, `stocks`, and `weather`.
-  An invalid widget id is ignored.
+  The IDs are `clocks`, `crossword`, `focusTimer`, `lists`, `pictureOfTheDay`, `privacy`, `recentSearches`, `sportsWidget`, `stocks`, and `weather`.
+  An invalid widget ID is ignored.
 
 ## Examples
 
 <PolicyExample policy="FirefoxHome" />
+
+### Removing sponsored content
+
+This example turns off sponsored shortcuts and sponsored stories, and sets `Locked` to `true` so users can't turn them back on.
+Setting and locking both keys also locks the "Support Firefox" toggle so that users don't see a control that has no effect.
+Sponsored content is disabled in Firefox Enterprise, so this is only relevant for Firefox and Firefox ESR:
+
+```json
+{
+  "policies": {
+    "FirefoxHome": {
+      "SponsoredTopSites": false,
+      "SponsoredStories": false,
+      "Locked": true
+    }
+  }
+}
+```
+
+### Turning off specific widgets
+
+This example turns off the sports, stocks and crossword widgets and leaves the other widgets for users to configure.
+Widgets listed in `Blocked` are always disabled and locked, so you don't need `Locked` here:
+
+```json
+{
+  "policies": {
+    "FirefoxHome": {
+      "Widgets": {
+        "Blocked": ["sportsWidget", "stocks", "crossword"]
+      }
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 
