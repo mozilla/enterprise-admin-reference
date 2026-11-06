@@ -25,11 +25,46 @@ The following members are configurable:
 - `NewTabOnRestore` controls the "Also open new tab" option under Settings, in the Startup section. When it is enabled, Firefox opens an extra tab whenever it restores your previous windows and tabs at startup. Firefox may turn this option on for your users on its own, so set `NewTabOnRestore` to `false` to keep it off, or `true` to always enable it.
 
 > [!NOTE]
-> Firefox may turn on "Also open new tab" for your users on its own. If you don't want your users to suddenly get an extra tab when their previous windows and tabs are restored, set `NewTabOnRestore` to `false`.
+> Firefox may turn on "Also open new tab" for your users.
+> If you don't want your users to get an extra tab when their previous windows and tabs are restored, set `NewTabOnRestore` to `false`.
 
 ## Examples
 
 <PolicyExample policy="Homepage" />
+
+### Setting a company SSO portal as the default homepage
+
+This example sets your company's single sign-on (SSO) portal as the default homepage and startup page, so that users can sign in and open your company's apps.
+Users can still change both settings, and existing user choices take precedence over these defaults.
+Setting `URL` also adds the Home button to the default toolbar:
+
+```json
+{
+  "policies": {
+    "Homepage": {
+      "URL": "https://sso.example.com/",
+      "StartPage": "homepage"
+    }
+  }
+}
+```
+
+### Enforcing a homepage on every start
+
+This example opens your company's SSO portal whenever Firefox starts and stops users from changing the homepage address.
+`Locked` locks only the homepage address, and `StartPage: "homepage-locked"` locks how Firefox starts, so both are necessary:
+
+```json
+{
+  "policies": {
+    "Homepage": {
+      "URL": "https://sso.example.com/",
+      "Locked": true,
+      "StartPage": "homepage-locked"
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 
