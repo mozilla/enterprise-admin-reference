@@ -1,9 +1,9 @@
 ---
 title: Configuring policies
-description: Apply Firefox enterprise policies using Group Policy, Intune, or a policies.json file on Windows, macOS, and Linux.
+description: Apply Firefox enterprise policies using Group Policy, Intune, a policies.json file on Windows and Linux, or a configuration profile on macOS.
 ---
 
-Firefox enterprise policies can be applied using Group Policy for Active Directory-joined devices, Intune for cloud-based device management, or by creating a file called `policies.json` and setting the contents of the JSON file.
+Firefox enterprise policies can be applied using Group Policy for Active Directory-joined devices, Intune for cloud-based device management, a configuration profile on macOS, or by creating a file called `policies.json` and setting the contents of the JSON file.
 
 import { Code } from "@astrojs/starlight/components";
 import policy from "/src/examples/policy.json?raw";
@@ -15,7 +15,7 @@ Firefox checks for the existence of a `policies.json` file and applies configura
 For each operating system, there is a defined location that Firefox will check:
 
 - **On Windows**, create a directory called `distribution` where the Firefox executable is located and place the `policies.json` file there.
-- **On macOS**, the `policies.json` file goes into `Firefox.app/Contents/Resources/distribution`.
+- **On macOS**, use a configuration profile instead, see [Configuring Firefox on macOS](#configuring-firefox-on-macos) below.
 - **On Linux**, the `policies.json` file goes into `firefox/distribution`, where `firefox` is the installation directory for firefox, which varies by distribution.
   Alternatively, you may specify system-wide policy by placing the file in `/etc/firefox/policies`.
   For Flatpak, see [Configuring a Flatpak package](#configuring-a-flatpak-package) below.
@@ -26,6 +26,30 @@ For each operating system, there is a defined location that Firefox will check:
 An example policy looks as follows:
 
 <Code code={policy} lang="json" title="policies.json" />
+
+### Configuring Firefox on macOS
+
+On macOS, deploy policies with a configuration profile for the `org.mozilla.firefox` preference domain, for example through Jamf or another MDM solution.
+Set [`EnterprisePoliciesEnabled`](/reference/policies/enterprisepoliciesenabled/) to `true` in the profile, alongside the policies, using the format shown in the macOS section of the policy's reference page.
+
+Install the profile with device scope.
+A standard user can install user-scope profiles, and policies from them rank below policies from device-scope profiles.
+To ignore them entirely, set [`DisableMacOSUserPolicies`](/reference/policies/disablemacosuserpolicies/).
+
+On a Mac without device management, set the same keys system-wide with `sudo defaults write`:
+
+```bash
+sudo defaults write /Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE
+sudo defaults write /Library/Preferences/org.mozilla.firefox DisableAppUpdate -bool TRUE
+```
+
+Nested values are easier to set by joining the keys with `__`, for example `Homepage__URL`.
+See the [macOS policy templates](https://github.com/mozilla/policy-templates/tree/master/mac) for more examples.
+
+> [!WARNING]
+> It's possible to add a `policies.json` file to `Firefox.app/Contents/Resources/distribution`, but changing the contents of the app bundle breaks its code signature.
+> macOS can then refuse to open Firefox with the message "“Firefox” is damaged and can’t be opened. You should move it to the Trash." or similar, for example when it checks the signature again after a macOS upgrade.
+> You should limit this to development use cases where signing doesn't matter.
 
 ### Configuring a Flatpak package
 
