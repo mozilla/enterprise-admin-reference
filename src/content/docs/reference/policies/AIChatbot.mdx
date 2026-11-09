@@ -72,9 +72,12 @@ This example adds a company-approved chatbot next to the built-in providers and 
 
 ### Using on-device models
 
-If you deploy a local model server to your devices, add it as a custom provider so prompts and page content stay on the device.
+If you run a chatbot on each device, add it as a custom provider so prompts and page content don't leave the device.
+Firefox opens the provider's `url` as a web page in the sidebar and passes prompts in the `q` query parameter, so the server must provide a chat web interface, not just an inference API.
+It must also process requests itself rather than forwarding them to an external service.
 Setting `localhost` to `true` in `BuiltIn` doesn't show the built-in localhost provider, so use `Add` with the address your server listens on.
-Ensure the server is installed and running on the configured port as it's possible that another program can listen there for user prompts.
+Make sure the server is installed and running on every device that receives this policy.
+Another application listening on that port could receive users' prompts.
 This example also removes the built-in cloud providers so users can't choose one instead:
 
 ```json
@@ -92,6 +95,7 @@ This example also removes the built-in cloud providers so users can't choose one
         "BuiltIn": {
           "Anthropic Claude": false,
           "ChatGPT": false,
+          "Copilot": false,
           "Google Gemini": false,
           "HuggingChat": false,
           "Mistral Vibe": false
