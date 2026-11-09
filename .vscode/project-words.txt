@@ -38,6 +38,7 @@ Jamf
 jnlp
 knowledgebase
 ksecdd
+librechat
 localfilelinks
 Lockdown
 managedfirefox
