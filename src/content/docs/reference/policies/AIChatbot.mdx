@@ -45,40 +45,12 @@ For more information, see [Access AI chatbots in Firefox](https://support.mozill
 
 <PolicyExample policy="AIChatbot" />
 
-### Setting your organization's chat provider as the default
+### Allowing only your organization's chatbot
 
-This example adds a company-approved chatbot next to the built-in providers and selects it for users who haven't already picked one.
-`Default` must match the provider's `name`, not its `id`:
-
-```json
-{
-  "policies": {
-    "AIChatbot": {
-      "Providers": {
-        "Add": [
-          {
-            "url": "https://ai.example.com",
-            "name": "Example AI",
-            "id": "example-ai",
-            "iconUrl": "https://ai.example.com/icon.png"
-          }
-        ],
-        "Default": "Example AI"
-      }
-    }
-  }
-}
-```
-
-### Using on-device models
-
-If you run a chatbot on each device, add it as a custom provider so prompts and page content don't leave the device.
-Firefox opens the provider's `url` as a web page in the sidebar and passes prompts in the `q` query parameter, so the server must provide a chat web interface, not just an inference API.
-It must also process requests itself rather than forwarding them to an external service.
-Setting `localhost` to `true` in `BuiltIn` doesn't show the built-in localhost provider, so use `Add` with the address your server listens on.
-Make sure the server is installed and running on every device that receives this policy.
-Another application listening on that port could receive users' prompts.
-This example also removes the built-in cloud providers so users can't choose one instead:
+This example adds a company-hosted [LibreChat](https://www.librechat.ai) instance, makes it the default, and removes every built-in provider so it's the only choice in the sidebar.
+Set `url` to the page that starts a new chat, `/c/new` for LibreChat.
+`Default` must match the provider's `name`, not its `id`.
+Users who had already picked one of the removed providers are switched to LibreChat:
 
 ```json
 {
@@ -87,9 +59,10 @@ This example also removes the built-in cloud providers so users can't choose one
       "Providers": {
         "Add": [
           {
-            "url": "http://localhost:8080",
-            "name": "Local model",
-            "id": "local-model"
+            "url": "https://chat.example.com/c/new",
+            "name": "LibreChat",
+            "id": "librechat",
+            "iconUrl": "https://chat.example.com/assets/favicon-32x32.png"
           }
         ],
         "BuiltIn": {
@@ -100,12 +73,15 @@ This example also removes the built-in cloud providers so users can't choose one
           "HuggingChat": false,
           "Mistral Vibe": false
         },
-        "Default": "Local model"
+        "Default": "LibreChat"
       }
     }
   }
 }
 ```
+
+To offer LibreChat in addition to the built-in providers, omit the `BuiltIn` values.
+To turn off the chatbot entirely instead, use the [`AIControls`](/reference/policies/aicontrols/) policy.
 
 ### Turning off prompt suggestions
 
