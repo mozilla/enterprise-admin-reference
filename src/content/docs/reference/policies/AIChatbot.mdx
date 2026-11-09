@@ -71,7 +71,8 @@ Users who had already picked one of the removed providers are switched to LibreC
           "Copilot": false,
           "Google Gemini": false,
           "HuggingChat": false,
-          "Mistral Vibe": false
+          "Mistral Vibe": false,
+          "localhost": false
         },
         "Default": "LibreChat"
       }
@@ -80,7 +81,7 @@ Users who had already picked one of the removed providers are switched to LibreC
 }
 ```
 
-To offer LibreChat in addition to the built-in providers, omit the `BuiltIn` values.
+To offer LibreChat in addition to the built-in providers, omit the `BuiltIn` object.
 To turn off the chatbot entirely instead, use the [`AIControls`](/reference/policies/aicontrols/) policy.
 
 ### Turning off prompt suggestions
