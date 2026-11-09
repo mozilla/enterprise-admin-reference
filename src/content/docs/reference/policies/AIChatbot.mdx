@@ -17,21 +17,24 @@ For more information, see [Access AI chatbots in Firefox](https://support.mozill
     - `id` (required): Unique identifier for the provider.
     - `iconUrl`: URL of the provider's icon.
     - `queryParam`: Query parameter name used to pass prompts to the provider.
-  - `BuiltIn`: An object to enable or disable individual built-in providers.
-    Set a provider key to `true` to enable it or `false` to disable it.
+      Firefox sends prompts to custom providers in the `q` query parameter, so set `queryParam` if your bot or provider expects something different.
+  - `BuiltIn`: An object to remove specific built-in providers.
+    Set a provider key to `false` to remove it.
+    To add a provider that isn't already listed, use the `Add` key.
     The following built-in providers are available:
     - `Anthropic Claude`
     - `ChatGPT`
     - `Copilot`
     - `Google Gemini`
     - `HuggingChat`
-    - `Le Chat Mistral`
+    - `Mistral Vibe`
     - `localhost`
-  - `Default`: The `name` of the provider to use as the default.
+    - `Le Chat Mistral` (_Deprecated_. Use `Mistral Vibe` instead.)
+  - `Default`: The `name` of the provider to use as the default, for example `Anthropic Claude` or the `name` of a provider in `Add`.
 - `Prompts`: Configures the AI chatbot prompt suggestions.
   - `Enabled`: Set to `true` to enable prompt suggestions or `false` to disable them.
-  - `BuiltIn`: An object to enable or disable individual built-in prompts.
-    Set a prompt key to `true` to enable it or `false` to disable it.
+  - `BuiltIn`: An object to remove individual built-in prompts.
+    Set a prompt key to `false` to remove it.
     The following built-in prompts are available:
     - `Summarize`
     - `Explain`
@@ -41,6 +44,81 @@ For more information, see [Access AI chatbots in Firefox](https://support.mozill
 ## Examples
 
 <PolicyExample policy="AIChatbot" />
+
+### Setting your organization's chat provider as the default
+
+This example adds a company-approved chatbot next to the built-in providers and selects it for users who haven't already picked one.
+`Default` must match the provider's `name`, not its `id`:
+
+```json
+{
+  "policies": {
+    "AIChatbot": {
+      "Providers": {
+        "Add": [
+          {
+            "url": "https://ai.example.com",
+            "name": "Example AI",
+            "id": "example-ai",
+            "iconUrl": "https://ai.example.com/icon.png"
+          }
+        ],
+        "Default": "Example AI"
+      }
+    }
+  }
+}
+```
+
+### Using on-device models
+
+If you deploy a local model server to your devices, add it as a custom provider so prompts and page content stay on the device.
+Setting `localhost` to `true` in `BuiltIn` doesn't show the built-in localhost provider, so use `Add` with the address your server listens on.
+Ensure the server is installed and running on the configured port as it's possible that another program can listen there for user prompts.
+This example also removes the built-in cloud providers so users can't choose one instead:
+
+```json
+{
+  "policies": {
+    "AIChatbot": {
+      "Providers": {
+        "Add": [
+          {
+            "url": "http://localhost:8080",
+            "name": "Local model",
+            "id": "local-model"
+          }
+        ],
+        "BuiltIn": {
+          "Anthropic Claude": false,
+          "ChatGPT": false,
+          "Google Gemini": false,
+          "HuggingChat": false,
+          "Mistral Vibe": false
+        },
+        "Default": "Local model"
+      }
+    }
+  }
+}
+```
+
+### Turning off prompt suggestions
+
+This example removes the built-in prompts, such as Summarize and Explain, and the prompt shortcut that appears when users select text on a page.
+Users can still type their own prompts in the chatbot in the sidebar:
+
+```json
+{
+  "policies": {
+    "AIChatbot": {
+      "Prompts": {
+        "Enabled": false
+      }
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 
@@ -55,9 +133,9 @@ Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\ChatGPT = 0x1 | 0x
 Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\Copilot = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\Google Gemini = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\HuggingChat = 0x1 | 0x0
-Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\Le Chat Mistral = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\Mistral Vibe = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\AIChatbot\Providers\BuiltIn\localhost = 0x1 | 0x0
-Software\Policies\Mozilla\Firefox\AIChatbot\Providers\Default = "example-ai"
+Software\Policies\Mozilla\Firefox\AIChatbot\Providers\Default = "Example AI"
 Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\Enabled = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\BuiltIn\Summarize = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\BuiltIn\Explain = 0x1 | 0x0
@@ -100,13 +178,13 @@ Software\Policies\Mozilla\Firefox\AIChatbot\Prompts\BuiltIn\Proofread = 0x1 | 0x
         <true/> | <false/>
         <key>HuggingChat</key>
         <true/> | <false/>
-        <key>Le Chat Mistral</key>
+        <key>Mistral Vibe</key>
         <true/> | <false/>
         <key>localhost</key>
         <true/> | <false/>
       </dict>
       <key>Default</key>
-      <string>example-ai</string>
+      <string>Example AI</string>
     </dict>
     <key>Prompts</key>
     <dict>
