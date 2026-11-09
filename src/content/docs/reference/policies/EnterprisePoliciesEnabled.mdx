@@ -41,6 +41,9 @@ Or, for the current user only, in `~/Library` without `sudo`:
 defaults write ~/Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE
 ```
 
+From Firefox 160, policies set in `~/Library/Preferences` rank below every administrator source, so they cannot override a policy an administrator has set, and they are ignored entirely when [`DisableMacOSUserPolicies`](/reference/policies/disablemacosuserpolicies/) is set.
+Setting `EnterprisePoliciesEnabled` there still turns on policy support for the plist.
+
 ## Compatibility
 
 **Compatibility:** Firefox 63, Firefox ESR 60.3 (macOS only)\

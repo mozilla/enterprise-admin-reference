@@ -3,6 +3,33 @@
 
 # Firefox release notes for enterprise admins
 
+## 160 - 2026-11-10
+
+_Upcoming, not yet released._
+
+These changes apply to Firefox 160 and Firefox Enterprise 160 unless explicitly stated.
+Firefox ESR 153.7.0 ships the same day with no policy changes.
+Firefox ESR 153 is the current ESR.
+
+### New in Firefox 160
+
+- [`DisableMacOSUserPolicies`](/reference/policies/disablemacosuserpolicies/): Ignore policies from the user's preferences and from user-scope configuration profiles on macOS.
+
+### Changes
+
+- [`Cookies`](/reference/policies/cookies/): Cookies for hosts listed in `Block` are now cleared every time the policy is applied, not only when the list changes.
+  Firefox Enterprise has this behavior since 159.
+- In Firefox Enterprise, Firefox studies, Nimbus rollouts, Normandy and Firefox Labs are now turned off and locked, as are extension and feature recommendations, More from Mozilla, onboarding and address bar interventions.
+  [`DisableFirefoxStudies`](/reference/policies/disablefirefoxstudies/) and the `FirefoxLabs`, `ExtensionRecommendations`, `FeatureRecommendations`, `MoreFromMozilla`, `SkipOnboarding` and `UrlbarInterventions` options of [`UserMessaging`](/reference/policies/usermessaging/) are no longer needed.
+  Firefox Enterprise only. ([bug 2073149](https://bugzil.la/2073149), [bug 2082020](https://bugzil.la/2082020))
+- Telemetry upload (`datareporting.healthreport.uploadEnabled`) is now locked on, because Firefox Enterprise security events are sent through it, so users can no longer turn it off in `about:config` or `user.js`.
+  [`DisableTelemetry`](/reference/policies/disabletelemetry/) remains unsupported in Firefox Enterprise.
+  Firefox Enterprise only. ([bug 2046816](https://bugzil.la/2046816))
+
+### Fixes
+
+- [`SitePolicies`](/reference/policies/sitepolicies/): `Match` and `Exceptions` did not apply to sites visited with a trailing dot in the hostname, such as `example.com.`.
+
 ## 159 - 2026-10-27
 
 These changes apply to Firefox 159, Firefox ESR 153.6.0 and Firefox Enterprise 159 unless explicitly stated.
@@ -15,6 +42,11 @@ Firefox ESR 153 is the current ESR.
 - [`SkipTermsOfUse`](/reference/policies/skiptermsofuse/): Now supported in Firefox Enterprise. ([bug 2074742](https://bugzil.la/2074742))
 - [`Cookies`](/reference/policies/cookies/): Cookies for hosts listed in `Block` are now cleared every time the policy is applied, not only when the list changes.
   Firefox Enterprise only.
+
+### Fixes
+
+- [`PictureInPicture`](/reference/policies/pictureinpicture/): Setting `Enabled` to `false` only removed the toggle on videos, so Picture-in-Picture was still available from the context menu.
+  It now turns Picture-in-Picture off entirely. ([bug 2080056](https://bugzil.la/2080056))
 
 ## 158 - 2026-10-13
 
