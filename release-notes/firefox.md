@@ -5,8 +5,6 @@
 
 ## 160 - 2026-11-10
 
-_Upcoming, not yet released._
-
 These changes apply to Firefox 160 and Firefox Enterprise 160 unless explicitly stated.
 Firefox ESR 153.7.0 ships the same day with no policy changes.
 Firefox ESR 153 is the current ESR.
