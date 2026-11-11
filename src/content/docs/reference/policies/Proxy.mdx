@@ -10,7 +10,7 @@ These settings correspond to the connection settings in Firefox preferences.
 Unless you lock this policy, changes the user already has in place will take effect.
 
 > [!NOTE]
-> In the Windows ADMX templates, these settings were moved to their own category to make them easier to configure via Intune.
+> In the [Windows ADMX templates](https://github.com/mozilla/policy-templates/tree/master/windows), these settings were moved to their own category to make them easier to configure via Intune.
 
 ## Values
 
@@ -30,10 +30,11 @@ Unless you lock this policy, changes the user already has in place will take eff
 - `UseProxyForDNS`: whether or not to look up host names through the SOCKS proxy, for both SOCKS v4 and v5.
   Firefox already does this for SOCKS v5 by default, so setting this to `false` makes SOCKS v5 DNS lookups bypass the proxy.
 
-You must specify `HTTPProxy`, `SSLProxy` and `SOCKSProxy` as a host name and port without a [scheme](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes), for example `proxy.example.com:8080`.
-
-Firefox ignores a proxy server without a port.
-It also ignores port `443`, because the policy drops it as the default HTTPS port, so if your proxy listens on `443`, use a PAC file instead.
+> [!NOTE]
+> You must specify `HTTPProxy`, `SSLProxy` and `SOCKSProxy` as a host name and port without a [scheme](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes), for example `proxy.example.com:8080`.
+>
+> Always include the proxy's port.
+> Port `443` isn't valid this policy: if your proxy listens on port `443`, use a PAC file instead.
 
 ## Examples
 
@@ -60,7 +61,7 @@ A PAC file decides which proxy each site uses, so you can change your proxy rule
 
 Set `HTTPProxy` to the proxy's host name and port, without `http://`.
 The `UseHTTPProxyForAllProtocols` value also sends HTTPS sites through the proxy.
-Without it, or a separate `SSLProxy`, HTTPS sites bypass the proxy.
+In this example, omitting `UseHTTPProxyForAllProtocols` would make HTTPS requests bypass the proxy.
 
 `Passthrough` specifies a comma-separated list of sites that won't use the proxy.
 In this example:
