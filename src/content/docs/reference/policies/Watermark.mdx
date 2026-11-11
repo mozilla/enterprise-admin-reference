@@ -29,6 +29,42 @@ By default it shows the signed-in user's email address with a timestamp below it
 
 <PolicyExample policy="Watermark" />
 
+### Watermarking internal sites
+
+When only `Match` is set, the watermark shows the email address of the user signed in to Firefox Enterprise, with a UTC timestamp below it, like `2026-11-05T09:30:00Z`.
+The timestamp is the time the page loaded, or the time it was printed.
+
+Each match pattern needs a path (like an exact match, or `/*` as a suffix), or it is ignored.
+The `*.` prefix matches `hr.example.com` and all of its subdomains:
+
+```json
+{
+  "policies": {
+    "Watermark": {
+      "Match": ["https://*.hr.example.com/*", "https://finance.example.com/*"]
+    }
+  }
+}
+```
+
+### Adjusting the watermark colors
+
+A fainter color, smaller text and larger tiles keep the page readable.
+The watermark shows the default text of the user's email address and the time:
+
+```json
+{
+  "policies": {
+    "Watermark": {
+      "Match": ["https://*.intranet.example.com/*"],
+      "Color": "rgba(0, 0, 0, 0.08)",
+      "FontSize": 20,
+      "Size": 400
+    }
+  }
+}
+```
+
 ## Compatibility
 
 <PolicyCompat policy="Watermark" />
