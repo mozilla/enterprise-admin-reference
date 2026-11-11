@@ -34,7 +34,7 @@ Configure search engines in Firefox.
 
 This example adds a search engine for an intranet and makes it the default.
 Firefox replaces the `{searchTerms}` placeholder in `URLTemplate` with whatever the user searches for.
-With `Alias`, users can type `intranet` and their search terms in the address bar to search with this engine:
+With `Alias`, users can type `intranet`, followed by a space and their search terms, in the address bar to search with this engine, for example `intranet holiday policy`:
 
 ```json
 {
@@ -54,7 +54,8 @@ With `Alias`, users can type `intranet` and their search terms in the address ba
 }
 ```
 
-Users can choose a different engine at any point, but changing the `Default` value will update the default engine again.
+Firefox sets this engine as the default when the policy is first applied and whenever the `Default` value changes.
+Users can choose a different default engine between these changes.
 
 ## Windows (GPO)
 

@@ -17,6 +17,7 @@ The first entry in the list names the toolbar folder, and the entries after it a
 - `toplevel_name`: The name of the folder button added to the bookmarks toolbar.
   Only used in the first entry.
 - `name`: The name shown for a bookmark or folder.
+  Firefox skips bookmarks without a `name`, and shows folders without a `name` as **Subfolder**.
 - `url`: The address the bookmark opens.
   A `javascript:` URL creates a bookmarklet.
 - `favicon`: The URL of an icon to show for the bookmark.
@@ -50,8 +51,7 @@ By default, Firefox only shows the toolbar on the new tab page, so [`DisplayBook
 ### Organizing bookmarks into folders
 
 The `toplevel_name` entry sets the name of the toolbar folder.
-An entry with `children` is a folder, and folders can contain other folders.
-Firefox skips bookmarks without a `name`, and shows folders without a `name` as **Subfolder**:
+An entry with `children` is a folder, and folders can contain other folders:
 
 ```json
 {
