@@ -28,6 +28,60 @@ The first entry in the list names the toolbar folder, and the entries after it a
 
 <PolicyExample policy="ManagedBookmarks" />
 
+### Adding a list of bookmarks
+
+This example adds a folder to the bookmarks toolbar.
+There's no `toplevel_name` entry, so Firefox names the folder **Managed bookmarks**.
+By default, Firefox only shows the toolbar on the new tab page, so [`DisplayBookmarksToolbar`](/reference/policies/displaybookmarkstoolbar/) is set to `always`:
+
+```json
+{
+  "policies": {
+    "ManagedBookmarks": [
+      { "name": "Intranet", "url": "https://intranet.example.com" },
+      { "name": "IT help desk", "url": "https://help.example.com" },
+      { "name": "Expenses", "url": "https://expenses.example.com" }
+    ],
+    "DisplayBookmarksToolbar": "always"
+  }
+}
+```
+
+### Organizing bookmarks into folders
+
+The `toplevel_name` entry sets the name of the toolbar folder.
+An entry with `children` is a folder, and folders can contain other folders.
+Firefox skips bookmarks without a `name`, and shows folders without a `name` as **Subfolder**:
+
+```json
+{
+  "policies": {
+    "ManagedBookmarks": [
+      { "toplevel_name": "Example Corp" },
+      { "name": "Intranet", "url": "https://intranet.example.com" },
+      {
+        "name": "HR",
+        "children": [
+          { "name": "Benefits", "url": "https://hr.example.com/benefits" },
+          { "name": "Time off", "url": "https://hr.example.com/time-off" }
+        ]
+      },
+      {
+        "name": "Engineering",
+        "children": [
+          { "name": "Code review", "url": "https://code.example.com" },
+          {
+            "name": "Runbooks",
+            "children": [{ "name": "On-call", "url": "https://wiki.example.com/on-call" }]
+          }
+        ]
+      }
+    ],
+    "DisplayBookmarksToolbar": "always"
+  }
+}
+```
+
 ## Windows (GPO)
 
 Software\Policies\Mozilla\Firefox\ManagedBookmarks (REG_MULTI_SZ) =
@@ -67,15 +121,16 @@ Software\Policies\Mozilla\Firefox\ManagedBookmarks (REG_MULTI_SZ) =
     <dict>
       <key>toplevel_name</key>
       <string>My managed bookmarks folder</string>
-      <dict>
-        <key>url</key>
-        <string>example.com</string>
-        <key>name</key>
-        <string>Example</string>
-        <key>favicon</key>
-        <string>https://example.com/favicon.ico</string>
-      </dict>
-      <dict>
+    </dict>
+    <dict>
+      <key>url</key>
+      <string>example.com</string>
+      <key>name</key>
+      <string>Example</string>
+      <key>favicon</key>
+      <string>https://example.com/favicon.ico</string>
+    </dict>
+    <dict>
       <key>name</key>
       <string>Mozilla links</string>
       <key>children</key>
@@ -84,7 +139,7 @@ Software\Policies\Mozilla\Firefox\ManagedBookmarks (REG_MULTI_SZ) =
           <key>url</key>
           <string>https://mozilla.org</string>
           <key>name</key>
-          <string>Mozilla</string>
+          <string>Mozilla.org</string>
         </dict>
         <dict>
           <key>url</key>
