@@ -20,6 +20,56 @@ This explicitly means that it is not possible to add wildcards. See examples bel
 
 <PolicyExample policy="Permissions" />
 
+### Allowing the camera and microphone on certain sites
+
+This example blocks all sites from asking to use the camera or microphone.
+[Origins](https://developer.mozilla.org/en-US/docs/Glossary/Origin) in `Allow` can still use them, and Firefox doesn't prompt the user on those origins.
+Firefox matches each entry, so you must list each origin the service uses, including subdomains.
+
+Setting `Locked` stops users from disabling this via the **Block new requests** setting:
+
+```json
+{
+  "policies": {
+    "Permissions": {
+      "Camera": {
+        "Allow": ["https://meet.example.com"],
+        "BlockNewRequests": true,
+        "Locked": true
+      },
+      "Microphone": {
+        "Allow": ["https://meet.example.com"],
+        "BlockNewRequests": true,
+        "Locked": true
+      }
+    }
+  }
+}
+```
+
+To allow screen sharing, add a `ScreenShare` entry.
+
+### Blocking autoplay for audio and video
+
+By default, Firefox allows sites to autoplay video without sound (`block-audio`).
+The `block-audio-video` permission stops sites from automatically playing media until the user interacts with the page, and `Allow` lets you exempt sites.
+
+`Locked` stops users from changing the autoplay settings, and only takes effect when `Default` is also set:
+
+```json
+{
+  "policies": {
+    "Permissions": {
+      "Autoplay": {
+        "Allow": ["https://video.example.com"],
+        "Default": "block-audio-video",
+        "Locked": true
+      }
+    }
+  }
+}
+```
+
 ## Windows (GPO)
 
 ```

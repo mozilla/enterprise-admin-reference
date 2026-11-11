@@ -25,8 +25,8 @@ With `Locked`, users can't change these settings in Firefox.
   - `reject-foreign`: Reject third party cookies.
   - `reject`: Reject all cookies.
   - `limit-foreign`: Reject third party cookies for sites you haven't visited.
-  - `reject-tracker`: Reject cookies for known trackers (default).
-  - `partition-foreign`: Reject cookies for known trackers and partition third-party cookies, also known as Total Cookie Protection (default for private browsing).
+  - `reject-tracker`: Reject cookies for known trackers.
+  - `partition-foreign`: Reject cookies for known trackers and partition third-party cookies, also known as Total Cookie Protection (default).
   - `reject-tracker-and-partition-foreign`: (_Deprecated_. Renamed to `partition-foreign`. Update existing configurations to use `partition-foreign`.)
 - `BehaviorPrivateBrowsing` sets the default behavior for cookies in private browsing.
   Accepts the same values as `Behavior`.
@@ -39,6 +39,30 @@ With `Locked`, users can't change these settings in Firefox.
 ## Examples
 
 <PolicyExample policy="Cookies" />
+
+### Allowing and blocking cookies for specific sites
+
+Firefox's default, `partition-foreign`, keeps third-party cookies separate for each site the user visits.
+Locking it stops users from choosing a weaker setting.
+
+Sites in `Allow` can always use their cookies, including when they're embedded in other sites.
+This helps single sign-on providers that need the same cookies on every site that uses them.
+Sites in `Block` can't set cookies, and Firefox deletes their existing cookies at startup.
+Both lists also apply to subdomains:
+
+```json
+{
+  "policies": {
+    "Cookies": {
+      "Behavior": "partition-foreign",
+      "BehaviorPrivateBrowsing": "partition-foreign",
+      "Allow": ["https://login.example.com"],
+      "Block": ["https://ads.example.net"],
+      "Locked": true
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 
