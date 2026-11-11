@@ -19,13 +19,13 @@ Unless you lock this policy, changes the user already has in place will take eff
 - `Locked`: whether or not proxy settings can be changed by users.
 - `HTTPProxy`: the HTTP proxy server. You must specify a port.
 - `UseHTTPProxyForAllProtocols`: whether or not the HTTP proxy is also used for HTTPS, overriding `SSLProxy`. It doesn't affect `SOCKSProxy`.
-- `SSLProxy`: the SSL proxy server.
+- `SSLProxy`: the proxy server used for HTTPS requests. Specify the host name and port.
 - `FTPProxy`: _Deprecated_, has no effect since Firefox 90.
 - `SOCKSProxy`: the SOCKS proxy server.
-- `SOCKSVersion`: the SOCKS version (4 or 5)
+- `SOCKSVersion`: the SOCKS version (4 or 5).
 - `Passthrough`: list of hostnames or IP addresses that will not be proxied.
   Use `<local>` to bypass proxying for all hostnames which do not contain periods.
-- `AutoConfigURL`: a URL for proxy configuration (only used if `Mode`: `autoConfig`).
+- `AutoConfigURL`: a URL for proxy configuration (only used when `Mode` is `autoConfig`).
 - `AutoLogin`: don't prompt for authentication if a password is saved.
 - `UseProxyForDNS`: use proxy DNS when using SOCKS v5.
 
@@ -50,19 +50,19 @@ A PAC file decides which proxy each site uses, so you can change your proxy rule
 }
 ```
 
-### Sending all traffic through a proxy server
+### Using a proxy server for HTTP and HTTPS
 
 Set `HTTPProxy` to the proxy's host name and port, without `http://`.
 The `UseHTTPProxyForAllProtocols` value also sends HTTPS sites through the proxy.
 
-`Passthrough`: a comma-separated list of sites that won't use the proxy.
+`Passthrough` specifies a comma-separated list of sites that won't use the proxy.
 In this example:
 
 - `<local>` matches host names without a dot, like `intranet`.
 - `example.com` matches `example.com` and all of its subdomains.
 - `10.0.0.0/8` only matches sites visited by IP address, not host names that resolve to an address in that range.
 
-Firefox doesn't use the proxy for `localhost`, `127.0.0.1` or `::1`, so you don't need to list them explicitly:
+By default, Firefox bypasses the proxy for `localhost`, `127.0.0.1`, and `::1`, so you don't need to list them explicitly:
 
 ```json
 {
@@ -81,7 +81,7 @@ Firefox doesn't use the proxy for `localhost`, `127.0.0.1` or `::1`, so you don'
 ### Using the operating system's proxy settings
 
 Firefox uses the system proxy settings by default.
-If you already manage the proxy in the operating system via Group Policy or configuration profile, lock this `Mode` so users can't set a different proxy in Firefox:
+If you already manage the proxy in the operating system via Group Policy or a configuration profile, lock this `Mode` so users can't set a different proxy in Firefox:
 
 ```json
 {
@@ -132,7 +132,7 @@ Software\Policies\Mozilla\Firefox\Proxy\UseProxyForDNS = 0x1 | 0x0
     <key>SOCKSProxy</key>
     <string>socksproxy.example.com:1080</string>
     <key>SOCKSVersion</key>
-    <string>4 | 5</string>
+    <integer>4</integer> | <integer>5</integer>
     <key>Passthrough</key>
     <string>&lt;local&gt;</string>
     <key>AutoConfigURL</key>
@@ -151,3 +151,7 @@ Software\Policies\Mozilla\Firefox\Proxy\UseProxyForDNS = 0x1 | 0x0
 
 **CCK2 Equivalent:** `networkProxy*`\
 **Preferences Affected:** `network.proxy.type`, `network.proxy.autoconfig_url`, `network.proxy.socks_remote_dns`, `signon.autologin.proxy`, `network.proxy.socks_version`, `network.proxy.no_proxies_on`, `network.proxy.share_proxy_settings`, `network.proxy.http`, `network.proxy.http_port`, `network.proxy.ftp`, `network.proxy.ftp_port`, `network.proxy.ssl`, `network.proxy.ssl_port`, `network.proxy.socks`, `network.proxy.socks_port`
+
+## See also
+
+- [Stopping FTP support in Firefox 90](https://blog.mozilla.org/security/2021/07/20/stopping-ftp-support-in-firefox-90) on blog.mozilla.org
