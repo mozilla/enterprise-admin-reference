@@ -6,7 +6,6 @@ category: "Network security"
 
 Configure proxy settings.
 These settings correspond to the connection settings in Firefox preferences.
-To specify ports, append them to the hostnames with a colon (`:`).
 
 Unless you lock this policy, changes the user already has in place will take effect.
 
@@ -17,9 +16,10 @@ Unless you lock this policy, changes the user already has in place will take eff
 
 - `Mode`: the proxy method being used.
 - `Locked`: whether or not proxy settings can be changed by users.
-- `HTTPProxy`: the HTTP proxy server. You must specify a port.
-- `UseHTTPProxyForAllProtocols`: whether or not the HTTP proxy is also used for HTTPS, overriding `SSLProxy`. It doesn't affect `SOCKSProxy`.
-- `SSLProxy`: the proxy server used for HTTPS requests. Specify the host name and port.
+- `HTTPProxy`: the proxy server used for HTTP requests.
+- `UseHTTPProxyForAllProtocols`: define whether or not `HTTPProxy` is also used for HTTPS traffic, overriding `SSLProxy`.
+  It doesn't affect `SOCKSProxy`.
+- `SSLProxy`: the proxy server used for HTTPS requests.
 - `FTPProxy`: _Deprecated_, has no effect since Firefox 90.
 - `SOCKSProxy`: the SOCKS proxy server.
 - `SOCKSVersion`: the SOCKS version (4 or 5).
@@ -27,7 +27,13 @@ Unless you lock this policy, changes the user already has in place will take eff
   Use `<local>` to bypass proxying for all hostnames which do not contain periods.
 - `AutoConfigURL`: a URL for proxy configuration (only used when `Mode` is `autoConfig`).
 - `AutoLogin`: don't prompt for authentication if a password is saved.
-- `UseProxyForDNS`: use proxy DNS when using SOCKS v5.
+- `UseProxyForDNS`: whether or not to look up host names through the SOCKS proxy, for both SOCKS v4 and v5.
+  Firefox already does this for SOCKS v5 by default, so setting this to `false` makes SOCKS v5 DNS lookups bypass the proxy.
+
+You must specify `HTTPProxy`, `SSLProxy` and `SOCKSProxy` as a host name and port without a [scheme](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes), for example `proxy.example.com:8080`.
+
+Firefox ignores a proxy server without a port.
+It also ignores port `443`, because the policy drops it as the default HTTPS port, so if your proxy listens on `443`, use a PAC file instead.
 
 ## Examples
 
@@ -54,6 +60,7 @@ A PAC file decides which proxy each site uses, so you can change your proxy rule
 
 Set `HTTPProxy` to the proxy's host name and port, without `http://`.
 The `UseHTTPProxyForAllProtocols` value also sends HTTPS sites through the proxy.
+Without it, or a separate `SSLProxy`, HTTPS sites bypass the proxy.
 
 `Passthrough` specifies a comma-separated list of sites that won't use the proxy.
 In this example:
@@ -102,7 +109,6 @@ Software\Policies\Mozilla\Firefox\Proxy\Locked = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\Proxy\HTTPProxy = httpproxy.example.com:8080
 Software\Policies\Mozilla\Firefox\Proxy\UseHTTPProxyForAllProtocols = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\Proxy\SSLProxy = sslproxy.example.com:8080
-Software\Policies\Mozilla\Firefox\Proxy\FTPProxy = ftpproxy.example.com:8080
 Software\Policies\Mozilla\Firefox\Proxy\SOCKSProxy = socksproxy.example.com:1080
 Software\Policies\Mozilla\Firefox\Proxy\SOCKSVersion = 0x4 | 0x5
 Software\Policies\Mozilla\Firefox\Proxy\Passthrough = <local>
@@ -127,8 +133,6 @@ Software\Policies\Mozilla\Firefox\Proxy\UseProxyForDNS = 0x1 | 0x0
     <true/> | <false/>
     <key>SSLProxy</key>
     <string>sslproxy.example.com:8080</string>
-    <key>FTPProxy</key>
-    <string>ftpproxy.example.com:8080</string>
     <key>SOCKSProxy</key>
     <string>socksproxy.example.com:1080</string>
     <key>SOCKSVersion</key>
@@ -150,8 +154,8 @@ Software\Policies\Mozilla\Firefox\Proxy\UseProxyForDNS = 0x1 | 0x0
 <PolicyCompat policy="Proxy" />
 
 **CCK2 Equivalent:** `networkProxy*`\
-**Preferences Affected:** `network.proxy.type`, `network.proxy.autoconfig_url`, `network.proxy.socks_remote_dns`, `signon.autologin.proxy`, `network.proxy.socks_version`, `network.proxy.no_proxies_on`, `network.proxy.share_proxy_settings`, `network.proxy.http`, `network.proxy.http_port`, `network.proxy.ftp`, `network.proxy.ftp_port`, `network.proxy.ssl`, `network.proxy.ssl_port`, `network.proxy.socks`, `network.proxy.socks_port`
+**Preferences Affected:** `network.proxy.type`, `network.proxy.autoconfig_url`, `network.proxy.socks_remote_dns`, `network.proxy.socks5_remote_dns`, `signon.autologin.proxy`, `network.proxy.socks_version`, `network.proxy.no_proxies_on`, `network.proxy.share_proxy_settings`, `network.proxy.http`, `network.proxy.http_port`, `network.proxy.ssl`, `network.proxy.ssl_port`, `network.proxy.socks`, `network.proxy.socks_port`
 
 ## See also
 
-- [Stopping FTP support in Firefox 90](https://blog.mozilla.org/security/2021/07/20/stopping-ftp-support-in-firefox-90) on blog.mozilla.org
+- [`Certificates`](/reference/policies/certificates/) policy to install your organization's root certificate if your proxy inspects HTTPS traffic.
