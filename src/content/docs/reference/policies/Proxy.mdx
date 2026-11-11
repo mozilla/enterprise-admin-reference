@@ -15,33 +15,95 @@ Unless you lock this policy, changes the user already has in place will take eff
 
 ## Values
 
-- `Mode` is the proxy method being used.
-- `Locked` is whether or not proxy settings can be changed by users.
-- `HTTPProxy` is the HTTP proxy server.
-- `UseHTTPProxyForAllProtocols` is whether or not the HTTP proxy should be used for all other proxies.
-- `SSLProxy` is the SSL proxy server.
-- `FTPProxy` is the FTP proxy server.
-- `SOCKSProxy` is the SOCKS proxy server
-- `SOCKSVersion` is the SOCKS version (4 or 5)
-- `Passthrough` is list of hostnames or IP addresses that will not be proxied. Use `<local>` to bypass proxying for all hostnames which do not contain periods.
-- `AutoConfigURL` is a URL for proxy configuration (only used if `Mode` is `autoConfig`).
-- `AutoLogin` means do not prompt for authentication if password is saved.
-- `UseProxyForDNS` to use proxy DNS when using SOCKS v5.
+- `Mode`: the proxy method being used.
+- `Locked`: whether or not proxy settings can be changed by users.
+- `HTTPProxy`: the HTTP proxy server. You must specify a port.
+- `UseHTTPProxyForAllProtocols`: whether or not the HTTP proxy is also used for HTTPS, overriding `SSLProxy`. It doesn't affect `SOCKSProxy`.
+- `SSLProxy`: the SSL proxy server.
+- `FTPProxy`: _Deprecated_, has no effect since Firefox 90.
+- `SOCKSProxy`: the SOCKS proxy server.
+- `SOCKSVersion`: the SOCKS version (4 or 5)
+- `Passthrough`: list of hostnames or IP addresses that will not be proxied.
+  Use `<local>` to bypass proxying for all hostnames which do not contain periods.
+- `AutoConfigURL`: a URL for proxy configuration (only used if `Mode`: `autoConfig`).
+- `AutoLogin`: don't prompt for authentication if a password is saved.
+- `UseProxyForDNS`: use proxy DNS when using SOCKS v5.
 
 ## Examples
 
 <PolicyExample policy="Proxy" />
+
+### Using a proxy auto-configuration (PAC) file
+
+A PAC file decides which proxy each site uses, so you can change your proxy rules on the server without deploying a new policy.
+`Locked` stops users from changing the connection settings, and makes Firefox ignore any proxy settings they had already changed:
+
+```json
+{
+  "policies": {
+    "Proxy": {
+      "Mode": "autoConfig",
+      "AutoConfigURL": "https://proxy.example.com/proxy.pac",
+      "Locked": true
+    }
+  }
+}
+```
+
+### Sending all traffic through a proxy server
+
+Set `HTTPProxy` to the proxy's host name and port, without `http://`.
+The `UseHTTPProxyForAllProtocols` value also sends HTTPS sites through the proxy.
+
+`Passthrough`: a comma-separated list of sites that won't use the proxy.
+In this example:
+
+- `<local>` matches host names without a dot, like `intranet`.
+- `example.com` matches `example.com` and all of its subdomains.
+- `10.0.0.0/8` only matches sites visited by IP address, not host names that resolve to an address in that range.
+
+Firefox doesn't use the proxy for `localhost`, `127.0.0.1` or `::1`, so you don't need to list them explicitly:
+
+```json
+{
+  "policies": {
+    "Proxy": {
+      "Mode": "manual",
+      "HTTPProxy": "proxy.example.com:8080",
+      "UseHTTPProxyForAllProtocols": true,
+      "Passthrough": "<local>, example.com, 10.0.0.0/8",
+      "Locked": true
+    }
+  }
+}
+```
+
+### Using the operating system's proxy settings
+
+Firefox uses the system proxy settings by default.
+If you already manage the proxy in the operating system via Group Policy or configuration profile, lock this `Mode` so users can't set a different proxy in Firefox:
+
+```json
+{
+  "policies": {
+    "Proxy": {
+      "Mode": "system",
+      "Locked": true
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 
 ```
 Software\Policies\Mozilla\Firefox\Proxy\Mode = "none" | "system" | "manual" | "autoDetect" | "autoConfig"
 Software\Policies\Mozilla\Firefox\Proxy\Locked = 0x1 | 0x0
-Software\Policies\Mozilla\Firefox\Proxy\HTTPProxy = https://httpproxy.example.com
+Software\Policies\Mozilla\Firefox\Proxy\HTTPProxy = httpproxy.example.com:8080
 Software\Policies\Mozilla\Firefox\Proxy\UseHTTPProxyForAllProtocols = 0x1 | 0x0
-Software\Policies\Mozilla\Firefox\Proxy\SSLProxy = https://sslproxy.example.com
-Software\Policies\Mozilla\Firefox\Proxy\FTPProxy = https://ftpproxy.example.com
-Software\Policies\Mozilla\Firefox\Proxy\SOCKSProxy = https://socksproxy.example.com
+Software\Policies\Mozilla\Firefox\Proxy\SSLProxy = sslproxy.example.com:8080
+Software\Policies\Mozilla\Firefox\Proxy\FTPProxy = ftpproxy.example.com:8080
+Software\Policies\Mozilla\Firefox\Proxy\SOCKSProxy = socksproxy.example.com:1080
 Software\Policies\Mozilla\Firefox\Proxy\SOCKSVersion = 0x4 | 0x5
 Software\Policies\Mozilla\Firefox\Proxy\Passthrough = <local>
 Software\Policies\Mozilla\Firefox\Proxy\AutoConfigURL = URL_TO_AUTOCONFIG
@@ -58,27 +120,27 @@ Software\Policies\Mozilla\Firefox\Proxy\UseProxyForDNS = 0x1 | 0x0
     <key>Mode</key>
     <string>none | system | manual | autoDetect | autoConfig</string>
     <key>Locked</key>
-    <true> | </false>
+    <true/> | <false/>
     <key>HTTPProxy</key>
-    <string>https://httpproxy.example.com</string>
+    <string>httpproxy.example.com:8080</string>
     <key>UseHTTPProxyForAllProtocols</key>
-    <true> | </false>
+    <true/> | <false/>
     <key>SSLProxy</key>
-    <string>https://sslproxy.example.com</string>
+    <string>sslproxy.example.com:8080</string>
     <key>FTPProxy</key>
-    <string>https://ftpproxy.example.com</string>
+    <string>ftpproxy.example.com:8080</string>
     <key>SOCKSProxy</key>
-    <string>https://socksproxy.example.com</string>
+    <string>socksproxy.example.com:1080</string>
     <key>SOCKSVersion</key>
     <string>4 | 5</string>
     <key>Passthrough</key>
-    <string>&lt;local>&gt;</string>
+    <string>&lt;local&gt;</string>
     <key>AutoConfigURL</key>
     <string>URL_TO_AUTOCONFIG</string>
     <key>AutoLogin</key>
-    <true> | </false>
+    <true/> | <false/>
     <key>UseProxyForDNS</key>
-    <true> | </false>
+    <true/> | <false/>
   </dict>
 </dict>
 ```
