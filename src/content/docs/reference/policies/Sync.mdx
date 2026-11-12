@@ -8,11 +8,18 @@ Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be 
 
 ## Values
 
-- `Locked`: A boolean. Whether the policy is **enforced**. This decides how every other key behaves. Leaving it out is the same as `false`.
-- `Enabled`: A boolean. Turns sync on or off and stops users from changing that. **Only has an effect when `Locked` is `true`.**
-- `Bookmarks`, `History`, `OpenTabs`, `Passwords`, `Addresses`, `PaymentMethods`, `Addons`, `Settings`: A boolean. Whether that data type syncs or doesn't. Unset data types are not managed by the policy.
+- `Locked`: A Boolean. Whether the policy is **enforced**. This decides how every other key behaves. Leaving it out is the same as `false`.
+- `Enabled`: A Boolean. Turns sync on or off and stops users from changing that. **Only has an effect when `Locked` is `true`.**
+- `Bookmarks`: A Boolean. Controls whether syncing bookmarks should be enabled.
+- `History`: A Boolean. Controls whether syncing history should be enabled.
+- `OpenTabs`: A Boolean. Controls whether syncing open tabs should be enabled.
+- `Passwords`: A Boolean. Controls whether syncing passwords should be enabled.
+- `Addresses`: A Boolean. Controls whether syncing addresses should be enabled.
+- `PaymentMethods`: A Boolean. Controls whether syncing payment methods should be enabled.
+- `Addons`: A Boolean. Controls whether syncing addons should be enabled.
+- `Settings`: A Boolean. Controls whether syncing settings should be enabled.
 
-## Explanation
+## Description
 
 How these values work together:
 
@@ -33,8 +40,6 @@ How these values work together:
 ## Examples
 
 <PolicyExample policy="Sync" />
-
-The second example, `{ "Enabled": false }`, has no effect on its own, because `Enabled` only applies when `Locked` is `true`.
 
 ### Turning sync off
 
