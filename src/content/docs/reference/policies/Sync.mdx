@@ -8,22 +8,63 @@ Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be 
 
 ## Values
 
-- `Addons`: A Boolean. Controls whether syncing addons should be enabled.
-- `Addresses`: A Boolean. Controls whether syncing addresses should be enabled.
-- `Bookmarks`: A Boolean. Controls whether syncing bookmarks should be enabled.
-- `Enabled`: A Boolean. Controls whether sync itself should be enabled.
-- `History`: A Boolean. Controls whether syncing history should be enabled.
-- `OpenTabs`: A Boolean. Controls whether syncing open tabs should be enabled.
-- `Passwords`: A Boolean. Controls whether syncing passwords should be enabled.
-- `PaymentMethods`: A Boolean. Controls whether syncing payment methods should be enabled.
-- `Settings`: A Boolean. Controls whether syncing settings should be enabled.
-- `Locked`: A Boolean. Controls whether the settings are enforced, and whether `Enabled` applies at all.
-  If `Locked` is `true`, the Sync data type settings are locked so users cannot change them, and `Enabled` connects or disconnects sync.
-  Users can no longer turn sync on or off themselves, whether `Enabled` is `true` or `false`, and only a policy update can change it.
+- `Locked`: A boolean. Whether the policy is **enforced**. This decides how every other key behaves. Leaving it out is the same as `false`.
+- `Enabled`: A boolean. Turns sync on or off and stops users from changing that. **Only has an effect when `Locked` is `true`.**
+- `Bookmarks`, `History`, `OpenTabs`, `Passwords`, `Addresses`, `PaymentMethods`, `Addons`, `Settings`: A boolean. Whether that data type syncs or doesn't. Unset data types are not managed by the policy.
+
+## Explanation
+
+How these values work together:
+
+| `Locked`         | `Enabled` | Syncing?     | The data type values set | The data types unset                |
+| ---------------- | --------- | ------------ | ------------------------ | ----------------------------------- |
+| `false` or unset | any       | Users decide | are suggestions          | use Firefox defaults as suggestions |
+| `true`           | unset     | Users decide | are enforced             | use Firefox defaults as suggestions |
+| `true`           | `false`   | No           | have no effect           | have no effect                      |
+| `true`           | `true`    | Yes\*        | are enforced             | use Firefox defaults as suggestions |
+
+\* The user must be signed in to a Mozilla account.
+
+**Notice**:
+
+- `Enabled` is ignored completely with `Locked` set to `false`.
+- Data types you leave out stay under the user's control, even though the policy is locked.
 
 ## Examples
 
 <PolicyExample policy="Sync" />
+
+The second example, `{ "Enabled": false }`, has no effect on its own, because `Enabled` only applies when `Locked` is `true`.
+
+### Turning sync off
+
+This configuration turns sync off and stops users from turning it back on:
+
+```json
+{
+  "policies": {
+    "Sync": {
+      "Enabled": false,
+      "Locked": true
+    }
+  }
+}
+```
+
+### Never syncing passwords
+
+This configuration stops passwords from syncing and leaves every other choice to the user:
+
+```json
+{
+  "policies": {
+    "Sync": {
+      "Passwords": false,
+      "Locked": true
+    }
+  }
+}
+```
 
 ## Windows (GPO)
 
