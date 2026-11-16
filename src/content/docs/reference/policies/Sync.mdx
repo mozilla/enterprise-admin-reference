@@ -6,6 +6,8 @@ category: "Local data storage"
 
 Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be enabled and which features should be enabled for syncing.
 
+In Firefox and Firefox ESR, users must be signed in to a Mozilla account to use Sync. In Firefox Enterprise, Sync is linked to the user's organizational identity.
+
 ## Values
 
 - `Locked`: A Boolean. Whether the policy is **enforced**. This decides how every other key behaves. Leaving it out is the same as setting `Locked` to `false`.
@@ -28,9 +30,7 @@ The following table describes how the sync policy values interact:
 | `false` or unset | any       | Users decide | are suggestions          | use Firefox defaults as suggestions |
 | `true`           | unset     | Users decide | are enforced             | use Firefox defaults as suggestions |
 | `true`           | `false`   | No           | have no effect           | have no effect                      |
-| `true`           | `true`    | Yes\*        | are enforced             | use Firefox defaults as suggestions |
-
-\* The user must be signed in to a Mozilla account.
+| `true`           | `true`    | Yes          | are enforced             | use Firefox defaults as suggestions |
 
 **Notice**:
 
