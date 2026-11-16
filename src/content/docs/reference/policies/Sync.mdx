@@ -8,7 +8,7 @@ Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be 
 
 ## Values
 
-- `Locked`: A Boolean. Whether the policy is **enforced**. This decides how every other key behaves. Leaving it out is the same as `false`.
+- `Locked`: A Boolean. Whether the policy is **enforced**. This decides how every other key behaves. Leaving it out is the same as setting `Locked` to `false`.
 - `Enabled`: A Boolean. Turns sync on or off and stops users from changing that. **Only has an effect when `Locked` is `true`.**
 - `Bookmarks`: A Boolean. Controls whether syncing bookmarks should be enabled.
 - `History`: A Boolean. Controls whether syncing history should be enabled.
@@ -21,7 +21,7 @@ Controls whether [sync](https://www.firefox.com/en-US/features/sync/) should be 
 
 ## Description
 
-How these values work together:
+The following table describes how the sync policy values interact:
 
 | `Locked`         | `Enabled` | Syncing?     | The data type values set | The data types unset                |
 | ---------------- | --------- | ------------ | ------------------------ | ----------------------------------- |
@@ -56,7 +56,7 @@ This configuration turns sync off and stops users from turning it back on:
 }
 ```
 
-### Never syncing passwords
+### Preventing passwords from being synced
 
 This configuration stops passwords from syncing and leaves every other choice to the user:
 
