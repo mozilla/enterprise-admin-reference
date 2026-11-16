@@ -10,7 +10,8 @@ Configure search engines in Firefox.
 
 `SearchEngines` accepts an object with one or more of the following keys:
 
-- `Add` (array of objects): Add new search engines. Each entry accepts:
+- `Add` (array of objects): Add new search engines.
+  Each entry accepts:
   - `Name` (**required**): the name of the search engine.
   - `URLTemplate` (**required**): the search URL with `{searchTerms}` to substitute for the search term.
   - `Method`: either [GET](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/GET) or [POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/POST).
@@ -21,13 +22,40 @@ Configure search engines in Firefox.
   - `SuggestURLTemplate`: a search suggestions URL with `{searchTerms}` to substitute for the search term.
   - `Encoding`: the query charset for the engine. Defaults to `UTF-8`.
     Although there are five engines available in the ADMX template, there is no maximum number that can be specified — to add more in the ADMX template, duplicate the XML.
-- `Default` (string): set the default search engine.
+- `Default` (string): set the default search engine by name.
 - `PreventInstalls` (boolean): prevent installing search engines from webpages.
 - `Remove` (array of strings): hide built-in search engines by name.
 
 ## Examples
 
 <PolicyExample policy="SearchEngines" />
+
+### Adding an internal search engine as the default
+
+This example adds a search engine for an intranet and makes it the default.
+Firefox replaces the `{searchTerms}` placeholder in `URLTemplate` with whatever the user searches for.
+With `Alias`, users can type `intranet`, followed by a space and their search terms, in the address bar to search with this engine, for example `intranet holiday policy`:
+
+```json
+{
+  "policies": {
+    "SearchEngines": {
+      "Add": [
+        {
+          "Name": "Intranet",
+          "URLTemplate": "https://intranet.example.com/search?q={searchTerms}",
+          "IconURL": "https://intranet.example.com/favicon.ico",
+          "Alias": "intranet"
+        }
+      ],
+      "Default": "Intranet"
+    }
+  }
+}
+```
+
+Firefox sets this engine as the default when the policy is first applied and whenever the `Default` value changes.
+Users can choose a different default engine between these changes.
 
 ## Windows (GPO)
 
