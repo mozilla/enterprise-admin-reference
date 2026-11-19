@@ -3,6 +3,21 @@
 
 # Firefox release notes for enterprise admins
 
+## 161 - 2026-11-24
+
+_Upcoming, not yet released._
+
+These changes apply to Firefox 161, Firefox ESR 153.8.0 and Firefox Enterprise 161 unless explicitly stated.
+Firefox ESR 153 is the current ESR.
+
+### Fixes
+
+- [`RelaunchRequired`](/reference/policies/relaunchrequired/): The relaunch notification only appeared in windows that were already open, so windows opened later did not show it. ([bug 2083975](https://bugzil.la/2083975))
+- [`WebsiteFilter`](/reference/policies/websitefilter/): `Block` and `Exceptions` patterns could fail to match a URL whose path used percent-encoded characters or repeated slashes.
+  URLs are now normalized before matching.
+  Patterns are not normalized, so write characters unencoded, for example, `*://example.com/~my-user/*` instead of `*://example.com/%7Emy-user/*`.
+- [`AllowedDomainsForApps`](/reference/policies/alloweddomainsforapps/): The restriction was not applied to Google hosts written with a trailing dot, such as `mail.google.com.`.
+
 ## 160 - 2026-11-10
 
 These changes apply to Firefox 160 and Firefox Enterprise 160 unless explicitly stated.
