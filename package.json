@@ -14,11 +14,11 @@
   },
   "dependencies": {
     "@astrojs/starlight": "^0.43.1",
-    "@astrojs/markdown-remark": "^7.3.9",
-    "astro": "^7.4.12",
+    "@astrojs/markdown-remark": "^7.3.10",
+    "astro": "^7.4.13",
     "astro-breadcrumbs": "^3.4.2",
     "sharp": "^0.35.5",
-    "starlight-changelogs": "^0.7.1",
+    "starlight-changelogs": "^0.7.2",
     "starlight-github-alerts": "^0.5.0",
     "starlight-links-validator": "^0.27.0"
   }
