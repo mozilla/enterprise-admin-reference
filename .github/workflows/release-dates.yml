@@ -2,8 +2,8 @@ name: Daily release date sync
 
 on:
   schedule:
-    # Daily at 18:00 UTC, after the usual release window
-    - cron: "0 18 * * *"
+    # Daily at 09:00 UTC
+    - cron: "0 9 * * *"
   workflow_dispatch:
 
 permissions:
