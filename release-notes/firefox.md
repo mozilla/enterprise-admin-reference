@@ -5,8 +5,6 @@
 
 ## 161 - 2026-11-24
 
-_Upcoming, not yet released._
-
 These changes apply to Firefox 161, Firefox ESR 153.8.0 and Firefox Enterprise 161 unless explicitly stated.
 Firefox ESR 153 is the current ESR.
 
