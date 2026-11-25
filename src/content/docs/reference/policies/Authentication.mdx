@@ -1,10 +1,10 @@
 ---
 title: "Authentication"
-description: "Configure sites that support integrated authentication."
+description: "Configure sites that support integrated authentication, and which HTTP authentication schemes are disabled."
 category: "Authentication"
 ---
 
-Configure sites that support integrated authentication.
+Configure sites that support integrated authentication, and which HTTP authentication schemes are disabled.
 See [Integrated authentication](https://htmlpreview.github.io/?https://github.com/mdn/archived-content/blob/main/files/en-us/mozilla/integrated_authentication/raw.html) for more information.
 
 ## Values
@@ -17,6 +17,8 @@ See [Integrated authentication](https://htmlpreview.github.io/?https://github.co
 - `AllowProxies`: Allows authentication to proxies.
   Accepts `SPNEGO` and `NTLM`, each a boolean.
 - `PrivateBrowsing`: Set to `true` to allow integrated authentication in private browsing.
+- `DisabledSchemes`: A list of HTTP authentication schemes that Firefox never uses, even if a site or proxy offers them.
+  Accepts `basic`, `digest`, `ntlm` and `negotiate`.
 - `Locked`: Prevents the user from changing these settings.
   Unlike most policies, this defaults to `true`.
   Set it to `false` to apply the values as defaults that users can still change.
@@ -59,6 +61,23 @@ Here, the `SPNEGO` entry covers `reports.example.com`:
 }
 ```
 
+### Disabling Basic and NTLM authentication
+
+Basic authentication sends the user's password with every request, encoded but not encrypted, and Microsoft is phasing out NTLM in favor of Kerberos.
+This example stops Firefox from using either scheme, while still allowing Kerberos (SPNEGO) single sign-on with HTTPS sites on `example.com` and its subdomains.
+Sites that only offer Basic or NTLM stop prompting for credentials and show their error page instead, so check which internal sites still rely on them before you deploy this:
+
+```json
+{
+  "policies": {
+    "Authentication": {
+      "SPNEGO": ["https://example.com"],
+      "DisabledSchemes": ["basic", "ntlm"]
+    }
+  }
+}
+```
+
 ## Description
 
 Firefox matches each entry in `SPNEGO`, `Delegated` and `NTLM` against the end of the site's host name, on a dot boundary.
@@ -71,6 +90,13 @@ An entry can also include a scheme, a port, or both:
 
 `AllowProxies` controls authentication to proxies separately.
 Firefox doesn't check proxies against these lists, and allows both SPNEGO and NTLM for proxies by default.
+
+`DisabledSchemes` applies to every site and to proxies.
+Firefox ignores a challenge for a disabled scheme as if the server hadn't sent it.
+If the server or proxy also offers a scheme that isn't disabled, Firefox uses that one.
+If it doesn't, Firefox doesn't ask for credentials and shows the server's response, usually a `401 Unauthorized` or `407 Proxy Authentication Required` page.
+`DisabledSchemes` takes precedence over `SPNEGO` and `NTLM`: disabling `negotiate` or `ntlm` turns that scheme off even for sites in those lists.
+Disabling `ntlm` only removes the `NTLM` scheme itself.
 
 ## Windows (GPO)
 
@@ -87,6 +113,8 @@ Software\Policies\Mozilla\Firefox\Authentication\AllowProxies\SPNEGO = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\Authentication\AllowProxies\NTLM = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\Authentication\Locked = 0x1 | 0x0
 Software\Policies\Mozilla\Firefox\Authentication\PrivateBrowsing = 0x1 | 0x0
+Software\Policies\Mozilla\Firefox\Authentication\DisabledSchemes\1 = "basic"
+Software\Policies\Mozilla\Firefox\Authentication\DisabledSchemes\2 = "ntlm"
 ```
 
 ## macOS
@@ -128,6 +156,11 @@ Software\Policies\Mozilla\Firefox\Authentication\PrivateBrowsing = 0x1 | 0x0
     <true/> | <false/>
     <key>PrivateBrowsing</key>
     <true/> | <false/>
+    <key>DisabledSchemes</key>
+    <array>
+      <string>basic</string>
+      <string>ntlm</string>
+    </array>
   </dict>
 </dict>
 ```
@@ -137,7 +170,7 @@ Software\Policies\Mozilla\Firefox\Authentication\PrivateBrowsing = 0x1 | 0x0
 <PolicyCompat policy="Authentication" />
 
 **CCK2 Equivalent:** N/A\
-**Preferences Affected:** `network.negotiate-auth.trusted-uris`,`network.negotiate-auth.delegation-uris`,`network.automatic-ntlm-auth.trusted-uris`,`network.automatic-ntlm-auth.allow-non-fqdn`,`network.negotiate-auth.allow-non-fqdn`,`network.automatic-ntlm-auth.allow-proxies`,`network.negotiate-auth.allow-proxies`,`network.auth.private-browsing-sso`
+**Preferences Affected:** `network.negotiate-auth.trusted-uris`,`network.negotiate-auth.delegation-uris`,`network.automatic-ntlm-auth.trusted-uris`,`network.automatic-ntlm-auth.allow-non-fqdn`,`network.negotiate-auth.allow-non-fqdn`,`network.automatic-ntlm-auth.allow-proxies`,`network.negotiate-auth.allow-proxies`,`network.auth.private-browsing-sso`,`network.http.auth.disabled-schemes`
 
 ## See also
 
